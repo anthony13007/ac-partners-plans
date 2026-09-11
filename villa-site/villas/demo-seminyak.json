@@ -1,0 +1,54 @@
+{
+  "slug": "demo-seminyak",
+  "name": "Villa Demo",
+  "area": "Seminyak",
+  "island": "Bali",
+  "bedrooms": 5,
+  "guests": 10,
+  "currency": "$",
+  "adr": 800,
+  "hero_title": "Villa Demo,<br>Seminyak, <em>as it should be seen.</em>",
+  "photos": [
+    {"url": "https://www.villasia.com/wp-content/uploads/2024/05/villapraison_03_oceanview.jpg", "caption": "Morning over the ocean, from the master terrace."},
+    {"url": "https://www.villasia.com/wp-content/uploads/2024/05/villapraison_01_pool.jpg", "caption": "Twenty metres of pool, five minutes from Eat Street."},
+    {"url": "https://www.villasia.com/wp-content/uploads/2024/05/villapraison_05_outdoorlivingarea.jpg", "caption": "The open living pavilion — dinner for ten, chef included."},
+    {"url": "https://bookingenginecdn.hostaway.com/listing/43198-309187-paRhp6dJ62t5EQ8w6XVMcO1rPtN0vKJrdXnusKD1m9M-682feb9a4d06d?width=1280&quality=80&format=jpeg&v=2", "caption": "Five bedrooms, each with its own garden bathroom."},
+    {"url": "https://bookingenginecdn.hostaway.com/listing/43198-309187-sZ-NQSf1wi-E0--EX2oODpc4h3LYQDAb1lLIeVXiFKlQ-6828e78ca2cde?width=1280&quality=80&format=jpeg&v=2", "caption": "Sunset. Every night."}
+  ],
+  "story_title": "Five bedrooms, one pool, <em>the heart of Seminyak.</em>",
+  "story_lead": "A private estate built for families and groups: staff on site, a chef on call, and Seminyak's beach clubs and restaurants within a five-minute walk.",
+  "story_points": [
+    "5 ensuite bedrooms, master with ocean terrace",
+    "20 m private pool, sun deck and garden pavilion",
+    "Full-time staff, daily housekeeping, private chef on request",
+    "5 minutes on foot to Seminyak beach and Eat Street"
+  ],
+  "facts": [
+    {"n": "5", "l": "Bedrooms"},
+    {"n": "10", "l": "Guests"},
+    {"n": "20 m", "l": "Private pool"},
+    {"n": "5 min", "l": "To the beach"}
+  ],
+  "book_lead": "Rates include staff, daily housekeeping, welcome dinner and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rates": [
+    {"season": "Low season · Feb – Mar", "nightly": 800},
+    {"season": "Mid season", "nightly": 950},
+    {"season": "High season · Jul – Aug", "nightly": 1250}
+  ],
+  "amenities": ["Private pool", "Chef on request", "Daily housekeeping", "Airport transfers", "Fast Wi-Fi", "Air-conditioned bedrooms", "Baby cot & high chair", "Car & driver on request"],
+  "book_url": "https://wa.me/6285190181610",
+
+  "owner_pitch": true,
+  "low_season": [
+    {"month": "February", "days": 28, "market_occ": 0.38},
+    {"month": "March", "days": 31, "market_occ": 0.40},
+    {"month": "December (1–22)", "days": 22, "market_occ": 0.35}
+  ],
+  "capture_rate": 0.35,
+  "commission": 0.10,
+  "site_price": "Included with distribution",
+  "gap_source": "Source: PriceLabs neighbourhood data, Seminyak, 4–10 bedroom villas (350 listings), pulled September 2026: low season February, March and pre-Christmas December; market occupancy for large villas peaks at 33–49% even in the busiest weeks.",
+  "cta_title": "A site like this, live in 48 hours — and the low season filled.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We are opening Bali low season with a handful of villa partners.",
+  "whatsapp": "https://wa.me/6285190181610"
+}
