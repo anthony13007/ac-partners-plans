@@ -37,7 +37,8 @@
   .film{position:relative}
   .film .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#000}
   .film .frame{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
-  .film .frame img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+  .film .frame.clip:after{background:linear-gradient(180deg,rgba(15,13,11,.35) 0%,rgba(15,13,11,.05) 40%,rgba(15,13,11,.72) 100%)}
   .film .frame:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.15) 0%,rgba(15,13,11,0) 35%,rgba(15,13,11,.78) 100%)}
   .film .titles{position:absolute;left:0;right:0;bottom:0;padding:0 32px 56px;z-index:2}
   .film .titles .cap{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);color:#f1e6d5;opacity:0;transition:opacity .4s;min-height:1.4em}
@@ -231,35 +232,69 @@
   $('hero-title').innerHTML = C.hero_title;
   $('hero-meta').innerHTML = '<span><b>' + C.bedrooms + ' bedrooms</b></span><span><b>' + C.guests + ' guests</b></span><span>From <b>' + fmtMoney(C.adr) + '</b> / night</span>';
 
-  /* ---- film frames ---- */
+  /* ---- film: scroll-scrubbed video clips (tour_clips) or photo frames ---- */
   var stage = $('stage'), film = $('film'), cap = $('cap'), heroText = $('hero-text'), progress = $('progress');
-  var frames = C.photos.map(function(p, i){
-    var f = document.createElement('div'); f.className = 'frame';
-    var img = document.createElement('img'); img.src = p.url; img.alt = p.caption || C.name; if (i > 1) img.loading = 'lazy';
-    f.appendChild(img); stage.insertBefore(f, heroText); return f;
+  var clips = C.tour_clips || [];
+  var videoMode = clips.length > 0;
+  var items = videoMode ? clips : C.photos;
+  var N = items.length, frames = [], media = [];
+  items.forEach(function(it, i){
+    var f = document.createElement('div'); f.className = 'frame' + (videoMode ? ' clip' : '');
+    var el;
+    if (videoMode){
+      el = document.createElement('video');
+      el.muted = true; el.playsInline = true; el.setAttribute('playsinline',''); el.setAttribute('muted','');
+      el.preload = 'auto'; el.src = it.src; if (it.poster || (C.photos[i] && C.photos[i].url)) el.poster = it.poster || C.photos[i].url;
+      el.addEventListener('loadedmetadata', render);
+    } else {
+      el = document.createElement('img'); el.src = it.url; el.alt = it.caption || C.name; if (i > 1) el.loading = 'lazy';
+    }
+    f.appendChild(el); stage.insertBefore(f, heroText); frames.push(f); media.push(el);
   });
-  var N = frames.length;
-  film.style.height = (N * 80 + 20) + 'vh';
+  /* scroll length: a video clip gets a long, slow scrub like a walkthrough; a photo a shorter beat */
+  film.style.height = (videoMode ? N * 260 + 40 : N * 80 + 20) + 'vh';
+  var lastCap = null;
   function render(){
     var vh = window.innerHeight;
-    var start = film.offsetTop, len = film.offsetHeight - vh;
+    var start = film.offsetTop, len = Math.max(1, film.offsetHeight - vh);
     var p = Math.min(1, Math.max(0, (window.scrollY - start) / len));
-    var pos = p * (N - 1);
+    var pos = p * (videoMode ? N : N - 1);
     for (var i = 0; i < N; i++){
-      var d = pos - i;
-      var o = 1 - Math.min(1, Math.abs(d) * 1.35);
-      frames[i].style.opacity = o;
-      frames[i].firstChild.style.transform = 'scale(' + (1.04 + Math.max(-0.5, Math.min(1.5, d)) * 0.08) + ')';
+      var d = pos - i, o;
+      if (videoMode){
+        /* clip i owns [i, i+1); short crossfade at the boundary */
+        var local = Math.min(1, Math.max(0, d));
+        o = d < -0.08 ? 0 : d < 0 ? 1 + d / 0.08 : d <= 1 ? 1 : d < 1.08 ? 1 - (d - 1) / 0.08 : 0;
+        var v = media[i];
+        if (o > 0 && v.duration && isFinite(v.duration)){
+          var t = local * (v.duration - 0.05);
+          if (Math.abs(v.currentTime - t) > 0.02) v.currentTime = t;
+        }
+        frames[i].style.opacity = o;
+      } else {
+        o = 1 - Math.min(1, Math.abs(d) * 1.35);
+        frames[i].style.opacity = o;
+        media[i].style.transform = 'scale(' + (1.04 + Math.max(-0.5, Math.min(1.5, d)) * 0.08) + ')';
+      }
     }
-    var idx = Math.round(pos);
-    var text = (C.photos[idx] && C.photos[idx].caption) || '';
-    if (cap.textContent !== text){ cap.classList.remove('on'); cap.textContent = text; }
-    if (pos > 0.45) { heroText.classList.add('off'); cap.classList.add('on'); } else { heroText.classList.remove('off'); cap.classList.remove('on'); }
+    var idx = Math.min(N - 1, videoMode ? Math.floor(pos) : Math.round(pos));
+    var text = (items[idx] && items[idx].caption) || '';
+    if (text !== lastCap){ cap.classList.remove('on'); cap.textContent = text; lastCap = text; }
+    var titleOff = videoMode ? p > 0.9 : pos > 0.45;
+    var showCap = videoMode ? p > 0.06 : pos > 0.45;
+    heroText.classList.toggle('off', titleOff);
+    cap.classList.toggle('on', showCap);
     progress.style.width = (p * 100) + '%';
   }
   var ticking = false;
   window.addEventListener('scroll', function(){ if (!ticking){ requestAnimationFrame(function(){ render(); ticking = false; }); ticking = true; } }, {passive:true});
   window.addEventListener('resize', render);
+  if (videoMode){
+    /* iOS/Safari decode frames for currentTime seeks only after the element has been "played" once by a user gesture */
+    var primed = false;
+    var prime = function(){ if (primed) return; primed = true; media.forEach(function(v){ var r = v.play(); if (r && r.then) r.then(function(){ v.pause(); render(); }).catch(function(){}); else { v.pause(); } }); };
+    ['touchstart','scroll','click','keydown'].forEach(function(e){ window.addEventListener(e, prime, {once:true, passive:true}); });
+  }
   render();
 
   /* ---- story ---- */
