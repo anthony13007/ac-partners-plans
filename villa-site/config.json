@@ -1,0 +1,28 @@
+{
+  "base_url": "https://ac-partners-plans-elvs.vercel.app",
+  "preview_url": "https://ac-partners-plans-elvs-git-claude-ac-partners-bali-villas-6cjfpl-ac-collection.vercel.app",
+  "whatsapp": "https://wa.me/6285190181610",
+  "sender": {
+    "first_name": "Anthony",
+    "brand": "AC Collection",
+    "b2b_brand": "AC Partners",
+    "superhost_years": 9,
+    "reviews": 759,
+    "rating": 4.84,
+    "villas": 30,
+    "proof": "our own villas in Canggu ran 80–100% over the last 30 days against a 29–47% market (PriceLabs, Sept 2026)"
+  },
+  "defaults": {
+    "island": "Bali",
+    "currency": "$",
+    "usd_idr": 16000,
+    "capture_rate": 0.35,
+    "commission": 0.10,
+    "highlight_commission": 0.05,
+    "site_price_oneoff": 690,
+    "site_price_monthly": 29,
+    "low_season_months": 3,
+    "max_photos": 8,
+    "guarantee_nights_share": 0.5
+  }
+}

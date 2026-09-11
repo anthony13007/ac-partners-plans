@@ -2,53 +2,215 @@
   "slug": "the-dreamtime-house",
   "name": "The Dreamtime House",
   "area": "Canggu",
+  "zone": "canggu",
   "island": "Bali",
   "bedrooms": 7,
-  "guests": 14,
+  "guests": 16,
   "currency": "$",
   "adr": 1300,
+  "adr_source": "owner/listing",
+  "source_url": "https://www.airbnb.com/rooms/1471517853295023857",
+  "listing_id": "1471517853295023857",
+  "city_raw": "Kuta Utara",
   "hero_title": "The Dreamtime House.<br><em>Bali's masterpiece,</em> Canggu.",
   "photos": [
-    {"url": "https://a0.muscache.com/ac/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/d31e71a3-ff30-4244-93cc-6ae88fdb7098.jpeg?im_w=1440", "caption": "Seven bedrooms around one pool, in the heart of Canggu."},
-    {"url": "PASTE_PHOTO_URL_2", "caption": "The living pavilion — dinner for fourteen, chef included."},
-    {"url": "PASTE_PHOTO_URL_3", "caption": "Master suite, garden bathroom, morning light."},
-    {"url": "PASTE_PHOTO_URL_4", "caption": "Rooftop at sunset, rice fields to the west."},
-    {"url": "PASTE_PHOTO_URL_5", "caption": "Five minutes to Berawa beach and Canggu's cafés."}
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/3dc89c4b-a6eb-4ca8-8018-dcfb561bb237.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/3dc89c4b-a6eb-4ca8-8018-dcfb561bb237.jpeg?im_w=1920",
+      "caption": "The Dreamtime House, Canggu. Seven bedrooms around one pool.",
+      "label": "Living room image 10"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/e32c579d-094b-4dff-b56a-ac2540e9733f.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/e32c579d-094b-4dff-b56a-ac2540e9733f.jpeg?im_w=1920",
+      "caption": "The estate from above: 1,600 m² of gardens and rice-field views.",
+      "label": "Exterior image 4"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f30078fb-0799-415b-95a3-6abe986806c3.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f30078fb-0799-415b-95a3-6abe986806c3.jpeg?im_w=1920",
+      "caption": "Twenty-five metres of infinity pool, swim-up bar at sunset.",
+      "label": "Exterior image 2"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/d31e71a3-ff30-4244-93cc-6ae88fdb7098.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/d31e71a3-ff30-4244-93cc-6ae88fdb7098.jpeg?im_w=1920",
+      "caption": "Art Deco lines, Balinese warmth.",
+      "label": "Living room image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/55377ced-6ae8-469b-86ae-7bcbba394e28.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/55377ced-6ae8-469b-86ae-7bcbba394e28.jpeg?im_w=1920",
+      "caption": "The living pavilion, open to the pool.",
+      "label": "Living room image 3"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/15267549-e108-4074-a1cc-6b2d398e41d1.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/15267549-e108-4074-a1cc-6b2d398e41d1.jpeg?im_w=1920",
+      "caption": "Bar, billiards and a private cinema for movie nights.",
+      "label": "Living room image 8"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f7f56c64-115b-4ef8-90b8-d985ce19430d.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f7f56c64-115b-4ef8-90b8-d985ce19430d.jpeg?im_w=1920",
+      "caption": "Dinner for sixteen, two kitchens, chef on call.",
+      "label": "Dining area image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/1f3ca704-2233-4acf-9ad4-8f785785a47c.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/1f3ca704-2233-4acf-9ad4-8f785785a47c.jpeg?im_w=1920",
+      "caption": "Seven suites, each with its own character.",
+      "label": "Bedroom 2 image 1"
+    }
   ],
-  "story_title": "Seven bedrooms, one pool, <em>the whole group under one roof.</em>",
-  "story_lead": "A private estate built for large families, retreats and celebrations: full staff on site, a chef on call, and Canggu's beach clubs and cafés a few minutes away.",
+  "story_title": "7 bedrooms, one pool, <em>the whole group under one roof.</em>",
+  "story_lead": "Tucked away in the tranquil heart of ricefields, yet only minutes from the vibrant energy of Seminyak and Canggu, this architectural masterpiece is unlike anything else on the island. Inspired by the sleek lines of a luxury ocean liner, the villa was designed as a space to dream, connect, and create lasting memories.",
   "story_points": [
-    "7 ensuite bedrooms for up to 14 guests",
-    "Private pool, garden and open living pavilion",
-    "Full-time staff, daily housekeeping, private chef on request",
-    "Berawa beach, Finns and Canggu's cafés within 5 minutes"
+    "7 ensuite bedrooms for up to 16 guests",
+    "25 m infinity pool with swim-up bar, 1,600 m² estate on the rice fields",
+    "Private cinema, home gym, sauna, ice bath and massage room",
+    "Butler, security, daily housekeeping and breakfast included; Seminyak and Canggu minutes away"
   ],
   "facts": [
-    {"n": "7", "l": "Bedrooms"},
-    {"n": "14", "l": "Guests"},
-    {"n": "5★", "l": "Guest reviews"},
-    {"n": "5 min", "l": "To the beach"}
+    {
+      "n": "7",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "16",
+      "l": "Guests"
+    },
+    {
+      "n": "5.0★",
+      "l": "9 reviews"
+    },
+    {
+      "n": "25 m",
+      "l": "Infinity pool"
+    }
   ],
   "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
   "rates": [
-    {"season": "Low season · Feb – Mar", "nightly": 1000},
-    {"season": "Mid season", "nightly": 1300},
-    {"season": "High season · Jul – Aug", "nightly": 1700}
+    {
+      "season": "Low season · Feb, Mar, Nov",
+      "nightly": 1050
+    },
+    {
+      "season": "Mid season",
+      "nightly": 1300.0
+    },
+    {
+      "season": "High season · Jul – Aug",
+      "nightly": 1700
+    }
   ],
-  "amenities": ["Private pool", "Chef on request", "Daily housekeeping", "Airport transfers", "Fast Wi-Fi", "Air-conditioned bedrooms", "Baby cot & high chair", "Car & driver on request"],
+  "amenities": [
+    "25 m infinity pool",
+    "Private cinema",
+    "Home gym & sauna",
+    "Ice bath",
+    "Butler & security",
+    "Breakfast included",
+    "Two kitchens, chef on request",
+    "Fast Wi-Fi",
+    "EV charger",
+    "Parking"
+  ],
   "book_url": "https://wa.me/6285190181610",
-
-  "owner_pitch": false,
+  "owner_pitch": true,
   "low_season": [
-    {"month": "February", "days": 28, "market_occ": 0.32},
-    {"month": "March", "days": 31, "market_occ": 0.35},
-    {"month": "December (1–22)", "days": 22, "market_occ": 0.30}
+    {
+      "month": "February",
+      "days": 28,
+      "market_occ": 0.38
+    },
+    {
+      "month": "March",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    }
   ],
+  "annual_market_occ": 44,
   "capture_rate": 0.35,
-  "commission": 0.10,
-  "site_price": "Included with distribution",
-  "gap_source": "Source: PriceLabs market data, Canggu, 6–8 bedroom villas, September 2026: market occupancy for the next 30 days is 29%; low season February, March and pre-Christmas December.",
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Feb, Mar, Nov; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
   "cta_title": "A site like this, live in 48 hours — and the low season filled.",
   "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We are opening Bali low season with a handful of villa partners.",
-  "whatsapp": "https://wa.me/6285190181610"
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "Anthony (test, own villa)",
+    "first_name": "Anthony",
+    "handle": "",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-11",
+  "photos_locked": true,
+  "tour_clips": [
+    {
+      "src": "media/the-dreamtime-house/clip-01.mp4",
+      "caption": "The Dreamtime House, Canggu. Seven bedrooms around one pool.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/3dc89c4b-a6eb-4ca8-8018-dcfb561bb237.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-02.mp4",
+      "caption": "The estate from above: 1,600 m² of gardens and rice-field views.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/e32c579d-094b-4dff-b56a-ac2540e9733f.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-03.mp4",
+      "caption": "Twenty-five metres of infinity pool, swim-up bar at sunset.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f30078fb-0799-415b-95a3-6abe986806c3.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-04.mp4",
+      "caption": "Art Deco lines, Balinese warmth.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/d31e71a3-ff30-4244-93cc-6ae88fdb7098.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-05.mp4",
+      "caption": "The living pavilion, open to the pool.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/55377ced-6ae8-469b-86ae-7bcbba394e28.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-06.mp4",
+      "caption": "Bar, billiards and a private cinema for movie nights.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/15267549-e108-4074-a1cc-6b2d398e41d1.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-07.mp4",
+      "caption": "Dinner for sixteen, two kitchens, chef on call.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/f7f56c64-115b-4ef8-90b8-d985ce19430d.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/the-dreamtime-house/clip-08.mp4",
+      "caption": "Seven suites, each with its own character.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/1f3ca704-2233-4acf-9ad4-8f785785a47c.jpeg?im_w=1440"
+    }
+  ]
 }

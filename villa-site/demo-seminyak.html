@@ -30,7 +30,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 32px;mix-blend-mode:difference;color:#fff}
-  nav .brand{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+  nav .brand{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70vw}
   nav a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 
   /* SCROLL FILM (photos become frames of a scroll-driven film) */
@@ -44,6 +44,8 @@
   .film .titles .cap{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);color:#f1e6d5;opacity:0;transition:opacity .4s;min-height:1.4em}
   .film .titles .cap.on{opacity:1}
   .film .hero-text{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 120px;z-index:2;transition:opacity .35s,transform .35s}
+  .film.video .hero-text{padding-bottom:150px}
+  .film.video .titles .cap{max-width:34ch}
   .film .hero-text .meta{margin-top:26px;display:flex;gap:26px;flex-wrap:wrap;color:#e7dcc9;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
   .film .hero-text .meta b{color:#fff;font-weight:600}
   .film .hero-text.off{opacity:0;transform:translateY(10px);pointer-events:none}
@@ -118,6 +120,10 @@
     .gallery{grid-template-columns:1fr 1fr}.gallery img{height:200px}.gallery img.wide{grid-column:span 2}.gallery img.tall{grid-row:auto;height:200px}
     .owner .pkg{grid-template-columns:1fr}
     .film .hero-text{padding:0 22px 96px}
+    .film.video .hero-text{padding-bottom:130px}
+    .film .titles .cap{font-size:18px}
+    nav .brand{font-size:16px;max-width:58vw}
+    .film .hero-text .meta{gap:14px;font-size:11px}
     .film .titles{padding:0 22px 44px}
     nav{padding:18px 20px}
     .scroll-hint{display:none}
@@ -345,6 +351,7 @@
   var stage = $('stage'), film = $('film'), cap = $('cap'), heroText = $('hero-text'), progress = $('progress');
   var clips = C.tour_clips || [];
   var videoMode = clips.length > 0;
+  if (videoMode) film.classList.add('video');
   var items = videoMode ? clips : C.photos;
   var N = items.length, frames = [], media = [];
   items.forEach(function(it, i){
@@ -446,7 +453,8 @@
       '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at your nightly rate</div></div>' +
       '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + '% of the gap)</div></div>' +
       '<div class="stat"><div class="n">' + fmtMoney(targetRev) + '</div><div class="l">Added revenue, low season only</div></div>';
-    $('gap-source').textContent = C.gap_source + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
+    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + ' at your rate.' : '';
+    $('gap-source').textContent = C.gap_source + annual + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
 
     $('pkg').innerHTML =
       '<div class="pk"><h3>1 · This site</h3><p>Your villa on its own domain: the scroll film, gallery, rates and a direct enquiry button — no OTA commission on direct bookings. Built from your listing photos; live in 48 hours.</p><div class="price">' + C.site_price + '</div></div>' +

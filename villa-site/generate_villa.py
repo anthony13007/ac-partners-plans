@@ -21,7 +21,7 @@ def build(cfg_path: pathlib.Path) -> pathlib.Path:
     title = f"{cfg['name']} — {cfg['area']}, {cfg['island']}"
     page = (TEMPLATE
             .replace("{{TITLE}}", html.escape(title))
-            .replace("{{OG_IMAGE}}", html.escape(cfg["photos"][0]["url"]))
+            .replace("{{OG_IMAGE}}", html.escape(cfg["photos"][0]["url"] if cfg.get("photos") else ""))
             .replace("{{CONFIG}}", json.dumps(cfg, ensure_ascii=False, indent=2).replace("</", "<\\/")))
     out = HERE / f"{slug}.html"
     out.write_text(page, encoding="utf-8")
