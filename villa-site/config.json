@@ -27,5 +27,10 @@
     "guarantee_nights_share": 0.5
   },
   "showcase_url": "https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house",
-  "showcase_note": "site d'exemple (film au scroll, résa directe) envoyé en lien séparé dans le message 2 ; remplacer par la page d'une villa signée dès qu'il y en a une"
+  "showcase_note": "site d'exemple (film au scroll, résa directe) envoyé en lien séparé dans le message 2 ; remplacer par la page d'une villa signée dès qu'il y en a une",
+  "offer_bonuses": [
+    "Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.",
+    "A reel of {villa} on our Instagram (@acpartners.collection), included.",
+    "A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included."
+  ]
 }

@@ -57,6 +57,7 @@ And this is the kind of site we build for our villas to sell direct, scroll it o
 
 Would you like a collaboration proposal?"""
 
+    bonuses = "".join("• " + b.format(villa=villa, area=area) + "\n" for b in CFG.get("offer_bonuses", []))
     msg3 = f"""Here it is, short:
 
 We co-list {villa} on our channels (Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas, plus our {s['brand']} guests), one synced calendar, dynamic pricing. You keep the management, the staff and the ops.
@@ -65,7 +66,7 @@ We co-list {villa} on our channels (Airbnb Superhost profile, Booking.com, Exped
 • No set-up fee, no exclusivity, no minimum term.
 • A site like the one you scrolled, yours, on your own domain, free ({site_price} on its own).
 • A one-page report on the 1st of every month.
-• If we have not sold {guarantee} nights by the end of the first low season, you keep the site and walk away.
+{bonuses}• If we have not sold {guarantee} nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
 
 15 minutes on WhatsApp this week? {days[0]} or {days[1]}?"""
 

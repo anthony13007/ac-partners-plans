@@ -35,7 +35,10 @@ We co-list The Dreamtime House on our channels (Airbnb Superhost profile, Bookin
 • No set-up fee, no exclusivity, no minimum term.
 • A site like the one you scrolled, yours, on your own domain, free ($690 + $29/month on its own).
 • A one-page report on the 1st of every month.
-• If we have not sold 10 nights by the end of the first low season, you keep the site and walk away.
+• Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.
+• A reel of The Dreamtime House on our Instagram (@acpartners.collection), included.
+• A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included.
+• If we have not sold 10 nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
 
 15 minutes on WhatsApp this week? Tuesday or Thursday?
 ```

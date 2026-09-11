@@ -65,10 +65,32 @@ management, the staff and the ops.
 • No set-up fee, no exclusivity, no minimum term.
 • A site like the one you scrolled, yours, on your own domain, free ($690 + $29/month on its own).
 • A one-page report on the 1st of every month.
-• If we have not sold [N] nights by the end of the first low season, you keep the site and walk away.
+• Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.
+• A reel of [Villa] on our Instagram (@acpartners.collection), included.
+• A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included.
+• If we have not sold [N] nights by the end of the first low season, you keep the site, the highlight
+  and the reel, and walk away.
 
 15 minutes on WhatsApp this week? [day] or [day]?
 ```
+
+## Vivier d'idees pour monter l'offre (Hormozi, "$100M Offers")
+
+Les bonus du message 3 vivent dans `villa-site/config.json` (`offer_bonuses`) : une ligne par bonus,
+`{villa}` est remplace. A ajouter quand on peut les livrer :
+
+- **Bonus a cout marginal nul** : reel Instagram (usine ac-instagram), highlight site + newsletter
+  guests, audit de listing (skill audit-listings), set-up PriceLabs, brochure PDF client (skill listing-pdf),
+  fiche "guest welcome" bilingue, reponse aux avis.
+- **Garantie plus forte** : "si on ne vend pas N nuits, on vous paie le site $690" (risque connu, cap $690).
+- **Scarcite vraie** : "one villa per street", liste fermee a 10 villas par zone, date limite avant
+  la basse saison (15 novembre).
+- **Nommer l'offre** : "Low Season Partner" (bronze = highlight 5 %, silver = co-listing 10 %,
+  gold = co-listing + site + reel + pricing).
+- **Prix ancre** : site $690 + $29, reel $290, audit $190, pricing set-up $290 : "worth $1,460, $0 for partners".
+- **Preuve dans le message** : capture PriceLabs occupation de nos villas vs marche, 2 avis Superhost recents.
+- **Urgence naturelle** : le calendrier fev/mars se remplit 41 jours avant en moyenne (PriceLabs
+  median_booking_window) : "the window for February closes mid-December".
 
 ## Si refus — highlight AC Collection
 
