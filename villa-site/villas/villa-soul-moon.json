@@ -1,0 +1,216 @@
+{
+  "slug": "villa-soul-moon",
+  "name": "Villa Soul Moon",
+  "area": "Canggu",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 5,
+  "guests": 10,
+  "currency": "$",
+  "adr": 550,
+  "adr_source": "owner/listing",
+  "source_url": "https://www.airbnb.com/rooms/1447879080696061784",
+  "listing_id": "1447879080696061784",
+  "city_raw": "Kecamatan Kuta Utara",
+  "hero_title": "Villa Soul Moon.<br><em>Bold design,</em> Umalas, Canggu.",
+  "photos": [
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f11a7db7-9384-4a17-a613-8032758b7518.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f11a7db7-9384-4a17-a613-8032758b7518.jpeg?im_w=1920",
+      "caption": "Villa Soul Moon, Umalas. Five suites, one pool, minutes from Canggu.",
+      "label": "Exterior"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/78e6db99-1e73-48ef-bd59-8ee2b17479ff.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/78e6db99-1e73-48ef-bd59-8ee2b17479ff.jpeg?im_w=1920",
+      "caption": "The L-shaped pool, morning, on 1,200 m² of garden.",
+      "label": "Swimming pool"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/ef300881-e859-4426-bf87-4b152d85af0a.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/ef300881-e859-4426-bf87-4b152d85af0a.jpeg?im_w=1920",
+      "caption": "Pool and sunken lounge at dusk.",
+      "label": "Swimming pool"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/a2a25b12-59af-4f39-a73b-df5b808c0562.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/a2a25b12-59af-4f39-a73b-df5b808c0562.jpeg?im_w=1920",
+      "caption": "The sunken lounge, fire pit and garden.",
+      "label": "Lounge,Exterior"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/29f0899f-8b88-4c89-af78-00a33c3a7e61.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/29f0899f-8b88-4c89-af78-00a33c3a7e61.jpeg?im_w=1920",
+      "caption": "Double-height living room, moon chandeliers, projector for movie nights.",
+      "label": "Living room"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/9101c7eb-45c8-4ba1-9d38-8b528a8c1d40.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/9101c7eb-45c8-4ba1-9d38-8b528a8c1d40.jpeg?im_w=1920",
+      "caption": "Dinner for twelve, fully equipped kitchen.",
+      "label": "Dining area"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f443bc2e-712f-40d1-8bd9-74ee5f8e7c07.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f443bc2e-712f-40d1-8bd9-74ee5f8e7c07.jpeg?im_w=1920",
+      "caption": "The kitchen island, coffee bar.",
+      "label": "Kitchen"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/5b6006fc-a65b-45cd-8162-a90e9e14dbc3.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/5b6006fc-a65b-45cd-8162-a90e9e14dbc3.jpeg?im_w=1920",
+      "caption": "Master suite, terracotta and king bed.",
+      "label": "Bedroom 1"
+    }
+  ],
+  "story_title": "Five suites, one pool, <em>the whole group under one roof.</em>",
+  "story_lead": "Welcome to Soul Moon Villa — a bold and spacious designer villa tucked away in a peaceful pocket of Umalas, just moments from the energy of Canggu. Thoughtfully curated down to the smallest detail, this modern two-story residence invites you to unwind, connect, and feel truly at home.",
+  "story_points": [
+    "5 ensuite bedrooms, king beds, private dressing rooms, for up to 10 guests",
+    "L-shaped pool with kids' shallow end, sunken lounge, rooftop terrace, 1,200 m² of garden",
+    "Double-height living room with projector cinema, 12-seat dining, full kitchen",
+    "Umalas, a quiet pocket minutes from Canggu's beaches, cafés and beach clubs"
+  ],
+  "facts": [
+    {
+      "n": "5",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "10",
+      "l": "Guests"
+    },
+    {
+      "n": "1,200 m²",
+      "l": "Land"
+    },
+    {
+      "n": "5",
+      "l": "Ensuite bathrooms"
+    }
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rates": [
+    {
+      "season": "Low season · Feb, Mar, Nov",
+      "nightly": 450
+    },
+    {
+      "season": "Mid season",
+      "nightly": 550
+    },
+    {
+      "season": "High season · Jul – Aug",
+      "nightly": 700
+    }
+  ],
+  "amenities": [
+    "L-shaped pool",
+    "Sunken lounge & fire pit",
+    "Rooftop terrace",
+    "Projector cinema",
+    "Full kitchen",
+    "Dedicated workspaces",
+    "Fast Wi-Fi",
+    "Free parking",
+    "Garden view",
+    "Bathtubs"
+  ],
+  "book_url": "https://wa.me/6285190181610",
+  "owner_pitch": true,
+  "low_season": [
+    {
+      "month": "February",
+      "days": 28,
+      "market_occ": 0.38
+    },
+    {
+      "month": "March",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    }
+  ],
+  "annual_market_occ": 44,
+  "capture_rate": 0.35,
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Feb, Mar, Nov; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
+  "cta_title": "A site like this, live in 48 hours — and the low season filled.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We are opening Bali low season with a handful of villa partners.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "Martha (host, 10 yrs on Airbnb)",
+    "first_name": "Martha",
+    "handle": "+62 895 3470 07195",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-11",
+  "photos_locked": true,
+  "tour_clips": [
+    {
+      "src": "media/villa-soul-moon/clip-01.mp4",
+      "caption": "Villa Soul Moon, Umalas. Five suites, one pool, minutes from Canggu.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f11a7db7-9384-4a17-a613-8032758b7518.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-02.mp4",
+      "caption": "The L-shaped pool, morning, on 1,200 m² of garden.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/78e6db99-1e73-48ef-bd59-8ee2b17479ff.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-03.mp4",
+      "caption": "Pool and sunken lounge at dusk.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/ef300881-e859-4426-bf87-4b152d85af0a.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-04.mp4",
+      "caption": "The sunken lounge, fire pit and garden.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/a2a25b12-59af-4f39-a73b-df5b808c0562.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-05.mp4",
+      "caption": "Double-height living room, moon chandeliers, projector for movie nights.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/29f0899f-8b88-4c89-af78-00a33c3a7e61.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-06.mp4",
+      "caption": "Dinner for twelve, fully equipped kitchen.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/9101c7eb-45c8-4ba1-9d38-8b528a8c1d40.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-07.mp4",
+      "caption": "The kitchen island, coffee bar.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/f443bc2e-712f-40d1-8bd9-74ee5f8e7c07.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-soul-moon/clip-08.mp4",
+      "caption": "Master suite, terracotta and king bed.",
+      "poster": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1447879080696061784/original/5b6006fc-a65b-45cd-8162-a90e9e14dbc3.jpeg?im_w=1440"
+    }
+  ]
+}

@@ -22,24 +22,33 @@ LONG = {"Jan": "January", "Feb": "February", "Mar": "March", "Apr": "April", "Ma
 DAYS = {"Jan": 31, "Feb": 28, "Mar": 31, "Apr": 30, "May": 31, "Jun": 30, "Jul": 31, "Aug": 31, "Sep": 30, "Oct": 31, "Nov": 30, "Dec": 31}
 
 # photo selection: (label prefix, max per category), exteriors first — the rule of the listing-pdf skill
-PHOTO_PLAN = [("Exterior", 2), ("Pool", 2), ("Outdoor", 1), ("Patio", 1), ("Garden", 1), ("Hot tub", 1), ("Living room", 2),
-              ("Dining area", 1), ("Kitchen", 1), ("Bedroom 1", 1), ("Bedroom 2", 1), ("Gym", 1), ("Cinema", 1), ("Full bathroom 1", 1)]
-SKIP = ("Additional", "Workspace", "single bed", "double bed", "queen bed", "king bed")
+PHOTO_PLAN = [("Exterior", 2), ("Swimming pool", 2), ("Pool", 2), ("Terrace", 1), ("Outdoor", 1), ("Patio", 1), ("Garden", 1), ("Rooftop", 1), ("Lounge", 1),
+              ("Hot tub", 1), ("Living room", 2), ("Dining area", 1), ("Kitchen", 1), ("Bedroom 1", 1), ("Bedroom 2", 1), ("Gym", 1), ("Cinema", 1), ("Bathroom 1", 1), ("Full bathroom 1", 1)]
+SKIP = ("Additional", "Workspace", "single bed", "double bed", "queen bed", "king bed", "Interior details", "Parking", "Bedroom view")
 CAPTIONS = {
-    "Exterior": ["{name}, {area}.", "The estate from above."], "Pool": ["The pool at first light.", "Pool deck, late afternoon."],
-    "Outdoor": ["The garden, all yours."], "Patio": ["The terrace, breakfast hour."], "Garden": ["The garden pavilion."],
-    "Hot tub": ["Hot tub and spa, off the garden."], "Living room": ["The living pavilion, open to the garden.", "Lounge, evening."],
+    "Exterior": ["{name}, {area}.", "The estate from above."], "Swimming pool": ["The pool at first light.", "Pool deck, late afternoon."], "Pool": ["The pool at first light.", "Pool deck, late afternoon."],
+    "Terrace": ["The terrace, breakfast hour."], "Outdoor": ["The garden, all yours."], "Patio": ["The terrace, breakfast hour."], "Garden": ["The garden pavilion."], "Rooftop": ["Rooftop, sunset hour."],
+    "Lounge": ["The outdoor lounge, evening."], "Hot tub": ["Hot tub and spa, off the garden."], "Living room": ["The living pavilion, open to the garden.", "Lounge, evening."],
     "Dining area": ["Dinner for {guests}, chef on request."], "Kitchen": ["The kitchen, professional grade."],
     "Bedroom 1": ["Master suite, garden light."], "Bedroom 2": ["Second suite, ensuite."], "Gym": ["Home gym and wellness."],
-    "Cinema": ["Private cinema."], "Full bathroom 1": ["Garden bathroom."]}
+    "Cinema": ["Private cinema."], "Bathroom 1": ["Garden bathroom."], "Full bathroom 1": ["Garden bathroom."]}
+
+def _cat(label):
+    """category of a photo label like 'Swimming pool,Exterior image 3' -> first plan prefix contained in it"""
+    for prefix, _ in PHOTO_PLAN:
+        if prefix.lower() in label.lower(): return prefix
+    return ""
 
 def slugify(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
     return s or "villa"
 
-def clean_name(title):
+def clean_name(title, description=""):
+    m = re.search(r"Welcome to (?:the )?([A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+){0,3})", description or "")
+    if m: return m.group(1).strip(" -—:,")
     t = re.sub(r"^\*?NEW\*?\s*", "", title, flags=re.I)
+    t = re.sub(r"\b\d+\s*BR\b|\b\d+[- ]?bed(?:room)?s?\b", "", t, flags=re.I)
     t = re.sub(r"\s*[-–|·]\s*$", "", t)
     m = re.search(r"(?:The\s+)?([A-Z][\w']+(?:\s+[A-Z][\w']+){0,3}\s+(?:House|Villa|Estate|Residence|Retreat|Lodge))", t)
     if m: return m.group(0).strip()
@@ -65,11 +74,15 @@ def pick_photos(photos, n, name, area, guests):
     if not photos: return []
     chosen = []
     if photos[0]["label"]:
-        for prefix, cap in PHOTO_PLAN:
-            k = 0
-            for p in photos:
-                if p["label"].startswith(prefix) and not any(s.lower() in p["label"].lower() for s in SKIP) and p not in chosen and k < cap:
-                    chosen.append(p); k += 1
+        ok = lambda p: not any(s.lower() in p["label"].lower() for s in SKIP) and p not in chosen
+        # pass 1: one photo per category (exteriors first, then each room); pass 2: the extra exterior/pool shots
+        for cap_pass in (1, 2):
+            for prefix, cap in PHOTO_PLAN:
+                if cap < cap_pass or len(chosen) >= n: continue
+                have = sum(1 for p in chosen if _cat(p["label"]) == prefix)
+                for p in photos:
+                    if have >= cap_pass: break
+                    if _cat(p["label"]) == prefix and ok(p): chosen.append(p); have += 1
         if len(chosen) < n:
             chosen += [p for p in photos if p not in chosen and not any(s.lower() in p["label"].lower() for s in SKIP)][: n - len(chosen)]
     else:
@@ -77,7 +90,7 @@ def pick_photos(photos, n, name, area, guests):
     chosen = chosen[:n]
     out, used = [], {}
     for p in chosen:
-        cat = next((pr for pr, _ in PHOTO_PLAN if p["label"].startswith(pr)), "")
+        cat = _cat(p["label"])
         caps = CAPTIONS.get(cat, [""]); i = used.get(cat, 0); used[cat] = i + 1
         cap = caps[min(i, len(caps) - 1)].format(name=name, area=area, guests=guests or "twelve")
         out.append({"url": p["url"], "url_hd": p.get("url_hd", p["url"]), "caption": cap, "label": p["label"]})
@@ -85,7 +98,7 @@ def pick_photos(photos, n, name, area, guests):
 
 def build_config(L, a):
     d = CFG["defaults"]; existing = None
-    name = a.name or clean_name(L.get("title") or "Villa")
+    name = a.name or clean_name(L.get("title") or "Villa", L.get("description", ""))
     slug = a.slug or slugify(name)
     cfg_path = HERE / "villas" / f"{slug}.json"
     if cfg_path.exists() and not a.fresh:

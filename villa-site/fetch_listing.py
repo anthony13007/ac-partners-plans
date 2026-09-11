@@ -41,14 +41,14 @@ def parse_airbnb(html, url):
     out = {"source": "airbnb", "url": url, "listing_id": listing_id}
 
     # photos, in photo-tour order, with room labels
-    pairs = re.findall(r'"accessibilityLabel":"([^"]*)","baseUrl":"(https://a0\.muscache\.com/im/pictures/(?:miso/|hosting/)?Hosting-[A-Za-z0-9%=\-]+/original/[0-9a-f-]{36}\.jpe?g)', c)
+    pairs = re.findall(r'"accessibilityLabel":"([^"]*)","baseUrl":"(https://a0\.muscache\.com/im/pictures/(?:[a-z-]+/)?Hosting-[A-Za-z0-9%=\-]+/original/[0-9a-f-]{36}\.jpe?g)', c)
     seen, photos = set(), []
     for label, base in pairs:
         if base in seen: continue
         seen.add(base)
         photos.append({"label": label, "url": base + "?im_w=1440", "url_hd": base + "?im_w=1920", "id": base.rsplit("/", 1)[1]})
     if not photos:  # older layout: no labels, just URLs
-        for base in re.findall(r'https://a0\.muscache\.com/im/pictures/(?:miso/|hosting/)?Hosting-[A-Za-z0-9%=\-]+/original/[0-9a-f-]{36}\.jpe?g', c):
+        for base in re.findall(r'https://a0\.muscache\.com/im/pictures/(?:[a-z-]+/)?Hosting-[A-Za-z0-9%=\-]+/original/[0-9a-f-]{36}\.jpe?g', c):
             if base in seen: continue
             seen.add(base); photos.append({"label": "", "url": base + "?im_w=1440", "url_hd": base + "?im_w=1920", "id": base.rsplit("/", 1)[1]})
     out["photos"] = photos
@@ -105,11 +105,19 @@ def parse_generic(html, url):
     m = re.search(r"(\d+)\s*guests?", html, re.I);               out["guests"] = int(m.group(1)) if m else None
     return out
 
-def fetch_listing(url):
-    html = fetch(url)
+def fetch_listing(url, tries=5):
+    """Airbnb serves a lighter shell (no photo tour) at random: retry until the photos are there."""
+    import time
     if "airbnb." in url:
-        return parse_airbnb(html, url)
-    return parse_generic(html, url)
+        url = re.sub(r"\?.*$", "", url)  # strip search params, they change the SSR variant
+        best = None
+        for i in range(tries):
+            d = parse_airbnb(fetch(url), url)
+            if d["photos"] and (best is None or len(d["photos"]) > len(best["photos"])): best = d
+            if best and len(best["photos"]) >= 20: break
+            time.sleep(1.5)
+        return best or d
+    return parse_generic(fetch(url), url)
 
 if __name__ == "__main__":
     import argparse
