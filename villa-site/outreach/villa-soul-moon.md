@@ -1,6 +1,6 @@
 # Outreach — Villa Soul Moon (Canggu, 5BR)
 
-Generated 2026-09-11 · owner page: https://ac-partners-plans-elvs.vercel.app/villa-site/villa-soul-moon?owner · guest site: https://ac-partners-plans-elvs.vercel.app/villa-site/villa-soul-moon · showcase: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house
+Generated 2026-09-11 · owner page: https://plans.ac-collection.com/villa-site/villa-soul-moon?owner · guest site: https://plans.ac-collection.com/villa-site/villa-soul-moon · showcase: https://plans.ac-collection.com/villa-site/the-dreamtime-house
 Numbers: 54 empty nights / 89 in February, March and November (market 39%), $29,700 not earned at $550/night; we target +19 nights = $10,450 added, our fee $1,045, guarantee 10 nights.
 Contact: Martha (host, 10 yrs on Airbnb) +62 895 3470 07195 via whatsapp
 
@@ -18,9 +18,9 @@ Hi Martha, Superhost here (759 reviews), 30 villas in Bali: https://ac-collectio
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
 ```
-5-bedroom villas around Villa Soul Moon sit at ~39% occupancy in February, March and November. At your ~$550/night that is about 54 empty nights, $29,700 not earned per low season. The detail, on a private page: https://ac-partners-plans-elvs.vercel.app/villa-site/villa-soul-moon?owner
+5-bedroom villas around Villa Soul Moon sit at ~39% occupancy in February, March and November. At your ~$550/night that is about 54 empty nights, $29,700 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-soul-moon?owner
 
-And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house
+And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/the-dreamtime-house
 
 Would you like a collaboration proposal?
 ```
@@ -50,7 +50,7 @@ Understood, no problem. One lighter option, zero commitment: we feature Villa So
 
 ## Follow-up J+3 after message 2 (2026-09-14)
 ```
-Hi Martha, did the page load OK on your side? https://ac-partners-plans-elvs.vercel.app/villa-site/villa-soul-moon?owner
+Hi Martha, did the page load OK on your side? https://plans.ac-collection.com/villa-site/villa-soul-moon?owner
 Happy to walk you through the 54 nights in 10 min.
 ```
 
@@ -61,5 +61,5 @@ Martha, one number from our side: our own villas in Canggu ran 80–100% over th
 
 ## Follow-up J+14 (2026-09-25) — last
 ```
-Last one from me, Martha. We take a handful of villas per area for the low season. Want the spot for Villa Soul Moon, or shall I pass? The site stays here either way: https://ac-partners-plans-elvs.vercel.app/villa-site/villa-soul-moon
+Last one from me, Martha. We take a handful of villas per area for the low season. Want the spot for Villa Soul Moon, or shall I pass? The site stays here either way: https://plans.ac-collection.com/villa-site/villa-soul-moon
 ```

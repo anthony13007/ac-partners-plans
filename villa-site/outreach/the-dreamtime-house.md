@@ -1,6 +1,6 @@
 # Outreach — The Dreamtime House (Canggu, 7BR)
 
-Generated 2026-09-11 · owner page: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house?owner · guest site: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house · showcase: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house
+Generated 2026-09-11 · owner page: https://plans.ac-collection.com/villa-site/the-dreamtime-house?owner · guest site: https://plans.ac-collection.com/villa-site/the-dreamtime-house · showcase: https://plans.ac-collection.com/villa-site/the-dreamtime-house
 Numbers: 54 empty nights / 89 in February, March and November (market 39%), $70,200 not earned at $1,300/night; we target +19 nights = $24,700 added, our fee $2,470, guarantee 10 nights.
 Contact: Anthony (test, own villa)  via whatsapp
 
@@ -18,9 +18,9 @@ Hi Anthony, Superhost here (759 reviews), 30 villas in Bali: https://ac-collecti
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
 ```
-7-bedroom villas around The Dreamtime House sit at ~39% occupancy in February, March and November. At your ~$1,300/night that is about 54 empty nights, $70,200 not earned per low season. The detail, on a private page: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house?owner
+7-bedroom villas around The Dreamtime House sit at ~39% occupancy in February, March and November. At your ~$1,300/night that is about 54 empty nights, $70,200 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/the-dreamtime-house?owner
 
-And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house
+And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/the-dreamtime-house
 
 Would you like a collaboration proposal?
 ```
@@ -50,7 +50,7 @@ Understood, no problem. One lighter option, zero commitment: we feature The Drea
 
 ## Follow-up J+3 after message 2 (2026-09-14)
 ```
-Hi Anthony, did the page load OK on your side? https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house?owner
+Hi Anthony, did the page load OK on your side? https://plans.ac-collection.com/villa-site/the-dreamtime-house?owner
 Happy to walk you through the 54 nights in 10 min.
 ```
 
@@ -61,5 +61,5 @@ Anthony, one number from our side: our own villas in Canggu ran 80–100% over t
 
 ## Follow-up J+14 (2026-09-25) — last
 ```
-Last one from me, Anthony. We take a handful of villas per area for the low season. Want the spot for The Dreamtime House, or shall I pass? The site stays here either way: https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house
+Last one from me, Anthony. We take a handful of villas per area for the low season. Want the spot for The Dreamtime House, or shall I pass? The site stays here either way: https://plans.ac-collection.com/villa-site/the-dreamtime-house
 ```

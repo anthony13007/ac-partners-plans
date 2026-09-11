@@ -1,5 +1,5 @@
 {
-  "base_url": "https://ac-partners-plans-elvs.vercel.app",
+  "base_url": "https://plans.ac-collection.com",
   "preview_url": "https://ac-partners-plans-elvs-git-claude-ac-partners-bali-villas-6cjfpl-ac-collection.vercel.app",
   "whatsapp": "https://wa.me/6285190181610",
   "sender": {
@@ -26,7 +26,7 @@
     "max_photos": 8,
     "guarantee_nights_share": 0.5
   },
-  "showcase_url": "https://ac-partners-plans-elvs.vercel.app/villa-site/the-dreamtime-house",
+  "showcase_url": "https://plans.ac-collection.com/villa-site/the-dreamtime-house",
   "showcase_note": "site d'exemple (film au scroll, résa directe) envoyé en lien séparé dans le message 2 ; remplacer par la page d'une villa signée dès qu'il y en a une",
   "offer_bonuses": [
     "Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.",
