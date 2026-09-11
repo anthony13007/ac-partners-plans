@@ -259,7 +259,7 @@
     f.appendChild(el); stage.insertBefore(f, heroText); frames.push(f); media.push(el);
   });
   /* scroll length: a video clip gets a long, slow scrub like a walkthrough; a photo a shorter beat */
-  film.style.height = (videoMode ? N * 260 + 40 : N * 80 + 20) + 'vh';
+  film.style.height = (videoMode ? N * (C.scroll_vh_per_clip || 42) + 16 : N * (C.scroll_vh_per_photo || 16) + 8) + 'vh';
   var lastCap = null;
   function render(){
     var vh = window.innerHeight;

@@ -39,6 +39,12 @@ def _cat(label):
         if prefix.lower() in label.lower(): return prefix
     return ""
 
+def wa_link(handle):
+    """+62 895 3470 07195 -> https://wa.me/62895347007195. None if no digits."""
+    import re as _re
+    digits = _re.sub(r"\D", "", handle or "")
+    return f"https://wa.me/{digits}" if digits else None
+
 def slugify(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
@@ -137,7 +143,7 @@ def build_config(L, a):
         "rates": [{"season": f"Low season · {months_txt}", "nightly": int(round(adr * 0.8 / 50) * 50)}, {"season": "Mid season", "nightly": adr},
                   {"season": "High season · Jul – Aug", "nightly": int(round(adr * 1.3 / 50) * 50)}],
         "amenities": amen or ["Private pool", "Chef on request", "Daily housekeeping", "Airport transfers", "Fast Wi-Fi", "Air-conditioned bedrooms"],
-        "book_url": CFG["whatsapp"],
+        "book_url": wa_link(a.handle) or (existing or {}).get("book_url") or CFG["whatsapp"],  # guest "Check availability" -> the VILLA OWNER'S WhatsApp, not ours, unless it's our own listing
         "owner_pitch": True,
         "low_season": ls, "annual_market_occ": annual,
         "capture_rate": d["capture_rate"], "commission": d["commission"],
