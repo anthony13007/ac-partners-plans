@@ -1,6 +1,6 @@
 # Outreach — Villa Soul Moon (Canggu, 5BR)
 
-Generated 2026-09-11 · owner page: https://plans.ac-collection.com/villa-site/villa-soul-moon?owner · guest site: https://plans.ac-collection.com/villa-site/villa-soul-moon · showcase: https://plans.ac-collection.com/villa-site/the-dreamtime-house
+Generated 2026-09-11 · owner page: https://plans.ac-collection.com/villa-site/villa-soul-moon?owner · guest site: https://plans.ac-collection.com/villa-site/villa-soul-moon · showcase: https://plans.ac-collection.com/villa-site/villa-soul-moon
 Numbers: 54 empty nights / 89 in February, March and November (market 39%), $29,700 not earned at $550/night; we target +19 nights = $10,450 added, our fee $1,045, guarantee 10 nights.
 Contact: Martha (host, 10 yrs on Airbnb) +62 895 3470 07195 via whatsapp
 
@@ -20,7 +20,7 @@ Hi Martha, Superhost here (759 reviews), 30 villas in Bali: https://ac-collectio
 ```
 5-bedroom villas around Villa Soul Moon sit at ~39% occupancy in February, March and November. At your ~$550/night that is about 54 empty nights, $29,700 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-soul-moon?owner
 
-And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/the-dreamtime-house
+And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/villa-soul-moon
 
 Would you like a collaboration proposal?
 ```

@@ -17,9 +17,10 @@ Un message = une idee. Pas de value stack avant que le proprio ait demande la pr
 1. **Qui je suis** : Superhost 9 ans (759 avis, 4.84), AC Collection, ~30 villas, lien du site ac-collection.com.
    Une seule question : "Mind if I share a couple of numbers on your low season?"
 2. **Le manque a gagner** : le chiffre (nuits vides x ADR sur les 3 mois les plus bas) + lien de la page
-   privee `?owner`, puis, dans un lien a part, un vrai site qui vend en direct avec film au scroll
-   (`showcase_url` dans `config.json`, aujourd'hui la page Dreamtime ; a remplacer par la page d'une
-   villa signee). Question de sortie : "Would you like a collaboration proposal?"
+   privee `?owner`, puis, dans un lien a part, la version guest de la meme page (sans `?owner`) : le
+   site qui vend en direct avec film au scroll, pour SA villa a lui, pas une autre. C'est le point :
+   on ne montre jamais la villa d'un autre proprio dans le message d'un prospect. Question de sortie :
+   "Would you like a collaboration proposal?"
 3. **L'offre**, en 5 puces : co-listing multi-canal, 10 % sur les nuits vendues, pas de set-up /
    exclusivite / duree, site offert sur son domaine ($690 + $29/mois affiche), reporting mensuel,
    garantie de nuits (50 % de la cible affichee) sinon il garde le site. Un creneau de 15 min.
@@ -47,7 +48,7 @@ that is about [empty] empty nights, $[loss] not earned per low season. The detai
 [base_url]/villa-site/<slug>?owner
 
 And this is the kind of site we build for our villas to sell direct, scroll it on your phone:
-[showcase_url]
+[base_url]/villa-site/<slug>
 
 Would you like a collaboration proposal?
 ```

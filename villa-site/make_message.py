@@ -43,7 +43,7 @@ def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
     site_price = f'{cur}{d["site_price_oneoff"]} + {cur}{d["site_price_monthly"]}/month'
 
     website = s.get("website", "")
-    showcase = CFG.get("showcase_url", site_url)
+    showcase = site_url  # the villa's OWN guest site, not another villa's — this is what theirs would look like
 
     msg1 = f"""Hi {first}, Anthony here. Airbnb Superhost for {s['superhost_years']} years ({s['reviews']} reviews, {s['rating']}★), I run {s['brand']}, ~{s['villas']} luxury villas in Canggu, Seminyak and Uluwatu: {website}
 
