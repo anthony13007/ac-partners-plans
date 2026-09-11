@@ -1,0 +1,54 @@
+{
+  "slug": "the-dreamtime-house",
+  "name": "The Dreamtime House",
+  "area": "Canggu",
+  "island": "Bali",
+  "bedrooms": 7,
+  "guests": 14,
+  "currency": "$",
+  "adr": 1300,
+  "hero_title": "The Dreamtime House.<br><em>Bali's masterpiece,</em> Canggu.",
+  "photos": [
+    {"url": "https://a0.muscache.com/ac/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ3MTUxNzg1MzI5NTAyMzg1Nw==/original/d31e71a3-ff30-4244-93cc-6ae88fdb7098.jpeg?im_w=1440", "caption": "Seven bedrooms around one pool, in the heart of Canggu."},
+    {"url": "PASTE_PHOTO_URL_2", "caption": "The living pavilion — dinner for fourteen, chef included."},
+    {"url": "PASTE_PHOTO_URL_3", "caption": "Master suite, garden bathroom, morning light."},
+    {"url": "PASTE_PHOTO_URL_4", "caption": "Rooftop at sunset, rice fields to the west."},
+    {"url": "PASTE_PHOTO_URL_5", "caption": "Five minutes to Berawa beach and Canggu's cafés."}
+  ],
+  "story_title": "Seven bedrooms, one pool, <em>the whole group under one roof.</em>",
+  "story_lead": "A private estate built for large families, retreats and celebrations: full staff on site, a chef on call, and Canggu's beach clubs and cafés a few minutes away.",
+  "story_points": [
+    "7 ensuite bedrooms for up to 14 guests",
+    "Private pool, garden and open living pavilion",
+    "Full-time staff, daily housekeeping, private chef on request",
+    "Berawa beach, Finns and Canggu's cafés within 5 minutes"
+  ],
+  "facts": [
+    {"n": "7", "l": "Bedrooms"},
+    {"n": "14", "l": "Guests"},
+    {"n": "5★", "l": "Guest reviews"},
+    {"n": "5 min", "l": "To the beach"}
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rates": [
+    {"season": "Low season · Feb – Mar", "nightly": 1000},
+    {"season": "Mid season", "nightly": 1300},
+    {"season": "High season · Jul – Aug", "nightly": 1700}
+  ],
+  "amenities": ["Private pool", "Chef on request", "Daily housekeeping", "Airport transfers", "Fast Wi-Fi", "Air-conditioned bedrooms", "Baby cot & high chair", "Car & driver on request"],
+  "book_url": "https://wa.me/6285190181610",
+
+  "owner_pitch": false,
+  "low_season": [
+    {"month": "February", "days": 28, "market_occ": 0.32},
+    {"month": "March", "days": 31, "market_occ": 0.35},
+    {"month": "December (1–22)", "days": 22, "market_occ": 0.30}
+  ],
+  "capture_rate": 0.35,
+  "commission": 0.10,
+  "site_price": "Included with distribution",
+  "gap_source": "Source: PriceLabs market data, Canggu, 6–8 bedroom villas, September 2026: market occupancy for the next 30 days is 29%; low season February, March and pre-Christmas December.",
+  "cta_title": "A site like this, live in 48 hours — and the low season filled.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We are opening Bali low season with a handful of villa partners.",
+  "whatsapp": "https://wa.me/6285190181610"
+}
