@@ -72,10 +72,11 @@ Everything that comes with it, and what each costs on its own:
 • Your direct-booking site — $690 + $29/mo → included
 • Highlight on ac-collection.com — $29/mo → included
 • Monthly report + market insights — $19.99/mo → included
+• PriceLabs strategy tool — $15/mo → included
 • Guest app — $39/mo → included
 • Instagram reel of the villa — $290 → included
 • Pricing set-up + listing audit — $290 → included
-That is $2,674 of value in the first year, for $0.
+That is $2,854 of value in the first year, for $0.
 
 One price: 10% on the nights we sell.
 • Nothing on the nights you sell yourself
