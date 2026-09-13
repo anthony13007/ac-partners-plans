@@ -67,12 +67,16 @@ def zone_for(city, area):
         if alias in key: return z
     return None
 
-def low_season(zone, n=3):
+def low_season(zone, n=3, from_date=None):
+    """The next n calendar months from today (rolling), not a global lowest-occupancy pick —
+    the pitch must talk about the gap that is actually coming up, not a distant Feb/Mar
+    mentioned in September. Falls back to whichever months genuinely have data."""
     z = MARKET["zones"][zone]; ly = z["occ_ly"]; prev = z.get("occ_prev", {})
     blend = {m: (ly[m] + prev[m]) / 2 if m in prev else ly[m] for m in MONTHS}
-    worst = sorted(MONTHS, key=lambda m: blend[m])[:n]
-    worst.sort(key=MONTHS.index)
-    rows = [{"month": LONG[m], "days": DAYS[m], "market_occ": round(blend[m] / 100, 2)} for m in worst]
+    today = from_date or datetime.date.today()
+    start = today.month  # 0-based index of NEXT month (Jan=index0=month1, so month m -> index m)
+    upcoming = [MONTHS[(start + i) % 12] for i in range(n)]
+    rows = [{"month": LONG[m], "days": DAYS[m], "market_occ": round(blend[m] / 100, 2)} for m in upcoming]
     annual = round(sum(ly.values()) / 12)
     return rows, annual, blend
 
