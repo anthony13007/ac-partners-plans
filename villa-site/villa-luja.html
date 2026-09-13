@@ -17,7 +17,11 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  html,body{overflow-x:hidden;max-width:100%}
+  /* iOS: overflow-x:hidden on html turns the page into a scroll container and position:sticky
+     stops sticking (hero scrolls away, black film track shows). overflow:clip clips without
+     creating a scroll container; older Safari falls back to hidden on body only, as before. */
+  body{overflow-x:hidden}
+  html,body{overflow-x:clip}
   body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
   img{max-width:100%}
   .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
