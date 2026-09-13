@@ -1,0 +1,214 @@
+{
+  "slug": "villa-luja",
+  "name": "Villa Luja",
+  "area": "Canggu",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 5,
+  "guests": 11,
+  "currency": "$",
+  "adr": 650,
+  "adr_source": "market_p75 (PriceLabs, no ADR given)",
+  "source_url": "https://www.airbnb.com/rooms/600173702615262232",
+  "listing_id": "600173702615262232",
+  "city_raw": "Kecamatan Kuta Utara",
+  "hero_title": "Villa Luja.<br><em>Waterslide, golf & gym,</em> Canggu.",
+  "photos": [
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1920",
+      "caption": "Villa Luja, Canggu. Waterslide pool, sunset every night.",
+      "label": "Pool image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1920",
+      "caption": "Rooftop, ocean to the west, mountains to the north.",
+      "label": "Rooftop image 3"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1920",
+      "caption": "Golden hour by the pool.",
+      "label": "Pool image 3"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1920",
+      "caption": "The living pavilion, open to the garden.",
+      "label": "Living room image 2"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1920",
+      "caption": "The kitchen, island seating for the whole group.",
+      "label": "Full kitchen image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1920",
+      "caption": "One of five suites, ensuite bathrooms throughout.",
+      "label": "Bedroom 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1920",
+      "caption": "Private cinema, 4K projector, surround sound.",
+      "label": "Movie theater image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1920",
+      "caption": "Rooftop jacuzzi, sunset over Canggu.",
+      "label": "Rooftop image 5"
+    }
+  ],
+  "story_title": "Five bedrooms, a rooftop for sunset, <em>the whole group under one roof.</em>",
+  "story_lead": "The villa is designed to provide the ultimate retreat for you and your loved ones with its spacious living areas, private pool, and views of the surrounding landscape with ocean views to the west and mountains to the north.",
+  "story_points": [
+    "5 ensuite bedrooms for up to 11 guests, PS5 games room and bunk beds for kids",
+    "Pool with waterslide, swing set and sun deck",
+    "Rooftop gym, golf simulator, putting green and jacuzzi, ocean and mountain views",
+    "Private cinema with 4K projector, full kitchen, staffed by a villa manager and housekeeping"
+  ],
+  "facts": [
+    {
+      "n": "5",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "11",
+      "l": "Guests"
+    },
+    {
+      "n": "4.87★",
+      "l": "98 reviews"
+    },
+    {
+      "n": "Canggu",
+      "l": "Bali"
+    }
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rates": [
+    {
+      "season": "Low season · Feb, Mar, Nov",
+      "nightly": 500
+    },
+    {
+      "season": "Mid season",
+      "nightly": 650
+    },
+    {
+      "season": "High season · Jul – Aug",
+      "nightly": 850
+    }
+  ],
+  "amenities": [
+    "Waterslide pool",
+    "Rooftop jacuzzi & golf simulator",
+    "Private cinema",
+    "Home gym",
+    "Games room · PS5",
+    "Full kitchen",
+    "Fast Wi-Fi",
+    "Free parking"
+  ],
+  "book_url": "https://wa.me/6285190181610",
+  "owner_pitch": true,
+  "low_season": [
+    {
+      "month": "February",
+      "days": 28,
+      "market_occ": 0.38
+    },
+    {
+      "month": "March",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    }
+  ],
+  "annual_market_occ": 44,
+  "capture_rate": 0.35,
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Feb, Mar, Nov; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
+  "cta_title": "A site like this, live in 48 hours — and the low season filled.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We are opening Bali low season with a handful of villa partners.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "",
+    "first_name": "",
+    "handle": "",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-13",
+  "photos_locked": true,
+  "tour_clips": [
+    {
+      "src": "media/villa-luja/clip-01.mp4",
+      "caption": "Villa Luja, Canggu. Waterslide pool, sunset every night.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-02.mp4",
+      "caption": "Rooftop, ocean to the west, mountains to the north.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-03.mp4",
+      "caption": "Golden hour by the pool.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-04.mp4",
+      "caption": "The living pavilion, open to the garden.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-05.mp4",
+      "caption": "The kitchen, island seating for the whole group.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-06.mp4",
+      "caption": "One of five suites, ensuite bathrooms throughout.",
+      "poster": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-07.mp4",
+      "caption": "Private cinema, 4K projector, surround sound.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1440"
+    },
+    {
+      "src": "media/villa-luja/clip-08.mp4",
+      "caption": "Rooftop jacuzzi, sunset over Canggu.",
+      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1440"
+    }
+  ]
+}
