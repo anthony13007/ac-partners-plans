@@ -17,7 +17,8 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
   img{max-width:100%}
   .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
   .eyebrow{color:var(--accent);font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px;font-weight:600}
@@ -144,12 +145,15 @@
     .owner .price{grid-template-columns:1fr;padding:26px 24px}
     .owner .price .big{font-size:72px}
     .owner .sub-table{overflow:visible}
-    .owner table{border:0;background:none}
+    /* WebKit keeps the table layout algorithm unless the TABLE itself is a block: on iOS the
+       cards were laid out ~2x the viewport, the page overflowed and Safari zoomed out. */
+    .owner table,.owner tbody,.owner tr,.owner td{display:block;width:100%;max-width:100%;box-sizing:border-box}
+    .owner table{border:0;background:none;border-collapse:separate;table-layout:auto}
     .owner thead{display:none}
-    .owner tbody,.owner tr,.owner td{display:block;width:100%}
     .owner tr{background:#fffdf9;border:1px solid #e3d7c5;border-radius:14px;margin-bottom:12px;padding:6px 4px;overflow:hidden}
     .owner tr.total{background:#f2e9db}
-    .owner td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #efe6d8;padding:10px 14px}
+    .owner td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #efe6d8;padding:10px 14px;min-width:0}
+    .owner td:before{white-space:normal}
     .owner tr td:last-child{border-bottom:0}
     .owner td:before{content:attr(data-l);color:#8a7768;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;flex:0 0 auto}
     .owner td.num,.owner td.loss{font-size:19px}
