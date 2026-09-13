@@ -2,7 +2,7 @@
 
 Generated 2026-09-13 · owner page: https://plans.ac-collection.com/villa-site/villa-luja?owner · guest site: https://plans.ac-collection.com/villa-site/villa-luja · showcase: https://plans.ac-collection.com/villa-site/villa-luja
 Numbers: 49 empty nights / 81 in October, November and early December (market 40%), $30,625 not earned at $625/night; we target +17 nights = $10,625 added, our fee $1,062, guarantee 8 nights.
-Contact:   via whatsapp
+Contact: GORO Villa Management +62851-2103-1173 via whatsapp
 
 ## Message 1 — who I am (WhatsApp)
 ```
