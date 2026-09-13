@@ -62,8 +62,10 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
 - **Mobile / WebKit** : `100svh` sur le hero ; tableau du manque à gagner empilé en cartes,
   avec `table, tbody, tr, td {display:block}` (Safari garde l'algorithme de tableau si la
   `table` reste en `display:table` → page 2x plus large, dézoom, fond crème à moitié) ;
-  `html,body{overflow-x:hidden}`. **Les captures headless Chrome à 393 px mentent** (layout
-  980 px recadré) : vérifier dans le Browser pane en preset mobile ou sur un vrai iPhone.
+  Ne JAMAIS mettre   `html,body{overflow-x:hidden}` (Safari en fait un conteneur de défilement et `position:sticky` cesse de coller :
+  le hero défile, le rail du film apparaît en noir) → `overflow-x:clip` sur html/body, `hidden` sur body seul en repli.
+  **Les captures headless Chrome à 393 px mentent** (layout 980 px recadré) et Chrome tolère
+  ce que Safari casse : la vérification finale se fait sur l'iPhone d'Anthony.
 - **Photos** : extérieurs d'abord (nuit/piscine en hero), une par pièce, pas de déco ni
   d'assiettes ; les labels Airbnb ("Pool image 2", "Exterior") guident la sélection
   (`PHOTO_PLAN`, 2 passes). Airbnb sert parfois une page sans photos : `fetch_listing.py`
