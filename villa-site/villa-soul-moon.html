@@ -119,9 +119,9 @@
   .owner .row .pr{text-align:right;white-space:nowrap}
   .owner .row .was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
   .owner .row .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
-  .owner .total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 22px;background:#f2e9db;border-top:1px solid #e3d7c5}
-  .owner .total span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
-  .owner .total b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
+  .owner .worth{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 22px;background:#f2e9db;border-top:1px solid #e3d7c5}
+  .owner .worth span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
+  .owner .worth b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
   .owner .price{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:#3d2a1f;border-radius:20px;padding:30px 34px;color:#f8f2e8}
   .owner .price .big{font-family:var(--serif);font-size:88px;line-height:.85;color:var(--accent)}
   .owner .price .l{color:#f8f2e8;font-family:var(--serif);font-size:26px;line-height:1.1}
@@ -357,8 +357,8 @@
     "lead": "No set-up fee, no subscription, no exclusivity. Every line is included the day we go live; the prices are what each one costs on its own.",
     "stack": [
       {
-        "item": "Distribution on every OTA",
-        "detail": "Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas. One synced calendar, dynamic pricing on every night."
+        "item": "Distribution on every OTA, in parallel with yours",
+        "detail": "Our own listings on Airbnb (9-year Superhost profile), Booking.com, Expedia, VRBO and Marriott Homes & Villas run alongside your channels, so the villa takes more of the market instead of moving it around. AC Collection's own playbook, a nightly pricing strategy set together with you, one synced calendar, no double bookings."
       },
       {
         "item": "Your direct-booking site",
@@ -657,7 +657,7 @@
       if (s.monthly) { parts.push(money2(s.monthly) + '/mo'); totalYear += s.monthly * 12; }
       var was = parts.length ? '<span class="was">' + parts.join(' + ') + '</span>' : '';
       return '<div class="row"><div><h4>' + s.item + '</h4><p>' + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
-    }).join('') + '<div class="total"><span>Worth, first year</span><b>' + money2(Math.round(totalYear)) + ' &rarr; ' + C.currency + '0</b></div>';
+    }).join('') + '<div class="worth"><span>Worth, first year</span><b>' + money2(Math.round(totalYear)) + ' &rarr; ' + C.currency + '0</b></div>';
     $('price').innerHTML = '<div class="big">' + (O.price_big || '10%') + '</div><div><div class="l">' + (O.price_line || 'on the nights we sell') + '</div><ul>' + (O.terms || []).map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
     var guarN = Math.max(5, Math.round(target * (C.guarantee_share || 0.5)));
     $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);

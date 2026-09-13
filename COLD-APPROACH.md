@@ -68,7 +68,7 @@ Homes & Villas, plus our AC Collection guests), one synced calendar, dynamic pri
 management, the staff and the ops.
 
 Everything that comes with it, and what each costs on its own:
-• Distribution on every OTA → included
+• Distribution on every OTA, in parallel with yours → included
 • Your direct-booking site — $690 + $29/mo → included
 • Highlight on ac-collection.com — $29/mo → included
 • Monthly report + market insights — $19.99/mo → included
