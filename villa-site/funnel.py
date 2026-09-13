@@ -27,18 +27,27 @@ def save(rows):
 def today(): return datetime.date.today().isoformat()
 
 def add(slug, contact="", handle="", channel="whatsapp", status="draft"):
+    """Add a new funnel row, or refresh the COMPUTED fields (numbers, page_url) of an
+    existing one without touching its progress (status/sent/replied/.../next_action/notes)
+    — re-running this after an ADR or market update must never roll a 'sent' villa back
+    to 'draft'. Pass contact/handle/channel only to set them; empty ones never overwrite."""
     from make_message import gap, CFG
     cfg = json.loads((HERE / "villas" / f"{slug}.json").read_text(encoding="utf-8"))
     g = gap(cfg); rows = load()
     row = next((r for r in rows if r["slug"] == slug), None)
-    new = {"slug": slug, "villa": cfg["name"], "area": cfg["area"], "bedrooms": cfg["bedrooms"], "adr": cfg["adr"],
-           "empty_nights": g["empty"], "loss": int(g["loss"]), "contact": contact or cfg.get("contact", {}).get("name", ""),
-           "handle": handle or cfg.get("contact", {}).get("handle", ""), "channel": channel or cfg.get("contact", {}).get("channel", "whatsapp"),
-           "page_url": f'{CFG["base_url"]}/villa-site/{slug}?owner', "status": status, "created": today(), "last_touch": today(),
-           "next_action": "send step 1"}
-    if row: row.update({k: v for k, v in new.items() if v not in ("", None)})
-    else: rows.append(new)
-    save(rows); return new
+    computed = {"slug": slug, "villa": cfg["name"], "area": cfg["area"], "bedrooms": cfg["bedrooms"], "adr": cfg["adr"],
+                "empty_nights": g["empty"], "loss": int(g["loss"]),
+                "page_url": f'{CFG["base_url"]}/villa-site/{slug}?owner', "last_touch": today()}
+    optional = {"contact": contact or cfg.get("contact", {}).get("name", ""),
+                "handle": handle or cfg.get("contact", {}).get("handle", ""),
+                "channel": channel or cfg.get("contact", {}).get("channel", "")}
+    if row:
+        row.update(computed)
+        row.update({k: v for k, v in optional.items() if v})
+    else:
+        rows.append({**computed, **optional, "channel": optional["channel"] or "whatsapp",
+                     "status": status, "created": today(), "next_action": "send step 1"})
+    save(rows); return next(r for r in rows if r["slug"] == slug)
 
 def set_status(slug, status, note=""):
     assert status in STATUSES, f"status must be one of {STATUSES}"
