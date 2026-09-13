@@ -33,7 +33,12 @@ def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
     cur = cfg.get("currency", "$")
     first = first_name or cfg.get("contact", {}).get("first_name") or "there"
     villa = cfg["name"]; area = cfg["area"]; br = cfg["bedrooms"]
-    months = [m["month"].split(" ")[0] for m in cfg["low_season"]]
+    def _month_label(lbl):
+        """'December (1–20)' -> 'early December' so the message stays true to the table."""
+        if "(" not in lbl: return lbl
+        name, rng = lbl.split(" (", 1)
+        return ("early " + name) if rng.startswith("1–") else (name + " from the " + rng.split("–")[0])
+    months = [_month_label(m["month"]) for m in cfg["low_season"]]
     months_txt = ", ".join(months[:-1]) + " and " + months[-1] if len(months) > 1 else months[0]
     url = f'{CFG["base_url"]}/villa-site/{cfg["slug"]}?owner'
     site_url = f'{CFG["base_url"]}/villa-site/{cfg["slug"]}'

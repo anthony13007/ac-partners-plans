@@ -5,48 +5,280 @@
   "usd_idr": 16000,
   "zones": {
     "canggu": {
-      "label": "Canggu", "br_band": "4–10 BR", "compset": 350,
-      "ref_listing": {"name": "The Dreamtime House", "listing_id": "69ec6cf15b70a30014f98e80", "pms_name": "guesty"},
-      "occ_ly":   {"Jan": 40, "Feb": 41, "Mar": 43, "Apr": 45, "May": 45, "Jun": 46, "Jul": 50, "Aug": 49, "Sep": 43, "Oct": 41, "Nov": 39, "Dec": 41},
-      "occ_prev": {"Jan": 43, "Feb": 34, "Mar": 37, "Apr": 44, "May": 41, "Jun": 44, "Jul": 46, "Aug": 47, "Sep": 43, "Oct": 39, "Nov": 38, "Dec": 41},
-      "adr_median_idr": {"4": 4660940, "5": 7943331, "6": 8525070, "7": 11482606, "8": 9591449, "9": 11716014, "10": 25236631},
-      "adr_p75_idr":    {"4": 6006158, "5": 10094039, "6": 12654644, "7": 14560407, "8": 16146921, "9": 16017761, "10": 30055866},
-      "adr_p90_idr":    {"4": 7215035, "5": 14298908, "6": 17445500, "7": 19674706, "8": 18947495, "9": 18304600, "10": 32947407}
+      "label": "Canggu",
+      "br_band": "4–10 BR",
+      "compset": 350,
+      "ref_listing": {
+        "name": "The Dreamtime House",
+        "listing_id": "69ec6cf15b70a30014f98e80",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 40,
+        "Feb": 41,
+        "Mar": 43,
+        "Apr": 45,
+        "May": 45,
+        "Jun": 46,
+        "Jul": 50,
+        "Aug": 49,
+        "Sep": 43,
+        "Oct": 41,
+        "Nov": 39,
+        "Dec": 41
+      },
+      "occ_prev": {
+        "Jan": 43,
+        "Feb": 34,
+        "Mar": 37,
+        "Apr": 44,
+        "May": 41,
+        "Jun": 44,
+        "Jul": 46,
+        "Aug": 47,
+        "Sep": 43,
+        "Oct": 39,
+        "Nov": 38,
+        "Dec": 41
+      },
+      "adr_median_idr": {
+        "4": 4660940,
+        "5": 7943331,
+        "6": 8525070,
+        "7": 11482606,
+        "8": 9591449,
+        "9": 11716014,
+        "10": 25236631
+      },
+      "adr_p75_idr": {
+        "4": 6006158,
+        "5": 10094039,
+        "6": 12654644,
+        "7": 14560407,
+        "8": 16146921,
+        "9": 16017761,
+        "10": 30055866
+      },
+      "adr_p90_idr": {
+        "4": 7215035,
+        "5": 14298908,
+        "6": 17445500,
+        "7": 19674706,
+        "8": 18947495,
+        "9": 18304600,
+        "10": 32947407
+      }
     },
     "seminyak": {
-      "label": "Seminyak", "br_band": "4–10 BR", "compset": 350,
-      "ref_listing": {"name": "Villa LaTaLiana", "listing_id": "6996a1ee5d44cd0013d7c4ce", "pms_name": "guesty"},
-      "occ_ly":   {"Jan": 49, "Feb": 45, "Mar": 49, "Apr": 55, "May": 53, "Jun": 58, "Jul": 62, "Aug": 59, "Sep": 58, "Oct": 55, "Nov": 49, "Dec": 47},
-      "adr_median_idr": {"4": 5988454, "5": 8383644, "6": 9856234, "7": 15845065, "8": 16821892, "9": 15008414, "10": 23987209},
-      "adr_p75_idr":    {"4": 8593340, "5": 11653370, "6": 19237802, "7": 25215938, "8": 27346801, "9": 22176992, "10": 25606613},
-      "adr_p90_idr":    {"4": 9949741, "5": 15527096, "6": 25743778, "7": 31443593, "8": 35205330, "9": 32368098, "10": 27683301}
+      "label": "Seminyak",
+      "br_band": "4–10 BR",
+      "compset": 350,
+      "ref_listing": {
+        "name": "Villa LaTaLiana",
+        "listing_id": "6996a1ee5d44cd0013d7c4ce",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 49,
+        "Feb": 45,
+        "Mar": 49,
+        "Apr": 55,
+        "May": 53,
+        "Jun": 58,
+        "Jul": 62,
+        "Aug": 59,
+        "Sep": 58,
+        "Oct": 55,
+        "Nov": 49,
+        "Dec": 47
+      },
+      "adr_median_idr": {
+        "4": 5988454,
+        "5": 8383644,
+        "6": 9856234,
+        "7": 15845065,
+        "8": 16821892,
+        "9": 15008414,
+        "10": 23987209
+      },
+      "adr_p75_idr": {
+        "4": 8593340,
+        "5": 11653370,
+        "6": 19237802,
+        "7": 25215938,
+        "8": 27346801,
+        "9": 22176992,
+        "10": 25606613
+      },
+      "adr_p90_idr": {
+        "4": 9949741,
+        "5": 15527096,
+        "6": 25743778,
+        "7": 31443593,
+        "8": 35205330,
+        "9": 32368098,
+        "10": 27683301
+      }
     },
     "pererenan": {
-      "label": "Pererenan", "br_band": "4–6 BR", "compset": 350,
-      "ref_listing": {"name": "BREIG River Villa", "listing_id": "6996a1fc9b1ac8002b61d8c6", "pms_name": "guesty"},
-      "occ_ly":   {"Jan": 60, "Feb": 60, "Mar": 65, "Apr": 69, "May": 66, "Jun": 64, "Jul": 71, "Aug": 72, "Sep": 66, "Oct": 64, "Nov": 60, "Dec": 61},
-      "adr_median_idr": {"4": 6684330, "5": 8494330, "6": 10874200},
-      "adr_p75_idr":    {"4": 8961644, "5": 14505582, "6": 20580719},
-      "adr_p90_idr":    {"4": 11229995, "5": 22040647, "6": 29665530}
+      "label": "Pererenan",
+      "br_band": "4–6 BR",
+      "compset": 350,
+      "ref_listing": {
+        "name": "BREIG River Villa",
+        "listing_id": "6996a1fc9b1ac8002b61d8c6",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 60,
+        "Feb": 60,
+        "Mar": 65,
+        "Apr": 69,
+        "May": 66,
+        "Jun": 64,
+        "Jul": 71,
+        "Aug": 72,
+        "Sep": 66,
+        "Oct": 64,
+        "Nov": 60,
+        "Dec": 61
+      },
+      "adr_median_idr": {
+        "4": 6684330,
+        "5": 8494330,
+        "6": 10874200
+      },
+      "adr_p75_idr": {
+        "4": 8961644,
+        "5": 14505582,
+        "6": 20580719
+      },
+      "adr_p90_idr": {
+        "4": 11229995,
+        "5": 22040647,
+        "6": 29665530
+      }
     },
     "berawa": {
-      "label": "Berawa", "br_band": "3–5 BR", "compset": 350,
-      "ref_listing": {"name": "OXO Black Villa", "listing_id": "6a609fb574a20200141271bd", "pms_name": "guesty"},
-      "occ_ly":   {"Jan": 55, "Feb": 55, "Mar": 56, "Apr": 64, "May": 64, "Jun": 68, "Jul": 71, "Aug": 67, "Sep": 61, "Oct": 57, "Nov": 51, "Dec": 58},
-      "adr_median_idr": {"3": 4067096, "4": 6789892, "5": 10515229},
-      "adr_p75_idr":    {"3": 5637101, "4": 9226473, "5": 12770057},
-      "adr_p90_idr":    {"3": 7170140, "4": 12707529, "5": 17556947}
+      "label": "Berawa",
+      "br_band": "3–5 BR",
+      "compset": 350,
+      "ref_listing": {
+        "name": "OXO Black Villa",
+        "listing_id": "6a609fb574a20200141271bd",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 55,
+        "Feb": 55,
+        "Mar": 56,
+        "Apr": 64,
+        "May": 64,
+        "Jun": 68,
+        "Jul": 71,
+        "Aug": 67,
+        "Sep": 61,
+        "Oct": 57,
+        "Nov": 51,
+        "Dec": 58
+      },
+      "adr_median_idr": {
+        "3": 4067096,
+        "4": 6789892,
+        "5": 10515229
+      },
+      "adr_p75_idr": {
+        "3": 5637101,
+        "4": 9226473,
+        "5": 12770057
+      },
+      "adr_p90_idr": {
+        "3": 7170140,
+        "4": 12707529,
+        "5": 17556947
+      }
     },
     "uluwatu": {
-      "label": "Uluwatu", "br_band": "3–5 BR", "compset": 350,
-      "ref_listing": {"name": "Prime Bali Forest", "listing_id": "69ce2c688c9a6100111b4e44", "pms_name": "guesty"},
-      "occ_ly":   {"Jan": 72, "Feb": 72, "Mar": 75, "Apr": 85, "May": 81, "Jun": 79, "Jul": 85, "Aug": 87, "Sep": 83, "Oct": 80, "Nov": 72, "Dec": 68},
-      "adr_median_idr": {"3": 5017281, "4": 6690764, "5": 9534427},
-      "adr_p75_idr":    {"3": 6565235, "4": 9651698, "5": 13061820},
-      "adr_p90_idr":    {"3": 7530859, "4": 11755053, "5": 19720652}
+      "label": "Uluwatu",
+      "br_band": "3–5 BR",
+      "compset": 350,
+      "ref_listing": {
+        "name": "Prime Bali Forest",
+        "listing_id": "69ce2c688c9a6100111b4e44",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 72,
+        "Feb": 72,
+        "Mar": 75,
+        "Apr": 85,
+        "May": 81,
+        "Jun": 79,
+        "Jul": 85,
+        "Aug": 87,
+        "Sep": 83,
+        "Oct": 80,
+        "Nov": 72,
+        "Dec": 68
+      },
+      "adr_median_idr": {
+        "3": 5017281,
+        "4": 6690764,
+        "5": 9534427
+      },
+      "adr_p75_idr": {
+        "3": 6565235,
+        "4": 9651698,
+        "5": 13061820
+      },
+      "adr_p90_idr": {
+        "3": 7530859,
+        "4": 11755053,
+        "5": 19720652
+      }
     }
   },
   "aliases": {
-    "kuta utara": "canggu", "north kuta": "canggu", "canggu": "canggu", "batu bolong": "canggu", "echo beach": "canggu", "babakan": "canggu", "tumbak bayuh": "canggu", "pererenan": "pererenan", "seseh": "pererenan", "cemagi": "pererenan", "mengwi": "pererenan", "berawa": "berawa", "tibubeneng": "berawa", "seminyak": "seminyak", "kerobokan": "seminyak", "umalas": "seminyak", "petitenget": "seminyak", "kuta": "seminyak", "legian": "seminyak", "uluwatu": "uluwatu", "pecatu": "uluwatu", "bingin": "uluwatu", "ungasan": "uluwatu", "nusa dua": "uluwatu", "jimbaran": "uluwatu", "kuta selatan": "uluwatu", "south kuta": "uluwatu"
-  }
+    "kuta utara": "canggu",
+    "north kuta": "canggu",
+    "canggu": "canggu",
+    "batu bolong": "canggu",
+    "echo beach": "canggu",
+    "babakan": "canggu",
+    "tumbak bayuh": "canggu",
+    "pererenan": "pererenan",
+    "seseh": "pererenan",
+    "cemagi": "pererenan",
+    "mengwi": "pererenan",
+    "berawa": "berawa",
+    "tibubeneng": "berawa",
+    "seminyak": "seminyak",
+    "kerobokan": "seminyak",
+    "umalas": "seminyak",
+    "petitenget": "seminyak",
+    "kuta": "seminyak",
+    "legian": "seminyak",
+    "uluwatu": "uluwatu",
+    "pecatu": "uluwatu",
+    "bingin": "uluwatu",
+    "ungasan": "uluwatu",
+    "nusa dua": "uluwatu",
+    "jimbaran": "uluwatu",
+    "kuta selatan": "uluwatu",
+    "south kuta": "uluwatu"
+  },
+  "peak_windows": {
+    "_note": "Portions of a month that are peak and must never be sold as low season. days = the low-season days that remain, label = what the page and the message show.",
+    "December": {
+      "days": 20,
+      "label": "December (1–20)",
+      "reason": "Christmas and New Year from the 21st: market occupancy +16% and prices +14 to +18% vs surrounding dates (PriceLabs)"
+    },
+    "January": {
+      "days": 26,
+      "label": "January (6–31)",
+      "reason": "New Year holidays run to the 5th"
+    }
+  },
+  "peak_occ_threshold": 0.5
 }

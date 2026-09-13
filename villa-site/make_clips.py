@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Turn a villa's photos into scroll-scrubbable tour clips (free, no AI credits).
+"""Cut a villa tour video into scroll-scrubbable clips.
+
+Only for REAL footage (drone, gimbal, an owner's reel). Photos do NOT need this: the page
+animates the full-resolution stills in CSS, which is sharper, ~20x lighter and correct on
+phones — encoding a still into 72 all-intra frames cost 2.5-9 MB per photo for no gain.
 
   python3 make_clips.py <slug> [--seconds 4] [--width 1280] [--only 0,1,3]
 
@@ -30,11 +34,11 @@ def download(url, dest):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as r, open(dest, "wb") as f: f.write(r.read())
 
-def render(src_img, out_mp4, move, seconds=4, width=1280, fps=24):
+def render(src_img, out_mp4, move, seconds=4, width=1600, fps=24):
     n = seconds * fps; h = round(width * 9 / 16 / 2) * 2
     vf = (f"scale=3840:-2,zoompan={move.replace('N', str(n))}:d={n}:s={width}x{h}:fps={fps},format=yuv420p")
     cmd = [FFMPEG, "-y", "-loglevel", "error", "-loop", "1", "-i", str(src_img), "-vf", vf, "-frames:v", str(n),
-           "-c:v", "libx264", "-g", "1", "-keyint_min", "1", "-crf", "27", "-preset", "medium", "-movflags", "+faststart", "-an", str(out_mp4)]
+           "-c:v", "libx264", "-g", "1", "-keyint_min", "1", "-crf", "21", "-preset", "slow", "-profile:v", "high", "-movflags", "+faststart", "-an", str(out_mp4)]
     subprocess.run(cmd, check=True)
 
 def split_video(video, out_dir, seconds=4, width=1280):
@@ -49,10 +53,13 @@ def split_video(video, out_dir, seconds=4, width=1280):
     return clips
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("slug"); ap.add_argument("--seconds", type=int, default=3); ap.add_argument("--width", type=int, default=1024)
+    ap = argparse.ArgumentParser(); ap.add_argument("slug"); ap.add_argument("--seconds", type=int, default=3); ap.add_argument("--width", type=int, default=1600)
     ap.add_argument("--only", help="comma-separated photo indexes"); ap.add_argument("--from-video")
     a = ap.parse_args()
     if not FFMPEG: sys.exit("ffmpeg not found (set FFMPEG=/path/to/ffmpeg)")
+    if not a.from_video:
+        sys.exit("Photos are animated in CSS by the page itself — no clips needed.\n"
+                 "Use this only for real footage:  make_clips.py <slug> --from-video tour.mp4")
     cfg_path = HERE / "villas" / f"{a.slug}.json"; cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
     media = HERE / "media" / a.slug; media.mkdir(parents=True, exist_ok=True)
     clips = []
@@ -65,7 +72,7 @@ def main():
         tmp = pathlib.Path(os.environ.get("TMPDIR", "/tmp")) / f"clips-{a.slug}"; tmp.mkdir(parents=True, exist_ok=True)
         for k, i in enumerate(idx):
             p = cfg["photos"][i]; src = tmp / f"{i:02d}.jpg"
-            if not src.exists(): download(p.get("url_hd") or p["url"], src)
+            if not src.exists(): download((p.get("url_hd") or p["url"]).replace("im_w=1920", "im_w=2560").replace("im_w=1440", "im_w=2560"), src)
             out = media / f"clip-{k+1:02d}.mp4"
             render(src, out, MOVES[k % len(MOVES)], a.seconds, a.width)
             clips.append({"src": f"media/{a.slug}/{out.name}", "caption": p.get("caption", ""), "poster": p["url"]})

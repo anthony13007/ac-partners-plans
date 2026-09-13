@@ -35,9 +35,9 @@
 
   /* SCROLL FILM (photos become frames of a scroll-driven film) */
   .film{position:relative}
-  .film .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#000}
+  .film .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
   .film .frame{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
-  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;will-change:transform;backface-visibility:hidden}
   .film .frame.clip:after{background:linear-gradient(180deg,rgba(15,13,11,.35) 0%,rgba(15,13,11,.05) 40%,rgba(15,13,11,.72) 100%)}
   .film .frame:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.15) 0%,rgba(15,13,11,0) 35%,rgba(15,13,11,.78) 100%)}
   .film .titles{position:absolute;left:0;right:0;bottom:0;padding:0 32px 56px;z-index:2}
@@ -119,10 +119,22 @@
     .story .grid{grid-template-columns:1fr;gap:34px}
     .gallery{grid-template-columns:1fr 1fr}.gallery img{height:200px}.gallery img.wide{grid-column:span 2}.gallery img.tall{grid-row:auto;height:200px}
     .owner .pkg{grid-template-columns:1fr}
+    .owner .sub-table{overflow:visible}
+    .owner table{border:0;background:none}
+    .owner thead{display:none}
+    .owner tbody,.owner tr,.owner td{display:block;width:100%}
+    .owner tr{background:#fffdf9;border:1px solid #e3d7c5;border-radius:14px;margin-bottom:12px;padding:6px 4px;overflow:hidden}
+    .owner tr.total{background:#f2e9db}
+    .owner td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #efe6d8;padding:10px 14px}
+    .owner tr td:last-child{border-bottom:0}
+    .owner td:before{content:attr(data-l);color:#8a7768;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;flex:0 0 auto}
+    .owner td.num,.owner td.loss{font-size:19px}
     .film .hero-text{padding:0 22px 96px}
     .film.video .hero-text{padding-bottom:130px}
     .film .titles .cap{font-size:18px}
     nav .brand{font-size:16px;max-width:58vw}
+    h1{font-size:clamp(34px,8.6vw,44px)}
+    h2{font-size:clamp(28px,6.4vw,38px)}
     .film .hero-text .meta{gap:14px;font-size:11px}
     .film .titles{padding:0 22px 44px}
     nav{padding:18px 20px}
@@ -152,49 +164,49 @@
   "photos": [
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=2560",
       "caption": "Villa Luja, Canggu. Waterslide pool, sunset every night.",
       "label": "Pool image 1"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=2560",
       "caption": "Rooftop, ocean to the west, mountains to the north.",
       "label": "Rooftop image 3"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=2560",
       "caption": "Golden hour by the pool.",
       "label": "Pool image 3"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=2560",
       "caption": "The living pavilion, open to the garden.",
       "label": "Living room image 2"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=2560",
       "caption": "The kitchen, island seating for the whole group.",
       "label": "Full kitchen image 1"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=2560",
       "caption": "One of five suites, ensuite bathrooms throughout.",
       "label": "Bedroom 1"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=2560",
       "caption": "Private cinema, 4K projector, surround sound.",
       "label": "Movie theater image 1"
     },
     {
       "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1440",
-      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1920",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=2560",
       "caption": "Rooftop jacuzzi, sunset over Canggu.",
       "label": "Rooftop image 5"
     }
@@ -264,8 +276,8 @@
       "market_occ": 0.39
     },
     {
-      "month": "December",
-      "days": 31,
+      "month": "December (1–20)",
+      "days": 20,
       "market_occ": 0.41
     }
   ],
@@ -273,7 +285,7 @@
   "capture_rate": 0.35,
   "commission": 0.1,
   "site_price": "Included · $690 + $29/mo on its own",
-  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: market occupancy by month for October, November, December; annual average 44%.",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: market occupancy by month for October, November, December (1–20); annual average 44%. The Christmas and New Year peak is excluded, not counted as low season (Christmas and New Year from the 21st: market occupancy +16% and prices +14 to +18% vs surrounding dates (PriceLabs)).",
   "market": {
     "zone": "canggu",
     "compset": 350,
@@ -305,48 +317,7 @@
   },
   "generated": "2026-09-13",
   "photos_locked": true,
-  "tour_clips": [
-    {
-      "src": "media/villa-luja/clip-01.mp4",
-      "caption": "Villa Luja, Canggu. Waterslide pool, sunset every night.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/f1f18da0-1f8a-430d-8d27-657442a8cef3.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-02.mp4",
-      "caption": "Rooftop, ocean to the west, mountains to the north.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/937bd109-e891-44c5-a2cf-60b7f9176708.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-03.mp4",
-      "caption": "Golden hour by the pool.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/0f370f80-8173-47e5-95bf-d62619b81436.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-04.mp4",
-      "caption": "The living pavilion, open to the garden.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/61652642-7b1f-42b0-950d-2eb81991a207.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-05.mp4",
-      "caption": "The kitchen, island seating for the whole group.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/987493a7-be1c-4d0c-b32c-fedd4233ad26.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-06.mp4",
-      "caption": "One of five suites, ensuite bathrooms throughout.",
-      "poster": "https://a0.muscache.com/im/pictures/miso/Hosting-600173702615262232/original/e590d131-1aed-471f-a5a6-eb0dac3b24ac.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-07.mp4",
-      "caption": "Private cinema, 4K projector, surround sound.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/ff2d78a5-f7ad-4055-8109-72000f024da9.jpeg?im_w=1440"
-    },
-    {
-      "src": "media/villa-luja/clip-08.mp4",
-      "caption": "Rooftop jacuzzi, sunset over Canggu.",
-      "poster": "https://a0.muscache.com/im/pictures/hosting/Hosting-600173702615262232/original/44734636-9d0f-4c48-8d43-8f5470621d1f.jpeg?im_w=1440"
-    }
-  ]
+  "scroll_vh_per_photo": 34
 }
 </script>
 
@@ -454,7 +425,10 @@
   /* ---- film: scroll-scrubbed video clips (tour_clips) or photo frames ---- */
   var stage = $('stage'), film = $('film'), cap = $('cap'), heroText = $('hero-text'), progress = $('progress');
   var clips = C.tour_clips || [];
-  var videoMode = clips.length > 0;
+  /* On a phone a 16:9 clip is cropped to a narrow centre strip by object-fit:cover and looks
+     soft and badly framed, so portrait/narrow screens play the full-resolution photo film instead. */
+  var narrow = window.matchMedia('(max-width: 820px)').matches;
+  var videoMode = clips.length > 0 && !narrow;
   if (videoMode) film.classList.add('video');
   var items = videoMode ? clips : C.photos;
   var N = items.length, frames = [], media = [];
@@ -467,12 +441,23 @@
       el.preload = 'auto'; el.src = it.src; if (it.poster || (C.photos[i] && C.photos[i].url)) el.poster = it.poster || C.photos[i].url;
       el.addEventListener('loadedmetadata', render);
     } else {
-      el = document.createElement('img'); el.src = it.url; el.alt = it.caption || C.name; if (i > 1) el.loading = 'lazy';
+      el = document.createElement('img');
+      el.src = (window.devicePixelRatio > 1.5 && it.url_hd) ? it.url_hd : it.url;
+      el.alt = it.caption || C.name; if (i > 1) el.loading = 'lazy';
     }
     f.appendChild(el); stage.insertBefore(f, heroText); frames.push(f); media.push(el);
   });
   /* scroll length: a video clip gets a long, slow scrub like a walkthrough; a photo a shorter beat */
-  film.style.height = (videoMode ? N * (C.scroll_vh_per_clip || 52) + 18 : N * (C.scroll_vh_per_photo || 20) + 10) + 'vh';
+  film.style.height = (videoMode ? N * (C.scroll_vh_per_clip || 52) + 18 : N * (C.scroll_vh_per_photo || 34) + 12) + 'vh';
+  /* one move per photo: push in, pull out, pan across, drift up — cycled */
+  var KB = [
+    {z0:1.02, z1:1.16, x:0,    y:0},
+    {z0:1.16, z1:1.02, x:0,    y:0},
+    {z0:1.10, z1:1.14, x:-3.5, y:0},
+    {z0:1.14, z1:1.10, x:3.5,  y:0},
+    {z0:1.03, z1:1.15, x:0,    y:-2.5},
+    {z0:1.15, z1:1.05, x:2.5,  y:1.5}
+  ];
   var lastCap = null;
   function render(){
     var vh = window.innerHeight;
@@ -494,7 +479,12 @@
       } else {
         o = 1 - Math.min(1, Math.abs(d) * 1.35);
         frames[i].style.opacity = o;
-        media[i].style.transform = 'scale(' + (1.04 + Math.max(-0.5, Math.min(1.5, d)) * 0.08) + ')';
+        /* Ken Burns in CSS on the full-resolution photo: each frame gets its own slow move,
+           so the film stays razor sharp on any screen and nothing has to be downloaded. */
+        var k = Math.max(-1, Math.min(1, d)), mv = KB[i % KB.length];
+        var z = mv.z0 + (mv.z1 - mv.z0) * ((k + 1) / 2);
+        media[i].style.transform = 'scale(' + z.toFixed(4) + ') translate(' +
+          (mv.x * k).toFixed(2) + '%,' + (mv.y * k).toFixed(2) + '%)';
       }
     }
     var idx = Math.min(N - 1, videoMode ? Math.floor(pos) : Math.round(pos));
@@ -544,14 +534,15 @@
       var empty = Math.round(m.days * (1 - m.market_occ));
       var loss = empty * adr;
       totNights += m.days; totEmpty += empty; totLoss += loss;
-      rows += '<tr><td>' + m.month + '</td><td class="num">' + m.days + '</td><td class="num">' + Math.round(m.market_occ * 100) + '%</td><td class="num">' + empty + '</td><td class="loss">' + fmtMoney(loss) + '</td></tr>';
+      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + m.days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="Empty nights">' + empty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(loss) + '</td></tr>';
     });
-    rows += '<tr class="total"><td>Total low season</td><td class="num">' + totNights + '</td><td class="num">' + Math.round((1 - totEmpty / totNights) * 100) + '%</td><td class="num">' + totEmpty + '</td><td class="loss">' + fmtMoney(totLoss) + '</td></tr>';
+    rows += '<tr class="total"><td data-l="Month">Total low season</td><td class="num" data-l="Nights">' + totNights + '</td><td class="num" data-l="Market occupancy">' + Math.round((1 - totEmpty / totNights) * 100) + '%</td><td class="num" data-l="Empty nights">' + totEmpty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(totLoss) + '</td></tr>';
     $('gap-table').querySelector('tbody').innerHTML = rows;
 
     var target = Math.round(totEmpty * capture), targetRev = target * adr, fee = targetRev * C.commission;
     $('owner-title').innerHTML = C.name + ' sits empty <em>' + totEmpty + ' nights</em> every low season.';
-    $('owner-lead').textContent = 'At your ' + fmtMoney(adr) + '/night rate, the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ return m.month.split(' ')[0]; }).join(', ') + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
+    $('owner-lead').textContent = 'At your ' + fmtMoney(adr) + '/night rate, the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ var n = m.month.split(' (')[0];
+      return m.month.indexOf('(1–') > -1 ? 'early ' + n : n; }).join(', ') + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
     $('gap-stats').innerHTML =
       '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">Empty nights per low season (market average)</div></div>' +
       '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at your nightly rate</div></div>' +

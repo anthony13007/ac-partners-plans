@@ -1,7 +1,7 @@
 # Outreach — Villa Luja (Canggu, 5BR)
 
 Generated 2026-09-13 · owner page: https://plans.ac-collection.com/villa-site/villa-luja?owner · guest site: https://plans.ac-collection.com/villa-site/villa-luja · showcase: https://plans.ac-collection.com/villa-site/villa-luja
-Numbers: 55 empty nights / 92 in October, November and December (market 40%), $34,375 not earned at $625/night; we target +19 nights = $11,875 added, our fee $1,188, guarantee 10 nights.
+Numbers: 49 empty nights / 81 in October, November and early December (market 40%), $30,625 not earned at $625/night; we target +17 nights = $10,625 added, our fee $1,062, guarantee 8 nights.
 Contact:   via whatsapp
 
 ## Message 1 — who I am (WhatsApp)
@@ -18,7 +18,7 @@ Hi there, Superhost here (759 reviews), 30 villas in Bali: https://ac-collection
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
 ```
-5-bedroom villas around Villa Luja sit at ~40% occupancy in October, November and December. At your ~$625/night that is about 55 empty nights, $34,375 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-luja?owner
+5-bedroom villas around Villa Luja sit at ~40% occupancy in October, November and early December. At your ~$625/night that is about 49 empty nights, $30,625 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-luja?owner
 
 And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/villa-luja
 
@@ -38,7 +38,7 @@ We co-list Villa Luja on our channels (Airbnb Superhost profile, Booking.com, Ex
 • Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.
 • A reel of Villa Luja on our Instagram (@acpartners.collection), included.
 • A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included.
-• If we have not sold 10 nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
+• If we have not sold 8 nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
 
 15 minutes on WhatsApp this week? Tuesday or Thursday?
 ```
@@ -51,7 +51,7 @@ Understood, no problem. One lighter option, zero commitment: we feature Villa Lu
 ## Follow-up J+3 after message 2 (2026-09-16)
 ```
 Hi there, did the page load OK on your side? https://plans.ac-collection.com/villa-site/villa-luja?owner
-Happy to walk you through the 55 nights in 10 min.
+Happy to walk you through the 49 nights in 10 min.
 ```
 
 ## Follow-up J+7 (2026-09-20) — attach a PriceLabs screenshot of one of our villas vs market

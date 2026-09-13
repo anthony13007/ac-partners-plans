@@ -75,8 +75,17 @@ def low_season(zone, n=3, from_date=None):
     blend = {m: (ly[m] + prev[m]) / 2 if m in prev else ly[m] for m in MONTHS}
     today = from_date or datetime.date.today()
     start = today.month  # 0-based index of NEXT month (Jan=index0=month1, so month m -> index m)
-    upcoming = [MONTHS[(start + i) % 12] for i in range(n)]
-    rows = [{"month": LONG[m], "days": DAYS[m], "market_occ": round(blend[m] / 100, 2)} for m in upcoming]
+    peak = MARKET.get("peak_windows", {})
+    threshold = MARKET.get("peak_occ_threshold", 0.50) * 100
+    rows = []
+    for i in range(12):  # walk forward until n genuinely soft months are found
+        if len(rows) >= n: break
+        m = MONTHS[(start + i) % 12]
+        if blend[m] > threshold: continue  # a busy month is not a low season, never pitch it as one
+        window = peak.get(LONG[m], {})
+        rows.append({"month": window.get("label", LONG[m]),
+                     "days": window.get("days", DAYS[m]),
+                     "market_occ": round(blend[m] / 100, 2)})
     annual = round(sum(ly.values()) / 12)
     return rows, annual, blend
 
