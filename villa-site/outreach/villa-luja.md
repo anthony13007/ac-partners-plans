@@ -1,7 +1,7 @@
 # Outreach — Villa Luja (Canggu, 5BR)
 
 Generated 2026-09-13 · owner page: https://plans.ac-collection.com/villa-site/villa-luja?owner · guest site: https://plans.ac-collection.com/villa-site/villa-luja · showcase: https://plans.ac-collection.com/villa-site/villa-luja
-Numbers: 54 empty nights / 89 in February, March and November (market 39%), $35,100 not earned at $650/night; we target +19 nights = $12,350 added, our fee $1,235, guarantee 10 nights.
+Numbers: 54 empty nights / 89 in February, March and November (market 39%), $33,750 not earned at $625/night; we target +19 nights = $11,875 added, our fee $1,188, guarantee 10 nights.
 Contact:   via whatsapp
 
 ## Message 1 — who I am (WhatsApp)
@@ -18,7 +18,7 @@ Hi there, Superhost here (759 reviews), 30 villas in Bali: https://ac-collection
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
 ```
-5-bedroom villas around Villa Luja sit at ~39% occupancy in February, March and November. At your ~$650/night that is about 54 empty nights, $35,100 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-luja?owner
+5-bedroom villas around Villa Luja sit at ~39% occupancy in February, March and November. At your ~$625/night that is about 54 empty nights, $33,750 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-luja?owner
 
 And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/villa-luja
 

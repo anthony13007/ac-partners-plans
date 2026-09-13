@@ -7,8 +7,8 @@
   "bedrooms": 5,
   "guests": 11,
   "currency": "$",
-  "adr": 650,
-  "adr_source": "market_p75 (PriceLabs, no ADR given)",
+  "adr": 625,
+  "adr_source": "owner-provided: 10M IDR low season / 16M IDR peak season (Anthony's in-person visit, 13/09/2026)",
   "source_url": "https://www.airbnb.com/rooms/600173702615262232",
   "listing_id": "600173702615262232",
   "city_raw": "Kecamatan Kuta Utara",
@@ -93,15 +93,15 @@
   "rates": [
     {
       "season": "Low season · Feb, Mar, Nov",
-      "nightly": 500
+      "nightly": 625
     },
     {
       "season": "Mid season",
-      "nightly": 650
+      "nightly": 800
     },
     {
       "season": "High season · Jul – Aug",
-      "nightly": 850
+      "nightly": 1000
     }
   ],
   "amenities": [
