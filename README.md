@@ -25,18 +25,36 @@ Ensuite, a la main : coller l'etape 1 dans WhatsApp, `python3 villa-site/funnel.
 
 Re-lancer `villa.py` sur un slug existant garde les retouches manuelles du JSON (photos, textes) et ne rafraichit que la donnee marche, l'ADR et les sorties ; `--fresh` repart de zero. `"photos_locked": true` protege une selection de photos faite a la main.
 
-### Mode "scroll video" sans Higgsfield
+### Film au scroll : photos animées en CSS, pas de vidéo générée
 
-`python3 villa-site/make_clips.py <slug>` rend un clip Ken Burns par photo avec ffmpeg (zoom / pan, une image cle par frame, ~1-2 Mo par clip, $0), les depose dans `media/<slug>/` et ecrit `tour_clips` dans le JSON ; le scroll fait avancer la video, le titre reste pose dessus, le site arrive a la fin. Avec une vraie video du proprio (drone, reel) : `make_clips.py <slug> --from-video fichier.mp4` la decoupe en plans de 3 s scrubbables. Sans `tour_clips`, la page retombe sur le film photo.
+Le hero anime les photos du listing en pleine résolution (2560 px) directement en CSS, zoom et
+pan différents par image, pilotés par le scroll. Net sur tout écran, ~3 Mo par villa, cadrage
+correct sur téléphone. Les mp4 générés depuis des photos ont été abandonnés (2,5 à 9 Mo par clip
+pour un rendu flou, et un 16:9 recadré à 25 % en portrait). `make_clips.py <slug> --from-video
+tour.mp4` reste disponible pour de vraies images tournées par un propriétaire (drone, reel).
+Vitesse du film : `scroll_vh_per_photo` dans le JSON (défaut 34).
 
-Alternatives gratuites a Higgsfield pour de la vraie image-to-video : Kling et Hailuo (MiniMax) donnent des credits quotidiens gratuits, Luma Dream Machine un quota mensuel ; exporter en mp4 puis `--from-video`.
+### L'offre : une pile de valeur, une seule source
+
+`config.json` → `offer.stack` : chaque ligne avec son prix seul barré puis "Included", le total
+de valeur, puis un prix unique (10 % sur les nuits vendues), les conditions et la garantie. La
+même liste alimente la section propriétaire de la page et le message 3. Côté guest : un seul
+tarif généraliste (`--rates-idr 10 16` → "IDR 10M – 16M / night"), et "Check availability"
+renvoie toujours chez le propriétaire (WhatsApp, sinon son annonce), jamais chez nous.
+
+### Basse saison = les 3 prochains mois, pointes exclues
+
+Fenêtre glissante à partir d'aujourd'hui, jamais "les 3 mois les plus creux de l'année".
+`market/bali.json` → `peak_windows` retire Noël/Nouvel An (décembre s'arrête au 20, janvier
+commence le 6) ; un mois au-dessus de 50 % d'occupation n'est jamais présenté comme creux.
+
+**La référence complète du process, pour Bali et pour tout nouveau marché : [villa-site/SKILL.md](villa-site/SKILL.md)** (aussi installée comme skill `villa-prospect`).
 
 ### Fichiers
 
 - `template.html` : le site (film au scroll, galerie, tarifs, WhatsApp) + section proprietaire (nuits vides, manque a gagner, package).
 - `config.json` : URL Vercel, WhatsApp, stats Superhost, defauts (capture 35 %, commission 10 %, highlight 5 %, site seul $690 + $29/mois).
 - `market/bali.json` : occupation marche par zone et par mois (12 derniers mois + annee precedente pour Canggu), ADR p50/p75/p90 par nombre de chambres, alias de localites.
-- `villas/*.json` : une config par villa. `demo-seminyak` = demo (photos d'emprunt), `the-dreamtime-house` = test reel (8 photos Airbnb, 8 clips).
+- `villas/*.json` : une config par villa. `demo-seminyak` = demo, `the-dreamtime-house` = villa AC (test), `villa-soul-moon` et `villa-luja` = prospects reels.
 - `outreach/*.md`, `funnel.csv`.
 
-Encodage manuel d'un clip si besoin : `ffmpeg -i tour.mp4 -an -vf "scale=1024:-2,fps=24" -c:v libx264 -g 1 -keyint_min 1 -crf 27 -pix_fmt yuv420p -movflags +faststart clip-01.mp4`.
