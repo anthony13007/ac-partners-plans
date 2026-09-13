@@ -26,9 +26,53 @@
     "max_photos": 8,
     "guarantee_nights_share": 0.5
   },
-  "offer_bonuses": [
-    "Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.",
-    "A reel of {villa} on our Instagram (@acpartners.collection), included.",
-    "A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included."
-  ]
+  "offer": {
+    "headline": "Everything below, for <em>10% of the nights we sell.</em>",
+    "lead": "No set-up fee, no subscription, no exclusivity. Every line is included the day we go live; the prices are what each one costs on its own.",
+    "stack": [
+      {
+        "item": "Distribution on every OTA",
+        "detail": "Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas. One synced calendar, dynamic pricing on every night."
+      },
+      {
+        "item": "Your direct-booking site",
+        "detail": "This page, on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.",
+        "price": 690,
+        "monthly": 29
+      },
+      {
+        "item": "Highlight on ac-collection.com",
+        "detail": "Featured on the AC Collection guest site and in our guest emails: repeat guests, groups, retreats looking for large villas.",
+        "monthly": 29
+      },
+      {
+        "item": "Monthly report + market insights",
+        "detail": "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and pricing recommendations.",
+        "monthly": 19.99
+      },
+      {
+        "item": "Guest app",
+        "detail": "Digital guidebook and concierge chat for every guest we send: check-in, house manual, local recommendations.",
+        "monthly": 39
+      },
+      {
+        "item": "Instagram reel of the villa",
+        "detail": "Shot from your photos, published on @acpartners.collection.",
+        "price": 290
+      },
+      {
+        "item": "Pricing set-up + listing audit",
+        "detail": "PriceLabs configured for the villa; photos, title and text reviewed in the first week.",
+        "price": 290
+      }
+    ],
+    "price_big": "10%",
+    "price_line": "on the nights we sell",
+    "terms": [
+      "Nothing on the nights you sell yourself",
+      "No set-up fee, no exclusivity, no minimum term",
+      "Stop whenever you want"
+    ],
+    "guarantee": "If we have not sold {guarantee} nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away. Nothing owed."
+  }
 }

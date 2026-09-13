@@ -55,6 +55,11 @@ Would you like a collaboration proposal?
 
 ## Message 3 — l'offre (apres "yes, send the proposal")
 
+Pile de valeur a la Hormozi : chaque ligne avec son prix barre puis "included", le total de
+valeur, puis UN prix : 10 % sur les nuits vendues. Le site n'est qu'une ligne de la pile, pas la
+vedette. La pile vit dans `villa-site/config.json` (`offer.stack`) et sert a la fois a la page
+(`?owner`, section "The offer") et a ce message : une seule source, jamais deux versions.
+
 ```
 Here it is, short:
 
@@ -62,18 +67,30 @@ We co-list [Villa] on our channels (Airbnb Superhost profile, Booking.com, Exped
 Homes & Villas, plus our AC Collection guests), one synced calendar, dynamic pricing. You keep the
 management, the staff and the ops.
 
-• 10% on the nights we sell. Nothing on the nights you sell yourself.
-• No set-up fee, no exclusivity, no minimum term.
-• A site like the one you scrolled, yours, on your own domain, free ($690 + $29/month on its own).
-• A one-page report on the 1st of every month.
-• Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.
-• A reel of [Villa] on our Instagram (@acpartners.collection), included.
-• A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included.
-• If we have not sold [N] nights by the end of the first low season, you keep the site, the highlight
-  and the reel, and walk away.
+Everything that comes with it, and what each costs on its own:
+• Distribution on every OTA → included
+• Your direct-booking site — $690 + $29/mo → included
+• Highlight on ac-collection.com — $29/mo → included
+• Monthly report + market insights — $19.99/mo → included
+• Guest app — $39/mo → included
+• Instagram reel of the villa — $290 → included
+• Pricing set-up + listing audit — $290 → included
+That is $2,674 of value in the first year, for $0.
+
+One price: 10% on the nights we sell.
+• Nothing on the nights you sell yourself
+• No set-up fee, no exclusivity, no minimum term
+• Stop whenever you want
+
+If we have not sold [N] nights by the end of the first low season, you keep the site, the
+highlight and the reel, and walk away. Nothing owed.
 
 15 minutes on WhatsApp this week? [day] or [day]?
 ```
+
+Regles de la page cote guest : le bouton "Check availability" renvoie TOUJOURS chez le proprio
+(son WhatsApp, sinon sa propre annonce), jamais chez nous ; un seul tarif generaliste
+("IDR 10M – 16M / night" ou "From $X"), jamais de grille par saison.
 
 ## Vivier d'idees pour monter l'offre (Hormozi, "$100M Offers")
 

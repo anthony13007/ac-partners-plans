@@ -106,6 +106,26 @@
   .owner .pk p{font-size:15px}
   .owner .pk .price{font-family:var(--serif);font-size:30px;color:var(--accent2);margin-top:14px}
   .owner .fine{color:#9c8a78;font-size:13px;margin-top:26px;max-width:70ch}
+  .owner .stack{margin-top:30px;background:#fffdf9;border:1px solid #e3d7c5;border-radius:16px;overflow:hidden}
+  .owner .row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 22px;border-bottom:1px solid #efe6d8}
+  .owner .row:last-child{border-bottom:0}
+  .owner .row h4{font-family:var(--serif);font-weight:500;font-size:21px;color:#372115;margin:0 0 3px}
+  .owner .row p{font-size:14px;margin:0;max-width:60ch}
+  .owner .row .pr{text-align:right;white-space:nowrap}
+  .owner .row .was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
+  .owner .row .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
+  .owner .total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 22px;background:#f2e9db;border-top:1px solid #e3d7c5}
+  .owner .total span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
+  .owner .total b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
+  .owner .price{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:#3d2a1f;border-radius:20px;padding:30px 34px;color:#f8f2e8}
+  .owner .price .big{font-family:var(--serif);font-size:88px;line-height:.85;color:var(--accent)}
+  .owner .price .l{color:#f8f2e8;font-family:var(--serif);font-size:26px;line-height:1.1}
+  .owner .price ul{list-style:none;margin:12px 0 0;padding:0}
+  .owner .price li{color:#d9cab9;font-size:14px;padding:3px 0 3px 18px;position:relative}
+  .owner .price li:before{content:'—';position:absolute;left:0;color:var(--accent)}
+  .owner .guar{margin-top:14px;background:#fffdf9;border:1px dashed #c4794d;border-radius:14px;padding:16px 20px;color:#3d2a1f;font-size:15px}
+  .rate.wide{min-width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .rate.wide .n{margin-top:0}
   .owner .ctabox{margin-top:50px;background:#3d2a1f;border-radius:20px;padding:44px;text-align:center}
   .owner .ctabox h3{font-family:var(--serif);font-size:38px;color:#f8f2e8;font-weight:400;line-height:1.05}
   .owner .ctabox p{color:#d9cab9;margin:14px auto 0}
@@ -119,6 +139,10 @@
     .story .grid{grid-template-columns:1fr;gap:34px}
     .gallery{grid-template-columns:1fr 1fr}.gallery img{height:200px}.gallery img.wide{grid-column:span 2}.gallery img.tall{grid-row:auto;height:200px}
     .owner .pkg{grid-template-columns:1fr}
+    .owner .row{grid-template-columns:1fr;gap:8px}
+    .owner .row .pr{text-align:left}
+    .owner .price{grid-template-columns:1fr;padding:26px 24px}
+    .owner .price .big{font-size:72px}
     .owner .sub-table{overflow:visible}
     .owner table{border:0;background:none}
     .owner thead{display:none}
@@ -319,7 +343,57 @@
   },
   "generated": "2026-09-11",
   "photos_locked": true,
-  "scroll_vh_per_photo": 34
+  "scroll_vh_per_photo": 34,
+  "offer": {
+    "headline": "Everything below, for <em>10% of the nights we sell.<\/em>",
+    "lead": "No set-up fee, no subscription, no exclusivity. Every line is included the day we go live; the prices are what each one costs on its own.",
+    "stack": [
+      {
+        "item": "Distribution on every OTA",
+        "detail": "Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas. One synced calendar, dynamic pricing on every night."
+      },
+      {
+        "item": "Your direct-booking site",
+        "detail": "This page, on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.",
+        "price": 690,
+        "monthly": 29
+      },
+      {
+        "item": "Highlight on ac-collection.com",
+        "detail": "Featured on the AC Collection guest site and in our guest emails: repeat guests, groups, retreats looking for large villas.",
+        "monthly": 29
+      },
+      {
+        "item": "Monthly report + market insights",
+        "detail": "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and pricing recommendations.",
+        "monthly": 19.99
+      },
+      {
+        "item": "Guest app",
+        "detail": "Digital guidebook and concierge chat for every guest we send: check-in, house manual, local recommendations.",
+        "monthly": 39
+      },
+      {
+        "item": "Instagram reel of the villa",
+        "detail": "Shot from your photos, published on @acpartners.collection.",
+        "price": 290
+      },
+      {
+        "item": "Pricing set-up + listing audit",
+        "detail": "PriceLabs configured for the villa; photos, title and text reviewed in the first week.",
+        "price": 290
+      }
+    ],
+    "price_big": "10%",
+    "price_line": "on the nights we sell",
+    "terms": [
+      "Nothing on the nights you sell yourself",
+      "No set-up fee, no exclusivity, no minimum term",
+      "Stop whenever you want"
+    ],
+    "guarantee": "If we have not sold {guarantee} nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away. Nothing owed."
+  },
+  "guarantee_share": 0.5
 }
 </script>
 
@@ -389,10 +463,12 @@
     <p class="fine" id="gap-source"></p>
 
     <div style="margin-top:80px">
-      <div class="eyebrow">The package</div>
-      <h2>Your own site. <em>Our distribution.</em> One monthly report.</h2>
-      <p class="lead">This page is the site: your villa, your brand, your direct bookings. Behind it, AC Partners plugs the villa into the full OTA stack and our own demand channels, priced to demand — and we only earn on the nights we sell.</p>
-      <div class="pkg" id="pkg"></div>
+      <div class="eyebrow">The offer</div>
+      <h2 id="offer-title"></h2>
+      <p class="lead" id="offer-lead"></p>
+      <div class="stack" id="stack"></div>
+      <div class="price" id="price"></div>
+      <div class="guar" id="guar"></div>
       <p class="fine" id="pkg-fine"></p>
     </div>
 
@@ -522,7 +598,16 @@
   /* ---- rates ---- */
   $('book-title').innerHTML = 'Stay at <em>' + C.name + '.</em>';
   $('book-lead').textContent = C.book_lead;
-  $('rates-row').innerHTML = C.rates.map(function(r){ return '<div class="rate"><div class="s">' + r.season + '</div><div class="n">' + fmtMoney(r.nightly) + ' <small>/ night</small></div></div>'; }).join('');
+  /* one generalist card: a range (IDR 10M – 16M) if the owner gave one, otherwise "From $X" — never a season-by-season grid */
+  var rr = C.rate_range, rateHtml;
+  if (rr && rr.low && rr.high){
+    var fmtIDR = function(n){ return (n / 1e6).toLocaleString('en-US', {maximumFractionDigits: 1}) + 'M'; };
+    rateHtml = '<div class="n">' + (rr.currency || 'IDR') + ' ' + fmtIDR(rr.low) + ' &ndash; ' + fmtIDR(rr.high) + ' <small>/ night</small></div>' +
+               (rr.usd_low ? '<div class="s">about ' + fmtMoney(rr.usd_low) + ' &ndash; ' + fmtMoney(rr.usd_high) + ', depending on season and length of stay</div>' : '');
+  } else {
+    rateHtml = '<div class="n">From ' + fmtMoney(C.adr) + ' <small>/ night</small></div><div class="s">depending on season and length of stay</div>';
+  }
+  $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
   $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
   $('book-btn').href = C.book_url; $('nav-cta').href = '#book';
 
@@ -553,10 +638,21 @@
     var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + ' at your rate.' : '';
     $('gap-source').textContent = C.gap_source + annual + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
 
-    $('pkg').innerHTML =
-      '<div class="pk"><h3>1 · This site</h3><p>Your villa on its own domain: the scroll film, gallery, rates and a direct enquiry button — no OTA commission on direct bookings. Built from your listing photos; live in 48 hours.</p><div class="price">' + C.site_price + '</div></div>' +
-      '<div class="pk"><h3>2 · Distribution</h3><p>Airbnb, Booking.com, Expedia, VRBO, Marriott Homes &amp; Villas and the AC Partners network, one synced calendar, dynamic pricing by season, events and lead time.</p><div class="price">' + Math.round(C.commission * 100) + '% · on nights we sell only</div></div>' +
-      '<div class="pk"><h3>3 · Reporting</h3><p>On the first of each month: channel mix, occupancy, ADR and incremental revenue. You keep full management and operations.</p><div class="price">Included</div></div>';
+    var O = C.offer || {};
+    var money2 = function(n){ return C.currency + (n % 1 ? n.toFixed(2) : Math.round(n).toLocaleString('en-US')); };
+    var totalYear = 0;
+    $('offer-title').innerHTML = O.headline || '';
+    $('offer-lead').textContent = O.lead || '';
+    $('stack').innerHTML = (O.stack || []).map(function(s){
+      var parts = [];
+      if (s.price) { parts.push(money2(s.price)); totalYear += s.price; }
+      if (s.monthly) { parts.push(money2(s.monthly) + '/mo'); totalYear += s.monthly * 12; }
+      var was = parts.length ? '<span class="was">' + parts.join(' + ') + '</span>' : '';
+      return '<div class="row"><div><h4>' + s.item + '</h4><p>' + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
+    }).join('') + '<div class="total"><span>Worth, first year</span><b>' + money2(Math.round(totalYear)) + ' &rarr; ' + C.currency + '0</b></div>';
+    $('price').innerHTML = '<div class="big">' + (O.price_big || '10%') + '</div><div><div class="l">' + (O.price_line || 'on the nights we sell') + '</div><ul>' + (O.terms || []).map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
+    var guarN = Math.max(5, Math.round(target * (C.guarantee_share || 0.5)));
+    $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
     $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 9-year Airbnb Superhost: 759 reviews, 4.84★.';
 
     $('cta-title').innerHTML = C.cta_title;

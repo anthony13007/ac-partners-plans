@@ -62,16 +62,26 @@ And this is the kind of site we build for our villas to sell direct, scroll it o
 
 Would you like a collaboration proposal?"""
 
-    bonuses = "".join("• " + b.format(villa=villa, area=area) + "\n" for b in CFG.get("offer_bonuses", []))
+    O = CFG.get("offer", {})
+    def _was(s):
+        parts = []
+        if s.get("price"): parts.append(f"{cur}{s['price']:,.0f}")
+        if s.get("monthly"): parts.append(f"{cur}{s['monthly']:g}/mo")
+        return " + ".join(parts)
+    stack_lines = "".join(f"• {s['item']}" + (f" — {_was(s)}" if _was(s) else "") + " → included\n" for s in O.get("stack", []))
+    worth = sum((s.get("price") or 0) + (s.get("monthly") or 0) * 12 for s in O.get("stack", []))
+    terms = "".join(f"• {x}\n" for x in O.get("terms", []))
+    guarantee_txt = O.get("guarantee", "").replace("{guarantee}", str(guarantee))
     msg3 = f"""Here it is, short:
 
 We co-list {villa} on our channels (Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas, plus our {s['brand']} guests), one synced calendar, dynamic pricing. You keep the management, the staff and the ops.
 
-• {round(cfg.get('commission', d['commission'])*100)}% on the nights we sell. Nothing on the nights you sell yourself.
-• No set-up fee, no exclusivity, no minimum term.
-• A site like the one you scrolled, yours, on your own domain, free ({site_price} on its own).
-• A one-page report on the 1st of every month.
-{bonuses}• If we have not sold {guarantee} nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
+Everything that comes with it, and what each costs on its own:
+{stack_lines}That is {cur}{worth:,.0f} of value in the first year, for {cur}0.
+
+One price: {O.get('price_big', '10%')} {O.get('price_line', 'on the nights we sell')}.
+{terms}
+{guarantee_txt}
 
 15 minutes on WhatsApp this week? {days[0]} or {days[1]}?"""
 

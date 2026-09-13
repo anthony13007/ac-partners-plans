@@ -14,9 +14,13 @@ import json, sys, html, pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
 TEMPLATE = (HERE / "template.html").read_text(encoding="utf-8")
+CONFIG = json.loads((HERE / "config.json").read_text(encoding="utf-8")) if (HERE / "config.json").exists() else {}
 
 def build(cfg_path: pathlib.Path) -> pathlib.Path:
     cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+    # the offer (value stack, price, terms, guarantee) is shared by every villa: one source in config.json
+    cfg.setdefault("offer", CONFIG.get("offer", {}))
+    cfg.setdefault("guarantee_share", CONFIG.get("defaults", {}).get("guarantee_nights_share", 0.5))
     slug = cfg.get("slug") or cfg_path.stem
     title = f"{cfg['name']} — {cfg['area']}, {cfg['island']}"
     page = (TEMPLATE

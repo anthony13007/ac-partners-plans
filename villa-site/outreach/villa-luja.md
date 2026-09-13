@@ -31,14 +31,22 @@ Here it is, short:
 
 We co-list Villa Luja on our channels (Airbnb Superhost profile, Booking.com, Expedia, VRBO, Marriott Homes & Villas, plus our AC Collection guests), one synced calendar, dynamic pricing. You keep the management, the staff and the ops.
 
-• 10% on the nights we sell. Nothing on the nights you sell yourself.
-• No set-up fee, no exclusivity, no minimum term.
-• A site like the one you scrolled, yours, on your own domain, free ($690 + $29/month on its own).
-• A one-page report on the 1st of every month.
-• Highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats), included.
-• A reel of Villa Luja on our Instagram (@acpartners.collection), included.
-• A PriceLabs pricing set-up and a listing audit (photos, title, text) in the first week, included.
-• If we have not sold 8 nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away.
+Everything that comes with it, and what each costs on its own:
+• Distribution on every OTA → included
+• Your direct-booking site — $690 + $29/mo → included
+• Highlight on ac-collection.com — $29/mo → included
+• Monthly report + market insights — $19.99/mo → included
+• Guest app — $39/mo → included
+• Instagram reel of the villa — $290 → included
+• Pricing set-up + listing audit — $290 → included
+That is $2,674 of value in the first year, for $0.
+
+One price: 10% on the nights we sell.
+• Nothing on the nights you sell yourself
+• No set-up fee, no exclusivity, no minimum term
+• Stop whenever you want
+
+If we have not sold 8 nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away. Nothing owed.
 
 15 minutes on WhatsApp this week? Tuesday or Thursday?
 ```

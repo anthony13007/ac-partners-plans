@@ -153,10 +153,9 @@ def build_config(L, a):
                          "Full-time staff, daily housekeeping, private chef on request", f"{area}'s beaches, cafés and beach clubs within minutes"],
         "facts": facts[:4],
         "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
-        "rates": [{"season": f"Low season · {months_txt}", "nightly": int(round(adr * 0.8 / 50) * 50)}, {"season": "Mid season", "nightly": adr},
-                  {"season": "High season · Jul – Aug", "nightly": int(round(adr * 1.3 / 50) * 50)}],
+        "rate_range": ({"currency": "IDR", "low": a.rates_idr[0] * 1e6, "high": a.rates_idr[1] * 1e6, "usd_low": round(a.rates_idr[0] * 1e6 / MARKET["usd_idr"]), "usd_high": round(a.rates_idr[1] * 1e6 / MARKET["usd_idr"])} if a.rates_idr else None),
         "amenities": amen or ["Private pool", "Chef on request", "Daily housekeeping", "Airport transfers", "Fast Wi-Fi", "Air-conditioned bedrooms"],
-        "book_url": wa_link(a.handle) or (existing or {}).get("book_url") or CFG["whatsapp"],  # guest "Check availability" -> the VILLA OWNER'S WhatsApp, not ours, unless it's our own listing
+        "book_url": wa_link(a.handle) or (existing or {}).get("book_url") or L.get("url"),  # "Check availability" always goes to THEM: their WhatsApp, else their own listing — never our number
         "owner_pitch": True,
         "low_season": ls, "annual_market_occ": annual,
         "capture_rate": d["capture_rate"], "commission": d["commission"],
@@ -181,7 +180,7 @@ def build_config(L, a):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("url"); ap.add_argument("--adr", type=float); ap.add_argument("--name"); ap.add_argument("--area"); ap.add_argument("--slug")
-    ap.add_argument("--bedrooms", type=int); ap.add_argument("--photos", type=int); ap.add_argument("--first-name"); ap.add_argument("--contact"); ap.add_argument("--handle")
+    ap.add_argument("--rates-idr", type=float, nargs=2, metavar=("LOW_M", "HIGH_M"), help="nightly range in millions of IDR, e.g. 10 16"); ap.add_argument("--bedrooms", type=int); ap.add_argument("--photos", type=int); ap.add_argument("--first-name"); ap.add_argument("--contact"); ap.add_argument("--handle")
     ap.add_argument("--channel", default="whatsapp"); ap.add_argument("--clips", action="store_true"); ap.add_argument("--fresh", action="store_true")
     ap.add_argument("--no-commit", action="store_true"); ap.add_argument("--push", action="store_true"); ap.add_argument("--days", nargs=2, default=("Tuesday", "Thursday"))
     a = ap.parse_args()

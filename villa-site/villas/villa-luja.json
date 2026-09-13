@@ -89,7 +89,7 @@
       "l": "Bali"
     }
   ],
-  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "book_lead": "Rates include the villa manager, housekeeping, gardener and pool care. Minimum three nights; longer over Christmas and New Year.",
   "rates": [
     {
       "season": "Low season · Oct – Nov – Dec",
@@ -114,7 +114,7 @@
     "Fast Wi-Fi",
     "Free parking"
   ],
-  "book_url": "https://wa.me/6285190181610",
+  "book_url": "https://www.airbnb.com/rooms/600173702615262232",
   "owner_pitch": true,
   "low_season": [
     {
@@ -169,5 +169,12 @@
   },
   "generated": "2026-09-13",
   "photos_locked": true,
-  "scroll_vh_per_photo": 34
+  "scroll_vh_per_photo": 34,
+  "rate_range": {
+    "currency": "IDR",
+    "low": 10000000,
+    "high": 16000000,
+    "usd_low": 625,
+    "usd_high": 1000
+  }
 }
