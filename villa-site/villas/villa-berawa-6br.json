@@ -1,0 +1,160 @@
+{
+  "slug": "villa-berawa-6br",
+  "name": "Canggu 6-Bedroom Villa",
+  "area": "Canggu",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 6,
+  "guests": 12,
+  "currency": "$",
+  "adr": 800,
+  "adr_source": "market_p75 (PriceLabs, no ADR given)",
+  "source_url": "https://www.airbnb.com/rooms/30131363",
+  "listing_id": "30131363",
+  "city_raw": "Kuta Utara",
+  "hero_title": "Canggu 6-Bedroom Villa.<br><em>Canggu,</em> Bali.",
+  "photos": [
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/25567132-f948-4861-9bb1-675b85e62e20.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/25567132-f948-4861-9bb1-675b85e62e20.jpeg?im_w=1920",
+      "caption": "The pool at first light.",
+      "label": "Pool Area"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/bfa0ead9-e544-4534-bf96-3c9f62e670de.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/bfa0ead9-e544-4534-bf96-3c9f62e670de.jpeg?im_w=1920",
+      "caption": "The kitchen, professional grade.",
+      "label": "Fully Equipped Kitchen Area"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/53112dfb-2fa9-40b7-bc4c-1571509954f5.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/53112dfb-2fa9-40b7-bc4c-1571509954f5.jpeg?im_w=1920",
+      "caption": "Second suite, ensuite.",
+      "label": "Bedroom 2"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/37675639-3a9f-460c-a4e3-263ea6adb374.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/37675639-3a9f-460c-a4e3-263ea6adb374.jpeg?im_w=1920",
+      "caption": "Pool deck, late afternoon.",
+      "label": "Pool Area"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/6a90e1f8-9d11-4cf4-89a3-1b0c805db4f9.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/6a90e1f8-9d11-4cf4-89a3-1b0c805db4f9.jpeg?im_w=1920",
+      "caption": "",
+      "label": "Cozy  Open Living Area"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/318301d2-26e1-41d9-9a47-600c2fccc4dd.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/318301d2-26e1-41d9-9a47-600c2fccc4dd.jpeg?im_w=1920",
+      "caption": "",
+      "label": "Dining Space"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/de7f230f-d628-43a2-bd9a-93a27c78e163.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/de7f230f-d628-43a2-bd9a-93a27c78e163.jpeg?im_w=1920",
+      "caption": "",
+      "label": "Master Bedroom"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/51da0f25-998a-46fa-acca-b11f3b6c9df6.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-30131363/original/51da0f25-998a-46fa-acca-b11f3b6c9df6.jpeg?im_w=1920",
+      "caption": "",
+      "label": "Bathroom 5"
+    }
+  ],
+  "story_title": "6 bedrooms, one pool, <em>the whole group under one roof.</em>",
+  "story_lead": "The villa features six spacious bedrooms, each designed for comfort and privacy, making it ideal for larger groups staying together without feeling crowded.\nHighlights include:\nPrivate swimming pool with sun loungers\nOpen-plan living & dining area\nFully equipped kitchen\nAir-conditioned bedrooms\nClean, modern bathrooms\nComfortable indoor & outdoor spaces for relaxing or socializing\nWhether you’re spending the day at t",
+  "story_points": [
+    "6 ensuite bedrooms for up to 12 guests",
+    "Private pool, garden and open living pavilion",
+    "Full-time staff, daily housekeeping, private chef on request",
+    "Canggu's beaches, cafés and beach clubs within minutes"
+  ],
+  "facts": [
+    {
+      "n": "6",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "12",
+      "l": "Guests"
+    },
+    {
+      "n": "4.78★",
+      "l": "143 reviews"
+    },
+    {
+      "n": "Canggu",
+      "l": "Bali"
+    }
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rate_range": null,
+  "amenities": [
+    "Garden view",
+    "Kitchen",
+    "Wifi – 22 Mbps",
+    "Dedicated workspace",
+    "Free parking on premises",
+    "Hot tub",
+    "42 inch TV with Netflix",
+    "Central air conditioning",
+    "Bathtub",
+    "Conditioner"
+  ],
+  "book_url": "https://www.airbnb.com/rooms/30131363",
+  "owner_pitch": true,
+  "low_season": [
+    {
+      "month": "October",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    },
+    {
+      "month": "December (1–20)",
+      "days": 20,
+      "market_occ": 0.41
+    }
+  ],
+  "annual_market_occ": 44,
+  "capture_rate": 0.35,
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Oct, Nov, Dec; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
+  "cta_title": "Your low season, filled. <em>10% on the nights we sell,</em> nothing else.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "",
+    "first_name": "",
+    "handle": "",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-14"
+}

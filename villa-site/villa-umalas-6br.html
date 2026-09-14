@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umalas 6-Bedroom Villa — Umalas, Bali</title>
+<meta property="og:title" content="Umalas 6-Bedroom Villa — Umalas, Bali">
+<meta property="og:image" content="https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/2cc5059b-7983-4f49-bc6a-8566428dc38e.jpeg?im_w=1440">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0d0b; --bg2:#17130f; --card:#1d1813; --line:#2e261f;
+    --ink:#f4ece0; --ink2:#fffaf2; --mut:#a89684; --accent:#d29a6a; --accent2:#c4794d;
+    --serif:'Cormorant Garamond',Georgia,serif; --sans:'Montserrat','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  /* iOS: overflow-x:hidden on html turns the page into a scroll container and position:sticky
+     stops sticking (hero scrolls away, black film track shows). overflow:clip clips without
+     creating a scroll container; older Safari falls back to hidden on body only, as before. */
+  body{overflow-x:hidden}
+  html,body{overflow-x:clip}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{max-width:100%}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  .eyebrow{color:var(--accent);font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,9vw,110px);line-height:.95;letter-spacing:-.01em;color:var(--ink2)}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.4vw,60px);line-height:1.04;margin-bottom:22px;color:var(--ink2)}
+  h2 em,h1 em,h3 em{color:var(--accent);font-style:italic;font-weight:400}
+  p{color:var(--mut);font-size:17px;max-width:62ch}
+  p.lead{color:var(--ink);font-size:19px}
+  section{padding:110px 0}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 32px;mix-blend-mode:difference;color:#fff}
+  nav .brand{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70vw}
+  nav a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+
+  /* SCROLL FILM (photos become frames of a scroll-driven film) */
+  .film{position:relative}
+  .film .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+  .film .frame{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+  .film .frame img,.film .frame video{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;will-change:transform;backface-visibility:hidden}
+  .film .frame.clip:after{background:linear-gradient(180deg,rgba(15,13,11,.35) 0%,rgba(15,13,11,.05) 40%,rgba(15,13,11,.72) 100%)}
+  .film .frame:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.15) 0%,rgba(15,13,11,0) 35%,rgba(15,13,11,.78) 100%)}
+  .film .titles{position:absolute;left:0;right:0;bottom:0;padding:0 32px 56px;z-index:2}
+  .film .titles .cap{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);color:#f1e6d5;opacity:0;transition:opacity .4s;min-height:1.4em}
+  .film .titles .cap.on{opacity:1}
+  .film .hero-text{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 120px;z-index:2;transition:opacity .35s,transform .35s}
+  .film.video .hero-text{padding-bottom:150px}
+  .film.video .titles .cap{max-width:34ch}
+  .film .hero-text .meta{margin-top:26px;display:flex;gap:26px;flex-wrap:wrap;color:#e7dcc9;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .film .hero-text .meta b{color:#fff;font-weight:600}
+  .film .hero-text.off{opacity:0;transform:translateY(10px);pointer-events:none}
+  .film .progress{position:absolute;bottom:0;left:0;height:2px;background:var(--accent);width:0;z-index:3}
+  .scroll-hint{position:absolute;right:32px;bottom:36px;z-index:3;color:#e7dcc9;font-size:10px;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.8}
+
+  /* STORY */
+  .story{background:var(--bg)}
+  .story .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+  ul.bare{list-style:none;margin-top:24px}
+  ul.bare li{color:var(--ink);font-size:17px;padding:14px 0 14px 28px;position:relative;border-bottom:1px solid var(--line)}
+  ul.bare li:before{content:'—';position:absolute;left:0;color:var(--accent)}
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .fact .n{font-family:var(--serif);font-size:42px;color:var(--accent);line-height:.9}
+  .fact .l{color:var(--mut);font-size:12px;margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+  .gallery img{width:100%;height:300px;object-fit:cover;border-radius:12px;display:block;background:var(--bg2)}
+  .gallery img.wide{grid-column:span 2}
+  .gallery img.tall{grid-row:span 2;height:100%}
+
+  /* RATES / BOOK */
+  .rates{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .rates .row{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px}
+  .rate{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .rate .s{color:var(--mut);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .rate .n{font-family:var(--serif);font-size:44px;color:var(--ink2);margin-top:8px;line-height:1}
+  .rate .n small{font-size:16px;color:var(--mut);font-family:var(--sans)}
+  .btn{display:inline-block;margin-top:30px;background:var(--accent2);color:#fff;text-decoration:none;font-weight:600;letter-spacing:.06em;padding:17px 38px;border-radius:40px;font-size:14px;text-transform:uppercase}
+  .btn.ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{background:var(--bg);border:1px solid var(--line);color:var(--ink);font-size:12px;letter-spacing:.06em;padding:8px 15px;border-radius:30px;font-weight:500}
+
+  /* OWNER PITCH (shown when config.owner_pitch or ?owner) */
+  .owner{display:none;background:#f8f2e8;color:#3d2a1f;border-top:6px solid var(--accent2)}
+  .owner.on{display:block}
+  .owner .eyebrow{color:var(--accent2)}
+  .owner h2,.owner h3{color:#372115}
+  .owner p{color:#8a7768}
+  .owner p.lead{color:#3d2a1f}
+  .owner .banner{display:inline-block;background:rgba(196,121,77,.14);border:1px solid var(--accent2);color:#a45d33;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px;border-radius:30px;margin-bottom:26px;font-weight:600}
+  .owner table{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px;background:#fffdf9;border:1px solid #e3d7c5;border-radius:14px;overflow:hidden}
+  .owner th,.owner td{text-align:left;padding:14px 16px;border-bottom:1px solid #e3d7c5}
+  .owner th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600;background:#f2e9db}
+  .owner td.num{font-family:var(--serif);font-size:20px;color:#372115}
+  .owner td.loss{font-family:var(--serif);font-size:20px;color:#b5512c}
+  .owner tr.total td{background:#f2e9db;font-weight:600}
+  .owner .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px}
+  .owner .stat{flex:1;min-width:170px;background:#fffdf9;border:1px solid #e3d7c5;border-radius:14px;padding:24px}
+  .owner .stat .n{font-family:var(--serif);font-size:46px;color:var(--accent2);line-height:.9}
+  .owner .stat .n.dark{color:#372115}
+  .owner .stat .l{color:#8a7768;font-size:13px;margin-top:12px}
+  .owner .pkg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .owner .pk{background:#fffdf9;border:1px solid #e3d7c5;border-radius:16px;padding:26px}
+  .owner .pk h3{font-family:var(--serif);font-weight:500;font-size:26px;margin-bottom:8px}
+  .owner .pk p{font-size:15px}
+  .owner .pk .price{font-family:var(--serif);font-size:30px;color:var(--accent2);margin-top:14px}
+  .owner .fine{color:#9c8a78;font-size:13px;margin-top:26px;max-width:70ch}
+  .owner .stack{margin-top:30px;background:#fffdf9;border:1px solid #e3d7c5;border-radius:16px;overflow:hidden}
+  .owner .row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 22px;border-bottom:1px solid #efe6d8}
+  .owner .row:last-child{border-bottom:0}
+  .owner .row h4{font-family:var(--serif);font-weight:500;font-size:21px;color:#372115;margin:0 0 3px}
+  .owner .row p{font-size:14px;margin:0;max-width:60ch}
+  .owner .row .pr{text-align:right;white-space:nowrap}
+  .owner .row .was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
+  .owner .row .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
+  .owner .worth{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 22px;background:#f2e9db;border-top:1px solid #e3d7c5}
+  .owner .worth span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
+  .owner .worth b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
+  .owner .price{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:#3d2a1f;border-radius:20px;padding:30px 34px;color:#f8f2e8}
+  .owner .price .big{font-family:var(--serif);font-size:88px;line-height:.85;color:var(--accent)}
+  .owner .price .l{color:#f8f2e8;font-family:var(--serif);font-size:26px;line-height:1.1}
+  .owner .price ul{list-style:none;margin:12px 0 0;padding:0}
+  .owner .price li{color:#d9cab9;font-size:14px;padding:3px 0 3px 18px;position:relative}
+  .owner .price li:before{content:'—';position:absolute;left:0;color:var(--accent)}
+  .owner .guar{margin-top:14px;background:#fffdf9;border:1px dashed #c4794d;border-radius:14px;padding:16px 20px;color:#3d2a1f;font-size:15px}
+  .rate.wide{min-width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .rate.wide .n{margin-top:0}
+  .owner .ctabox{margin-top:50px;background:#3d2a1f;border-radius:20px;padding:44px;text-align:center}
+  .owner .ctabox h3{font-family:var(--serif);font-size:38px;color:#f8f2e8;font-weight:400;line-height:1.05}
+  .owner .ctabox p{color:#d9cab9;margin:14px auto 0}
+  .owner .sub-table{overflow-x:auto}
+
+  footer{padding:50px 0;border-top:1px solid var(--line);color:var(--mut);font-size:13px;text-align:center}
+  footer .brand{font-family:var(--serif);color:var(--ink);font-size:16px;letter-spacing:.04em}
+
+  @media(max-width:720px){
+    section{padding:76px 0}
+    .story .grid{grid-template-columns:1fr;gap:34px}
+    .gallery{grid-template-columns:1fr 1fr}.gallery img{height:200px}.gallery img.wide{grid-column:span 2}.gallery img.tall{grid-row:auto;height:200px}
+    .owner .pkg{grid-template-columns:1fr}
+    .owner .row{grid-template-columns:1fr;gap:8px}
+    .owner .row .pr{text-align:left}
+    .owner .price{grid-template-columns:1fr;padding:26px 24px}
+    .owner .price .big{font-size:72px}
+    .owner .sub-table{overflow:visible}
+    /* WebKit keeps the table layout algorithm unless the TABLE itself is a block: on iOS the
+       cards were laid out ~2x the viewport, the page overflowed and Safari zoomed out. */
+    .owner table,.owner tbody,.owner tr,.owner td{display:block;width:100%;max-width:100%;box-sizing:border-box}
+    .owner table{border:0;background:none;border-collapse:separate;table-layout:auto}
+    .owner thead{display:none}
+    .owner tr{background:#fffdf9;border:1px solid #e3d7c5;border-radius:14px;margin-bottom:12px;padding:6px 4px;overflow:hidden}
+    .owner tr.total{background:#f2e9db}
+    .owner td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #efe6d8;padding:10px 14px;min-width:0}
+    .owner td:before{white-space:normal}
+    .owner tr td:last-child{border-bottom:0}
+    .owner td:before{content:attr(data-l);color:#8a7768;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;flex:0 0 auto}
+    .owner td.num,.owner td.loss{font-size:19px}
+    .film .hero-text{padding:0 22px 96px}
+    .film.video .hero-text{padding-bottom:130px}
+    .film .titles .cap{font-size:18px}
+    nav .brand{font-size:16px;max-width:58vw}
+    h1{font-size:clamp(34px,8.6vw,44px)}
+    h2{font-size:clamp(28px,6.4vw,38px)}
+    .film .hero-text .meta{gap:14px;font-size:11px}
+    .film .titles{padding:0 22px 44px}
+    nav{padding:18px 20px}
+    .scroll-hint{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== CONFIG (edited by generate_villa.py, or by hand) ===== -->
+<script id="villa-config" type="application/json">
+{
+  "slug": "villa-umalas-6br",
+  "name": "Umalas 6-Bedroom Villa",
+  "area": "Umalas",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 6,
+  "guests": 12,
+  "currency": "$",
+  "adr": 800,
+  "adr_source": "market_p75 (PriceLabs, no ADR given)",
+  "source_url": "https://www.airbnb.com/rooms/14801940",
+  "listing_id": "14801940",
+  "city_raw": "Umalas",
+  "hero_title": "Umalas 6-Bedroom Villa.<br><em>Umalas,<\/em> Bali.",
+  "photos": [
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/2cc5059b-7983-4f49-bc6a-8566428dc38e.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/2cc5059b-7983-4f49-bc6a-8566428dc38e.jpeg?im_w=1920",
+      "caption": "Umalas 6-Bedroom Villa, Umalas.",
+      "label": "Exterior image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/d2696bc9-fbef-4147-9868-f328076596b3.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/d2696bc9-fbef-4147-9868-f328076596b3.jpeg?im_w=1920",
+      "caption": "The pool at first light.",
+      "label": "Pool image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/9a23f4fb-6a9a-4390-ba4b-b6768838b810.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/9a23f4fb-6a9a-4390-ba4b-b6768838b810.jpeg?im_w=1920",
+      "caption": "The terrace, breakfast hour.",
+      "label": "Patio image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/baeec278-66e4-4a03-9df5-181d13eee81a.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/baeec278-66e4-4a03-9df5-181d13eee81a.jpeg?im_w=1920",
+      "caption": "The living pavilion, open to the garden.",
+      "label": "Living room image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/5fc53284-6c9b-43e2-9790-d451402408da.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/5fc53284-6c9b-43e2-9790-d451402408da.jpeg?im_w=1920",
+      "caption": "Dinner for 12, chef on request.",
+      "label": "Dining area image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/8e6ab28e-1b11-4528-b357-3ee251062096.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/8e6ab28e-1b11-4528-b357-3ee251062096.jpeg?im_w=1920",
+      "caption": "The kitchen, professional grade.",
+      "label": "Full kitchen image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/9f8c7bbb-4127-40b2-b3a9-e1a0bd196caa.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/9f8c7bbb-4127-40b2-b3a9-e1a0bd196caa.jpeg?im_w=1920",
+      "caption": "Master suite, garden light.",
+      "label": "Bedroom 1 image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/c342819e-bdb7-43d5-b156-cbf84c72f897.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-14801940/original/c342819e-bdb7-43d5-b156-cbf84c72f897.jpeg?im_w=1920",
+      "caption": "Second suite, ensuite.",
+      "label": "Bedroom 2 image 1"
+    }
+  ],
+  "story_title": "6 bedrooms, one pool, <em>the whole group under one roof.<\/em>",
+  "story_lead": "INCLUDES FOR EVERY STAY:\nFree welcome drink\nDaily cleaning 6 day per week / Pool & garden maintenance 2-3 time per week\nBath & pool towels for each guest\nHigh speed Optic Fiber WIFI connection\nSafety box(es)\nEmergency assistance 24/7\nConcierge Services (see below)",
+  "story_points": [
+    "6 ensuite bedrooms for up to 12 guests",
+    "Private pool, garden and open living pavilion",
+    "Full-time staff, daily housekeeping, private chef on request",
+    "Umalas's beaches, cafés and beach clubs within minutes"
+  ],
+  "facts": [
+    {
+      "n": "6",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "12",
+      "l": "Guests"
+    },
+    {
+      "n": "4.89★",
+      "l": "160 reviews"
+    },
+    {
+      "n": "Umalas",
+      "l": "Bali"
+    }
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rate_range": null,
+  "amenities": [
+    "Garden view",
+    "Kitchen",
+    "Wifi – 49 Mbps",
+    "Dedicated workspace",
+    "Free carport on premises – 2 spaces",
+    "43 inch HDTV with Netflix",
+    "AC - split type ductless system",
+    "Private patio or balcony",
+    "Private backyard – Fully fenced",
+    "Pool view"
+  ],
+  "book_url": "https://www.airbnb.com/rooms/14801940",
+  "owner_pitch": true,
+  "low_season": [
+    {
+      "month": "October",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    },
+    {
+      "month": "December (1–20)",
+      "days": 20,
+      "market_occ": 0.41
+    }
+  ],
+  "annual_market_occ": 44,
+  "capture_rate": 0.35,
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Oct, Nov, Dec; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
+  "cta_title": "Your low season, filled. <em>10% on the nights we sell,<\/em> nothing else.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "",
+    "first_name": "",
+    "handle": "",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-14",
+  "offer": {
+    "headline": "Everything below, for <em>10% of the nights we sell.<\/em>",
+    "lead": "No set-up fee, no subscription, no exclusivity. Every line is included the day we go live; the prices are what each one costs on its own.",
+    "stack": [
+      {
+        "item": "Distribution on every OTA, in parallel with yours",
+        "detail": "Our own listings on Airbnb (9-year Superhost profile), Booking.com, Expedia, VRBO and Marriott Homes & Villas run alongside your channels, so the villa takes more of the market instead of moving it around. AC Collection's own playbook, a nightly pricing strategy set together with you, one synced calendar, no double bookings."
+      },
+      {
+        "item": "Your direct-booking site",
+        "detail": "This page, on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.",
+        "price": 690,
+        "monthly": 29
+      },
+      {
+        "item": "Highlight on ac-collection.com",
+        "detail": "Featured on the AC Collection guest site and in our guest emails: repeat guests, groups, retreats looking for large villas.",
+        "monthly": 29
+      },
+      {
+        "item": "Monthly report + market insights",
+        "detail": "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and pricing recommendations.",
+        "monthly": 19.99
+      },
+      {
+        "item": "PriceLabs strategy tool",
+        "detail": "The dynamic-pricing engine behind our own villas, running on yours: seasonality, events, lead time, minimum stays.",
+        "monthly": 15
+      },
+      {
+        "item": "Guest app",
+        "detail": "Digital guidebook and concierge chat for every guest we send: check-in, house manual, local recommendations.",
+        "monthly": 39
+      },
+      {
+        "item": "Instagram reel of the villa",
+        "detail": "Shot from your photos, published on @acpartners.collection.",
+        "price": 290
+      },
+      {
+        "item": "Pricing set-up + listing audit",
+        "detail": "PriceLabs configured for the villa; photos, title and text reviewed in the first week.",
+        "price": 290
+      }
+    ],
+    "price_big": "10%",
+    "price_line": "on the nights we sell",
+    "terms": [
+      "Nothing on the nights you sell yourself",
+      "No set-up fee, no exclusivity, no minimum term",
+      "Stop whenever you want"
+    ],
+    "guarantee": "If we have not sold {guarantee} nights by the end of the first low season, you keep the site, the highlight and the reel, and walk away. Nothing owed."
+  },
+  "guarantee_share": 0.5
+}
+</script>
+
+<nav><div class="brand" id="nav-brand"></div><a href="#book" id="nav-cta">Enquire</a></nav>
+
+<!-- SCROLL FILM: every listing photo is a frame; scrolling plays the film -->
+<div class="film" id="film">
+  <div class="stage" id="stage">
+    <div class="hero-text" id="hero-text">
+      <div class="eyebrow" id="hero-eyebrow"></div>
+      <h1 id="hero-title"></h1>
+      <div class="meta" id="hero-meta"></div>
+    </div>
+    <div class="titles"><div class="cap" id="cap"></div></div>
+    <div class="scroll-hint">Scroll to explore</div>
+    <div class="progress" id="progress"></div>
+  </div>
+</div>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">The villa</div>
+        <h2 id="story-title"></h2>
+        <p class="lead" id="story-lead"></p>
+        <ul class="bare" id="story-points"></ul>
+      </div>
+      <div class="facts" id="facts"></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Gallery</div>
+    <h2>Every corner, <em>in detail.</em></h2>
+    <div class="gallery" id="gallery-grid"></div>
+  </div>
+</section>
+
+<section class="rates" id="book">
+  <div class="wrap">
+    <div class="eyebrow">Rates &amp; availability</div>
+    <h2 id="book-title"></h2>
+    <p id="book-lead"></p>
+    <div class="row" id="rates-row"></div>
+    <div class="chips" id="amenities"></div>
+    <a class="btn" id="book-btn" href="#" target="_blank">Check availability</a>
+  </div>
+</section>
+
+<!-- ===== OWNER PITCH — the part we sell: the gap + the package ===== -->
+<section class="owner" id="owner">
+  <div class="wrap">
+    <div class="banner">For the owner · not shown to guests</div>
+    <div class="eyebrow">Where the money leaks</div>
+    <h2 id="owner-title"></h2>
+    <p class="lead" id="owner-lead"></p>
+    <div class="sub-table">
+    <table id="gap-table">
+      <thead><tr><th>Low-season month</th><th>Nights</th><th>Market occupancy</th><th>Empty nights</th><th>Revenue not earned</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    </div>
+    <div class="stats" id="gap-stats"></div>
+    <p class="fine" id="gap-source"></p>
+
+    <div style="margin-top:80px">
+      <div class="eyebrow">The offer</div>
+      <h2 id="offer-title"></h2>
+      <p class="lead" id="offer-lead"></p>
+      <div class="stack" id="stack"></div>
+      <div class="price" id="price"></div>
+      <div class="guar" id="guar"></div>
+      <p class="fine" id="pkg-fine"></p>
+    </div>
+
+    <div class="ctabox">
+      <h3 id="cta-title"></h3>
+      <p id="cta-text"></p>
+      <a class="btn" id="cta-btn" href="#" target="_blank">Talk to Anthony →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span class="brand" id="foot-brand"></span><br><span id="foot-line"></span></div>
+</footer>
+
+<script>
+(function(){
+  var C = JSON.parse(document.getElementById('villa-config').textContent);
+  var $ = function(id){ return document.getElementById(id); };
+  var fmtMoney = function(n){ return C.currency + Math.round(n).toLocaleString('en-US'); };
+
+  document.title = C.name + ' — ' + C.area;
+  $('nav-brand').textContent = C.name;
+  $('foot-brand').textContent = C.name + ' · ' + C.area;
+  $('foot-line').textContent = 'Site & distribution by AC Partners · the B2B arm behind AC Collection';
+
+  /* ---- hero ---- */
+  $('hero-eyebrow').textContent = C.area + ' · ' + C.island;
+  $('hero-title').innerHTML = C.hero_title;
+  $('hero-meta').innerHTML = '<span><b>' + C.bedrooms + ' bedrooms</b></span><span><b>' + C.guests + ' guests</b></span><span>From <b>' + fmtMoney(C.adr) + '</b> / night</span>';
+
+  /* ---- film: scroll-scrubbed video clips (tour_clips) or photo frames ---- */
+  var stage = $('stage'), film = $('film'), cap = $('cap'), heroText = $('hero-text'), progress = $('progress');
+  var clips = C.tour_clips || [];
+  /* On a phone a 16:9 clip is cropped to a narrow centre strip by object-fit:cover and looks
+     soft and badly framed, so portrait/narrow screens play the full-resolution photo film instead. */
+  var narrow = window.matchMedia('(max-width: 820px)').matches;
+  var videoMode = clips.length > 0 && !narrow;
+  if (videoMode) film.classList.add('video');
+  var items = videoMode ? clips : C.photos;
+  var N = items.length, frames = [], media = [];
+  items.forEach(function(it, i){
+    var f = document.createElement('div'); f.className = 'frame' + (videoMode ? ' clip' : '');
+    var el;
+    if (videoMode){
+      el = document.createElement('video');
+      el.muted = true; el.playsInline = true; el.setAttribute('playsinline',''); el.setAttribute('muted','');
+      el.preload = 'auto'; el.src = it.src; if (it.poster || (C.photos[i] && C.photos[i].url)) el.poster = it.poster || C.photos[i].url;
+      el.addEventListener('loadedmetadata', render);
+    } else {
+      el = document.createElement('img');
+      el.src = (window.devicePixelRatio > 1.5 && it.url_hd) ? it.url_hd : it.url;
+      el.alt = it.caption || C.name; if (i > 1) el.loading = 'lazy';
+    }
+    f.appendChild(el); stage.insertBefore(f, heroText); frames.push(f); media.push(el);
+  });
+  /* scroll length: a video clip gets a long, slow scrub like a walkthrough; a photo a shorter beat */
+  film.style.height = (videoMode ? N * (C.scroll_vh_per_clip || 52) + 18 : N * (C.scroll_vh_per_photo || 34) + 12) + 'vh';
+  /* one move per photo: push in, pull out, pan across, drift up — cycled */
+  var KB = [
+    {z0:1.02, z1:1.16, x:0,    y:0},
+    {z0:1.16, z1:1.02, x:0,    y:0},
+    {z0:1.10, z1:1.14, x:-3.5, y:0},
+    {z0:1.14, z1:1.10, x:3.5,  y:0},
+    {z0:1.03, z1:1.15, x:0,    y:-2.5},
+    {z0:1.15, z1:1.05, x:2.5,  y:1.5}
+  ];
+  var lastCap = null;
+  function render(){
+    var vh = window.innerHeight;
+    var start = film.offsetTop, len = Math.max(1, film.offsetHeight - vh);
+    var p = Math.min(1, Math.max(0, (window.scrollY - start) / len));
+    var pos = p * (videoMode ? N : N - 1);
+    for (var i = 0; i < N; i++){
+      var d = pos - i, o;
+      if (videoMode){
+        /* clip i owns [i, i+1); short crossfade at the boundary */
+        var local = Math.min(1, Math.max(0, d));
+        o = d < -0.08 ? 0 : d < 0 ? 1 + d / 0.08 : d <= 1 ? 1 : d < 1.08 ? 1 - (d - 1) / 0.08 : 0;
+        var v = media[i];
+        if (o > 0 && v.duration && isFinite(v.duration)){
+          var t = local * (v.duration - 0.05);
+          if (Math.abs(v.currentTime - t) > 0.02) v.currentTime = t;
+        }
+        frames[i].style.opacity = o;
+      } else {
+        o = 1 - Math.min(1, Math.abs(d) * 1.35);
+        frames[i].style.opacity = o;
+        /* Ken Burns in CSS on the full-resolution photo: each frame gets its own slow move,
+           so the film stays razor sharp on any screen and nothing has to be downloaded. */
+        var k = Math.max(-1, Math.min(1, d)), mv = KB[i % KB.length];
+        var z = mv.z0 + (mv.z1 - mv.z0) * ((k + 1) / 2);
+        media[i].style.transform = 'scale(' + z.toFixed(4) + ') translate(' +
+          (mv.x * k).toFixed(2) + '%,' + (mv.y * k).toFixed(2) + '%)';
+      }
+    }
+    var idx = Math.min(N - 1, videoMode ? Math.floor(pos) : Math.round(pos));
+    var text = (items[idx] && items[idx].caption) || '';
+    if (text !== lastCap){ cap.classList.remove('on'); cap.textContent = text; lastCap = text; }
+    var titleOff = videoMode ? p > 0.9 : pos > 0.45;
+    var showCap = videoMode ? p > 0.06 : pos > 0.45;
+    heroText.classList.toggle('off', titleOff);
+    cap.classList.toggle('on', showCap);
+    progress.style.width = (p * 100) + '%';
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){ if (!ticking){ requestAnimationFrame(function(){ render(); ticking = false; }); ticking = true; } }, {passive:true});
+  window.addEventListener('resize', render);
+  if (videoMode){
+    /* iOS/Safari decode frames for currentTime seeks only after the element has been "played" once by a user gesture */
+    var primed = false;
+    var prime = function(){ if (primed) return; primed = true; media.forEach(function(v){ var r = v.play(); if (r && r.then) r.then(function(){ v.pause(); render(); }).catch(function(){}); else { v.pause(); } }); };
+    ['touchstart','scroll','click','keydown'].forEach(function(e){ window.addEventListener(e, prime, {once:true, passive:true}); });
+  }
+  render();
+
+  /* ---- story ---- */
+  $('story-title').innerHTML = C.story_title;
+  $('story-lead').textContent = C.story_lead;
+  $('story-points').innerHTML = C.story_points.map(function(s){ return '<li>' + s + '</li>'; }).join('');
+  $('facts').innerHTML = C.facts.map(function(f){ return '<div class="fact"><div class="n">' + f.n + '</div><div class="l">' + f.l + '</div></div>'; }).join('');
+
+  /* ---- gallery ---- */
+  var pattern = ['wide','','','tall','wide','','',''];
+  $('gallery-grid').innerHTML = C.photos.map(function(p, i){ return '<img class="' + (pattern[i % pattern.length]) + '" src="' + p.url + '" alt="' + (p.caption || C.name) + '" loading="lazy">'; }).join('');
+
+  /* ---- rates ---- */
+  $('book-title').innerHTML = 'Stay at <em>' + C.name + '.</em>';
+  $('book-lead').textContent = C.book_lead;
+  /* one generalist card: a range (IDR 10M – 16M) if the owner gave one, otherwise "From $X" — never a season-by-season grid */
+  var rr = C.rate_range, rateHtml;
+  if (rr && rr.low && rr.high){
+    var fmtIDR = function(n){ return (n / 1e6).toLocaleString('en-US', {maximumFractionDigits: 1}) + 'M'; };
+    rateHtml = '<div class="n">' + (rr.currency || 'IDR') + ' ' + fmtIDR(rr.low) + ' &ndash; ' + fmtIDR(rr.high) + ' <small>/ night</small></div>' +
+               (rr.usd_low ? '<div class="s">about ' + fmtMoney(rr.usd_low) + ' &ndash; ' + fmtMoney(rr.usd_high) + ', depending on season and length of stay</div>' : '');
+  } else {
+    rateHtml = '<div class="n">From ' + fmtMoney(C.adr) + ' <small>/ night</small></div><div class="s">depending on season and length of stay</div>';
+  }
+  $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
+  $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
+  $('book-btn').href = C.book_url; $('nav-cta').href = '#book';
+
+  /* ---- owner pitch ---- */
+  var showOwner = C.owner_pitch || /[?&]owner/.test(location.search);
+  if (showOwner){
+    $('owner').classList.add('on');
+    var ls = C.low_season, adr = C.adr, capture = C.capture_rate;
+    var totNights = 0, totEmpty = 0, totLoss = 0, rows = '';
+    ls.forEach(function(m){
+      var empty = Math.round(m.days * (1 - m.market_occ));
+      var loss = empty * adr;
+      totNights += m.days; totEmpty += empty; totLoss += loss;
+      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + m.days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="Empty nights">' + empty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(loss) + '</td></tr>';
+    });
+    rows += '<tr class="total"><td data-l="Month">Total low season</td><td class="num" data-l="Nights">' + totNights + '</td><td class="num" data-l="Market occupancy">' + Math.round((1 - totEmpty / totNights) * 100) + '%</td><td class="num" data-l="Empty nights">' + totEmpty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(totLoss) + '</td></tr>';
+    $('gap-table').querySelector('tbody').innerHTML = rows;
+
+    var target = Math.round(totEmpty * capture), targetRev = target * adr, fee = targetRev * C.commission;
+    $('owner-title').innerHTML = C.name + ' sits empty <em>' + totEmpty + ' nights</em> every low season.';
+    $('owner-lead').textContent = 'At your ' + fmtMoney(adr) + '/night rate, the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ var n = m.month.split(' (')[0];
+      return m.month.indexOf('(1–') > -1 ? 'early ' + n : n; }).join(', ') + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
+    $('gap-stats').innerHTML =
+      '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">Empty nights per low season (market average)</div></div>' +
+      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at your nightly rate</div></div>' +
+      '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + '% of the gap)</div></div>' +
+      '<div class="stat"><div class="n">' + fmtMoney(targetRev) + '</div><div class="l">Added revenue, low season only</div></div>';
+    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + ' at your rate.' : '';
+    $('gap-source').textContent = C.gap_source + annual + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
+
+    var O = C.offer || {};
+    var money2 = function(n){ return C.currency + (n % 1 ? n.toFixed(2) : Math.round(n).toLocaleString('en-US')); };
+    var totalYear = 0;
+    $('offer-title').innerHTML = O.headline || '';
+    $('offer-lead').textContent = O.lead || '';
+    $('stack').innerHTML = (O.stack || []).map(function(s){
+      var parts = [];
+      if (s.price) { parts.push(money2(s.price)); totalYear += s.price; }
+      if (s.monthly) { parts.push(money2(s.monthly) + '/mo'); totalYear += s.monthly * 12; }
+      var was = parts.length ? '<span class="was">' + parts.join(' + ') + '</span>' : '';
+      return '<div class="row"><div><h4>' + s.item + '</h4><p>' + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
+    }).join('') + '<div class="worth"><span>Worth, first year</span><b>' + money2(Math.round(totalYear)) + ' &rarr; ' + C.currency + '0</b></div>';
+    $('price').innerHTML = '<div class="big">' + (O.price_big || '10%') + '</div><div><div class="l">' + (O.price_line || 'on the nights we sell') + '</div><ul>' + (O.terms || []).map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
+    var guarN = Math.max(5, Math.round(target * (C.guarantee_share || 0.5)));
+    $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
+    $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 9-year Airbnb Superhost: 759 reviews, 4.84★.';
+
+    $('cta-title').innerHTML = C.cta_title;
+    $('cta-text').textContent = C.cta_text;
+    $('cta-btn').href = C.whatsapp;
+  }
+})();
+</script>
+</body>
+</html>

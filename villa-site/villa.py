@@ -24,7 +24,13 @@ DAYS = {"Jan": 31, "Feb": 28, "Mar": 31, "Apr": 30, "May": 31, "Jun": 30, "Jul":
 # photo selection: (label prefix, max per category), exteriors first — the rule of the listing-pdf skill
 PHOTO_PLAN = [("Exterior", 2), ("Swimming pool", 2), ("Pool", 2), ("Terrace", 1), ("Outdoor", 1), ("Patio", 1), ("Garden", 1), ("Rooftop", 1), ("Lounge", 1),
               ("Hot tub", 1), ("Living room", 2), ("Dining area", 1), ("Kitchen", 1), ("Bedroom 1", 1), ("Bedroom 2", 1), ("Gym", 1), ("Cinema", 1), ("Bathroom 1", 1), ("Full bathroom 1", 1)]
-SKIP = ("Additional", "Workspace", "single bed", "double bed", "queen bed", "king bed", "Interior details", "Parking", "Bedroom view")
+SKIP = ("Additional", "Workspace", "single bed", "double bed", "queen bed", "king bed",
+        "Interior details", "Parking", "Bedroom view")
+# host-written captions: never put safety kit, storage or signage on a client-facing page
+JUNK = ("extinguisher", "first aid", "smoke alarm", "alarm", "towel", "toilet", "sink",
+        "wifi", "password", "router", "switch", "meter", "washing machine", "laundry",
+        "safe box", "storage", "cupboard", "wardrobe", "closet", "sign", "note", "rules",
+        "instruction", "manual", "key", "lock", "trash", "bin", "detergent", "aircon remote")
 CAPTIONS = {
     "Exterior": ["{name}, {area}.", "The estate from above."], "Swimming pool": ["The pool at first light.", "Pool deck, late afternoon."], "Pool": ["The pool at first light.", "Pool deck, late afternoon."],
     "Terrace": ["The terrace, breakfast hour."], "Outdoor": ["The garden, all yours."], "Patio": ["The terrace, breakfast hour."], "Garden": ["The garden pavilion."], "Rooftop": ["Rooftop, sunset hour."],
@@ -50,11 +56,27 @@ def slugify(s):
     s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
     return s or "villa"
 
-def clean_name(title, description=""):
-    m = re.search(r"Welcome to (?:the )?([A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+){0,3})", description or "")
-    if m: return m.group(1).strip(" -—:,")
+def clean_name(title, description="", area="", bedrooms=None):
+    # "Villa Only 400m to the Beach" is not a name: reject ordinary words after Villa
+    STOP = {"only", "with", "in", "near", "for", "and", "at", "by", "is", "has", "of", "to",
+            "from", "the", "a", "an", "just", "steps", "walk", "minutes", "min", "close",
+            "beach", "villa", "luxury", "private", "new", "modern", "spacious", "stunning"}
+    for pat in (r"Welcome to (?:the )?([A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+){0,3})",
+                r"\b(Villa\s+[A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+)?)",
+                r"\b([A-Z][\w'&-]+\s+(?:House|Residence|Estate|Retreat|Lodge|Compound))\b"):
+        for src in (title, description or ""):
+            m = re.search(pat, src)
+            if m:
+                n = re.sub(r"\s{2,}", " ", m.group(1).strip(" -—:,"))
+                words = n.split()
+                if len(n) > 3 and not re.match(r"^(The|This|Our|Your|A)\b", n) \
+                   and not any(w.lower() in STOP for w in words[1:]):
+                    return n
+    # no real name on the listing: an honest, clean generic beats a mangled title
+    if area and bedrooms: return f"{area} {bedrooms}-Bedroom Villa"
     t = re.sub(r"^\*?NEW\*?\s*", "", title, flags=re.I)
     t = re.sub(r"\b\d+\s*BR\b|\b\d+[- ]?bed(?:room)?s?\b", "", t, flags=re.I)
+    t = re.sub(r"\s{2,}", " ", t)
     t = re.sub(r"\s*[-–|·]\s*$", "", t)
     m = re.search(r"(?:The\s+)?([A-Z][\w']+(?:\s+[A-Z][\w']+){0,3}\s+(?:House|Villa|Estate|Residence|Retreat|Lodge))", t)
     if m: return m.group(0).strip()
@@ -92,7 +114,11 @@ def low_season(zone, n=3, from_date=None):
 def pick_photos(photos, n, name, area, guests):
     if not photos: return []
     chosen = []
-    if photos[0]["label"]:
+    clean = [p for p in photos if not any(j in p["label"].lower() for j in JUNK)]
+    if not clean: clean = photos
+    photos = clean
+    categorised = sum(1 for p in photos if _cat(p["label"]))
+    if photos[0]["label"] and categorised >= 4:
         ok = lambda p: not any(s.lower() in p["label"].lower() for s in SKIP) and p not in chosen
         # pass 1: one photo per category (exteriors first, then each room); pass 2: the extra exterior/pool shots
         for cap_pass in (1, 2):
@@ -102,10 +128,26 @@ def pick_photos(photos, n, name, area, guests):
                 for p in photos:
                     if have >= cap_pass: break
                     if _cat(p["label"]) == prefix and ok(p): chosen.append(p); have += 1
-        if len(chosen) < n:
-            chosen += [p for p in photos if p not in chosen and not any(s.lower() in p["label"].lower() for s in SKIP)][: n - len(chosen)]
+        if len(chosen) < n:  # fill up, but one photo per distinct caption: no triple living room
+            used = {re.sub(r"[^a-z]", "", p["label"].lower())[:28] for p in chosen}
+            for p in photos:
+                if len(chosen) >= n: break
+                if p in chosen or any(s.lower() in p["label"].lower() for s in SKIP): continue
+                k = re.sub(r"[^a-z]", "", p["label"].lower())[:28]
+                if k in used: continue
+                used.add(k); chosen.append(p)
+            chosen += [p for p in photos if p not in chosen][: n - len(chosen)]
     else:
-        chosen = photos[:n]
+        # free-text captions: take the listing's own order (hosts put their best first)
+        # but never three near-identical shots — one per distinct caption.
+        seen_lbl = set()
+        for p in photos:
+            key = re.sub(r"[^a-z]", "", p["label"].lower())[:28]
+            if key in seen_lbl: continue
+            seen_lbl.add(key); chosen.append(p)
+            if len(chosen) >= n: break
+        if len(chosen) < n:
+            chosen += [p for p in photos if p not in chosen][: n - len(chosen)]
     chosen = chosen[:n]
     out, used = [], {}
     for p in chosen:
@@ -117,7 +159,8 @@ def pick_photos(photos, n, name, area, guests):
 
 def build_config(L, a):
     d = CFG["defaults"]; existing = None
-    name = a.name or clean_name(L.get("title") or "Villa", L.get("description", ""))
+    _area_guess = a.area or (MARKET["zones"].get(zone_for(L.get("city"), a.area), {}) or {}).get("label", "")
+    name = a.name or clean_name(L.get("title") or "Villa", L.get("description", ""), _area_guess, L.get("bedrooms"))
     slug = a.slug or slugify(name)
     cfg_path = HERE / "villas" / f"{slug}.json"
     if cfg_path.exists() and not a.fresh:
