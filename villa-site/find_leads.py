@@ -30,6 +30,8 @@ def fetch_cached(url, lid):
     f.write_text(json.dumps(L, ensure_ascii=False), encoding="utf-8")
     return L
 
+# on hold / never contact (Anthony's standing rules), plus the big aggregators we avoid
+HOLD = ["tropical door", "thetropicaldoor"]
 BIG_PM = ["elite havens", "bali villa finder", "nagisa", "villa-bali.com", "villabali",
           "bvi ", "bali villa escapes", "ministry of villas", "villa finder", "asia villas",
           "propertidepo", "bali management villas", "vila-bali"]
@@ -62,6 +64,8 @@ def screen(L):
     """-> (ok, reason). Keeps the judgement in one place so the rules stay auditable."""
     title = (L.get("title") or "").lower()
     desc = (L.get("description") or "").lower()
+    for h in HOLD:
+        if h in title or h in desc: return False, f"on hold, do not contact ({h})"
     for pm in BIG_PM:
         if pm in title or pm in desc: return False, f"managed by a big PM ({pm.strip()})"
     for own in OURS:

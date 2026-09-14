@@ -1,0 +1,45 @@
+{
+  "Villa Mila": {
+    "manager": "Elld Property",
+    "whatsapp": "+62 819 866 392",
+    "wa_link": "https://wa.me/62819866392",
+    "email": "info@elldproperty.com",
+    "site": "https://www.elldproperty.com",
+    "listing": "https://www.airbnb.com/rooms/1015878595975323844",
+    "status": "found",
+    "note": "5BR Berawa, 148 avis 4.96, 129 Jl. Raya Babakan Canggu ; agence de gestion, gere plusieurs biens",
+    "found": "2026-09-14"
+  },
+  "Villa Ora": {
+    "manager": "The Tropical Door",
+    "site": "https://thetropicaldoor.com/villas/villa-ora",
+    "listing": "https://www.airbnb.com/rooms/1521553378672641934",
+    "status": "hold",
+    "note": "Tropical Door est en hold cote AC : ne pas contacter",
+    "found": "2026-09-14"
+  },
+  "Villa Philou": {
+    "listing": "https://www.airbnb.com/rooms/1726490355232063956",
+    "status": "none",
+    "note": "cherche sur le web : aucune presence propre, uniquement Airbnb/agregateurs",
+    "found": "2026-09-14"
+  },
+  "Bawa House": {
+    "listing": "https://www.airbnb.com/rooms/1719334856931972526",
+    "status": "none",
+    "note": "cherche sur le web : aucune presence propre, uniquement Airbnb/agregateurs",
+    "found": "2026-09-14"
+  },
+  "Villa Lelipi": {
+    "listing": "https://www.airbnb.com/rooms/1319419316574727366",
+    "status": "none",
+    "note": "cherche sur le web : aucune presence propre, uniquement Airbnb/agregateurs",
+    "found": "2026-09-14"
+  },
+  "Villa Venice": {
+    "listing": "https://www.airbnb.com/rooms/1490584705125915936",
+    "status": "none",
+    "note": "cherche sur le web : aucune presence propre, uniquement Airbnb/agregateurs",
+    "found": "2026-09-14"
+  }
+}

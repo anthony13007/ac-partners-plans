@@ -73,6 +73,39 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
 - **Hors cible** : villa "Managed by" un gros PM (le signaler, Anthony décide), 1-3BR,
   > 60 % en basse saison. Uluwatu 3-5BR tourne à 78 % : pas un marché basse saison.
 
+## Trouver le contact (le vrai goulot)
+
+Airbnb ne publie jamais téléphone ni e-mail, et la plupart des villas n'ont aucun site propre :
+6 recherches web sur les villas les mieux notées ont donné 0 numéro. **Ce qui marche : viser le
+gestionnaire, pas la villa.** Nom de la villa → recherche web → la petite agence qui la gère →
+son site publie un WhatsApp. Une agence gère en général 3 à 5 villas, donc une conversation
+peut en amener plusieurs : c'est exactement le schéma GORO (Villa Luja).
+
+```bash
+python3 villa-site/find_contact.py add "Villa X" --manager "Agence Y" \
+    --whatsapp "+62 8xx" --site https://… --listing https://airbnb.com/rooms/…
+python3 villa-site/find_contact.py list --ready     # ceux qu'on peut contacter
+```
+
+Registre : `villa-site/contacts.json`. Statuts : `found`, `hold` (ne pas contacter),
+`none` (cherché, rien de publié), `big-pm`. Pistes par ordre de rendement : site de l'agence
+gestionnaire, Instagram de la villa (WhatsApp en bio, demande une session connectée),
+Google Maps si la villa est enregistrée comme établissement. **Tropical Door est en hold**
+(règle permanente d'Anthony, filtrée dans `find_leads.py`).
+
+## Sourcing de leads
+
+```bash
+python3 villa-site/find_leads.py --areas Canggu Seminyak Pererenan Umalas --min-br 5 \
+    --checkin 2026-11-05 --checkout 2026-11-10 --pages 2 --out leads-nov.md
+```
+
+Décode les id d'annonces (base64 `StayListing:…`) des pages de recherche Airbnb. **Chercher
+avec des dates de basse saison est la qualification** : seules les villas au calendrier ouvert
+remontent, donc le trou se qualifie tout seul. Chaque annonce est récupérée (cache
+`.leads-cache/`), filtrée (taille, gros gestionnaire, hold, notre propre portefeuille) et
+classée. 40 leads obtenus pour Canggu/Seminyak/Pererenan/Umalas en 5BR+.
+
 ## Funnel
 
 `python3 villa-site/funnel.py set <slug> sent|replied|call|signed|highlight|refused --note "…"`,

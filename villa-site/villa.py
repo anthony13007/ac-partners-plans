@@ -60,7 +60,9 @@ def clean_name(title, description="", area="", bedrooms=None):
     # "Villa Only 400m to the Beach" is not a name: reject ordinary words after Villa
     STOP = {"only", "with", "in", "near", "for", "and", "at", "by", "is", "has", "of", "to",
             "from", "the", "a", "an", "just", "steps", "walk", "minutes", "min", "close",
-            "beach", "villa", "luxury", "private", "new", "modern", "spacious", "stunning"}
+            "beach", "villa", "luxury", "private", "new", "modern", "spacious", "stunning",
+            "rate", "rates", "rules", "book", "booking", "set", "manager", "staff", "policy",
+            "policies", "amenities", "services", "check", "info", "location", "unique"}
     for pat in (r"Welcome to (?:the )?([A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+){0,3})",
                 r"\b(Villa\s+[A-Z][\w'&-]+(?:\s+[A-Z][\w'&-]+)?)",
                 r"\b([A-Z][\w'&-]+\s+(?:House|Residence|Estate|Retreat|Lodge|Compound))\b"):
@@ -70,8 +72,12 @@ def clean_name(title, description="", area="", bedrooms=None):
                 n = re.sub(r"\s{2,}", " ", m.group(1).strip(" -—:,"))
                 words = n.split()
                 if len(n) > 3 and not re.match(r"^(The|This|Our|Your|A)\b", n) \
-                   and not any(w.lower() in STOP for w in words[1:]):
-                    return n
+                   and not any(w.lower() in STOP for w in words[1:]) \
+                   and "\n" not in n:
+                    # a real villa name repeats; "Villa Rules"/"Villa Rate" is a paragraph heading
+                    body = (description or "")
+                    if src is title or body.count(n) >= 2:
+                        return n
     # no real name on the listing: an honest, clean generic beats a mangled title
     if area and bedrooms: return f"{area} {bedrooms}-Bedroom Villa"
     t = re.sub(r"^\*?NEW\*?\s*", "", title, flags=re.I)
