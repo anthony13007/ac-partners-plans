@@ -31,7 +31,9 @@ def fetch_cached(url, lid):
     return L
 
 # on hold / never contact (Anthony's standing rules), plus the big aggregators we avoid
-HOLD = ["tropical door", "thetropicaldoor"]
+HOLD = ["tropical door", "thetropicaldoor",
+        "gravity bali", "gravitybali",      # partenariat en cours cote AC, ne pas prospecter
+        "the bali agent", "thebaliagent"]   # partenaire AC
 BIG_PM = ["elite havens", "bali villa finder", "nagisa", "villa-bali.com", "villabali",
           "bvi ", "bali villa escapes", "ministry of villas", "villa finder", "asia villas",
           "propertidepo", "bali management villas", "vila-bali"]

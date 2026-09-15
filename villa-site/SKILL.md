@@ -93,6 +93,11 @@ gestionnaire, Instagram de la villa (WhatsApp en bio, demande une session connec
 Google Maps si la villa est enregistrée comme établissement. **Tropical Door est en hold**
 (règle permanente d'Anthony, filtrée dans `find_leads.py`).
 
+- **Ne jamais prospecter** : Tropical Door (hold), The Bali Agent et **Gravity Bali** (partenariats
+  AC en cours, 40+ villas pour Gravity) — filtrés dans `find_leads.py` (`HOLD`). Quand un
+  partenariat d'agence se signe, ses villas entrent par la porte partenaire : on génère les pages
+  avec `villa.py` pour l'onboarding, pas la séquence de prospection.
+
 ## Sourcing de leads
 
 ```bash

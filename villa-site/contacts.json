@@ -96,5 +96,12 @@
     "status": "hold",
     "note": "portefeuille The Bali Agent (partenaire AC) — ne pas prospecter",
     "found": "2026-09-15"
+  },
+  "Gravity Bali (40+ villas Canggu)": {
+    "manager": "Gravity Bali",
+    "site": "https://gravitybali.com/en/",
+    "status": "hold",
+    "note": "PARTENARIAT EN COURS cote AC (Anthony, 15/09) — ne jamais prospecter, leurs villas arrivent par le partenariat",
+    "found": "2026-09-15"
   }
 }
