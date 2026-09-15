@@ -1,0 +1,160 @@
+{
+  "slug": "villa-berawa-chef",
+  "name": "Villa Canggu Berawa",
+  "area": "Canggu",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 5,
+  "guests": 13,
+  "currency": "$",
+  "adr": 650,
+  "adr_source": "market_p75 (PriceLabs, no ADR given)",
+  "source_url": "https://www.airbnb.com/rooms/1198126622667476950",
+  "listing_id": "1198126622667476950",
+  "city_raw": "Berawa",
+  "hero_title": "Villa Canggu Berawa.<br><em>Canggu,</em> Bali.",
+  "photos": [
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/95770155-7edd-4066-9ec0-1bf2c4621cec.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/95770155-7edd-4066-9ec0-1bf2c4621cec.jpeg?im_w=1920",
+      "caption": "The pool at first light.",
+      "label": "Pool image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1198126622667476950/original/4302ed14-7055-49b9-9ad9-2395cf07e695.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-1198126622667476950/original/4302ed14-7055-49b9-9ad9-2395cf07e695.jpeg?im_w=1920",
+      "caption": "The terrace, breakfast hour.",
+      "label": "master suite with parents retreat terrace, walk in robe and ensuite"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/5c26bda2-1bcb-4318-87b0-66cddd9c2c04.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/5c26bda2-1bcb-4318-87b0-66cddd9c2c04.jpeg?im_w=1920",
+      "caption": "The living pavilion, open to the garden.",
+      "label": "Living room image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/703bfa21-e066-4e5d-9730-be77c67d00fa.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/703bfa21-e066-4e5d-9730-be77c67d00fa.jpeg?im_w=1920",
+      "caption": "Dinner for 13, chef on request.",
+      "label": "Dining area image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/8279ad07-36b9-458c-8629-fb50b6c6a6a3.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/8279ad07-36b9-458c-8629-fb50b6c6a6a3.jpeg?im_w=1920",
+      "caption": "The kitchen, professional grade.",
+      "label": "Full kitchen image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1198126622667476950/original/6a3a8dbe-310e-4951-bb50-d089f3fa17a7.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/miso/Hosting-1198126622667476950/original/6a3a8dbe-310e-4951-bb50-d089f3fa17a7.jpeg?im_w=1920",
+      "caption": "Master suite, garden light.",
+      "label": "Bedroom 1 image 2"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/703d5209-5653-4364-a1a9-ea6d3a0bda0d.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/703d5209-5653-4364-a1a9-ea6d3a0bda0d.jpeg?im_w=1920",
+      "caption": "Second suite, ensuite.",
+      "label": "Bedroom 2 image 1"
+    },
+    {
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/89b6caa8-63ae-40ee-92fa-a29e9d2ed7b7.jpeg?im_w=1440",
+      "url_hd": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5ODEyNjYyMjY2NzQ3Njk1MA==/original/89b6caa8-63ae-40ee-92fa-a29e9d2ed7b7.jpeg?im_w=1920",
+      "caption": "Garden bathroom.",
+      "label": "Full bathroom 1 image 1"
+    }
+  ],
+  "story_title": "5 bedrooms, one pool, <em>the whole group under one roof.</em>",
+  "story_lead": "Surfing is one of the most popular things to do in Canggu for all skill levels, from novices to seasoned surfers. The beaches of Berawa,  Echo Beach. Pererenan and Batu Bolong, offer various wave conditions, while local surf schools provide lessons and gear rentals. Embracing the surf culture is essential to the Canggu experience, making surfing a must-try activity for every visitor.",
+  "story_points": [
+    "5 ensuite bedrooms for up to 13 guests",
+    "Private pool, garden and open living pavilion",
+    "Full-time staff, daily housekeeping, private chef on request",
+    "Canggu's beaches, cafés and beach clubs within minutes"
+  ],
+  "facts": [
+    {
+      "n": "5",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "13",
+      "l": "Guests"
+    },
+    {
+      "n": "5.0★",
+      "l": "23 reviews"
+    },
+    {
+      "n": "Canggu",
+      "l": "Bali"
+    }
+  ],
+  "book_lead": "Rates include staff, daily housekeeping and airport transfers. Minimum three nights; five over Christmas and New Year.",
+  "rate_range": null,
+  "amenities": [
+    "Kitchen",
+    "Wifi",
+    "Dedicated workspace",
+    "Free parking on premises",
+    "Pool",
+    "TV",
+    "Air conditioning",
+    "Bathtub",
+    "Bed linens",
+    "Extra pillows and blankets"
+  ],
+  "book_url": "https://wa.me/6281211489565",
+  "owner_pitch": true,
+  "low_season": [
+    {
+      "month": "October",
+      "days": 31,
+      "market_occ": 0.4
+    },
+    {
+      "month": "November",
+      "days": 30,
+      "market_occ": 0.39
+    },
+    {
+      "month": "December (1–20)",
+      "days": 20,
+      "market_occ": 0.41
+    }
+  ],
+  "annual_market_occ": 44,
+  "capture_rate": 0.35,
+  "commission": 0.1,
+  "site_price": "Included · $690 + $29/mo on its own",
+  "gap_source": "Source: PriceLabs market data, Canggu, 4–10 BR villas (350 listings), pulled 2026-09-11: last-year market occupancy by month, lowest in Oct, Nov, Dec; annual average 44%.",
+  "market": {
+    "zone": "canggu",
+    "compset": 350,
+    "br_band": "4–10 BR",
+    "occ_ly": {
+      "Jan": 40,
+      "Feb": 41,
+      "Mar": 43,
+      "Apr": 45,
+      "May": 45,
+      "Jun": 46,
+      "Jul": 50,
+      "Aug": 49,
+      "Sep": 43,
+      "Oct": 41,
+      "Nov": 39,
+      "Dec": 41
+    },
+    "pulled": "2026-09-11"
+  },
+  "cta_title": "Your low season, filled. <em>10% on the nights we sell,</em> nothing else.",
+  "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "Balivillaco — Herman & Komang",
+    "first_name": "",
+    "handle": "+62 812 1148 9565",
+    "channel": "whatsapp"
+  },
+  "generated": "2026-09-15"
+}

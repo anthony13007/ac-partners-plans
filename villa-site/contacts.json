@@ -41,5 +41,60 @@
     "status": "none",
     "note": "cherche sur le web : aucune presence propre, uniquement Airbnb/agregateurs",
     "found": "2026-09-14"
+  },
+  "Villa Canggu Berawa Beach": {
+    "manager": "Balivillaco (Bali Villa Co, est. 2006)",
+    "whatsapp": "+62 812 1148 9565",
+    "wa_link": "https://wa.me/6281211489565",
+    "site": "https://www.instagram.com/balivillaco/",
+    "listing": "https://www.airbnb.com/rooms/1198126622667476950",
+    "status": "found",
+    "note": "Herman +62 812 1148 9565, Komang +62 821 4740 2277, Trisna +62 819 9997 2979 — bureau Jl Tunon Buduk Canggu ; l'annonce cite Herman et Komang, gestionnaire multi-villas, payes par les proprios sans markup",
+    "also_manages": [
+      "portefeuille Canggu/Seminyak/Uluwatu"
+    ],
+    "found": "2026-09-15"
+  },
+  "Villa Kanari": {
+    "listing": "https://www.airbnb.com/rooms/1296006219383269067",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Villa Pixy": {
+    "listing": "https://www.airbnb.com/rooms/1352802236711815806",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Villa Ombak": {
+    "listing": "https://www.airbnb.com/rooms/29463987",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Villa Odeon": {
+    "listing": "https://www.airbnb.com/rooms/1522227711980752867",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Villa Kaori": {
+    "listing": "https://www.airbnb.com/rooms/1754651495226223919",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Hacienda": {
+    "listing": "https://www.airbnb.com/rooms/1690948178061982827",
+    "status": "none",
+    "note": "recherche web 15/09 : pas de presence propre ni d'agence identifiable",
+    "found": "2026-09-15"
+  },
+  "Villa Belle Oasis": {
+    "listing": "https://www.airbnb.com/rooms/1743998490329251779",
+    "status": "hold",
+    "note": "portefeuille The Bali Agent (partenaire AC) — ne pas prospecter",
+    "found": "2026-09-15"
   }
 }

@@ -1,8 +1,8 @@
 # Outreach — Villa Mila (Canggu, 5BR)
 
-Generated 2026-09-14 · owner page: https://plans.ac-collection.com/villa-site/villa-mila-canggu?owner · guest site: https://plans.ac-collection.com/villa-site/villa-mila-canggu · showcase: https://plans.ac-collection.com/villa-site/villa-mila-canggu
-Numbers: 49 empty nights / 81 in October, November and early December (market 40%), $31,850 not earned at $650/night; we target +17 nights = $11,050 added, our fee $1,105, guarantee 8 nights.
-Contact:   via whatsapp
+Generated 2026-09-15 · owner page: https://plans.ac-collection.com/villa-site/villa-mila-canggu?owner · guest site: https://plans.ac-collection.com/villa-site/villa-mila-canggu · showcase: https://plans.ac-collection.com/villa-site/villa-mila-canggu
+Numbers: 49 empty nights / 81 in October, November and early December (market 40%), $27,489 not earned at $561/night; we target +17 nights = $9,537 added, our fee $954, guarantee 8 nights.
+Contact: Elld Property (villa manager) +62 819 866 392 via whatsapp
 
 ## Message 1 — who I am (WhatsApp)
 ```
@@ -18,7 +18,7 @@ Hi there, Superhost here (759 reviews), 30 villas in Bali: https://ac-collection
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
 ```
-5-bedroom villas around Villa Mila sit at ~40% occupancy in October, November and early December. At your ~$650/night that is about 49 empty nights, $31,850 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-mila-canggu?owner
+5-bedroom villas around Villa Mila sit at ~40% occupancy in October, November and early December. At your ~$561/night that is about 49 empty nights, $27,489 not earned per low season. The detail, on a private page: https://plans.ac-collection.com/villa-site/villa-mila-canggu?owner
 
 And this is the kind of site we build for our villas to sell direct, scroll it on your phone: https://plans.ac-collection.com/villa-site/villa-mila-canggu
 
@@ -57,18 +57,18 @@ If we have not sold 8 nights by the end of the first low season, you keep the si
 Understood, no problem. One lighter option, zero commitment: we feature Villa Mila as a highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats looking for large villas). You handle the booking directly, we take 5% on a booking we send you, nothing otherwise. Shall I add it?
 ```
 
-## Follow-up J+3 after message 2 (2026-09-17)
+## Follow-up J+3 after message 2 (2026-09-18)
 ```
 Hi there, did the page load OK on your side? https://plans.ac-collection.com/villa-site/villa-mila-canggu?owner
 Happy to walk you through the 49 nights in 10 min.
 ```
 
-## Follow-up J+7 (2026-09-21) — attach a PriceLabs screenshot of one of our villas vs market
+## Follow-up J+7 (2026-09-22) — attach a PriceLabs screenshot of one of our villas vs market
 ```
 there, one number from our side: our own villas in Canggu ran 80–100% over the last 30 days against a 29–47% market (PriceLabs, Sept 2026). Same channels, same pricing engine, for Villa Mila. 10 min this week?
 ```
 
-## Follow-up J+14 (2026-09-28) — last
+## Follow-up J+14 (2026-09-29) — last
 ```
 Last one from me, there. We take a handful of villas per area for the low season. Want the spot for Villa Mila, or shall I pass? The site stays here either way: https://plans.ac-collection.com/villa-site/villa-mila-canggu
 ```
