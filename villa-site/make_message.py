@@ -52,9 +52,9 @@ def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
 
     msg1 = f"""Hi {first}, Anthony here. Airbnb Superhost for {s['superhost_years']} years ({s['reviews']} reviews, {s['rating']}★), I run {s['brand']}, ~{s['villas']} luxury villas in Canggu, Seminyak and Uluwatu: {website}
 
-I came across {villa} while benchmarking {area}. Mind if I share a couple of numbers on your low season?"""
+I came across {villa} while benchmarking {area}. Can I send you the October-December occupancy data for villas like yours in {area}, and what it costs in empty nights?"""
 
-    msg1_ig = f"""Hi {first}, Superhost here ({s['reviews']} reviews), {s['villas']} villas in Bali: {website}. Came across {villa}, can I send you two numbers on your low season?"""
+    msg1_ig = f"""Hi {first}, Superhost here ({s['reviews']} reviews), {s['villas']} villas in Bali: {website}. Came across {villa}, can I send you the Oct-Dec occupancy data for villas like yours in {area}?"""
 
     msg2 = f"""{br}-bedroom villas around {villa} sit at ~{occ}% occupancy in {months_txt}. At your ~{adr}/night that is about {g['empty']} empty nights, {loss} not earned per low season. The detail, on a private page: {url}
 
