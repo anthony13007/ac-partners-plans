@@ -131,7 +131,17 @@
   .owner .guar{margin-top:14px;background:#fffdf9;border:1px dashed #c4794d;border-radius:14px;padding:16px 20px;color:#3d2a1f;font-size:15px}
   .rate.wide{min-width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
   .rate.wide .n{margin-top:0}
-  .owner .ctabox{margin-top:50px;background:#3d2a1f;border-radius:20px;padding:44px;text-align:center}
+  .owner .joinbox{margin-top:48px;padding:40px;border:1px solid rgba(58,46,40,.18);border-radius:18px;background:rgba(255,255,255,.55)}
+.owner .joinbox h3{font-family:var(--serif,'Cormorant Garamond',serif);font-weight:400;font-size:clamp(26px,3vw,34px);margin:8px 0 12px}
+.owner .joinbox p{max-width:640px}
+.owner .joinbox form{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 10px}
+.owner .joinbox input{flex:1 1 320px;min-width:0;height:52px;padding:0 16px;border:1px solid rgba(58,46,40,.3);border-radius:12px;background:#fff;font:inherit;font-size:15px}
+.owner .joinbox input:focus{outline:none;border-color:#C4794D}
+.owner .joinbox .btn{height:52px;display:inline-flex;align-items:center}
+.owner .joinbox #join-msg{margin-top:12px}
+.owner .joinbox #join-msg.ok{color:#2f6b3a}
+.owner .joinbox #join-msg.ko{color:#a3352b}
+.owner .ctabox{margin-top:50px;background:#3d2a1f;border-radius:20px;padding:44px;text-align:center}
   .owner .ctabox h3{font-family:var(--serif);font-size:38px;color:#f8f2e8;font-weight:400;line-height:1.05}
   .owner .ctabox p{color:#d9cab9;margin:14px auto 0}
   .owner .sub-table{overflow-x:auto}
@@ -475,6 +485,18 @@
       <p id="cta-text"></p>
       <a class="btn" id="cta-btn" href="#" target="_blank">Talk to Anthony →</a>
     </div>
+
+    <div class="joinbox" id="joinbox">
+      <div class="eyebrow">One minute to start</div>
+      <h3>Put your villa in front of our guests, privately.</h3>
+      <p>Paste the iCal export link of your calendar. We read your availability, nothing else: your villa is never published, never listed. When a guest asks for dates you have free, we propose it and send you the booking on WhatsApp.</p>
+      <form id="join-form" novalidate>
+        <input type="url" id="join-ical" placeholder="https://www.airbnb.com/calendar/ical/…" autocomplete="off" required>
+        <button type="submit" class="btn" id="join-btn">Add my calendar →</button>
+      </form>
+      <p class="fine" id="join-help">Airbnb: Calendar → Availability settings → Connect calendars → <em>Export calendar</em>, then copy the link. Guesty, Hostaway, Lodgify, Smoobu and the others all have the same export link.</p>
+      <p class="fine" id="join-msg" hidden></p>
+    </div>
   </div>
 </section>
 
@@ -607,6 +629,22 @@
   }
   $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
   $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
+  (function(){
+    var f=document.getElementById('join-form'); if(!f) return;
+    var msg=document.getElementById('join-msg'), btn=document.getElementById('join-btn'), inp=document.getElementById('join-ical');
+    function say(t,cls){ msg.textContent=t; msg.className='fine '+cls; msg.hidden=false; }
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var url=(inp.value||'').trim();
+      if(!/^https?:\/\/\S+$/i.test(url)){ say('Please paste the full link, starting with https://', 'ko'); return; }
+      btn.disabled=true; btn.textContent='Sending…';
+      fetch('https://www.ac-collection.com/api/catalogue/join',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({slug:C.slug, villaName:C.name, airbnbUrl:C.source_url||'', icalUrl:url})})
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(){ f.hidden=true; document.getElementById('join-help').hidden=true; say('Done. Your calendar is connected: Anthony will confirm on WhatsApp within a few hours, and you will hear from us the first time a guest asks for your dates.','ok'); })
+      .catch(function(){ btn.disabled=false; btn.textContent='Add my calendar →'; say('That did not go through. Send the link to Anthony on WhatsApp instead, it works just as well.','ko'); });
+    });
+  })();
   $('book-btn').href = C.book_url; $('nav-cta').href = '#book';
 
   /* ---- owner pitch ---- */
