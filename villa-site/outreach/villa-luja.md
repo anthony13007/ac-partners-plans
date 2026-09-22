@@ -1,6 +1,6 @@
 # Outreach — Villa Luja (Canggu, 5BR)
 
-Generated 2026-09-13 · owner page: https://plans.ac-collection.com/villa-site/villa-luja?owner · guest site: https://plans.ac-collection.com/villa-site/villa-luja · showcase: https://plans.ac-collection.com/villa-site/villa-luja
+Generated 2026-09-22 · owner page: https://plans.ac-collection.com/villa-site/villa-luja?owner · guest site: https://plans.ac-collection.com/villa-site/villa-luja · showcase: https://plans.ac-collection.com/villa-site/villa-luja
 Numbers: 49 empty nights / 81 in October, November and early December (market 40%), $30,625 not earned at $625/night; we target +17 nights = $10,625 added, our fee $1,062, guarantee 8 nights.
 Contact: GORO Villa Management +62851-2103-1173 via whatsapp
 
@@ -8,12 +8,12 @@ Contact: GORO Villa Management +62851-2103-1173 via whatsapp
 ```
 Hi there, Anthony here. Airbnb Superhost for 9 years (759 reviews, 4.84★), I run AC Collection, ~30 luxury villas in Canggu, Seminyak and Uluwatu: https://ac-collection.com
 
-I came across Villa Luja while benchmarking Canggu. Mind if I share a couple of numbers on your low season?
+I came across Villa Luja while benchmarking Canggu. Can I send you the October-December occupancy data for villas like yours in Canggu, and what it costs in empty nights?
 ```
 
 ## Message 1 — Instagram DM variant
 ```
-Hi there, Superhost here (759 reviews), 30 villas in Bali: https://ac-collection.com. Came across Villa Luja, can I send you two numbers on your low season?
+Hi there, Superhost here (759 reviews), 30 villas in Bali: https://ac-collection.com. Came across Villa Luja, can I send you the Oct-Dec occupancy data for villas like yours in Canggu?
 ```
 
 ## Message 2 — the gap + the site example (after a "yes" or 2 days later)
@@ -52,23 +52,29 @@ If we have not sold 8 nights by the end of the first low season, you keep the si
 15 minutes on WhatsApp this week? Tuesday or Thursday?
 ```
 
+## Message 3 bis — right after the offer, the one concrete ask (paste as a separate message)
+```
+To start, I only need your calendar link. On your page there is a box at the bottom: paste the iCal export link of your calendar and that's it. Your villa is never published anywhere: I only read your availability, and the first time a guest asks for dates you have free, I send you the booking on WhatsApp.
+https://plans.ac-collection.com/villa-site/villa-luja?owner
+```
+
 ## If "no" — highlight fallback
 ```
 Understood, no problem. One lighter option, zero commitment: we feature Villa Luja as a highlight on the AC Collection guest site and in our guest emails (repeat guests, groups, retreats looking for large villas). You handle the booking directly, we take 5% on a booking we send you, nothing otherwise. Shall I add it?
 ```
 
-## Follow-up J+3 after message 2 (2026-09-16)
+## Follow-up J+3 after message 2 (2026-09-25)
 ```
 Hi there, did the page load OK on your side? https://plans.ac-collection.com/villa-site/villa-luja?owner
 Happy to walk you through the 49 nights in 10 min.
 ```
 
-## Follow-up J+7 (2026-09-20) — attach a PriceLabs screenshot of one of our villas vs market
+## Follow-up J+7 (2026-09-29) — attach a PriceLabs screenshot of one of our villas vs market
 ```
 there, one number from our side: our own villas in Canggu ran 80–100% over the last 30 days against a 29–47% market (PriceLabs, Sept 2026). Same channels, same pricing engine, for Villa Luja. 10 min this week?
 ```
 
-## Follow-up J+14 (2026-09-27) — last
+## Follow-up J+14 (2026-10-06) — last
 ```
 Last one from me, there. We take a handful of villas per area for the low season. Want the spot for Villa Luja, or shall I pass? The site stays here either way: https://plans.ac-collection.com/villa-site/villa-luja
 ```
