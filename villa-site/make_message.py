@@ -119,6 +119,12 @@ Contact: {cfg.get('contact', {}).get('name', '')} {cfg.get('contact', {}).get('h
 {msg3}
 ```
 
+## Message 3 bis — right after the offer, the one concrete ask (paste as a separate message)
+```
+To start, I only need your calendar link. On your page there is a box at the bottom: paste the iCal export link of your calendar and that's it. Your villa is never published anywhere: I only read your availability, and the first time a guest asks for dates you have free, I send you the booking on WhatsApp.
+{url}
+```
+
 ## If "no" — highlight fallback
 ```
 {fallback}
