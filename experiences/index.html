@@ -91,6 +91,9 @@ em{font-style:italic;font-weight:300}
 /* DRONE */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:34px}
 .duo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.trio{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:38px}
+.trio img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
+.trio img:first-child{grid-column:1/-1;aspect-ratio:16/8}
 /* NOTES + FORM */
 .notes{padding:40px 0 10px}
 .notes ul{columns:2;column-gap:40px;padding:0;list-style:none;color:var(--ink2);font-size:13.5px}
@@ -119,7 +122,7 @@ footer b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;l
 @media (max-width:860px){
   .wrap{padding:0 16px}.hero .top,.hero .txt{padding-left:16px;padding-right:16px}
   .ch .grid,.ch.rev .grid{grid-template-columns:1fr;gap:26px}.ch.rev .ph{order:0}.ph{position:static}.ph img{aspect-ratio:4/3}
-  .sig{grid-template-columns:repeat(3,1fr)}.duo{grid-template-columns:1fr}.notes ul{columns:1}.f3{grid-template-columns:1fr}.box{padding:26px 18px}
+  .sig{grid-template-columns:repeat(3,1fr)}.duo{grid-template-columns:1fr}.trio{grid-template-columns:1fr}.trio img:first-child{aspect-ratio:4/3}.notes ul{columns:1}.f3{grid-template-columns:1fr}.box{padding:26px 18px}
   .intro{padding:80px 0 40px}.ch{padding:48px 0}.bleed .q{padding:0 16px 40px}.scroll{display:none}.wa{margin-left:0;display:block}
 }
 @media (prefers-reduced-motion:reduce){.hero img{animation:none;transform:none}.rv{opacity:1;transform:none;transition:none}}
@@ -133,7 +136,7 @@ footer b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;l
   <div class="txt">
     <div class="for" id="for">In-villa experiences</div>
     <h1>The memories of a trip are the <em>moments</em> you live in it.</h1>
-    <p>Private chefs, a cocktail bar by the pool, a table dressed for the occasion, your celebration filmed from the sky. Choose what you would like, and we arrange everything before you arrive.</p>
+    <p>Private chefs, a cocktail bar by the pool, a table dressed for the occasion, your stay captured by a drone and a photographer. Choose what you would like, and we arrange everything before you arrive.</p>
   </div>
   <div class="scroll">Scroll</div>
 </header>
@@ -143,7 +146,7 @@ footer b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;l
   <p class="big">Everything happens at your villa, prepared by our chefs, bartenders and crew. You only have to be there.</p>
   <div class="stay" id="stay"></div>
   <nav class="toc">
-    <a href="#mornings">Mornings</a><a href="#dinners">Dinners</a><a href="#buffets">Buffets</a><a href="#grill">Fire &amp; grill</a><a href="#aperitif">Apéritif</a><a href="#bar">Cocktail bar</a><a href="#moments">Moments</a><a href="#drone">From above</a>
+    <a href="#mornings">Mornings</a><a href="#dinners">Dinners</a><a href="#buffets">Buffets</a><a href="#grill">Fire &amp; grill</a><a href="#aperitif">Apéritif</a><a href="#bar">Cocktail bar</a><a href="#moments">Moments</a><a href="#drone">Memories</a>
   </nav>
 </section>
 
@@ -220,8 +223,10 @@ const CH=[
   {id:"bar-prestige",n:"Prestige",p:35000000,u:"per event",pack:1,l:["2 bartenders","5 signature cocktails","20 bottles included"]}]},
  {id:"moments",k:"07 · Occasions",t:"The table, <em>dressed</em>",lead:"For a birthday, an anniversary or the last night together.",img:"firepit",cap:"The lounge, lit for the evening",items:[
   {id:"mo-table",n:"Custom Table Setting",p:2000000,from:1,u:"from",pack:1,l:["A bespoke centerpiece of fresh flowers and hand-carved seasonal fruit, styled along your table","Final price depends on scale and flowers"]}]},
- {id:"drone",k:"08 · From above",t:"Drone <em>memories</em>",lead:"A licensed pilot films your villa, your group and your celebration from the sky. An edited film and a gallery of stills, delivered after your stay: the souvenir everyone asks for.",terms:"Weather and airspace permitting",duo:["drone-1","drone-2"],items:[
-  {id:"mo-drone",n:"Drone Memories",p:null,u:"on request",pack:1,l:["Aerial film of the villa and your group, edited","Gallery of high-resolution stills"]}]}
+ {id:"drone",k:"08 · Memories",t:"Your stay, <em>captured</em>",lead:"The trip everyone talks about for years is the one you can see again. A licensed drone pilot films the villa, the rice fields and your group from the sky, and a private photographer follows the moments on the ground: the floating breakfast, the long lunch, the last sunset together. Edited film and galleries delivered after your stay.",terms:"Weather and airspace permitting for drone flights",trio:["memories-drone","memories-lounge","memories-pool"],items:[
+  {id:"mo-drone",n:"Drone Memories",p:null,u:"on request",pack:1,l:["Aerial film of the villa, the surroundings and your group, edited","Gallery of high-resolution aerial stills"]},
+  {id:"mo-photo",n:"Private Photographer",p:null,u:"on request",pack:1,l:["A professional photographer at your villa for a family shoot, a celebration or the whole group","Edited gallery delivered after your stay"]},
+  {id:"mo-both",n:"Drone & Photographer",p:null,u:"on request",pack:1,tag:"The full story",l:["The sky and the ground in one session","Film and photo gallery, edited together"]}]}
 ];
 const SIG=[["mojito","Mojito","Rum · mint · lime"],["spritz","Spritz","Aperol · prosecco"],["margarita","Margarita","Tequila · triple sec"],["mule","Moscow Mule","Vodka · ginger · lime"],["pornstar","Pornstar Martini","Vodka · passion · vanilla"],["cosmo","Cosmopolitan","Vodka · cranberry"]];
 
@@ -246,8 +251,9 @@ for(const c of CH){
   const photo=c.duo?"":`<div class="ph rv"><img src="/experiences/img/${c.img}.jpg" alt="${c.cap}" loading="lazy"><div class="cap">${c.cap}</div></div>`;
   const body=`<div class="rv"><div class="k">${c.k}</div><h2>${c.t}</h2><p class="lead">${c.lead}</p>${c.terms?`<p class="terms">${c.terms}</p>`:""}${c.items.map(itemHTML).join("")}</div>`;
   const sig=c.sig?`<div class="sig rv">${SIG.map(s=>`<figure><img src="/experiences/img/${s[0]}.jpg" alt="${s[1]}" loading="lazy"><figcaption>${s[1]}<small>${s[2]}</small></figcaption></figure>`).join("")}</div><p class="terms" style="text-align:center">The menu adapts to you · ask for your own cocktails</p>`:"";
+  const trio=c.trio?`<div class="trio rv"><img src="/experiences/img/${c.trio[0]}.jpg" alt="Drone filming a family in a villa garden" loading="lazy"><img src="/experiences/img/${c.trio[1]}.jpg" alt="Friends on a rice field lounge" loading="lazy"><img src="/experiences/img/${c.trio[2]}.jpg" alt="A family with a floating breakfast in the pool" loading="lazy"></div>`:"";
   const duo=c.duo?`<div class="duo rv">${c.duo.map(d=>`<img src="/experiences/img/${d}.jpg" alt="A villa seen from above" loading="lazy">`).join("")}</div>`:"";
-  html+=`<section class="ch${c.rev?" rev":""}${c.dark?" dark":""}" id="${c.id}"><div class="wrap">${duo}${c.duo?`<div style="max-width:720px">${body}</div>`:`<div class="grid">${photo}${body}</div>`}${sig}</div></section>`;
+  html+=`<section class="ch${c.rev?" rev":""}${c.dark?" dark":""}" id="${c.id}"><div class="wrap">${trio}${duo}${(c.duo||c.trio)?`<div style="max-width:720px">${body}</div>`:`<div class="grid">${photo}${body}</div>`}${sig}</div></section>`;
 }
 M.innerHTML=html;
 
