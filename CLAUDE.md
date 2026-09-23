@@ -30,6 +30,8 @@ Ne pas mettre « Airbnb Superhost / 800+ avis » partout par défaut.
 - Ici Superhost + avis EST pertinent.
 
 ## Règles de forme
+- **Sonder d'abord.** Le 1er message pose une question sur SON besoin avant de pitcher. On présente l'offre seulement quand on sait ce qu'il cherche.
+- Une seule villa en exemple (ex. The Dreamtime House), pas une liste. Pas de promesse de capacité événement.
 - Anglais par défaut à Bali.
 - Court, orienté vers le lecteur, une seule question facile à la fin.
 - Ne jamais affirmer ce qui n'est pas vérifié (capacité événement, partenariats, demandes entrantes). Signaler à Anthony ce qu'il faut confirmer avant l'envoi.
