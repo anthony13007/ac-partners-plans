@@ -127,7 +127,7 @@ footer b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;l
 <body>
 
 <header class="hero">
-  <img src="img/close.jpg" alt="A private pool at sunset in Bali">
+  <img src="/experiences/img/close.jpg" alt="A private pool at sunset in Bali">
   <div class="top"><b>AC</b><span>Collection · Bali</span></div>
   <div class="txt">
     <div class="for" id="for">In-villa experiences</div>
@@ -241,11 +241,11 @@ function itemHTML(it){
 }
 const M=document.getElementById("chapters"); let html="";
 for(const c of CH){
-  if(c.bleed){html+=`<section class="bleed"><img src="img/${c.bleed}.jpg" alt="" loading="lazy"><div class="q rv"><div class="k" style="color:#E3A87C">${c.k}</div><p>${c.q}</p></div></section>`;continue}
-  const photo=c.duo?"":`<div class="ph rv"><img src="img/${c.img}.jpg" alt="${c.cap}" loading="lazy"><div class="cap">${c.cap}</div></div>`;
+  if(c.bleed){html+=`<section class="bleed"><img src="/experiences/img/${c.bleed}.jpg" alt="" loading="lazy"><div class="q rv"><div class="k" style="color:#E3A87C">${c.k}</div><p>${c.q}</p></div></section>`;continue}
+  const photo=c.duo?"":`<div class="ph rv"><img src="/experiences/img/${c.img}.jpg" alt="${c.cap}" loading="lazy"><div class="cap">${c.cap}</div></div>`;
   const body=`<div class="rv"><div class="k">${c.k}</div><h2>${c.t}</h2><p class="lead">${c.lead}</p>${c.terms?`<p class="terms">${c.terms}</p>`:""}${c.items.map(itemHTML).join("")}</div>`;
-  const sig=c.sig?`<div class="sig rv">${SIG.map(s=>`<figure><img src="img/${s[0]}.jpg" alt="${s[1]}" loading="lazy"><figcaption>${s[1]}<small>${s[2]}</small></figcaption></figure>`).join("")}</div><p class="terms" style="text-align:center">The menu adapts to you · ask for your own cocktails</p>`:"";
-  const duo=c.duo?`<div class="duo rv">${c.duo.map(d=>`<img src="img/${d}.jpg" alt="A villa seen from above" loading="lazy">`).join("")}</div>`:"";
+  const sig=c.sig?`<div class="sig rv">${SIG.map(s=>`<figure><img src="/experiences/img/${s[0]}.jpg" alt="${s[1]}" loading="lazy"><figcaption>${s[1]}<small>${s[2]}</small></figcaption></figure>`).join("")}</div><p class="terms" style="text-align:center">The menu adapts to you · ask for your own cocktails</p>`:"";
+  const duo=c.duo?`<div class="duo rv">${c.duo.map(d=>`<img src="/experiences/img/${d}.jpg" alt="A villa seen from above" loading="lazy">`).join("")}</div>`:"";
   html+=`<section class="ch${c.rev?" rev":""}${c.dark?" dark":""}" id="${c.id}"><div class="wrap">${duo}${c.duo?`<div style="max-width:720px">${body}</div>`:`<div class="grid">${photo}${body}</div>`}${sig}</div></section>`;
 }
 M.innerHTML=html;
