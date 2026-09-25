@@ -73,6 +73,7 @@ def build(a):
   <h2>Everything included, <em>from day one.</em></h2>
   <p class="lead">Every line below is included the day your villa goes live. The crossed-out prices are what each one costs on its own.</p>
   <table>{rows}</table>
+  <div class="yr"><span>Total per year</span><span class="w"><s>${worth:,.0f}</s><em>Included</em></span></div>
   <div class="price"><div><div class="life">Lifetime</div><div class="big">{COMMISSION}</div></div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
 </div><div class="foot"><img class="logo" src="{logo}"><span>02</span></div></section>
 <section class="pg"><div class="in">

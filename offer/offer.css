@@ -77,3 +77,11 @@ td.w span{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#C
 .price{margin-top:7mm}
 
 .hostcap{margin:3.5mm 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13pt;color:#8F6E5A;text-align:center}
+
+.yr{display:flex;justify-content:space-between;align-items:center;margin-top:2mm;padding:2mm 0;border-bottom:2px solid #372014}
+.yr>span:first-child{font-family:'Cormorant Garamond',serif;font-size:16pt;font-weight:500}
+.yr .w{text-align:right}
+.yr .w s{display:block;font-family:'Cormorant Garamond',serif;font-size:17pt;color:#8F6E5A;text-decoration-thickness:1.5px}
+.yr .w em{display:block;font-style:normal;font-family:Montserrat,sans-serif;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#C4794D;font-weight:600}
+
+.price{margin-top:5mm}
