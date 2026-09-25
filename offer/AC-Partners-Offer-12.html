@@ -1,0 +1,120 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat,sans-serif;color:#372014;background:#F8F2E8;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:#F8F2E8}
+.pg:last-child{page-break-after:auto}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:400;margin:0}
+em{font-style:italic;font-weight:300;color:#C4794D}
+.k{font-size:8.5pt;letter-spacing:.3em;text-transform:uppercase;color:#C4794D;font-weight:500}
+.logo{height:9mm}
+/* cover */
+.cover .ph{position:absolute;inset:0 0 auto 0;height:168mm}
+.cover .ph img{width:100%;height:100%;object-fit:cover}
+.cover .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,.35),rgba(26,15,8,0) 40%,rgba(26,15,8,.55))}
+.cover .ph .t{position:absolute;z-index:2;left:18mm;right:18mm;bottom:14mm;color:#FBF6EE}
+.cover .ph .t .k{color:#F1D3B8}
+.cover h1{font-size:40pt;line-height:1.02;margin-top:4mm}
+.cover h1 em{color:#F1D3B8}
+.cover .body{position:absolute;left:18mm;right:18mm;top:180mm}
+.cover .lead{font-size:11pt;line-height:1.6;color:#5C4A3D;max-width:150mm;margin:0 0 9mm}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E3D6C9;border-bottom:1px solid #E3D6C9}
+.proof div{padding:5mm 0;text-align:center;border-right:1px solid #E3D6C9}
+.proof div:last-child{border:0}
+.proof b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24pt;line-height:1}
+.proof span{font-size:7pt;letter-spacing:.18em;text-transform:uppercase;color:#8F6E5A}
+.foot{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;align-items:center;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:#8F6E5A}
+/* stack */
+.in{padding:14mm 18mm 0}
+.in h2{font-size:28pt;line-height:1.05;margin:3mm 0 3mm}
+.in .lead{font-size:9.5pt;line-height:1.55;color:#5C4A3D;margin:0 0 6mm;max-width:165mm}
+table{width:100%;border-collapse:collapse}
+td{vertical-align:top;padding:2.4mm 0;border-top:1px solid #E3D6C9}
+tr:last-child td{border-bottom:1px solid #E3D6C9}
+td.n{width:10mm;font-family:'Cormorant Garamond',serif;font-size:13pt;color:#C4794D;padding-top:2.6mm}
+td b{font-size:10pt;font-weight:600}
+td p{margin:.8mm 0 0;font-size:8.1pt;line-height:1.45;color:#5C4A3D}
+td.w{width:36mm;text-align:right;white-space:nowrap}
+td.w s{display:block;font-size:8.5pt;color:#8F6E5A}
+td.w span{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#C4794D;font-weight:600}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:4mm;font-size:9pt;color:#5C4A3D}
+.total b{font-family:'Cormorant Garamond',serif;font-size:18pt;font-weight:500;color:#372014}
+.price{margin-top:5mm;background:#2A1B10;color:#F4EBDD;border-radius:3mm;padding:6mm 10mm;display:grid;grid-template-columns:auto 1fr;gap:10mm;align-items:center}
+.price .big{font-family:'Cormorant Garamond',serif;font-size:60pt;line-height:.9;color:#E3A87C}
+.price .line{font-family:'Cormorant Garamond',serif;font-size:17pt;line-height:1.2}
+.price ul{margin:3mm 0 0;padding:0;list-style:none;font-size:8.5pt;color:rgba(244,235,221,.78)}
+.price li{padding:.6mm 0}
+.price li:before{content:"— ";color:#E3A87C}
+.guar{margin-top:0;border:1px solid #CBA24C;border-radius:3mm;padding:4mm 6mm;font-size:9pt;line-height:1.55;color:#5C4A3D}
+.guar b{font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:500;color:#372014;display:block;margin-bottom:1mm}
+/* how */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:5mm 0 5mm}
+.step{background:#FDFBF8;border:1px solid #E3D6C9;border-radius:3mm;padding:4.5mm 5mm}
+.step .n{font-family:'Cormorant Garamond',serif;font-size:20pt;color:#C4794D;line-height:1}
+.step h3{font-size:15pt;margin:2mm 0 2mm}
+.step p{margin:0;font-size:8.2pt;line-height:1.5;color:#5C4A3D}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:5mm}
+.duo img{width:100%;height:38mm;object-fit:cover;border-radius:2mm}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10mm}
+.two h3{font-size:14pt;margin:0 0 2mm}
+.two ul{margin:0;padding-left:4mm;font-size:8.3pt;line-height:1.6;color:#5C4A3D}
+.cta{margin-top:5mm;padding-top:5mm;border-top:1px solid #E3D6C9;display:flex;justify-content:space-between;align-items:end}
+.cta .serif{font-size:17pt;line-height:1.15;max-width:110mm}
+.cta .c{text-align:right;font-size:9pt;line-height:1.7}
+.cta .c b{color:#C4794D}
+
+.host{display:grid;grid-template-columns:auto 2.1fr repeat(4,1fr);align-items:center;gap:0;background:#FDFBF8;border:1px solid #E3D6C9;border-radius:4mm;padding:5mm 6mm}
+.host .av{width:24mm;height:24mm;border-radius:50%;object-fit:cover;margin-right:5mm}
+.host .who b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20pt;line-height:1}
+.host .who .sh{display:block;white-space:nowrap;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:#C4794D;margin-top:1.5mm;font-weight:600}
+.host .who .sub{display:block;font-size:7.5pt;color:#8F6E5A;margin-top:1mm}
+.host .st{text-align:center;border-left:1px solid #E3D6C9;padding:1mm 0}
+.host .st b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20pt;line-height:1}
+.host .st span{display:block;margin-top:1.2mm;white-space:nowrap;font-size:6pt;letter-spacing:.1em;text-transform:uppercase;color:#8F6E5A}
+.cover .lead b{color:#372014;font-weight:600}
+</style></head><body>
+<section class="pg cover">
+  <div class="ph"><img src="file:///Users/anthony/Claude/ac-partners-plans/experiences/img/close.jpg"><div class="t"><div class="k">AC Partners · Distribution partnership · Bali</div>
+    <h1>Everything your villa needs to sell <em>more nights.</em></h1></div></div>
+  <div class="body">
+    <p class="lead">Here is what I can do for your villa: I take care of distribution and bring you bookings, on more channels and with sharper pricing, in parallel with what you already do. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription, no exclusivity.</p>
+    <div class="host">
+      <img class="av" src="file:///Users/anthony/Claude/ac-partners-plans/offer/host-photo.jpg">
+      <div class="who"><b>Anthony</b><span class="sh">◆ Airbnb Superhost</span><span class="sub">Founder, AC Collection</span></div>
+      <div class="st"><b>795</b><span>Reviews</span></div>
+      <div class="st"><b>4.8★</b><span>Rating</span></div>
+      <div class="st"><b>10</b><span>Years hosting</span></div>
+      <div class="st"><b>~30</b><span>Villas in Bali</span></div>
+    </div>
+  </div>
+  <div class="foot"><img class="logo" src="file:///Users/anthony/Claude/ac-partners-plans/offer/logo-horizontal-transparent.png"><span>ac-collection.com</span></div>
+</section>
+<section class="pg"><div class="in">
+  <div class="k">What I do for you</div>
+  <h2>Everything included, <em>from day one.</em></h2>
+  <p class="lead">Every line below is included the day your villa goes live. The crossed-out prices are what each one costs on its own.</p>
+  <table><tr><td class="n">01</td><td><b>Distribution on every OTA, in parallel with yours</b><p>My own listings on Airbnb (Superhost, 10 years of hosting), Booking.com, Expedia, VRBO and Marriott Homes &amp; Villas run alongside your channels, so your villa takes more of the market instead of moving it around. My own playbook, a nightly pricing strategy set together with you, one synced calendar, no double bookings.</p></td><td class="w"><span>Included</span></td></tr><tr><td class="n">02</td><td><b>Your direct-booking site</b><p>A site for your villa on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.</p></td><td class="w"><s>$690 + $29/mo</s><span>Included</span></td></tr><tr><td class="n">03</td><td><b>Highlight on ac-collection.com</b><p>Featured on my guest site and in my guest emails: repeat guests, groups and retreats looking for large villas.</p></td><td class="w"><s>$29/mo</s><span>Included</span></td></tr><tr><td class="n">04</td><td><b>Monthly report + market insights</b><p>On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and my pricing recommendations.</p></td><td class="w"><s>$19.99/mo</s><span>Included</span></td></tr><tr><td class="n">05</td><td><b>PriceLabs strategy tool</b><p>The dynamic-pricing engine behind my own villas, running on yours: seasonality, events, lead time, minimum stays.</p></td><td class="w"><s>$15/mo</s><span>Included</span></td></tr><tr><td class="n">06</td><td><b>Guest app</b><p>Digital guidebook and concierge chat for every guest I send: check-in, house manual, local recommendations.</p></td><td class="w"><s>$39/mo</s><span>Included</span></td></tr><tr><td class="n">07</td><td><b>Instagram reel of the villa</b><p>Shot from your photos, published on @acpartners.collection.</p></td><td class="w"><s>$290</s><span>Included</span></td></tr><tr><td class="n">08</td><td><b>Pricing set-up + listing audit</b><p>PriceLabs configured for your villa; photos, title and text reviewed in the first week.</p></td><td class="w"><s>$290</s><span>Included</span></td></tr></table>
+  <div class="total"><span>Value of what is included in year one</span><b>$2,854</b></div>
+  <div class="price"><div class="big">12%</div><div><div class="line">on the nights I sell. Nothing else.</div><ul><li>Nothing on the nights you sell yourself</li><li>No set-up fee, no exclusivity, no minimum term</li><li>Stop whenever you want</li></ul></div></div>
+</div><div class="foot"><img class="logo" src="file:///Users/anthony/Claude/ac-partners-plans/offer/logo-horizontal-transparent.png"><span>02</span></div></section>
+<section class="pg"><div class="in">
+  <div class="k">How it works</div>
+  <h2>Live within <em>a week.</em></h2>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h3>Diagnostic</h3><p>I read your calendar and the market, and show you, in figures, the nights your villa leaves empty and what they are worth.</p></div>
+    <div class="step"><div class="n">02</div><h3>Onboarding</h3><p>I write and photograph the listing to convert, map the amenities, sync your calendar by iCal so a night can never be sold twice, and set pricing with you.</p></div>
+    <div class="step"><div class="n">03</div><h3>Go live</h3><p>Airbnb, Booking.com and the other channels in parallel with yours, your direct-booking site and the AC Collection highlight, all on the same day.</p></div>
+    <div class="step"><div class="n">04</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
+  </div>
+  <div class="duo"><img src="file:///Users/anthony/Claude/ac-partners-plans/experiences/img/dinner.jpg"><img src="file:///Users/anthony/Claude/ac-partners-plans/experiences/img/drone-2.jpg"></div>
+  <div class="guar"><b>My guarantee</b>If I have not sold half of the empty nights shown in your diagnostic within the first three months, you keep the site, the highlight and the reel, and walk away. Nothing owed.</div>
+  <div class="two" style="margin-top:5mm">
+    <div><h3>You keep</h3><ul><li>Your operations team: villa manager and staff stay the same</li><li>Your own listings, channels and direct guests</li><li>Full control of your calendar and your rate floor</li><li>Every booking, paid to you</li></ul></div>
+    <div><h3>I need</h3><ul><li>Your iCal link and your photos</li><li>House rules and check-in details</li><li>Your net rates or rate floor per season</li></ul></div>
+  </div>
+  <div class="cta"><div class="serif">Fifteen minutes on WhatsApp to walk you through the numbers for your villa.</div>
+    <div class="c">Anthony Campana<br><b>+62 851 9018 1610</b><br>ac-collection.com</div></div>
+</div><div class="foot"><img class="logo" src="file:///Users/anthony/Claude/ac-partners-plans/offer/logo-horizontal-transparent.png"><span>PT Anthony Campana Partners · Bali</span></div></section>
+</body></html>
