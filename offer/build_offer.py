@@ -16,9 +16,9 @@ COMMISSION = "12%"
 HOST = {"reviews": 795, "rating": "4.8", "years": 10, "villas": "~30"}
 
 STACK = [
-  ("Exclusive distribution under my profile", "I am the only one marketing your villa: listed on my Airbnb profile (Superhost, 795 reviews, 4.8★, 10 years of hosting), then Booking.com, Expedia, VRBO and Marriott Homes & Villas. A villa that goes live on a profile guests already trust books faster than a listing starting from zero. My own playbook, a nightly pricing strategy set together with you, one calendar, no double bookings.", None, None),
-  ("Your direct-booking site", "A site for your villa on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.", 690, 29),
-  ("Highlight on ac-collection.com", "Featured on my guest site and in my guest emails: repeat guests, groups and retreats looking for large villas.", None, 29),
+  ("Distribution under my profile", "Your villa listed on my Airbnb profile (Superhost, 795 reviews, 4.8★, 10 years of hosting), then Booking.com, Expedia, VRBO and Marriott Homes & Villas. A villa that goes live on a profile guests already trust books faster than a listing starting from zero. My own playbook, a nightly pricing strategy set together with you, one calendar, no double bookings.", None, None),
+  ("Your direct-booking site", "A site for your villa on your own domain: scroll film, gallery, enquiry button. Every booking it brings saves the 17% of OTA fees.", 690, 29),
+  ("Highlight on ac-collection.com", "Featured on ac-collection.com and in my guest emails: repeat guests, groups and retreats looking for large villas. Bookings made there carry no OTA fees: 17% saved.", None, 29),
   ("Monthly report + market insights", "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and my pricing recommendations.", None, 19.99),
   ("PriceLabs strategy tool", "The dynamic-pricing engine behind my own villas, running on yours: seasonality, events, lead time, minimum stays.", None, 15),
   ("Guest app", "Digital guidebook and concierge chat for every guest I send: check-in, house manual, local recommendations.", None, 39),
@@ -40,7 +40,7 @@ def build(a):
     kicker = f"AC Collection · Bali · Prepared for {html.escape(villa)}" if villa else "AC Partners · Distribution partnership · Bali"
     intro = (f"<b>{html.escape(villa)}</b> meets the criteria to join my portfolio of villas in Bali. Here is what I can do for you: " if villa
              else "Here is what I can do for your villa: ")
-    intro += "I become the only one marketing your villa, and I bring you the bookings. Listed under my Superhost profile, it starts with the trust of 795 reviews instead of starting from zero, which is what fills a calendar quickly. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription."
+    intro += "I bring you the bookings. Listed under my Superhost profile, your villa starts with the trust of 795 reviews instead of starting from zero, which is what fills a calendar quickly. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription."
     who = html.escape(villa) if villa else "your villa"
     cover = fu(a.cover)
     gallery = "".join(f'<img src="{fu(x)}">' for x in a.photos[:3])
@@ -83,7 +83,6 @@ def build(a):
     <div class="step"><div class="n">03</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
   </div>
   <div class="duo" style="grid-template-columns:repeat({ncol},1fr)">{gallery}</div>
-  <div class="guar"><b>My guarantee</b>If I have not brought you bookings within the first three months, you keep the site, the highlight and the reel, and walk away. Nothing owed.</div>
   <div class="two" style="margin-top:5mm">
     <div><h3>You keep</h3><ul><li>Your operations team: villa manager and staff stay the same</li><li>Your direct guests</li><li>Your rate floor, and your own stays blocked whenever you want</li><li>Every booking, paid to you</li></ul></div>
     <div><h3>I need</h3><ul><li>Your photos</li><li>House rules and check-in details</li><li>Your net rates or rate floor per season</li></ul></div>
