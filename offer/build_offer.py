@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Offre AC Partners en PDF, à la première personne (Anthony), charte AC.
+"""MODÈLE OWNER (lancement de villa, marketing only) : offre AC Partners en PDF, à la première personne, charte AC.
+Le MODÈLE B2B (management company, douleur chiffrée, en parallèle, 10 %) = villa-site/villa.py, pas ce script.
 
   python3 build_offer.py                                  # version générique
   python3 build_offer.py --villa "Palm Spring Villa" --area Canggu \

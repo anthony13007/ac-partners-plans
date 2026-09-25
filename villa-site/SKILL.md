@@ -9,6 +9,18 @@ Repo `~/Claude/ac-partners-plans` (GitHub `anthony13007/ac-partners-plans`), dos
 Prod : **https://plans.ac-collection.com/villa-site/<slug>** (branche `main` uniquement ; les
 previews de branche sont derrière un login Vercel). `?owner` révèle la section propriétaire.
 
+## Deux modèles de présentation (décision d'Anthony, 25/09/2026) — ne jamais les mélanger
+
+| | **Modèle Owner** (lancement de villa) | **Modèle B2B** (management company) |
+|---|---|---|
+| Cible | propriétaire qui lance / confie sa villa | société de gestion (3 à 40 villas) |
+| Rôle d'Anthony | marketing only, seul distributeur, sous son profil Superhost | distribution en parallèle, ils gardent tout |
+| Argument | profil : 795 avis, 4,8★, 10 ans d'hôte → la villa ne part pas de zéro | la douleur : nuits vides chiffrées, analyse marché PriceLabs |
+| Prix | **Lifetime 12 %** des nuits vendues | 10 % des nuits vendues |
+| Support | PDF `offer/build_offer.py --villa "Nom" --cover … --photos …` | page diagnostic `villa.py` + 3 messages + funnel |
+| Interdits | iCal, « in parallel », low season, garantie, « only one marketing », « we » | — |
+| Commun | équipe opérationnelle (villa manager + staff) inchangée ; site direct + ac-collection.com = 17 % de frais OTA économisés | idem |
+
 ## La commande (5 min par villa, tout compris)
 
 ```bash
