@@ -42,7 +42,9 @@ def build(a):
              else "Here is what I can do for your villa: ")
     intro += "I take care of distribution and bring you bookings, on more channels and with sharper pricing, in parallel with what you already do. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription, no exclusivity."
     who = html.escape(villa) if villa else "your villa"
-    cover, p1, p2 = fu(a.cover), fu(a.photos[0]), fu(a.photos[1])
+    cover = fu(a.cover)
+    gallery = "".join(f'<img src="{fu(x)}">' for x in a.photos[:3])
+    ncol = min(3, len(a.photos))
     logo, photo = fu(os.path.join(HERE, "logo-horizontal-transparent.png")), fu(os.path.join(HERE, "host-photo.jpg"))
     css = open(os.path.join(HERE, "offer.css"), encoding="utf-8").read()
     page = f'''<!doctype html><html><head><meta charset="utf-8">
@@ -81,7 +83,7 @@ def build(a):
     <div class="step"><div class="n">03</div><h3>Go live</h3><p>Airbnb, Booking.com and the other channels in parallel with yours, your direct-booking site and the AC Collection highlight, all on the same day.</p></div>
     <div class="step"><div class="n">04</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
   </div>
-  <div class="duo"><img src="{p1}"><img src="{p2}"></div>
+  <div class="duo" style="grid-template-columns:repeat({ncol},1fr)">{gallery}</div>
   <div class="guar"><b>My guarantee</b>If I have not sold half of the empty nights shown in your diagnostic within the first three months, you keep the site, the highlight and the reel, and walk away. Nothing owed.</div>
   <div class="two" style="margin-top:5mm">
     <div><h3>You keep</h3><ul><li>Your operations team: villa manager and staff stay the same</li><li>Your own listings, channels and direct guests</li><li>Full control of your calendar and your rate floor</li><li>Every booking, paid to you</li></ul></div>
@@ -103,6 +105,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--villa", default=""); ap.add_argument("--area", default="")
     ap.add_argument("--cover", default=os.path.join(EXP, "close.jpg"))
-    ap.add_argument("--photos", nargs=2, default=[os.path.join(EXP, "dinner.jpg"), os.path.join(EXP, "drone-2.jpg")])
+    ap.add_argument("--photos", nargs="+", default=[os.path.join(EXP, "dinner.jpg"), os.path.join(EXP, "drone-2.jpg")])
     ap.add_argument("--out", default="AC-Partners-Offer")
     build(ap.parse_args())
