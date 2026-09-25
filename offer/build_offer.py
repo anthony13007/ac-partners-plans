@@ -80,7 +80,7 @@ def build(a):
   <div class="k">How it works</div>
   <h2>Live within <em>a week.</em></h2>
   <div class="steps" style="grid-template-columns:repeat(3,1fr)">
-    <div class="step"><div class="n">01</div><h3>Onboarding</h3><p>I write and photograph the listing to convert, map every amenity, set up one calendar across all channels and set pricing with you.</p></div>
+    <div class="step"><div class="n">01</div><h3>Onboarding</h3><p>I publish your listing on every OTA with your photos and your house rules, and on my website, at a strategic price defined together.</p></div>
     <div class="step"><div class="n">02</div><h3>Go live</h3><p>Your villa goes live under my Superhost profile on Airbnb, then Booking.com and every other channel, with your direct-booking site and the AC Collection highlight, all on the same day.</p></div>
     <div class="step"><div class="n">03</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
   </div>

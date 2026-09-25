@@ -85,3 +85,10 @@ td.w span{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#C
 .yr .w em{display:block;font-style:normal;font-family:Montserrat,sans-serif;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#C4794D;font-weight:600}
 
 .price{margin-top:5mm}
+
+td.w{width:40mm}
+td.w s{font-family:'Cormorant Garamond',serif;font-size:14pt;color:#6B5242;text-decoration-thickness:1.4px;margin-bottom:.5mm}
+.yr .w s{font-size:24pt;color:#6B5242;text-decoration-thickness:2px}
+
+td{padding:1.9mm 0}
+.in .lead{margin-bottom:4mm}
