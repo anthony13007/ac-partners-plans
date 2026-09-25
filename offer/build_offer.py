@@ -16,7 +16,7 @@ COMMISSION = "12%"
 HOST = {"reviews": 795, "rating": "4.8", "years": 10, "villas": "~30"}
 
 STACK = [
-  ("Distribution on every OTA, in parallel with yours", "My own listings on Airbnb (Superhost, 10 years of hosting), Booking.com, Expedia, VRBO and Marriott Homes & Villas run alongside your channels, so your villa takes more of the market instead of moving it around. My own playbook, a nightly pricing strategy set together with you, one synced calendar, no double bookings.", None, None),
+  ("Exclusive distribution under my profile", "I am the only one marketing your villa: listed on my Airbnb profile (Superhost, 795 reviews, 4.8★, 10 years of hosting), then Booking.com, Expedia, VRBO and Marriott Homes & Villas. A villa that goes live on a profile guests already trust books faster than a listing starting from zero. My own playbook, a nightly pricing strategy set together with you, one calendar, no double bookings.", None, None),
   ("Your direct-booking site", "A site for your villa on your own domain: scroll film, gallery, enquiry button. No OTA commission on the bookings it brings you.", 690, 29),
   ("Highlight on ac-collection.com", "Featured on my guest site and in my guest emails: repeat guests, groups and retreats looking for large villas.", None, 29),
   ("Monthly report + market insights", "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and my pricing recommendations.", None, 19.99),
@@ -25,7 +25,7 @@ STACK = [
   ("Instagram reel of the villa", "Shot from your photos, published on @acpartners.collection.", 290, None),
   ("Pricing set-up + listing audit", "PriceLabs configured for your villa; photos, title and text reviewed in the first week.", 290, None),
 ]
-TERMS = ["Nothing on the nights you sell yourself", "No set-up fee, no exclusivity, no minimum term", "Stop whenever you want"]
+TERMS = ["Nothing on the nights you sell yourself", "No set-up fee, no minimum term", "Stop whenever you want"]
 
 def fu(p): return "file://" + os.path.abspath(p)
 
@@ -40,7 +40,7 @@ def build(a):
     kicker = f"AC Collection · Bali · Prepared for {html.escape(villa)}" if villa else "AC Partners · Distribution partnership · Bali"
     intro = (f"<b>{html.escape(villa)}</b> meets the criteria to join my portfolio of villas in Bali. Here is what I can do for you: " if villa
              else "Here is what I can do for your villa: ")
-    intro += "I take care of distribution and bring you bookings, on more channels and with sharper pricing, in parallel with what you already do. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription, no exclusivity."
+    intro += "I become the only one marketing your villa, and I bring you the bookings. Listed under my Superhost profile, it starts with the trust of 795 reviews instead of starting from zero, which is what fills a calendar quickly. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription."
     who = html.escape(villa) if villa else "your villa"
     cover = fu(a.cover)
     gallery = "".join(f'<img src="{fu(x)}">' for x in a.photos[:3])
@@ -63,6 +63,7 @@ def build(a):
       <div class="st"><b>{HOST['years']}</b><span>Years hosting</span></div>
       <div class="st"><b>{HOST['villas']}</b><span>Villas in Bali</span></div>
     </div>
+    <p class="hostcap">Your villa goes live on this profile: guests book it with the confidence of 795 reviews from day one.</p>
   </div>
   <div class="foot"><img class="logo" src="{logo}"><span>ac-collection.com</span></div>
 </section>
@@ -71,26 +72,23 @@ def build(a):
   <h2>Everything included, <em>from day one.</em></h2>
   <p class="lead">Every line below is included the day your villa goes live. The crossed-out prices are what each one costs on its own.</p>
   <table>{rows}</table>
-  <div class="total"><span>Value of what is included in year one</span><b>${worth:,.0f}</b></div>
-  <div class="price"><div class="big">{COMMISSION}</div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
+  <div class="price"><div><div class="life">Lifetime</div><div class="big">{COMMISSION}</div></div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
 </div><div class="foot"><img class="logo" src="{logo}"><span>02</span></div></section>
 <section class="pg"><div class="in">
   <div class="k">How it works</div>
   <h2>Live within <em>a week.</em></h2>
-  <div class="steps">
-    <div class="step"><div class="n">01</div><h3>Diagnostic</h3><p>I read your calendar and the market, and show you, in figures, the nights your villa leaves empty and what they are worth.</p></div>
-    <div class="step"><div class="n">02</div><h3>Onboarding</h3><p>I write and photograph the listing to convert, map the amenities, sync your calendar by iCal so a night can never be sold twice, and set pricing with you.</p></div>
-    <div class="step"><div class="n">03</div><h3>Go live</h3><p>Airbnb, Booking.com and the other channels in parallel with yours, your direct-booking site and the AC Collection highlight, all on the same day.</p></div>
-    <div class="step"><div class="n">04</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
+  <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+    <div class="step"><div class="n">01</div><h3>Onboarding</h3><p>I write and photograph the listing to convert, map every amenity, set up one calendar across all channels and set pricing with you.</p></div>
+    <div class="step"><div class="n">02</div><h3>Go live</h3><p>Your villa goes live under my Superhost profile on Airbnb, then Booking.com and every other channel, with your direct-booking site and the AC Collection highlight, all on the same day.</p></div>
+    <div class="step"><div class="n">03</div><h3>Every month</h3><p>I bring the bookings, your team hosts the guests as today, and every booking goes straight to you. On the 1st, your report: channel mix, occupancy, rates, market data and my pricing recommendations.</p></div>
   </div>
   <div class="duo" style="grid-template-columns:repeat({ncol},1fr)">{gallery}</div>
-  <div class="guar"><b>My guarantee</b>If I have not sold half of the empty nights shown in your diagnostic within the first three months, you keep the site, the highlight and the reel, and walk away. Nothing owed.</div>
+  <div class="guar"><b>My guarantee</b>If I have not brought you bookings within the first three months, you keep the site, the highlight and the reel, and walk away. Nothing owed.</div>
   <div class="two" style="margin-top:5mm">
-    <div><h3>You keep</h3><ul><li>Your operations team: villa manager and staff stay the same</li><li>Your own listings, channels and direct guests</li><li>Full control of your calendar and your rate floor</li><li>Every booking, paid to you</li></ul></div>
-    <div><h3>I need</h3><ul><li>Your iCal link and your photos</li><li>House rules and check-in details</li><li>Your net rates or rate floor per season</li></ul></div>
+    <div><h3>You keep</h3><ul><li>Your operations team: villa manager and staff stay the same</li><li>Your direct guests</li><li>Your rate floor, and your own stays blocked whenever you want</li><li>Every booking, paid to you</li></ul></div>
+    <div><h3>I need</h3><ul><li>Your photos</li><li>House rules and check-in details</li><li>Your net rates or rate floor per season</li></ul></div>
   </div>
-  <div class="cta"><div class="serif">Fifteen minutes on WhatsApp to walk you through the numbers for {who}.</div>
-    <div class="c">Anthony Campana<br><b>+62 851 9018 1610</b><br>ac-collection.com</div></div>
+  <div class="cta"><div class="c" style="text-align:left">Anthony Campana · <b>+62 851 9018 1610</b> · ac-collection.com</div></div>
 </div><div class="foot"><img class="logo" src="{logo}"><span>PT Anthony Campana Partners · Bali</span></div></section>
 </body></html>'''
     src = os.path.join(HERE, a.out + ".html"); open(src, "w", encoding="utf-8").write(page)
@@ -98,7 +96,7 @@ def build(a):
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--allow-file-access-from-files", "--virtual-time-budget=8000",
                     "--no-pdf-header-footer", f"--print-to-pdf={pdf}", "file://" + src], capture_output=True)
     low = open(src, encoding="utf-8").read().lower()
-    assert "low season" not in low and "low-season" not in low and " we " not in low.replace("<", " "), "règle de discours violée"
+    assert "ical" not in low.split("<body")[1] and "in parallel" not in low and "diagnostic" not in low.split("<body")[1] and "low season" not in low and "low-season" not in low and " we " not in low.replace("<", " "), "règle de discours violée"
     print(pdf)
 
 if __name__ == "__main__":
