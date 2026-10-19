@@ -40,7 +40,7 @@ em{font-style:italic;font-weight:300}
 .free p{margin:0;color:var(--ink2);font-size:13.5px;max-width:52ch}
 .btn{display:inline-block;text-align:center;text-decoration:none;font:500 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:16px 24px;border-radius:999px;transition:all .2s;white-space:nowrap}
 .btn.ghost{border:1px solid var(--ink);color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:#F4EBDD}
-.or{text-align:center;margin:44px 0 18px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink3)}
+.or{text-align:left;padding-left:32px;margin:40px 0 16px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink3)}
 /* OPTION 2 */
 .head{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;margin-bottom:28px}
 .head img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:6px;box-shadow:0 24px 50px rgba(42,27,16,.18)}
@@ -64,7 +64,8 @@ em{font-style:italic;font-weight:300}
 .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
 .row.bonus{background:#fbf5ec}
 .row .tagb{margin-left:10px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--car);vertical-align:middle}
-.limited{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.limited{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 26px;padding-left:32px}
+.hl{font-style:italic;font-weight:400;color:var(--car2);background:linear-gradient(transparent 62%,rgba(196,121,77,.22) 62%);padding:0 4px}
 .limited b{display:inline-block;background:var(--car);color:#fff;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 5px rgba(196,121,77,.16)}
 .limited span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--car2)}
 .worth{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 24px;background:#f2e9db}
@@ -89,7 +90,7 @@ footer{padding:30px 28px 60px;text-align:center;font-size:10.5px;letter-spacing:
 footer img{width:220px;margin:0 auto 12px}
 @media (max-width:760px){
   .wrap{padding:0 16px}.hero .top{padding:20px 16px}.hero .txt{padding:110px 16px 64px}
-  .free{grid-template-columns:1fr;padding:24px 20px}.free .btn{width:100%}
+  .free{grid-template-columns:1fr;padding:24px 20px}.limited,.or{padding-left:22px}.free .btn{width:100%}
   .nego{grid-template-columns:1fr;gap:18px;padding:26px 22px;justify-items:center;text-align:center}.nego .bubble{width:160px;height:160px}.nego .bubble b{font-size:44px}
   .row{padding:16px 18px;grid-template-columns:1fr}.row .pr{text-align:left}
   .worth{padding:14px 18px}
@@ -115,7 +116,7 @@ footer img{width:220px;margin:0 auto 12px}
   <section class="free">
     <div>
       <span class="pill dark">Option 1 · Free</span>
-      <h2>Search on your own with our concierge</h2>
+      <h2>Search on your own with our <span class="hl">concierge</span></h2>
       <p>Our online concierge suggests villas from the collection published on ac-collection.com, at public rates.</p>
     </div>
     <a class="btn solid" href="https://www.ac-collection.com/?concierge=1" target="_blank" rel="noopener">Open the concierge</a>
@@ -124,10 +125,10 @@ footer img{width:220px;margin:0 auto 12px}
   <div class="or">or</div>
 
   <section id="private">
+    <div class="limited"><span class="pill car">Option 2 · Limited offer</span><span>Due to a limited number of searches each week</span></div>
     <div class="head">
       <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
       <div>
-        <div class="limited"><span class="pill car">Option 2 · Limited offer</span><span>Due to a limited number of searches each week</span></div>
         <div class="k">The Private Search</div>
         <h2>I find your villa, and I <em>negotiate</em> it for you.</h2>
         <p>One person, ten years in Bali, a private network of owners and partners. You send your brief, I do the rest, and you pay less than the public price.</p>
