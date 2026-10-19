@@ -3,123 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>The Private Search — AC Collection</title>
-<meta name="description" content="Bali's finest villas are rarely listed. A curated shortlist of private villas, verified with the owners, within 48 hours.">
-<meta property="og:title" content="The Private Search — AC Collection">
-<meta property="og:description" content="A curated shortlist of private villas in Bali, verified with the owners, within 48 hours.">
+<title>Your villa search — AC Collection</title>
+<meta name="description" content="Two ways to find your villa in Bali: our concierge, or a private search with Anthony.">
+<meta property="og:title" content="Your villa search — AC Collection">
+<meta property="og:description" content="Two ways to find your villa in Bali: our concierge, or a private search with Anthony.">
 <meta property="og:image" content="https://plans.ac-collection.com/experiences/img/hero.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap">
 <style>
-:root{--bg:#F8F2E8;--bg2:#EFE6D8;--ink:#2A1B10;--ink2:#5C4A3D;--ink3:#8F7A68;--car:#C4794D;--car2:#A8643D;--line:rgba(42,27,16,.12);--card:#FFFDF9;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Helvetica Neue',Arial,sans-serif}
-*{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit}
+:root{--bg:#F8F2E8;--ink:#2A1B10;--ink2:#5C4A3D;--ink3:#8F7A68;--car:#C4794D;--car2:#A8643D;--line:rgba(42,27,16,.12);--card:#FFFDF9;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Helvetica Neue',Arial,sans-serif}
+*{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit}
 .k{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--car);font-weight:500}
 h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
 em{font-style:italic;font-weight:300}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-.narrow{max-width:760px;margin:0 auto;padding:0 28px}
 /* HERO */
-.hero{position:relative;height:100svh;min-height:600px;color:#FBF6EE;overflow:hidden}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:kb 18s ease-out forwards}
-@keyframes kb{to{transform:scale(1)}}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,.5) 0%,rgba(26,15,8,.12) 32%,rgba(26,15,8,.82) 100%),linear-gradient(90deg,rgba(26,15,8,.5),rgba(26,15,8,0) 62%)}
-.hero .top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:26px 28px;font-size:11px;letter-spacing:.34em;text-transform:uppercase}
+.hero{position:relative;min-height:62svh;color:#FBF6EE;overflow:hidden;display:flex;align-items:flex-end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,.5),rgba(26,15,8,.15) 35%,rgba(26,15,8,.85))}
+.hero .top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:24px 28px;font-size:11px;letter-spacing:.34em;text-transform:uppercase}
 .hero .top b{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.28em}
-.hero .txt{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 28px 9svh;max-width:1120px;margin:0 auto;text-shadow:0 1px 18px rgba(0,0,0,.35)}
-.hero .for{font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.88;margin-bottom:18px}
-.hero h1{font-size:clamp(44px,7.6vw,100px);line-height:.98;max-width:13ch}
-.hero p{max-width:540px;font-size:16px;opacity:.92;margin:24px 0 0}
-.brief{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.brief span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border:1px solid rgba(251,246,238,.45);border-radius:999px;background:rgba(26,15,8,.25);backdrop-filter:blur(4px)}
-/* INTRO */
-.intro{padding:120px 0 90px;text-align:center}
-.intro p.big{font-family:var(--serif);font-size:clamp(28px,3.6vw,44px);line-height:1.22;max-width:22ch;margin:20px auto 0;font-weight:300}
-.intro p.sub{color:var(--ink2);max-width:56ch;margin:26px auto 0}
-/* STEPS */
-.steps{padding:30px 0 100px}
-.steps .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-.step{padding:34px 26px 10px 0}
-.step+.step{padding-left:26px;border-left:1px solid var(--line)}
-.step .n{font-family:var(--serif);font-size:44px;line-height:1;color:var(--car)}
-.step h3{font-size:24px;margin:16px 0 8px}
-.step p{color:var(--ink2);font-size:13.5px;margin:0}
-.step .when{display:block;margin-top:14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
-/* BLEED */
-.bleed{position:relative;height:72svh;min-height:420px;overflow:hidden;color:#FBF6EE}
-.bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bleed:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,0) 35%,rgba(26,15,8,.75))}
-.bleed .q{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 28px 60px;max-width:1120px;margin:0 auto}
-.bleed .q p{font-family:var(--serif);font-size:clamp(30px,4.2vw,54px);line-height:1.08;max-width:19ch;margin:10px 0 0;font-weight:300}
-/* INCLUDED */
-.inc{padding:110px 0 90px}
-.inc .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
-.inc h2{font-size:clamp(38px,4.6vw,60px);line-height:1.02;margin:14px 0 18px}
-.inc .lead{color:var(--ink2);max-width:40ch}
-.list{list-style:none;margin:0;padding:0}
-.list li{display:grid;grid-template-columns:34px 1fr;gap:6px 14px;padding:22px 0;border-top:1px solid var(--line)}
-.list li:last-child{border-bottom:1px solid var(--line)}
-.list .ic{font-family:var(--serif);font-size:22px;color:var(--car);line-height:1.2}
-.list b{display:block;font-family:var(--serif);font-weight:500;font-size:23px;line-height:1.2}
-.list span{color:var(--ink2);font-size:13.5px}
-/* OFFER */
-.dark{background:var(--ink);color:#F1E7DA}
-.offer{padding:120px 0}
-.offer .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-.offer h2{font-size:clamp(40px,5vw,66px);line-height:1;margin:14px 0 20px}
-.offer .lead{color:rgba(241,231,218,.75);max-width:44ch}
-.ticket{background:#F8F2E8;color:var(--ink);border-radius:16px;padding:44px 40px;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.35)}
-.ticket:before,.ticket:after{content:"";position:absolute;top:50%;width:26px;height:26px;border-radius:50%;background:var(--ink);transform:translateY(-50%)}
-.ticket:before{left:-13px}.ticket:after{right:-13px}
-.ticket .k{text-align:center}
-.amount{text-align:center;margin:14px 0 4px}
-.amount b{font-family:var(--serif);font-weight:400;font-size:84px;line-height:1;letter-spacing:-.02em}
-.amount sup{font-family:var(--sans);font-size:14px;letter-spacing:.2em;vertical-align:top;position:relative;top:16px;margin-right:6px;color:var(--ink3)}
-.amount small{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);margin-top:8px}
-.save{margin:26px 0 0;padding:18px 20px;border-radius:12px;background:#EFE3D2;text-align:center}
-.save b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;color:var(--car2)}
-.save span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
-.promise{list-style:none;padding:0;margin:30px 0 30px;border-top:1px dashed rgba(42,27,16,.25)}
-.promise li{display:flex;gap:12px;padding:14px 0;border-bottom:1px dashed rgba(42,27,16,.25);font-size:14px}
-.promise li:before{content:"✓";color:var(--car);font-weight:600}
-.pay{display:block;width:100%;text-align:center;text-decoration:none;font:500 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;padding:19px 24px;border-radius:999px;background:var(--ink);color:#F4EBDD;transition:background .2s}
-.pay:hover{background:var(--car)}
-.secure{text-align:center;font-size:11px;color:var(--ink3);margin-top:12px;letter-spacing:.04em}
-.alt{text-align:center;margin-top:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.alt a{color:var(--car2);text-decoration:none;border-bottom:1px solid rgba(196,121,77,.4)}
+.hero .txt{position:relative;z-index:2;width:100%;max-width:1080px;margin:0 auto;padding:120px 28px 56px;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.hero .for{font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.88;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,6.4vw,80px);line-height:1}
+.brief{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.brief span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border:1px solid rgba(251,246,238,.45);border-radius:999px;background:rgba(26,15,8,.25)}
+/* OPTIONS */
+.opts{max-width:1080px;margin:-34px auto 0;padding:0 28px 70px;position:relative;z-index:3;display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:stretch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:38px 34px;display:flex;flex-direction:column}
+.card.pro{background:var(--ink);color:#F1E7DA;border-color:var(--ink);box-shadow:0 30px 70px rgba(42,27,16,.28)}
+.card .k{margin-bottom:10px}.card.pro .k{color:#E3A87C}
+.card h2{font-size:clamp(32px,3.4vw,42px);line-height:1.05}
+.price{display:flex;align-items:baseline;gap:10px;margin:16px 0 4px}
+.price b{font-family:var(--serif);font-weight:400;font-size:54px;line-height:1}
+.price span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.card.pro .price span{color:rgba(241,231,218,.6)}
+.card p.lead{color:var(--ink2);margin:10px 0 18px;font-size:14px}
+.card.pro p.lead{color:rgba(241,231,218,.75)}
+.why{list-style:none;padding:0;margin:4px 0 22px;flex:1}
+.why li{padding:14px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
+.card.pro .why li{border-color:rgba(241,231,218,.14);color:rgba(241,231,218,.78)}
+.why b{display:block;font-family:var(--serif);font-weight:500;font-size:21px;color:var(--ink);line-height:1.2;margin-bottom:2px}
+.card.pro .why b{color:#F8F2E8}
+.save{display:inline-block;margin-left:6px;font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#E3A87C;vertical-align:middle}
+.btn{display:block;text-align:center;text-decoration:none;font:500 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:17px 22px;border-radius:999px;transition:all .2s}
+.btn.ghost{border:1px solid var(--ink);color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:#F4EBDD}
+.btn.fill{background:#F4EBDD;color:var(--ink)}.btn.fill:hover{background:var(--car);color:#fff}
+.fine{font-size:11px;margin-top:12px;text-align:center;color:var(--ink3)}
+.card.pro .fine{color:rgba(241,231,218,.55)}
 /* HOST */
-.host{padding:120px 0 90px}
-.host .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
-.host img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px}
-.host blockquote{margin:16px 0 0;font-family:var(--serif);font-size:clamp(26px,3vw,36px);line-height:1.25;font-weight:300}
-.host .sign{margin-top:24px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink3)}
-.host .sign b{display:block;font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.02em;text-transform:none;color:var(--ink);margin-bottom:4px}
-.stats{display:flex;gap:34px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
-.stats div{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
-.stats b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:0;color:var(--ink);text-transform:none;line-height:1.1}
-/* TERMS */
-.terms{padding:40px 0 100px}
-.terms ul{columns:2;column-gap:44px;padding:0;margin:16px 0 0;list-style:none;color:var(--ink2);font-size:13px}
-.terms li{break-inside:avoid;padding:9px 0;border-top:1px solid var(--line)}
-footer{padding:40px 28px 70px;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3)}
-footer img{width:250px;margin:0 auto 14px}
-footer a{text-decoration:none}
-.float{position:fixed;z-index:50;left:50%;bottom:18px;transform:translate(-50%,160%);transition:transform .35s;text-decoration:none;background:var(--ink);color:#F4EBDD;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:14px 22px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.25);white-space:nowrap}
-.float.show{transform:translate(-50%,0)}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
-.rv.in{opacity:1;transform:none}
-@media (max-width:900px){
-  .wrap,.narrow{padding:0 16px}.hero .top,.hero .txt{padding-left:16px;padding-right:16px}
-  .steps .grid{grid-template-columns:1fr 1fr}.step:nth-child(3){padding-left:0;border-left:0}
-  .inc .grid,.offer .grid,.host .grid{grid-template-columns:1fr;gap:40px}
-  .host img{max-width:340px}.terms ul{columns:1}
-  .intro{padding:84px 0 60px}.inc,.offer,.host{padding:80px 0}.bleed .q{padding:0 16px 40px}
-  .ticket{padding:36px 22px}.amount b{font-size:72px}.stats{gap:22px}
+.host{max-width:1080px;margin:0 auto;padding:10px 28px 80px;display:flex;align-items:center;gap:22px}
+.host img{width:78px;height:78px;border-radius:50%;object-fit:cover;flex:none}
+.host p{margin:0;font-family:var(--serif);font-size:21px;line-height:1.35;font-weight:300}
+.host small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+footer{padding:20px 28px 60px;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3)}
+footer img{width:220px;margin:0 auto 12px}
+@media (max-width:860px){
+  .hero .top{padding:20px 16px}.hero .txt{padding:110px 16px 52px}
+  .opts{grid-template-columns:1fr;padding:0 16px 50px}.card{padding:30px 22px}
+  .host{padding:0 16px 60px;align-items:flex-start}.host p{font-size:19px}
 }
-@media (max-width:520px){.steps .grid{grid-template-columns:1fr}.step,.step+.step{padding:26px 0 6px;border-left:0}.step+.step{border-top:1px solid var(--line)}}
-@media (prefers-reduced-motion:reduce){.hero img{animation:none;transform:none}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -128,108 +72,51 @@ footer a{text-decoration:none}
   <img src="/experiences/img/hero.jpg" alt="A private villa and pool in Bali at dusk">
   <div class="top"><b>AC</b><span>Collection · Bali</span></div>
   <div class="txt">
-    <div class="for" id="for">The Private Search</div>
-    <h1>The finest villas in Bali are rarely <em>listed</em>.</h1>
-    <p>Tell us how you want to live. Within 48 hours, we present a hand-picked shortlist of private villas, verified directly with their owners, at rates you will not find online.</p>
+    <div class="for" id="for">Your villa search</div>
+    <h1>Two ways to find <em>your</em> villa.</h1>
     <div class="brief" id="brief"></div>
   </div>
 </header>
 
-<section class="intro narrow rv">
-  <div class="k">A search, not a listing site</div>
-  <p class="big">Many of the homes we work with never appear on a booking platform.</p>
-  <p class="sub">Some owners keep their villa for a circle of returning guests. Others release dates only when they are asked. Through ten years of hosting in Bali and a private network of owners and estate managers, we reach those homes, check every detail, and negotiate on your behalf.</p>
-</section>
-
-<section class="steps wrap rv">
-  <div class="grid">
-    <div class="step"><div class="n">01</div><h3>Your brief</h3><p>Area, dates, bedrooms, the way you like to live. Five minutes on WhatsApp.</p><span class="when">Today</span></div>
-    <div class="step"><div class="n">02</div><h3>The search</h3><p>We activate our network: listed villas, off-market homes and owners who only release dates on request.</p><span class="when">Within 24 hours</span></div>
-    <div class="step"><div class="n">03</div><h3>Your shortlist</h3><p>Three to five villas, with photos, availability confirmed and net rates. No noise, no endless scrolling.</p><span class="when">Within 48 hours</span></div>
-    <div class="step"><div class="n">04</div><h3>We secure it</h3><p>You choose, we hold the dates, handle the owner and prepare your arrival.</p><span class="when">Your stay</span></div>
-  </div>
-</section>
-
-<section class="bleed">
-  <img src="/experiences/img/close.jpg" alt="A villa pool at sunset">
-  <div class="q rv"><div class="k" style="color:#E3A87C">What you are paying for</div><p>Not more choice. The <em>right</em> choice, verified.</p></div>
-</section>
-
-<section class="inc wrap">
-  <div class="grid">
-    <div class="rv">
-      <div class="k">Included</div>
-      <h2>Everything a good friend in Bali would <em>do for you</em>.</h2>
-      <p class="lead">One person who knows the island, the owners and the prices, working on your stay from the first message to the last night.</p>
-    </div>
-    <ul class="list rv">
-      <li><span class="ic">i</span><div><b>Off-market villas</b><span>Access to private homes from our collection that are not listed publicly.</span></div></li>
-      <li><span class="ic">ii</span><div><b>Exceptional rates</b><span>Net rates negotiated directly with owners, and the last-minute or long-stay offers they share only with us. On average, USD 200 to 500 saved per stay.</span></div></li>
-      <li><span class="ic">iii</span><div><b>Verified, not assumed</b><span>Availability, photos, bedrooms and condition checked with the owner before anything reaches you.</span></div></li>
-      <li><span class="ic">iv</span><div><b>A shortlist in 48 hours</b><span>Three to five villas that fit your brief, presented side by side.</span></div></li>
-      <li><span class="ic">v</span><div><b>A dedicated concierge</b><span>One WhatsApp line from the search to your check-out, including chefs, drivers and experiences at the villa.</span></div></li>
+<section class="opts">
+  <div class="card">
+    <div class="k">Option 1</div>
+    <h2>Our concierge</h2>
+    <div class="price"><b>Free</b></div>
+    <p class="lead">Browse our collection with our online concierge. Share your dates and wishes, and it suggests the villas that are open for your stay.</p>
+    <ul class="why">
+      <li><b>Instant</b>Suggestions in a few minutes, any time of day.</li>
+      <li><b>Our listed villas</b>The homes published on ac-collection.com.</li>
+      <li><b>Public rates</b>Prices as shown on the site.</li>
     </ul>
+    <a class="btn ghost" id="free" href="https://www.ac-collection.com/?concierge=1" target="_blank" rel="noopener">Open the concierge</a>
+  </div>
+
+  <div class="card pro">
+    <div class="k">Option 2</div>
+    <h2>The Private Search, <em>with me</em></h2>
+    <div class="price"><b>$<span id="price" style="font:inherit;letter-spacing:0;text-transform:none;color:inherit">49</span></b><span>Credited to your booking</span></div>
+    <p class="lead">I search for you personally and send you a hand-picked shortlist within 48 hours.</p>
+    <ul class="why">
+      <li><b>My network</b>Owners and estate managers across Bali, including villas that are never listed online.</li>
+      <li><b>Direct negotiation <span class="save">$200–500 saved on average</span></b>I negotiate with the owner myself, for rates and long-stay offers you will not find on any platform.</li>
+      <li><b>One to one</b>A direct WhatsApp line with me, from the search to your check-out.</li>
+      <li><b>Why a fee</b>It covers my time, visits and calls with owners. It is deducted from your villa when you book, and refunded if I find nothing that fits your brief within 48 hours.</li>
+    </ul>
+    <a class="btn fill" id="pay" href="#" target="_blank" rel="noopener">Start my private search</a>
+    <div class="fine">Secure payment by Stripe · credited within 90 days</div>
   </div>
 </section>
 
-<section class="dark offer" id="begin">
-  <div class="wrap grid">
-    <div class="rv">
-      <div class="k" style="color:#E3A87C">Begin your search</div>
-      <h2>A small fee, <em>fully returned</em> to you.</h2>
-      <p class="lead">Our negotiated rates save our guests USD 200 to 500 per stay on average. The search fee reserves our time for your stay. When you book, it is deducted from your villa. If we cannot present a villa that matches your brief within 48 hours, it is refunded in full.</p>
-    </div>
-    <div class="ticket rv">
-      <div class="k">The Private Search</div>
-      <div class="amount"><sup>USD</sup><b id="price">49</b><small>Credited to your booking</small></div>
-      <div class="save"><b>USD 200 – 500</b><span>Average saving per stay on negotiated rates</span></div>
-      <ul class="promise">
-        <li>Shortlist of private villas within 48 hours</li>
-        <li>Access to off-market homes and exceptional rates</li>
-        <li>Deducted in full from your villa booking</li>
-        <li>Refunded if nothing matches your brief</li>
-      </ul>
-      <a class="pay" id="pay" href="#" target="_blank" rel="noopener">Begin my private search</a>
-      <div class="secure">Secure payment by card, Apple Pay or Google Pay, processed by Stripe.</div>
-      <div class="alt">A question first? <a id="wa" href="#" target="_blank" rel="noopener">Write to Anthony</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="host wrap">
-  <div class="grid">
-    <img class="rv" src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
-    <div class="rv">
-      <div class="k">Your concierge</div>
-      <blockquote>“I search the way I would for my own family: fewer villas, better ones, and only what I have checked myself.”</blockquote>
-      <div class="sign"><b>Anthony</b>Founder, AC Collection</div>
-      <div class="stats">
-        <div><b>10 yrs</b>Hosting in Bali</div>
-        <div><b>795</b>Guest reviews</div>
-        <div><b>4.8★</b>Average rating</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="terms wrap rv">
-  <div class="k">Good to know</div>
-  <ul>
-    <li>The search fee is deducted from your first booking made through AC Collection within 90 days.</li>
-    <li>If no villa matching your brief is presented within 48 hours, the fee is refunded in full, on request.</li>
-    <li>Your brief can be adjusted along the way; the 48 hours start once we have your area, dates and budget.</li>
-    <li>Villa rates, deposits and cancellation terms are confirmed in writing before you book.</li>
-    <li>Your details are shared with no one. Owners only see your dates and the size of your group.</li>
-    <li>Payment is processed securely by Stripe. We never see your card details.</li>
-  </ul>
+<section class="host">
+  <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
+  <p>“Fewer villas, better ones, and only what I have checked myself.”<small>Anthony · Founder · 10 years hosting in Bali · 795 reviews · 4.8★</small></p>
 </section>
 
 <footer>
   <a href="https://www.ac-collection.com" target="_blank" rel="noopener"><img src="/private-search/img/logo.png" alt="AC Collection, luxury villas"></a>
   Bali · ac-collection.com
 </footer>
-
-<a class="float" id="float" href="#begin">Begin my private search</a>
 
 <script>
 // Lien de paiement Stripe (Payment Link). A remplacer par celui d'Anthony.
@@ -241,7 +128,7 @@ const q = new URLSearchParams(location.search);
 const name = (q.get("name") || "").trim();
 const fmt = (d) => { const t = new Date(d + "T00:00:00"); return isNaN(t) ? d : t.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); };
 
-if (name) document.getElementById("for").textContent = "The Private Search · Prepared for " + name;
+if (name) document.getElementById("for").textContent = "Prepared for " + name;
 const chips = [];
 if (q.get("area")) chips.push(q.get("area"));
 if (q.get("in")) chips.push(fmt(q.get("in")) + (q.get("out") ? " – " + fmt(q.get("out")) : ""));
@@ -250,10 +137,6 @@ if (q.get("guests")) chips.push(q.get("guests") + " guests");
 document.getElementById("brief").innerHTML = chips.map((c) => "<span>" + c.replace(/</g, "&lt;") + "</span>").join("");
 document.getElementById("price").textContent = PRICE_USD;
 
-const waText = encodeURIComponent((name ? "Hi Anthony, it's " + name + ". " : "Hi Anthony, ") + "I'd like to know more about the Private Search" + (chips.length ? " (" + chips.join(", ") + ")" : "") + ".");
-const waUrl = "https://wa.me/" + WHATSAPP + "?text=" + waText;
-document.getElementById("wa").href = waUrl;
-
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
 const pay = document.getElementById("pay");
 if (STRIPE_URL) {
@@ -261,16 +144,8 @@ if (STRIPE_URL) {
   if (name) u.searchParams.set("client_reference_id", name.replace(/[^A-Za-z0-9_-]/g, "_").slice(0, 200));
   pay.href = u.toString();
 } else {
-  pay.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent((name ? "Hi Anthony, it's " + name + ". " : "Hi Anthony, ") + "I'd like to begin the Private Search" + (chips.length ? " (" + chips.join(", ") + ")" : "") + ".");
+  pay.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent((name ? "Hi Anthony, it's " + name + ". " : "Hi Anthony, ") + "I'd like to start the Private Search" + (chips.length ? " (" + chips.join(", ") + ")" : "") + ".");
 }
-
-const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
-document.querySelectorAll(".rv").forEach((el) => io.observe(el));
-const fl = document.getElementById("float"), begin = document.getElementById("begin");
-addEventListener("scroll", () => {
-  const r = begin.getBoundingClientRect();
-  fl.classList.toggle("show", scrollY > innerHeight * .8 && (r.top > innerHeight || r.bottom < 0));
-}, { passive: true });
 </script>
 </body>
 </html>
