@@ -7,7 +7,7 @@
 <meta name="description" content="Two ways to find your villa in Bali: our free concierge, or a private search with Anthony, negotiated 15 to 30% below the public price.">
 <meta property="og:title" content="Your villa search — AC Collection">
 <meta property="og:description" content="Our free concierge, or a private search with Anthony: off-market villas, negotiated 15 to 30% below the public price.">
-<meta property="og:image" content="https://plans.ac-collection.com/experiences/img/hero.jpg">
+<meta property="og:image" content="https://plans.ac-collection.com/private-search/img/dreamtime.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap">
@@ -38,9 +38,11 @@ em{font-style:italic;font-weight:300}
 .btn.ghost{border:1px solid var(--ink);color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:#F4EBDD}
 .or{text-align:center;margin:44px 0 18px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink3)}
 /* OPTION 2 */
-.head{text-align:center;margin-bottom:28px}
-.head h2{font-size:clamp(36px,5vw,58px);line-height:1.02;margin:10px auto 14px;max-width:16ch}
-.head p{color:var(--ink2);max-width:58ch;margin:0 auto}
+.head{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;margin-bottom:28px}
+.head img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:6px;box-shadow:0 24px 50px rgba(42,27,16,.18)}
+.head h2{font-size:clamp(36px,5vw,58px);line-height:1.02;margin:10px 0 14px;max-width:14ch}
+.head p{color:var(--ink2);max-width:52ch;margin:0}
+.head .sig{margin-top:16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
 .nego{margin:30px 0 0;background:var(--ink);color:#F1E7DA;border-radius:18px;padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
 .nego .big{font-family:var(--serif);font-size:clamp(56px,8vw,92px);line-height:.9;color:#E3A87C;white-space:nowrap}
 .nego h3{font-size:26px;line-height:1.15;color:#F8F2E8}
@@ -83,13 +85,14 @@ footer img{width:220px;margin:0 auto 12px}
   .worth{padding:14px 18px}
   .price{grid-template-columns:1fr;gap:14px;padding:26px 22px}.price .btn{width:100%}
   .host{align-items:flex-start}.host p{font-size:19px}
+  .head{grid-template-columns:1fr;gap:22px}.head img{max-width:300px;aspect-ratio:1}
 }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <img src="/experiences/img/hero.jpg" alt="A private villa and pool in Bali at dusk">
+  <img src="/private-search/img/dreamtime.jpg" alt="A private villa and pool in Canggu at dusk">
   <div class="top"><b>AC</b><span>Collection · Bali</span></div>
   <div class="txt">
     <div class="for" id="for">Your villa search</div>
@@ -112,9 +115,13 @@ footer img{width:220px;margin:0 auto 12px}
 
   <section id="private">
     <div class="head">
-      <div class="k">Option 2 · The Private Search</div>
-      <h2>I find your villa, and I <em>negotiate</em> it for you.</h2>
-      <p>One person, ten years in Bali, a private network of owners and partners. You send your brief, I do the rest, and you pay less than the public price.</p>
+      <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
+      <div>
+        <div class="k">Option 2 · The Private Search</div>
+        <h2>I find your villa, and I <em>negotiate</em> it for you.</h2>
+        <p>One person, ten years in Bali, a private network of owners and partners. You send your brief, I do the rest, and you pay less than the public price.</p>
+        <div class="sig">Anthony · Founder, AC Collection · 795 reviews · 4.8★</div>
+      </div>
     </div>
 
     <div class="nego">
@@ -148,7 +155,6 @@ footer img{width:220px;margin:0 auto 12px}
   </section>
 
   <section class="host">
-    <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
     <p>“Fewer villas, better ones, at a better price, and only what I have checked myself.”<small>Anthony · Founder · 10 years in Bali · 795 reviews · 4.8★</small></p>
   </section>
 </main>
@@ -170,7 +176,7 @@ const STACK = [
   { item: "My network of owners and partners", detail: "Owners, estate managers and partner agencies across Bali, including villas that are never listed online.", was: 300 },
   { item: "A private search, done by me", detail: "Hours of calls, checks and visits you will never have to make. Availability, photos and condition verified with the owner.", was: 250 },
   { item: "Your shortlist in 48 hours", detail: "Three to five villas that fit your brief, side by side, with the negotiated rate for each.", was: 150 },
-  { item: "One-to-one with me on WhatsApp", detail: "A direct line from the first message to your check-out. No call centre, no ticket.", was: 200 },
+  { item: "My network of services, at your disposal", detail: "Drivers, private chefs, nannies, wellness, and access to the beach clubs, restaurants and private places that are hard to get into on your own.", was: 200 },
   { item: "Priority on in-villa experiences", detail: "Private chef, cocktail bar by the pool, drone and photographer, booked before you land.", was: 100, bonus: true },
 ];
 
