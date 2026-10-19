@@ -59,7 +59,10 @@ em{font-style:italic;font-weight:300}
 .gain{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:var(--car2);line-height:1.1}
 .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
 .row.bonus{background:#fbf5ec}
-.row.bonus h4:before{content:"Bonus · ";font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--car);vertical-align:middle}
+.row .tagb{margin-left:10px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--car);vertical-align:middle}
+.limited{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.limited b{display:inline-block;background:var(--car);color:#fff;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 5px rgba(196,121,77,.16)}
+.limited span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--car2)}
 .worth{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 24px;background:#f2e9db}
 .worth span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
 .worth b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
@@ -120,6 +123,7 @@ footer img{width:220px;margin:0 auto 12px}
     <div class="head">
       <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
       <div>
+        <div class="limited"><b>Limited offer</b><span>Due to a limited number of searches each week</span></div>
         <div class="k">Option 2 · The Private Search</div>
         <h2>I find your villa, and I <em>negotiate</em> it for you.</h2>
         <p>One person, ten years in Bali, a private network of owners and partners. You send your brief, I do the rest, and you pay less than the public price.</p>
@@ -154,7 +158,7 @@ footer img{width:220px;margin:0 auto 12px}
       <b>The double guarantee</b>
       If I cannot present a villa that fits your brief within 48 hours, or if I cannot get you a rate below the public price, your USD 99 is refunded in full. You risk nothing.
     </div>
-    <p class="fine">I take on a limited number of private searches each week, so each one gets my full attention. Secure payment by Stripe · credited within 90 days.</p>
+    <p class="fine">Secure payment by Stripe · credited within 90 days.</p>
   </section>
 
   <section class="host">
@@ -205,7 +209,7 @@ document.getElementById("stack").innerHTML = STACK.map((s) => {
   if (typeof s.was === "number") worth += s.was;
   // Une valeur chiffree se barre (prix seul) ; la remise negociee s'affiche comme un gain.
   const was = typeof s.was === "number" ? '<span class="was">USD ' + s.was + "</span>" : '<span class="gain">' + s.was + "</span>";
-  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4><span class="plus">+</span>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
+  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4><span class="plus">+</span>' + s.item + (s.bonus ? '<span class="tagb">Bonus</span>' : "") + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
 }).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 20–30% off → USD " + PRICE_USD + "</b></div>";
 
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
