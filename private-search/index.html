@@ -51,6 +51,7 @@ em{font-style:italic;font-weight:300}
 .row p{font-size:13.5px;margin:0;color:var(--ink2);max-width:58ch}
 .row .pr{text-align:right;white-space:nowrap}
 .was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
+.gain{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:var(--car2);line-height:1.1}
 .inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
 .row.bonus{background:#fbf5ec}
 .row.bonus h4:before{content:"Bonus · ";font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--car);vertical-align:middle}
@@ -194,8 +195,9 @@ document.getElementById("nego-ex").textContent = "On a " + usd(budget) + " stay,
 let worth = 0;
 document.getElementById("stack").innerHTML = STACK.map((s) => {
   if (typeof s.was === "number") worth += s.was;
-  const was = typeof s.was === "number" ? "USD " + s.was : s.was;
-  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr"><span class="was">' + was + '</span><span class="inc">Included</span></div></div>';
+  // Une valeur chiffree se barre (prix seul) ; la remise negociee s'affiche comme un gain.
+  const was = typeof s.was === "number" ? '<span class="was">USD ' + s.was + "</span>" : '<span class="gain">' + s.was + "</span>";
+  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
 }).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 15–30% off → USD " + PRICE_USD + "</b></div>";
 
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
