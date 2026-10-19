@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Your villa search — AC Collection</title>
-<meta name="description" content="Two ways to find your villa in Bali: our concierge, or a private search with Anthony.">
+<meta name="description" content="Two ways to find your villa in Bali: our free concierge, or a private search with Anthony, negotiated 15 to 30% below the public price.">
 <meta property="og:title" content="Your villa search — AC Collection">
-<meta property="og:description" content="Two ways to find your villa in Bali: our concierge, or a private search with Anthony.">
+<meta property="og:description" content="Our free concierge, or a private search with Anthony: off-market villas, negotiated 15 to 30% below the public price.">
 <meta property="og:image" content="https://plans.ac-collection.com/experiences/img/hero.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,53 +16,72 @@
 *{box-sizing:border-box}html,body{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}a{color:inherit}
 .k{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--car);font-weight:500}
-h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
 em{font-style:italic;font-weight:300}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
 /* HERO */
-.hero{position:relative;min-height:62svh;color:#FBF6EE;overflow:hidden;display:flex;align-items:flex-end}
+.hero{position:relative;min-height:58svh;color:#FBF6EE;overflow:hidden;display:flex;align-items:flex-end}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,.5),rgba(26,15,8,.15) 35%,rgba(26,15,8,.85))}
 .hero .top{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:24px 28px;font-size:11px;letter-spacing:.34em;text-transform:uppercase}
 .hero .top b{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.28em}
-.hero .txt{position:relative;z-index:2;width:100%;max-width:1080px;margin:0 auto;padding:120px 28px 56px;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.hero .txt{position:relative;z-index:2;width:100%;max-width:960px;margin:0 auto;padding:120px 28px 70px;text-shadow:0 1px 18px rgba(0,0,0,.35)}
 .hero .for{font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.88;margin-bottom:14px}
-.hero h1{font-size:clamp(40px,6.4vw,80px);line-height:1}
+.hero h1{font-size:clamp(40px,6.4vw,78px);line-height:1}
 .brief{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .brief span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border:1px solid rgba(251,246,238,.45);border-radius:999px;background:rgba(26,15,8,.25)}
-/* OPTIONS */
-.opts{max-width:1080px;margin:-34px auto 0;padding:0 28px 70px;position:relative;z-index:3;display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:stretch}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:38px 34px;display:flex;flex-direction:column}
-.card.pro{background:var(--ink);color:#F1E7DA;border-color:var(--ink);box-shadow:0 30px 70px rgba(42,27,16,.28)}
-.card .k{margin-bottom:10px}.card.pro .k{color:#E3A87C}
-.card h2{font-size:clamp(32px,3.4vw,42px);line-height:1.05}
-.price{display:flex;align-items:baseline;gap:10px;margin:16px 0 4px}
-.price b{font-family:var(--serif);font-weight:400;font-size:54px;line-height:1}
-.price span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
-.card.pro .price span{color:rgba(241,231,218,.6)}
-.card p.lead{color:var(--ink2);margin:10px 0 18px;font-size:14px}
-.card.pro p.lead{color:rgba(241,231,218,.75)}
-.why{list-style:none;padding:0;margin:4px 0 22px;flex:1}
-.why li{padding:14px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
-.card.pro .why li{border-color:rgba(241,231,218,.14);color:rgba(241,231,218,.78)}
-.why b{display:block;font-family:var(--serif);font-weight:500;font-size:21px;color:var(--ink);line-height:1.2;margin-bottom:2px}
-.card.pro .why b{color:#F8F2E8}
-.save{display:inline-block;margin-left:6px;font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#E3A87C;vertical-align:middle}
-.btn{display:block;text-align:center;text-decoration:none;font:500 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:17px 22px;border-radius:999px;transition:all .2s}
+/* OPTION 1 */
+.free{position:relative;z-index:3;margin-top:-38px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.free h2{font-size:28px;margin:6px 0 4px}
+.free p{margin:0;color:var(--ink2);font-size:13.5px;max-width:52ch}
+.btn{display:inline-block;text-align:center;text-decoration:none;font:500 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;padding:16px 24px;border-radius:999px;transition:all .2s;white-space:nowrap}
 .btn.ghost{border:1px solid var(--ink);color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:#F4EBDD}
+.or{text-align:center;margin:44px 0 18px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink3)}
+/* OPTION 2 */
+.head{text-align:center;margin-bottom:28px}
+.head h2{font-size:clamp(36px,5vw,58px);line-height:1.02;margin:10px auto 14px;max-width:16ch}
+.head p{color:var(--ink2);max-width:58ch;margin:0 auto}
+.nego{margin:30px 0 0;background:var(--ink);color:#F1E7DA;border-radius:18px;padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.nego .big{font-family:var(--serif);font-size:clamp(56px,8vw,92px);line-height:.9;color:#E3A87C;white-space:nowrap}
+.nego h3{font-size:26px;line-height:1.15;color:#F8F2E8}
+.nego p{margin:8px 0 0;font-size:13.5px;color:rgba(241,231,218,.72)}
+.stack{margin-top:22px;background:var(--card);border:1px solid #e3d7c5;border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 24px;border-bottom:1px solid #efe6d8}
+.row h4{font-weight:500;font-size:22px;color:#372115;margin:0 0 3px}
+.row p{font-size:13.5px;margin:0;color:var(--ink2);max-width:58ch}
+.row .pr{text-align:right;white-space:nowrap}
+.was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
+.inc{display:inline-block;margin-top:4px;background:#e9f3ea;color:#2f6b3a;border:1px solid #cfe3d2;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:30px;font-weight:600}
+.row.bonus{background:#fbf5ec}
+.row.bonus h4:before{content:"Bonus · ";font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--car);vertical-align:middle}
+.worth{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 24px;background:#f2e9db}
+.worth span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a7768;font-weight:600}
+.worth b{font-family:var(--serif);font-weight:500;font-size:22px;color:#372115}
+.price{margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:#3d2a1f;border-radius:20px;padding:30px 34px;color:#f8f2e8}
+.price .big{font-family:var(--serif);font-size:88px;line-height:.85;color:var(--car)}
+.price .l{font-family:var(--serif);font-size:25px;line-height:1.15}
+.price ul{list-style:none;margin:10px 0 0;padding:0}
+.price li{color:#d9cab9;font-size:13.5px;padding:3px 0 3px 18px;position:relative}
+.price li:before{content:'—';position:absolute;left:0;color:var(--car)}
 .btn.fill{background:#F4EBDD;color:var(--ink)}.btn.fill:hover{background:var(--car);color:#fff}
-.fine{font-size:11px;margin-top:12px;text-align:center;color:var(--ink3)}
-.card.pro .fine{color:rgba(241,231,218,.55)}
+.guar{margin-top:14px;background:var(--card);border:1px dashed var(--car);border-radius:14px;padding:18px 22px;font-size:14.5px;color:#3d2a1f}
+.guar b{font-family:var(--serif);font-weight:500;font-size:20px;display:block;margin-bottom:4px}
+.fine{font-size:11.5px;color:var(--ink3);margin-top:14px;text-align:center}
 /* HOST */
-.host{max-width:1080px;margin:0 auto;padding:10px 28px 80px;display:flex;align-items:center;gap:22px}
-.host img{width:78px;height:78px;border-radius:50%;object-fit:cover;flex:none}
+.host{display:flex;align-items:center;gap:22px;margin:56px 0 0;padding:28px 0;border-top:1px solid var(--line)}
+.host img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
 .host p{margin:0;font-family:var(--serif);font-size:21px;line-height:1.35;font-weight:300}
 .host small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
-footer{padding:20px 28px 60px;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3)}
+footer{padding:30px 28px 60px;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3)}
 footer img{width:220px;margin:0 auto 12px}
-@media (max-width:860px){
-  .hero .top{padding:20px 16px}.hero .txt{padding:110px 16px 52px}
-  .opts{grid-template-columns:1fr;padding:0 16px 50px}.card{padding:30px 22px}
-  .host{padding:0 16px 60px;align-items:flex-start}.host p{font-size:19px}
+@media (max-width:760px){
+  .wrap{padding:0 16px}.hero .top{padding:20px 16px}.hero .txt{padding:110px 16px 64px}
+  .free{grid-template-columns:1fr;padding:24px 20px}.free .btn{width:100%}
+  .nego{grid-template-columns:1fr;gap:12px;padding:26px 22px}
+  .row{padding:16px 18px;grid-template-columns:1fr}.row .pr{text-align:left}
+  .worth{padding:14px 18px}
+  .price{grid-template-columns:1fr;gap:14px;padding:26px 22px}.price .btn{width:100%}
+  .host{align-items:flex-start}.host p{font-size:19px}
 }
 </style>
 </head>
@@ -78,40 +97,60 @@ footer img{width:220px;margin:0 auto 12px}
   </div>
 </header>
 
-<section class="opts">
-  <div class="card">
-    <div class="k">Option 1</div>
-    <h2>Our concierge</h2>
-    <div class="price"><b>Free</b></div>
-    <p class="lead">Browse our collection with our online concierge. Share your dates and wishes, and it suggests the villas that are open for your stay.</p>
-    <ul class="why">
-      <li><b>Instant</b>Suggestions in a few minutes, any time of day.</li>
-      <li><b>Our listed villas</b>The homes published on ac-collection.com.</li>
-      <li><b>Public rates</b>Prices as shown on the site.</li>
-    </ul>
-    <a class="btn ghost" id="free" href="https://www.ac-collection.com/?concierge=1" target="_blank" rel="noopener">Open the concierge</a>
-  </div>
+<main class="wrap">
+  <section class="free">
+    <div>
+      <div class="k">Option 1 · Free</div>
+      <h2>Search on your own with our concierge</h2>
+      <p>Our online concierge suggests villas from the collection published on ac-collection.com, at public rates.</p>
+    </div>
+    <a class="btn ghost" href="https://www.ac-collection.com/?concierge=1" target="_blank" rel="noopener">Open the concierge</a>
+  </section>
 
-  <div class="card pro">
-    <div class="k">Option 2</div>
-    <h2>The Private Search, <em>with me</em></h2>
-    <div class="price"><b>$<span id="price" style="font:inherit;letter-spacing:0;text-transform:none;color:inherit">49</span></b><span>Credited to your booking</span></div>
-    <p class="lead">I search for you personally and send you a hand-picked shortlist within 48 hours.</p>
-    <ul class="why">
-      <li><b>My network</b>Owners and estate managers across Bali, including villas that are never listed online.</li>
-      <li><b>Direct negotiation <span class="save">$200–500 saved on average</span></b>I negotiate with the owner myself, for rates and long-stay offers you will not find on any platform.</li>
-      <li><b>One to one</b>A direct WhatsApp line with me, from the search to your check-out.</li>
-      <li><b>Why a fee</b>It covers my time, visits and calls with owners. It is deducted from your villa when you book, and refunded if I find nothing that fits your brief within 48 hours.</li>
-    </ul>
-    <a class="btn fill" id="pay" href="#" target="_blank" rel="noopener">Start my private search</a>
-    <div class="fine">Secure payment by Stripe · credited within 90 days</div>
-  </div>
-</section>
+  <div class="or">or</div>
 
-<section class="host">
-  <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
-  <p>“Fewer villas, better ones, and only what I have checked myself.”<small>Anthony · Founder · 10 years hosting in Bali · 795 reviews · 4.8★</small></p>
-</section>
+  <section id="private">
+    <div class="head">
+      <div class="k">Option 2 · The Private Search</div>
+      <h2>I find your villa, and I <em>negotiate</em> it for you.</h2>
+      <p>One person, ten years in Bali, a private network of owners and partners. You send your brief, I do the rest, and you pay less than the public price.</p>
+    </div>
+
+    <div class="nego">
+      <div class="big">15–30%</div>
+      <div>
+        <h3>Negotiated off the public price, directly with the owner.</h3>
+        <p id="nego-ex">On a USD 6,000 stay, that is USD 900 to 1,800 back in your pocket, for a fee of USD 99 that is itself credited to your booking.</p>
+      </div>
+    </div>
+
+    <div class="stack" id="stack"></div>
+
+    <div class="price">
+      <div class="big">$<span id="price">99</span></div>
+      <div>
+        <div class="l">Credited in full to your villa booking.</div>
+        <ul>
+          <li>Paid once, by card, Apple Pay or Google Pay</li>
+          <li>Deducted from your stay when you book</li>
+          <li>Your shortlist within 48 hours</li>
+        </ul>
+      </div>
+      <a class="btn fill" id="pay" href="#" target="_blank" rel="noopener">Start my search</a>
+    </div>
+
+    <div class="guar">
+      <b>The double guarantee</b>
+      If I cannot present a villa that fits your brief within 48 hours, or if I cannot get you a rate below the public price, your USD 99 is refunded in full. You risk nothing.
+    </div>
+    <p class="fine">I take on a limited number of private searches each week, so each one gets my full attention. Secure payment by Stripe · credited within 90 days.</p>
+  </section>
+
+  <section class="host">
+    <img src="/private-search/img/anthony.jpg" alt="Anthony, founder of AC Collection">
+    <p>“Fewer villas, better ones, at a better price, and only what I have checked myself.”<small>Anthony · Founder · 10 years in Bali · 795 reviews · 4.8★</small></p>
+  </section>
+</main>
 
 <footer>
   <a href="https://www.ac-collection.com" target="_blank" rel="noopener"><img src="/private-search/img/logo.png" alt="AC Collection, luxury villas"></a>
@@ -121,8 +160,18 @@ footer img{width:220px;margin:0 auto 12px}
 <script>
 // Lien de paiement Stripe (Payment Link). A remplacer par celui d'Anthony.
 const STRIPE_URL = "";
-const PRICE_USD = 49;
+const PRICE_USD = 99;
 const WHATSAPP = "6285190181610";
+
+// La pile de valeur : chaque ligne avec ce qu'elle vaudrait seule.
+const STACK = [
+  { item: "Direct negotiation with the owner", detail: "I negotiate the rate myself, owner to owner, with the leverage of the guests I bring them every month.", was: "15–30% off" },
+  { item: "My network of owners and partners", detail: "Owners, estate managers and partner agencies across Bali, including villas that are never listed online.", was: 300 },
+  { item: "A private search, done by me", detail: "Hours of calls, checks and visits you will never have to make. Availability, photos and condition verified with the owner.", was: 250 },
+  { item: "Your shortlist in 48 hours", detail: "Three to five villas that fit your brief, side by side, with the negotiated rate for each.", was: 150 },
+  { item: "One-to-one with me on WhatsApp", detail: "A direct line from the first message to your check-out. No call centre, no ticket.", was: 200 },
+  { item: "Priority on in-villa experiences", detail: "Private chef, cocktail bar by the pool, drone and photographer, booked before you land.", was: 100, bonus: true },
+];
 
 const q = new URLSearchParams(location.search);
 const name = (q.get("name") || "").trim();
@@ -136,6 +185,18 @@ if (q.get("br")) chips.push(q.get("br") + " bedrooms");
 if (q.get("guests")) chips.push(q.get("guests") + " guests");
 document.getElementById("brief").innerHTML = chips.map((c) => "<span>" + c.replace(/</g, "&lt;") + "</span>").join("");
 document.getElementById("price").textContent = PRICE_USD;
+
+// Exemple chiffre : budget du sejour en USD si fourni (?budget=6000), sinon 6 000.
+const budget = Number(q.get("budget")) || 6000;
+const usd = (n) => "USD " + Math.round(n).toLocaleString("en-US");
+document.getElementById("nego-ex").textContent = "On a " + usd(budget) + " stay, that is " + usd(budget * .15) + " to " + usd(budget * .3) + " back in your pocket, for a fee of USD " + PRICE_USD + " that is itself credited to your booking.";
+
+let worth = 0;
+document.getElementById("stack").innerHTML = STACK.map((s) => {
+  if (typeof s.was === "number") worth += s.was;
+  const was = typeof s.was === "number" ? "USD " + s.was : s.was;
+  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr"><span class="was">' + was + '</span><span class="inc">Included</span></div></div>';
+}).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 15–30% off → USD " + PRICE_USD + "</b></div>";
 
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
 const pay = document.getElementById("pay");
