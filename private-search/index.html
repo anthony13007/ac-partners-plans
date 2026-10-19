@@ -52,6 +52,7 @@ em{font-style:italic;font-weight:300}
 .stack{margin-top:22px;background:var(--card);border:1px solid #e3d7c5;border-radius:16px;overflow:hidden}
 .row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 24px;border-bottom:1px solid #efe6d8}
 .row h4{font-weight:500;font-size:22px;color:#372115;margin:0 0 3px}
+.row h4 .plus{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-right:10px;border-radius:50%;background:var(--car);color:#fff;font-family:var(--sans);font-size:16px;font-weight:500;line-height:1;vertical-align:3px}
 .row p{font-size:13.5px;margin:0;color:var(--ink2);max-width:58ch}
 .row .pr{text-align:right;white-space:nowrap}
 .was{display:block;color:#a08c79;text-decoration:line-through;font-size:14px}
@@ -174,7 +175,6 @@ const WHATSAPP = "6285190181610";
 
 // La pile de valeur : chaque ligne avec ce qu'elle vaudrait seule.
 const STACK = [
-  { item: "Direct negotiation", detail: "I negotiate the rate myself, with the leverage of the guests I bring to my network every month.", was: "20–30% off" },
   { item: "My network of owners and partners", detail: "Owners, estate managers and partner agencies across Bali, including villas that are never listed online.", was: 300 },
   { item: "A private search, done by me", detail: "Hours of calls and checks you will never have to make. Availability and photos confirmed before anything reaches you.", was: 250 },
   { item: "Your shortlist in 48 hours", detail: "Three to five villas that fit your brief, side by side, with the negotiated rate for each.", was: 150 },
@@ -205,7 +205,7 @@ document.getElementById("stack").innerHTML = STACK.map((s) => {
   if (typeof s.was === "number") worth += s.was;
   // Une valeur chiffree se barre (prix seul) ; la remise negociee s'affiche comme un gain.
   const was = typeof s.was === "number" ? '<span class="was">USD ' + s.was + "</span>" : '<span class="gain">' + s.was + "</span>";
-  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
+  return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4><span class="plus">+</span>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
 }).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 20–30% off → USD " + PRICE_USD + "</b></div>";
 
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
