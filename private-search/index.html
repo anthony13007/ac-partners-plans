@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Your villa search — AC Collection</title>
-<meta name="description" content="Two ways to find your villa in Bali: our free concierge, or a private search with Anthony, negotiated 15 to 30% below the public price.">
+<meta name="description" content="Two ways to find your villa in Bali: our free concierge, or a private search with Anthony, negotiated 20 to 30% below the public price.">
 <meta property="og:title" content="Your villa search — AC Collection">
-<meta property="og:description" content="Our free concierge, or a private search with Anthony: off-market villas, negotiated 15 to 30% below the public price.">
+<meta property="og:description" content="Our free concierge, or a private search with Anthony: off-market villas, negotiated 20 to 30% below the public price.">
 <meta property="og:image" content="https://plans.ac-collection.com/private-search/img/dreamtime.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,9 @@ em{font-style:italic;font-weight:300}
 .head p{color:var(--ink2);max-width:52ch;margin:0}
 .head .sig{margin-top:16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
 .nego{margin:30px 0 0;background:var(--ink);color:#F1E7DA;border-radius:18px;padding:30px 34px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
-.nego .big{font-family:var(--serif);font-size:clamp(56px,8vw,92px);line-height:.9;color:#E3A87C;white-space:nowrap}
+.nego .bubble{width:190px;height:190px;border-radius:50%;background:#E3A87C;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px rgba(227,168,124,.18)}
+.nego .bubble b{font-family:var(--serif);font-weight:500;font-size:52px;line-height:1;letter-spacing:-.02em;white-space:nowrap}
+.nego .bubble span{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-top:6px}
 .nego h3{font-size:26px;line-height:1.15;color:#F8F2E8}
 .nego p{margin:8px 0 0;font-size:13.5px;color:rgba(241,231,218,.72)}
 .stack{margin-top:22px;background:var(--card);border:1px solid #e3d7c5;border-radius:16px;overflow:hidden}
@@ -80,7 +82,7 @@ footer img{width:220px;margin:0 auto 12px}
 @media (max-width:760px){
   .wrap{padding:0 16px}.hero .top{padding:20px 16px}.hero .txt{padding:110px 16px 64px}
   .free{grid-template-columns:1fr;padding:24px 20px}.free .btn{width:100%}
-  .nego{grid-template-columns:1fr;gap:12px;padding:26px 22px}
+  .nego{grid-template-columns:1fr;gap:18px;padding:26px 22px;justify-items:center;text-align:center}.nego .bubble{width:160px;height:160px}.nego .bubble b{font-size:44px}
   .row{padding:16px 18px;grid-template-columns:1fr}.row .pr{text-align:left}
   .worth{padding:14px 18px}
   .price{grid-template-columns:1fr;gap:14px;padding:26px 22px}.price .btn{width:100%}
@@ -125,9 +127,9 @@ footer img{width:220px;margin:0 auto 12px}
     </div>
 
     <div class="nego">
-      <div class="big">15–30%</div>
+      <div class="bubble"><b>20–30%</b><span>Off</span></div>
       <div>
-        <h3>Negotiated off the public price, directly with the owner.</h3>
+        <h3>Negotiated off the public price, through my network.</h3>
         <p id="nego-ex">On a USD 6,000 stay, that is USD 900 to 1,800 back in your pocket, for a fee of USD 99 that is itself credited to your booking.</p>
       </div>
     </div>
@@ -172,7 +174,7 @@ const WHATSAPP = "6285190181610";
 
 // La pile de valeur : chaque ligne avec ce qu'elle vaudrait seule.
 const STACK = [
-  { item: "Direct negotiation with the owner", detail: "I negotiate the rate myself, owner to owner, with the leverage of the guests I bring them every month.", was: "15–30% off" },
+  { item: "Direct negotiation", detail: "I negotiate the rate myself, with the leverage of the guests I bring to my network every month.", was: "20–30% off" },
   { item: "My network of owners and partners", detail: "Owners, estate managers and partner agencies across Bali, including villas that are never listed online.", was: 300 },
   { item: "A private search, done by me", detail: "Hours of calls, checks and visits you will never have to make. Availability, photos and condition verified with the owner.", was: 250 },
   { item: "Your shortlist in 48 hours", detail: "Three to five villas that fit your brief, side by side, with the negotiated rate for each.", was: 150 },
@@ -196,7 +198,7 @@ document.getElementById("price").textContent = PRICE_USD;
 // Exemple chiffre : budget du sejour en USD si fourni (?budget=6000), sinon 6 000.
 const budget = Number(q.get("budget")) || 6000;
 const usd = (n) => "USD " + Math.round(n).toLocaleString("en-US");
-document.getElementById("nego-ex").textContent = "On a " + usd(budget) + " stay, that is " + usd(budget * .15) + " to " + usd(budget * .3) + " back in your pocket, for a fee of USD " + PRICE_USD + " that is itself credited to your booking.";
+document.getElementById("nego-ex").textContent = "On a " + usd(budget) + " stay, that is " + usd(budget * .2) + " to " + usd(budget * .3) + " back in your pocket, for a fee of USD " + PRICE_USD + " that is itself credited to your booking.";
 
 let worth = 0;
 document.getElementById("stack").innerHTML = STACK.map((s) => {
@@ -204,7 +206,7 @@ document.getElementById("stack").innerHTML = STACK.map((s) => {
   // Une valeur chiffree se barre (prix seul) ; la remise negociee s'affiche comme un gain.
   const was = typeof s.was === "number" ? '<span class="was">USD ' + s.was + "</span>" : '<span class="gain">' + s.was + "</span>";
   return '<div class="row' + (s.bonus ? " bonus" : "") + '"><div><h4>' + s.item + "</h4><p>" + s.detail + '</p></div><div class="pr">' + was + '<span class="inc">Included</span></div></div>';
-}).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 15–30% off → USD " + PRICE_USD + "</b></div>";
+}).join("") + '<div class="worth"><span>Worth, on its own</span><b>' + usd(worth) + " + 20–30% off → USD " + PRICE_USD + "</b></div>";
 
 // Sans lien Stripe, le bouton ouvre WhatsApp : la page reste utilisable.
 const pay = document.getElementById("pay");
