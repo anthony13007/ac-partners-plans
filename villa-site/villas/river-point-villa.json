@@ -1,0 +1,121 @@
+{
+  "slug": "river-point-villa",
+  "name": "River Point Villa",
+  "area": "Canggu",
+  "zone": "canggu",
+  "island": "Bali",
+  "bedrooms": 5,
+  "guests": 10,
+  "currency": "$",
+  "adr": 900,
+  "adr_source": "placeholder, to confirm with the owner",
+  "source_url": "https://www.goldentreebali.com/collection/river-point",
+  "hero_title": "River Point Villa.<br><em>A blue lagoon</em> in Canggu.",
+  "photos": [
+    {
+      "url": "/villa-site/media/river-point-villa/01.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/01.jpg",
+      "caption": "River Point Villa, Canggu. A blue lagoon at the foot of the house."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/02.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/02-hd.jpg",
+      "caption": "An organic infinity pool with its own white terrazzo beach."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/03.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/03.jpg",
+      "caption": "The lagoon, steps from the bedrooms."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/04.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/04.jpg",
+      "caption": "Loungers on the sand, palms all around."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/05.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/05-hd.jpg",
+      "caption": "The art lounge, behind panoramic glass."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/06.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/06-hd.jpg",
+      "caption": "Sunlit corners for slow afternoons."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/07.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/07-hd.jpg",
+      "caption": "The upper lounge, under the roofline."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/08.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/08-hd.jpg",
+      "caption": "The sunset terrace, overlooking the gardens."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/09.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/09-hd.jpg",
+      "caption": "The master suite, opening onto the tropics."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/10.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/10.jpg",
+      "caption": "Five bedrooms, each with its own character."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/11.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/11.jpg",
+      "caption": "Calm, warm wood and soft light."
+    },
+    {
+      "url": "/villa-site/media/river-point-villa/12.jpg",
+      "url_hd": "/villa-site/media/river-point-villa/12.jpg",
+      "caption": "Stone, gold and a freestanding bath."
+    }
+  ],
+  "story_title": "5 bedrooms, <em>a lagoon of your own.</em>",
+  "story_lead": "On the calmer side of Canggu, River Point is built around its own blue lagoon: an organic infinity pool with a white terrazzo beach, steps from the bedrooms. Award-winning tropical modernist architecture, a double-height living room behind panoramic glass, and interiors inspired by 1970s California, finished with works by a Balinese contemporary artist.",
+  "story_points": [
+    "5 bedrooms for up to 10 guests, with a master suite upstairs",
+    "Blue-lagoon infinity pool with a white terrazzo beach",
+    "Art lounge, upper lounge, sunset terrace and open-air barbecue area",
+    "Fresh-air climate system, backup generator, private parking"
+  ],
+  "facts": [
+    {
+      "n": "5",
+      "l": "Bedrooms"
+    },
+    {
+      "n": "10",
+      "l": "Guests"
+    },
+    {
+      "n": "665 m²",
+      "l": "Living space"
+    },
+    {
+      "n": "2",
+      "l": "Design awards"
+    }
+  ],
+  "book_lead": "Book direct, with no platform fees. Before you arrive, a private concierge prepares your stay: private chef, transfers and experiences on request.",
+  "amenities": [
+    "Blue-lagoon infinity pool",
+    "Terrazzo beach",
+    "Sunset terrace",
+    "Double-height living room",
+    "Upper lounge",
+    "Open-air barbecue area",
+    "Chef's kitchen",
+    "Fresh-air climate system",
+    "Backup generator",
+    "Parking for 3 cars"
+  ],
+  "book_url": "https://wa.me/6285190181610?text=Hello%20Anthony%2C%20I%20would%20like%20to%20check%20availability%20for%20River%20Point%20Villa.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "owner_pitch": false,
+  "photos_locked": true,
+  "scroll_vh_per_photo": 34,
+  "generated": "2026-10-22"
+}
