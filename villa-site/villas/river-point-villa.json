@@ -7,8 +7,8 @@
   "bedrooms": 5,
   "guests": 10,
   "currency": "$",
-  "adr": 900,
-  "adr_source": "placeholder, to confirm with the owner",
+  "adr": 2000,
+  "adr_source": "owner rate given by Anthony, 2026-10-22",
   "source_url": "https://www.goldentreebali.com/collection/river-point",
   "hero_title": "River Point Villa.<br><em>A blue lagoon</em> in Canggu.",
   "photos": [
@@ -112,8 +112,8 @@
     "Backup generator",
     "Parking for 3 cars"
   ],
-  "book_url": "https://wa.me/6285190181610?text=Hello%20Anthony%2C%20I%20would%20like%20to%20check%20availability%20for%20River%20Point%20Villa.",
-  "whatsapp": "https://wa.me/6285190181610",
+  "book_url": "https://wa.me/6281237904285?text=Hello%2C%20I%20would%20like%20to%20check%20availability%20for%20River%20Point%20Villa.",
+  "whatsapp": "https://wa.me/6281237904285",
   "owner_pitch": false,
   "photos_locked": true,
   "scroll_vh_per_photo": 34,
