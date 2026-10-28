@@ -29,25 +29,29 @@
   .dark .foot { color: #9C8F7E; }
   .cream .foot, .sand .foot { color: #7E7060; }
   .ital { font-family: 'Bodoni Moda', Georgia, serif; font-style: italic; font-weight: 400; }
-  .num { font-family: 'Bodoni Moda', Georgia, serif; font-size: 40px; line-height: 1; color: #7A5C2E; }
   .label { font-size: 14px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
   .bg { position: absolute; left: 0; top: 0; width: 1123px; height: 794px; object-fit: cover; display: block; }
   .shade { position: absolute; left: 0; top: 0; width: 1123px; height: 794px; }
-  .slide { display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid #CDBFA9; align-items: baseline; }
-  .slide .n { font-family: 'Bodoni Moda', Georgia, serif; font-size: 22px; color: #7A5C2E; }
-  .slide .t { font-family: 'Bodoni Moda', Georgia, serif; font-size: 17px; color: #15120F; }
-  .slide .d { font-weight: 300; font-size: 12.5px; line-height: 1.4; color: #544739; margin-top: 3px; }
-  .slide .v { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #9C8F7E; margin-top: 2px; }
-  /* carousel mock */
-  .card { position: relative; width: 224px; height: 224px; overflow: hidden; background: #15120F; }
-  .card img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .card .ov { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(16,13,10,0.15) 0%, rgba(16,13,10,0.1) 45%, rgba(16,13,10,0.85) 100%); }
-  .card .k { position: absolute; left: 16px; top: 14px; font-size: 10px; letter-spacing: 0.26em; color: #C9A66B; font-weight: 500; }
-  .card .t { position: absolute; left: 16px; right: 16px; bottom: 30px; font-family: 'Bodoni Moda', Georgia, serif; font-size: 19px; line-height: 1.15; color: #F4EEE4; text-wrap: balance; }
-  .card .s { position: absolute; left: 16px; right: 16px; bottom: 14px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #D6CCBD; font-weight: 300; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card .ph { position: absolute; right: 12px; top: 12px; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #15120F; background: #C9A66B; padding: 3px 7px; }
-  .lc { position: relative; height: 150px; overflow: hidden; }
-  .lc img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* manifesto village list */
+  .vl { display: grid; grid-template-columns: 118px 1fr; gap: 0 14px; align-items: baseline; padding: 5px 0; border-top: 1px solid #CDBFA9; }
+  .vl .n { font-family: 'Bodoni Moda', Georgia, serif; font-size: 18px; color: #15120F; }
+  .vl .d { font-weight: 300; font-size: 13.5px; line-height: 1.45; color: #544739; }
+  /* village grid */
+  .vg { display: flex; flex-direction: column; gap: 6px; }
+  .vg .ph { height: 82px; overflow: hidden; }
+  .vg .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vg .nm { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; }
+  .vg .nm .k { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #15120F; }
+  .vg .nm .l { font-family: 'Bodoni Moda', Georgia, serif; font-style: italic; font-size: 18px; color: #7A5C2E; }
+  .vg .d { font-weight: 300; font-size: 12.5px; line-height: 1.45; color: #544739; }
+  /* carousel rows with thumbnails */
+  .slide { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 7px 0; border-top: 1px solid #CDBFA9; align-items: center; }
+  .slide .th { position: relative; width: 64px; height: 64px; overflow: hidden; background: #15120F; }
+  .slide .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide .th .n { position: absolute; left: 5px; top: 3px; font-size: 9px; letter-spacing: 0.18em; color: #F4EEE4; font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+  .slide .th .sh { position: absolute; right: 0; bottom: 0; font-size: 7px; letter-spacing: 0.16em; text-transform: uppercase; color: #15120F; background: #C9A66B; padding: 2px 5px; }
+  .slide .t { font-family: 'Bodoni Moda', Georgia, serif; font-size: 16px; color: #15120F; }
+  .slide .d { font-weight: 300; font-size: 12px; line-height: 1.4; color: #544739; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -71,97 +75,87 @@
 
 <!-- 02 MANIFESTO -->
 <section class="page cream">
-  <img src="img/b22e27b314f57b6351ea6863af2bb035.jpg" alt="" style="position:absolute; left:704px; top:0; width:419px; height:794px; object-fit:cover; display:block;">
-  <div style="position:absolute; left:72px; top:72px; width:580px; display:flex; flex-direction:column; gap:22px;">
+  <img src="img/b22e27b314f57b6351ea6863af2bb035.jpg" alt="" style="position:absolute; left:764px; top:0; width:359px; height:794px; object-fit:cover; display:block;">
+  <div style="position:absolute; left:72px; top:44px; width:640px; display:flex; flex-direction:column; gap:12px;">
     <p class="kicker">The manifesto</p>
-    <h2 style="font-size:50px;">Every village in Bali has its own soul.</h2>
+    <h2 style="font-size:42px;">Every village in Bali has its own soul.</h2>
+    <p class="body" style="font-size:14px;">Bali is not a destination. It is an island where every village lives differently.</p>
   </div>
-  <div style="position:absolute; left:72px; top:262px; width:580px; display:flex; flex-direction:column; gap:18px;">
-    <p class="body">Bali is not a destination. It is an island where every village lives differently.</p>
-    <p class="body">In Canggu, you take care of your body and get back in shape. In Ubud, you slow down, breathe and listen. In Sidemen, rice grows to the foot of the volcano and the silence is complete. In Nusa Lembongan, the day is spent in the water, barefoot. In Uluwatu, there is the cliff, the wave, and the sun falling into the sea.</p>
-    <p class="body">Nowhere else in the world do so many ways of living, so different from one another, sit less than an hour apart.</p>
-    <p class="body">At LIVING, we have decided to do everything it takes to turn each of them into an immersive lifestyle experience, unique in the world. Not a villa. A lifestyle villa: a place, a soul, and everything that goes with it, organised from the first morning to the last evening.</p>
-    <p class="ital" style="font-size:26px; line-height:1.25; color:#15120F; margin-top:6px;">You choose a way of living. We take care of the rest.</p>
+  <div style="position:absolute; left:72px; top:200px; width:640px;">
+    <div class="vl"><span class="n">Canggu</span><span class="d">You take care of your body and get back in shape.</span></div>
+    <div class="vl"><span class="n">Seminyak</span><span class="d">You dress up, you go out, you are seen.</span></div>
+    <div class="vl"><span class="n">Uluwatu</span><span class="d">The cliff, the wave, and the sun falling into the sea.</span></div>
+    <div class="vl"><span class="n">Ubud</span><span class="d">You slow down, breathe and listen.</span></div>
+    <div class="vl"><span class="n">Sidemen</span><span class="d">Rice grows to the foot of the volcano and the silence is complete.</span></div>
+    <div class="vl"><span class="n">Munduk</span><span class="d">Mountains, waterfalls, coffee, cool air.</span></div>
+    <div class="vl"><span class="n">Amed</span><span class="d">Fishing boats, reefs, the day spent under the water.</span></div>
+    <div class="vl"><span class="n">Lembongan</span><span class="d">The day is spent in the water, barefoot.</span></div>
+    <div class="vl" style="border-bottom:1px solid #CDBFA9;"><span class="n">Sanur</span><span class="d">Flat water, early mornings, the island at a slower pace.</span></div>
   </div>
-  <div class="foot" style="right:450px;"><span>Living · Bali</span><span>02</span></div>
+  <div style="position:absolute; left:72px; top:556px; width:640px; display:flex; flex-direction:column; gap:10px;">
+    <p class="body" style="font-size:13.5px; line-height:1.5;">Nowhere else in the world do so many ways of living, so different from one another, sit less than an hour apart. At LIVING, we have decided to do everything it takes to turn each of them into an immersive lifestyle experience, unique in the world. Not a villa. A lifestyle villa: a place, a soul, and everything that goes with it, organised from the first morning to the last evening.</p>
+    <p class="ital" style="font-size:22px; line-height:1.25; color:#15120F;">You choose a way of living. We take care of the rest.</p>
+  </div>
+  <div class="foot" style="right:390px;"><span>Living · Bali</span><span>02</span></div>
 </section>
 
-<!-- 03 THE LIFESTYLES -->
+<!-- 03 EVERY VILLAGE -->
 <section class="page sand">
-  <div style="position:absolute; left:72px; top:60px; width:980px; display:flex; flex-direction:column; gap:18px;">
-    <p class="kicker">The lifestyles</p>
-    <h2 style="font-size:48px;">Five villages. Five ways of living.</h2>
+  <div style="position:absolute; left:72px; top:48px; width:980px; display:flex; align-items:baseline; justify-content:space-between;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <p class="kicker">The lifestyles</p>
+      <h2 style="font-size:42px;">Every village. Its own way of living.</h2>
+    </div>
+    <p class="ital" style="font-size:18px; color:#7A5C2E;">Nine today. The island decides the rest.</p>
   </div>
-  <div style="position:absolute; left:72px; top:214px; width:979px; display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:20px;">
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="lc"><img src="img/4bca8bcad890b66f3a7ff6b5cfcbb076.jpg" alt=""></div>
-      <p class="num" style="font-size:30px; margin-top:6px;">01</p>
-      <p class="label" style="font-size:13px;">Canggu</p>
-      <p class="ital" style="font-size:21px; color:#7A5C2E;">Wellness</p>
-      <p class="body" style="font-size:13px; line-height:1.5;">The body first. Personal trainer, macro nutrition, bloodwork at home, a treatment a day. Leave fitter than you arrived.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="lc"><img src="img/916dd7df71f1067354430a2a65403a1e.jpg" alt=""></div>
-      <p class="num" style="font-size:30px; margin-top:6px;">02</p>
-      <p class="label" style="font-size:13px;">Ubud</p>
-      <p class="ital" style="font-size:21px; color:#7A5C2E;">Spiritual</p>
-      <p class="body" style="font-size:13px; line-height:1.5;">The mind. Water ceremonies, meditation, Balinese healers, temples at first light.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="lc"><img src="img/d691370fae833e37168def66a32aaea6.jpg" alt=""></div>
-      <p class="num" style="font-size:30px; margin-top:6px;">03</p>
-      <p class="label" style="font-size:13px;">Sidemen</p>
-      <p class="ital" style="font-size:21px; color:#7A5C2E;">Nature</p>
-      <p class="body" style="font-size:13px; line-height:1.5;">The silence. Rice terraces, the volcano at sunrise, the river, and no one around.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="lc"><img src="img/dd4fc0265be2c69a74fdecc0d2bbbf28.jpg" alt=""></div>
-      <p class="num" style="font-size:30px; margin-top:6px;">04</p>
-      <p class="label" style="font-size:13px;">Lembongan</p>
-      <p class="ital" style="font-size:21px; color:#7A5C2E;">Ocean</p>
-      <p class="body" style="font-size:13px; line-height:1.5;">The water. Manta rays at dawn, a private boat, sunsets watched from the sea.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div class="lc"><img src="img/c1d5bd962ab18adade5e2efd790bc070.jpg" alt=""></div>
-      <p class="num" style="font-size:30px; margin-top:6px;">05</p>
-      <p class="label" style="font-size:13px;">Uluwatu</p>
-      <p class="ital" style="font-size:21px; color:#7A5C2E;">Surf</p>
-      <p class="body" style="font-size:13px; line-height:1.5;">The wave. A private coach, a cliff villa, the beach clubs, the sunset at Single Fin.</p>
-    </div>
+  <div style="position:absolute; left:72px; top:156px; width:979px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px 28px;">
+    <div class="vg"><div class="ph"><img src="img/4bca8bcad890b66f3a7ff6b5cfcbb076.jpg" alt=""></div><div class="nm"><span class="k">Canggu</span><span class="l">Wellness</span></div><p class="d">The body first. Personal trainer, macro nutrition, bloodwork at home, a treatment a day.</p></div>
+    <div class="vg"><div class="ph"><img src="img/6ba289ccbf87593c561e7ca9377ee76f.jpg" alt=""></div><div class="nm"><span class="k">Seminyak</span><span class="l">Social</span></div><p class="d">The scene. Designer villa, the best tables, beach clubs, a stylist and a driver for the night.</p></div>
+    <div class="vg"><div class="ph"><img src="img/c1d5bd962ab18adade5e2efd790bc070.jpg" alt=""></div><div class="nm"><span class="k">Uluwatu</span><span class="l">Surf</span></div><p class="d">The wave. A private coach, a cliff villa, the beach clubs, the sunset at Single Fin.</p></div>
+    <div class="vg"><div class="ph"><img src="img/916dd7df71f1067354430a2a65403a1e.jpg" alt=""></div><div class="nm"><span class="k">Ubud</span><span class="l">Spiritual</span></div><p class="d">The mind. Water ceremonies, meditation, Balinese healers, temples at first light.</p></div>
+    <div class="vg"><div class="ph"><img src="img/b22e27b314f57b6351ea6863af2bb035.jpg" alt=""></div><div class="nm"><span class="k">Sidemen</span><span class="l">Nature</span></div><p class="d">The silence. Rice terraces, the volcano at sunrise, the river, and no one around.</p></div>
+    <div class="vg"><div class="ph"><img src="img/d691370fae833e37168def66a32aaea6.jpg" alt=""></div><div class="nm"><span class="k">Munduk</span><span class="l">Mountains</span></div><p class="d">The air. Waterfalls, twin lakes, coffee plantations, a fireplace at night.</p></div>
+    <div class="vg"><div class="ph"><img src="img/ca634384236c18fedeede803635bc62e.jpg" alt=""></div><div class="nm"><span class="k">Amed</span><span class="l">Dive</span></div><p class="d">The reef. Freediving and scuba from the beach, a wreck at dawn, grilled fish at night.</p></div>
+    <div class="vg"><div class="ph"><img src="img/dd4fc0265be2c69a74fdecc0d2bbbf28.jpg" alt=""></div><div class="nm"><span class="k">Lembongan</span><span class="l">Ocean</span></div><p class="d">The water. Manta rays at dawn, a private boat, sunsets watched from the sea.</p></div>
+    <div class="vg"><div class="ph"><img src="img/8cf4aa7b2d632c10176354505cfe92b6.jpg" alt=""></div><div class="nm"><span class="k">Sanur</span><span class="l">Slow</span></div><p class="d">The pace. Sunrise on flat water, bicycles, long lunches, the island with children.</p></div>
   </div>
-  <p class="ital" style="position:absolute; left:72px; top:690px; width:960px; font-size:20px; color:#544739;">Each lifestyle has its villa, its morning ritual, its table and its evening. Each one is a complete stay.</p>
+  <p class="ital" style="position:absolute; left:72px; top:722px; width:960px; font-size:18px; color:#544739;">Each lifestyle has its villa, its morning ritual, its table and its evening. Each one is a complete stay.</p>
   <div class="foot"><span>Living · Bali</span><span>03</span></div>
 </section>
 
 <!-- 04 ONE SOUL, ONE MARKETING -->
 <section class="page dark">
-  <div style="position:absolute; left:72px; top:60px; width:980px; display:flex; flex-direction:column; gap:18px;">
+  <div style="position:absolute; left:72px; top:52px; width:980px; display:flex; flex-direction:column; gap:14px;">
     <p class="kicker">The method</p>
-    <h2 style="font-size:46px;">One soul, one marketing. We never sell Bali. We sell a village.</h2>
+    <h2 style="font-size:42px;">One soul, one marketing. We never sell Bali. We sell a village.</h2>
   </div>
-  <div style="position:absolute; left:72px; top:218px; width:979px; font-size:13px;">
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; padding:0 0 10px; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#9C8F7E;">
+  <div style="position:absolute; left:72px; top:190px; width:979px; font-size:12px;">
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; padding:0 0 8px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#9C8F7E;">
       <div></div><div>The feeling</div><div>The signature</div><div>The look</div><div>Who it speaks to</div>
     </div>
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #3A322A; padding:12px 0; color:#D6CCBD; font-weight:300; line-height:1.45;"><div class="serif" style="font-size:19px; color:#F4EEE4;">Canggu</div><div>Energy. Getting back in shape, feeling your body again.</div><div>Bloodwork at home, macro chef, personal trainer, ice bath.</div><div>Bright, clean, morning light, sweat and linen.</div><div>Founders, athletes, anyone who wants to leave fitter.</div></div>
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #3A322A; padding:12px 0; color:#D6CCBD; font-weight:300; line-height:1.45;"><div class="serif" style="font-size:19px; color:#F4EEE4;">Ubud</div><div>Stillness. Slowing down, going inward.</div><div>Water ceremony, Balinese healer, sound bath, temple at dawn.</div><div>Green, mist, incense, candlelight, slow motion.</div><div>Couples, solo travellers, anyone at a turning point.</div></div>
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #3A322A; padding:12px 0; color:#D6CCBD; font-weight:300; line-height:1.45;"><div class="serif" style="font-size:19px; color:#F4EEE4;">Sidemen</div><div>Silence. Disconnecting completely.</div><div>Sunrise trek on Agung, rice-field walks, river bathing, no phone.</div><div>Wide landscapes, volcano, fog, earth tones.</div><div>Families, writers, people who need to switch off.</div></div>
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #3A322A; padding:12px 0; color:#D6CCBD; font-weight:300; line-height:1.45;"><div class="serif" style="font-size:19px; color:#F4EEE4;">Lembongan</div><div>Freedom. Living in the water.</div><div>Manta rays at dawn, private boat, freediving, sunset from the sea.</div><div>Turquoise, salt, skin, wide blue frames.</div><div>Friends, divers, honeymooners.</div></div>
-    <div style="display:grid; grid-template-columns:130px 1fr 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #3A322A; border-bottom:1px solid #3A322A; padding:12px 0; color:#D6CCBD; font-weight:300; line-height:1.45;"><div class="serif" style="font-size:19px; color:#F4EEE4;">Uluwatu</div><div>Adrenaline. Chasing the wave, then the sunset.</div><div>Private surf coach, cliff villa, beach clubs, Kecak at the temple.</div><div>Golden hour, cliffs, boards, sunset parties.</div><div>Surfers, groups, the social crowd.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Canggu</div><div>Energy. Getting back in shape.</div><div>Bloodwork at home, macro chef, personal trainer, ice bath.</div><div>Bright, clean, morning light, sweat and linen.</div><div>Founders, athletes, anyone who wants to leave fitter.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Seminyak</div><div>Glamour. Being out, being seen.</div><div>Designer villa, chef's tables, beach clubs, stylist, driver all night.</div><div>Night, gold, cocktails, fashion, flash.</div><div>Groups of friends, birthdays, the fashion crowd.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Uluwatu</div><div>Adrenaline. The wave, then the sunset.</div><div>Private surf coach, cliff villa, beach clubs, Kecak at the temple.</div><div>Golden hour, cliffs, boards, sunset parties.</div><div>Surfers, groups, the social crowd.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Ubud</div><div>Stillness. Going inward.</div><div>Water ceremony, Balinese healer, sound bath, temple at dawn.</div><div>Green, mist, incense, candlelight, slow motion.</div><div>Couples, solo travellers, anyone at a turning point.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Sidemen</div><div>Silence. Disconnecting completely.</div><div>Sunrise trek on Agung, rice-field walks, river bathing, no phone.</div><div>Wide landscapes, volcano, fog, earth tones.</div><div>Families, writers, people who need to switch off.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Munduk</div><div>Freshness. Up in the clouds.</div><div>Waterfall mornings, lake temple, coffee tasting, fireplace dinners.</div><div>Mist, moss, wood, wool, warm light.</div><div>Couples, walkers, anyone escaping the heat.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Amed</div><div>Depth. Under the surface.</div><div>Freediving coach, wreck dive at dawn, boat days, fish on the fire.</div><div>Deep blue, black sand, wooden boats.</div><div>Divers, freedivers, the quiet adventurous.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Lembongan</div><div>Freedom. Living in the water.</div><div>Manta rays at dawn, private boat, snorkelling, sunset from the sea.</div><div>Turquoise, salt, skin, wide blue frames.</div><div>Friends, honeymooners, island lovers.</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr 1fr; gap:0 16px; border-top:1px solid #3A322A; border-bottom:1px solid #3A322A; padding:9px 0; color:#D6CCBD; font-weight:300; line-height:1.4;"><div class="serif" style="font-size:17px; color:#F4EEE4;">Sanur</div><div>Ease. The island, slowly.</div><div>Sunrise on the water, bikes, nanny and chef, long family lunches.</div><div>Soft light, pastel, calm sea, family frames.</div><div>Families, grandparents, multi-generation trips.</div></div>
   </div>
-  <p class="ital" style="position:absolute; left:72px; top:680px; width:960px; font-size:20px; color:#D6CCBD;">Each village gets its own words, its own images, its own partners. The brand is the only thing they share.</p>
+  <p class="ital" style="position:absolute; left:72px; top:716px; width:960px; font-size:18px; color:#D6CCBD;">Each village gets its own words, its own images, its own partners. The brand is the only thing they share.</p>
   <div class="foot"><span>Living · Bali</span><span>04</span></div>
 </section>
 
-<!-- 05 CANGGU INTRO -->
+<!-- 05 EXAMPLE · LIFESTYLE 1 · CANGGU -->
 <section class="page dark">
   <img class="bg" src="img/4bca8bcad890b66f3a7ff6b5cfcbb076.jpg" alt="">
   <div class="shade" style="background: linear-gradient(180deg, rgba(16,13,10,0.5) 0%, rgba(16,13,10,0.35) 40%, rgba(16,13,10,0.86) 100%);"></div>
-  <div style="position:absolute; left:72px; top:64px;"><p class="kicker">Lifestyle 01 · Canggu</p></div>
+  <div style="position:absolute; left:72px; top:64px;"><p class="kicker">Example · Lifestyle 1 · Canggu</p></div>
   <div style="position:absolute; left:0; top:250px; width:1123px; display:flex; flex-direction:column; align-items:center; gap:26px;">
     <h2 class="serif" style="font-size:100px; line-height:1; letter-spacing:0.06em; text-shadow:0 2px 40px rgba(0,0,0,0.5);">WELLNESS</h2>
     <div class="rule"></div>
-    <p class="ital" style="font-size:34px; line-height:1.2;">Seven days to get back to yourself.</p>
+    <p class="ital" style="font-size:34px; line-height:1.2;">Seven days to get your energy back.</p>
   </div>
   <div style="position:absolute; left:0; bottom:96px; width:1123px; display:flex; justify-content:center;">
     <p class="body" style="text-align:center; max-width:640px; font-size:15px; color:#F4EEE4;">Canggu is where Bali takes care of its body. We built a week around it: a hand-picked villa, a chef who cooks to your macros, a personal trainer, bloodwork done at home, a nutritionist, and a treatment every day. The first immersion we launch.</p>
@@ -169,85 +163,92 @@
   <div class="foot"><span>Living · Canggu</span><span>05</span></div>
 </section>
 
-<!-- 06 CAROUSEL MOCK -->
-<section class="page dark">
+<!-- 06 THE CAROUSEL WITH THUMBNAILS -->
+<section class="page cream">
   <div style="position:absolute; left:72px; top:48px; width:980px; display:flex; align-items:baseline; justify-content:space-between;">
     <div style="display:flex; flex-direction:column; gap:12px;">
-      <p class="kicker">Wellness immersion in Canggu</p>
-      <h2 style="font-size:40px;">The carousel.</h2>
+      <p class="kicker">Example · Wellness immersion in Canggu</p>
+      <h2 style="font-size:40px;">Seven days to get your energy back.</h2>
     </div>
-    <p class="ital" style="font-size:18px; color:#C9A66B;">Twelve squares, one week.</p>
+    <p class="ital" style="font-size:18px; color:#7A5C2E;">Twelve slides. One visual, one title, one line.</p>
   </div>
-  <div style="position:absolute; left:72px; top:172px; width:979px; display:grid; grid-template-columns:repeat(6, 160px); gap:4px;">
-    <div class="card" style="width:160px; height:160px;"><img src="img/033657ba03752cadb9875cf8839baea6.jpg" alt=""><div class="ov"></div><p class="k">01</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Wellness immersion · Canggu</p><p class="s" style="bottom:13px; font-size:8px;">Seven days to yourself</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/75e3a10a6141b7b49e2ab506711db8ba.jpg" alt=""><div class="ov"></div><p class="k">02</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your villa</p><p class="s" style="bottom:13px; font-size:8px;">Yours for the week</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/3ff23210b1bab9ed6d4e776e9561394d.jpg" alt=""><div class="ov"></div><p class="k">03</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your day starts with your chef</p><p class="s" style="bottom:13px; font-size:8px;">Breakfast on your macros</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/dcba1970dbf2d74ed1dc7c574375d283.jpg" alt=""><div class="ov"></div><p class="ph">Shoot</p><p class="k">04</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Stretching or private yoga</p><p class="s" style="bottom:13px; font-size:8px;">A teacher comes to you</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/75f5c485929638327b1958d35a88eae8.jpg" alt=""><div class="ov"></div><p class="ph">Shoot</p><p class="k">05</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your personal trainer</p><p class="s" style="bottom:13px; font-size:8px;">Gym pass, your sessions</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/f20661bef15329bf2b21776cd90508ba.jpg" alt=""><div class="ov"></div><p class="ph">Shoot</p><p class="k">06</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Bloodwork, at home</p><p class="s" style="bottom:13px; font-size:8px;">We don't guess, we measure</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/226f3f7c16ffc5ccc3d6ce97e1f86d52.jpg" alt=""><div class="ov"></div><p class="k">07</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your nutritionist</p><p class="s" style="bottom:13px; font-size:8px;">Written from your results</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/3ff23210b1bab9ed6d4e776e9561394d.jpg" alt="" style="object-position: right center;"><div class="ov"></div><p class="k">08</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your chef follows the plan</p><p class="s" style="bottom:13px; font-size:8px;">Cooked to your macros</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/8cf4aa7b2d632c10176354505cfe92b6.jpg" alt=""><div class="ov"></div><p class="ph">Shoot</p><p class="k">09</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">The treatment</p><p class="s" style="bottom:13px; font-size:8px;">Villa or partner spa</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/4bca8bcad890b66f3a7ff6b5cfcbb076.jpg" alt=""><div class="ov"></div><p class="ph">Shoot</p><p class="k">10</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Cold and heat</p><p class="s" style="bottom:13px; font-size:8px;">Ice bath, sauna, recovery</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/6ba289ccbf87593c561e7ca9377ee76f.jpg" alt=""><div class="ov"></div><p class="k">11</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Your evening, your choice</p><p class="s" style="bottom:13px; font-size:8px;">Trendy tables, as an option</p></div>
-    <div class="card" style="width:160px; height:160px;"><img src="img/59d6c71d19a285d58453b1c91193addb.jpg" alt=""><div class="ov"></div><p class="k">12</p><p class="t" style="font-size:14px; line-height:1.1; bottom:30px;">Leave different</p><p class="s" style="bottom:13px; font-size:8px;">LIVING, Canggu</p></div>
+  <div style="position:absolute; left:72px; top:158px; width:470px;">
+    <div class="slide"><div class="th"><img src="img/033657ba03752cadb9875cf8839baea6.jpg" alt=""><span class="n">01</span></div><div><p class="t">Wellness immersion · Canggu</p><p class="d">Seven days to get your energy back.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/75e3a10a6141b7b49e2ab506711db8ba.jpg" alt=""><span class="n">02</span></div><div><p class="t">Your villa, Premium or Luxury</p><p class="d">Hand-picked in Canggu. You choose the category, we choose the house.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/3ff23210b1bab9ed6d4e776e9561394d.jpg" alt=""><span class="n">03</span></div><div><p class="t">Your day starts with your chef</p><p class="d">Breakfast prepared at the villa, built on your macros, served by the pool.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/dcba1970dbf2d74ed1dc7c574375d283.jpg" alt=""><span class="n">04</span><span class="sh">Shoot</span></div><div><p class="t">Gentle stretching or private yoga</p><p class="d">A teacher comes to you. The body opens before the day begins.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/75f5c485929638327b1958d35a88eae8.jpg" alt=""><span class="n">05</span><span class="sh">Shoot</span></div><div><p class="t">Your personal trainer</p><p class="d">A gym pass to Canggu's best gyms, and a trainer who builds your sessions around your goal.</p></div></div>
+    <div class="slide" style="border-bottom:1px solid #CDBFA9;"><div class="th"><img src="img/f20661bef15329bf2b21776cd90508ba.jpg" alt=""><span class="n">06</span><span class="sh">Shoot</span></div><div><p class="t">Bloodwork, at home</p><p class="d">A nurse comes to the villa. A full panel, read by your nutritionist. We don't guess, we measure.</p></div></div>
   </div>
-  <p style="position:absolute; left:72px; top:532px; width:960px; font-weight:300; font-size:13px; line-height:1.55; color:#A99C8A;">Photos are taken from the Influences deck to set the mood. Squares marked <span style="color:#C9A66B; font-weight:500; letter-spacing:0.14em; font-size:10px;">SHOOT</span> need their own image: yoga on the deck, a session with the trainer, the nurse at the villa, the massage. One half-day shoot in a Canggu villa covers all four.</p>
-  <div style="position:absolute; left:0; top:600px; width:1123px; height:96px; background:#C9A66B; display:flex; align-items:center; justify-content:center; gap:28px;">
-    <p style="font-size:14px; font-weight:500; letter-spacing:0.5em; color:#15120F;">VILLA · CHEF · TRAINER · NUTRITIONIST · SPA</p>
-    <p class="ital" style="font-size:20px; color:#15120F;">One price. One week. Paid upfront.</p>
+  <div style="position:absolute; left:582px; top:158px; width:470px;">
+    <div class="slide"><div class="th"><img src="img/226f3f7c16ffc5ccc3d6ce97e1f86d52.jpg" alt=""><span class="n">07</span></div><div><p class="t">Your nutritionist</p><p class="d">A macro programme written from your results: proteins, carbs, fats, calibrated to you.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/3ff23210b1bab9ed6d4e776e9561394d.jpg" alt="" style="object-position:right center;"><span class="n">08</span></div><div><p class="t">Your chef follows the plan</p><p class="d">Every meal cooked to your macros. Local, fresh, prepared in your kitchen.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/8cf4aa7b2d632c10176354505cfe92b6.jpg" alt=""><span class="n">09</span><span class="sh">Shoot</span></div><div><p class="t">The treatment</p><p class="d">A massage at the villa, or in our partner spas. Every day if you wish.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/4bca8bcad890b66f3a7ff6b5cfcbb076.jpg" alt=""><span class="n">10</span><span class="sh">Shoot</span></div><div><p class="t">Cold and heat</p><p class="d">Ice bath, sauna, recovery. The Canggu ritual.</p></div></div>
+    <div class="slide"><div class="th"><img src="img/6ba289ccbf87593c561e7ca9377ee76f.jpg" alt=""><span class="n">11</span></div><div><p class="t">Your evening, your choice</p><p class="d">Sunset at the beach, dinner at the villa. Or, as an option, a table at Canggu's trendiest restaurants, booked for you.</p></div></div>
+    <div class="slide" style="border-bottom:1px solid #CDBFA9;"><div class="th"><img src="img/59d6c71d19a285d58453b1c91193addb.jpg" alt=""><span class="n">12</span></div><div><p class="t">Leave different</p><p class="d">One week. A body that has changed. LIVING, Canggu.</p></div></div>
   </div>
+  <p style="position:absolute; left:72px; top:706px; width:960px; font-weight:300; font-size:11.5px; line-height:1.5; color:#7E7060;">Thumbnails come from the Influences deck to set the mood. Slides marked <span style="color:#7A5C2E; font-weight:500; letter-spacing:0.14em; font-size:9px;">SHOOT</span> need their own image: yoga, trainer, nurse at the villa, massage. One half-day shoot in a Canggu villa covers all four.</p>
   <div class="foot"><span>Living · Canggu</span><span>06</span></div>
 </section>
 
-<!-- 07 THE CAROUSEL, LINE BY LINE -->
-<section class="page cream">
-  <div style="position:absolute; left:72px; top:60px; width:980px; display:flex; align-items:baseline; justify-content:space-between;">
+<!-- 07 THE VILLAS · TWO CATEGORIES -->
+<section class="page dark">
+  <div style="position:absolute; left:72px; top:52px; width:980px; display:flex; flex-direction:column; gap:14px;">
+    <p class="kicker">The villas</p>
+    <h2 style="font-size:44px;">Two categories. Same immersion, two levels of house.</h2>
+  </div>
+  <div style="position:absolute; left:72px; top:196px; width:979px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:40px;">
     <div style="display:flex; flex-direction:column; gap:14px;">
-      <p class="kicker">Wellness immersion in Canggu</p>
-      <h2 style="font-size:44px;">The carousel, slide by slide.</h2>
+      <div style="height:230px; overflow:hidden;"><img src="img/75e3a10a6141b7b49e2ab506711db8ba.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-top:1px solid #C9A66B; padding-top:14px;">
+        <p class="serif" style="font-size:34px;">Premium</p>
+        <p style="font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#C9A66B;">From [price] per week</p>
+      </div>
+      <p class="body" style="font-size:14px; line-height:1.55;">A designer villa, 3 to 4 bedrooms, private pool, daily housekeeping. In the heart of the village, a short walk from the gyms, the cafés and the beach. The full immersion, in a house made for a couple or a small group.</p>
     </div>
-    <p class="ital" style="font-size:20px; color:#7A5C2E;">One visual, one title, one line.</p>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="height:230px; overflow:hidden;"><img src="img/033657ba03752cadb9875cf8839baea6.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-top:1px solid #C9A66B; padding-top:14px;">
+        <p class="serif" style="font-size:34px;">Luxury</p>
+        <p style="font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#C9A66B;">From [price] per week</p>
+      </div>
+      <p class="body" style="font-size:14px; line-height:1.55;">An estate, 5 bedrooms and more, rice-field or ocean view, full staff with a butler and a dedicated driver. The same immersion, with the house as the experience: the gym, the spa room and the chef's kitchen are already inside.</p>
+    </div>
   </div>
-  <div style="position:absolute; left:72px; top:176px; width:470px;">
-    <div class="slide"><span class="n">01</span><div><p class="t">Wellness immersion · Canggu</p><p class="d">Seven days to get back to yourself.</p><p class="v">Visual · the villa at sunrise</p></div></div>
-    <div class="slide"><span class="n">02</span><div><p class="t">Your villa</p><p class="d">Hand-picked. Pool, garden, morning light. Yours for the week.</p><p class="v">Visual · 2 or 3 different villas</p></div></div>
-    <div class="slide"><span class="n">03</span><div><p class="t">Your day starts with your chef</p><p class="d">Breakfast prepared at the villa, built on your macros, served by the pool.</p><p class="v">Visual · breakfast table, chef</p></div></div>
-    <div class="slide"><span class="n">04</span><div><p class="t">Gentle stretching or private yoga</p><p class="d">A teacher comes to you. The body opens before the day begins.</p><p class="v">Visual · yoga deck</p></div></div>
-    <div class="slide"><span class="n">05</span><div><p class="t">Your personal trainer</p><p class="d">A gym pass to Canggu's best gyms, and a trainer who builds your sessions around your goal.</p><p class="v">Visual · gym session</p></div></div>
-    <div class="slide"><span class="n">06</span><div><p class="t">Bloodwork, at home</p><p class="d">A nurse comes to the villa. A full panel, read by your nutritionist. We don't guess, we measure.</p><p class="v">Visual · discreet, clinical, calm</p></div></div>
-  </div>
-  <div style="position:absolute; left:582px; top:176px; width:470px;">
-    <div class="slide"><span class="n">07</span><div><p class="t">Your nutritionist</p><p class="d">A macro programme written from your results: proteins, carbs, fats, calibrated to you.</p><p class="v">Visual · consultation at the villa</p></div></div>
-    <div class="slide"><span class="n">08</span><div><p class="t">Your chef follows the plan</p><p class="d">Cooked to your macros. Local, fresh, prepared in your kitchen.</p><p class="v">Visual · plated dishes</p></div></div>
-    <div class="slide"><span class="n">09</span><div><p class="t">The treatment</p><p class="d">A massage at the villa, or in our partner spas. Every day if you wish.</p><p class="v">Visual · massage, spa</p></div></div>
-    <div class="slide"><span class="n">10</span><div><p class="t">Cold and heat</p><p class="d">Ice bath, sauna, recovery. The Canggu ritual.</p><p class="v">Visual · ice bath</p></div></div>
-    <div class="slide"><span class="n">11</span><div><p class="t">Your evening, your choice</p><p class="d">Sunset at the beach, dinner at the villa. Or, as an option, a table at Canggu's trendiest restaurants, booked for you.</p><p class="v">Visual · sunset, restaurant terrace</p></div></div>
-    <div class="slide"><span class="n">12</span><div><p class="t">Leave different</p><p class="d">One week. A body that has changed. LIVING, Canggu.</p><p class="v">Visual · closing, handle and link</p></div></div>
+  <div style="position:absolute; left:0; top:640px; width:1123px; height:84px; background:#C9A66B; display:flex; align-items:center; justify-content:center; gap:28px;">
+    <p style="font-size:13px; font-weight:500; letter-spacing:0.5em; color:#15120F;">VILLA · CHEF · TRAINER · NUTRITIONIST · SPA</p>
+    <p class="ital" style="font-size:19px; color:#15120F;">One price. One week. Paid upfront.</p>
   </div>
   <div class="foot"><span>Living · Canggu</span><span>07</span></div>
 </section>
 
 <!-- 08 THE TEMPLATE -->
 <section class="page sand">
-  <div style="position:absolute; left:72px; top:72px; width:980px; display:flex; flex-direction:column; gap:22px;">
-    <p class="kicker">The template</p>
-    <h2>Same twelve slides. A new soul each time.</h2>
+  <div style="position:absolute; left:72px; top:48px; width:980px; display:flex; flex-direction:column; gap:12px;">
+    <p class="kicker">The lifestyle system</p>
+    <h2 style="font-size:42px;">One system. Duplicated, then adapted to every village.</h2>
   </div>
-  <div style="position:absolute; left:72px; top:246px; width:979px; font-size:14px;">
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; padding:0 0 10px; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:#7E7060;">
-      <div>Slide</div><div style="padding-left:20px;">Canggu · Wellness</div><div style="padding-left:20px;">Ubud · Spiritual, for example</div>
+  <div style="position:absolute; left:72px; top:196px; width:979px; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:24px;">
+    <div style="display:flex; flex-direction:column; gap:6px; padding-top:12px; border-top:1px solid #7A5C2E;"><p class="label" style="font-size:11px; color:#7A5C2E;">Same structure</p><p class="body" style="font-size:12.5px; line-height:1.45;">Seven days, twelve slides, six building blocks: villa, morning, heart, table, care, evening.</p></div>
+    <div style="display:flex; flex-direction:column; gap:6px; padding-top:12px; border-top:1px solid #7A5C2E;"><p class="label" style="font-size:11px; color:#7A5C2E;">Same offer</p><p class="body" style="font-size:12.5px; line-height:1.45;">Premium or Luxury villa, one price, paid upfront, a concierge on the ground.</p></div>
+    <div style="display:flex; flex-direction:column; gap:6px; padding-top:12px; border-top:1px solid #7A5C2E;"><p class="label" style="font-size:11px; color:#7A5C2E;">Same machine</p><p class="body" style="font-size:12.5px; line-height:1.45;">One carousel, one landing page, one partner rate sheet, one shoot per village.</p></div>
+    <div style="display:flex; flex-direction:column; gap:6px; padding-top:12px; border-top:1px solid #7A5C2E;"><p class="label" style="font-size:11px; color:#7A5C2E;">Only the soul changes</p><p class="body" style="font-size:12.5px; line-height:1.45;">The words, the images, the experts and the partners belong to the village.</p></div>
+  </div>
+  <div style="position:absolute; left:72px; top:342px; width:979px; font-size:12.5px;">
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; padding:0 0 8px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#7E7060;">
+      <div>Block</div><div>Canggu · Wellness</div><div>Ubud · Spiritual</div><div>Seminyak · Social</div>
     </div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The promise</div><div style="padding-left:20px; color:#544739; font-weight:300;">Seven days to get back to yourself</div><div style="padding-left:20px;" class="serif">Seven days to quiet the mind</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">Your villa</div><div style="padding-left:20px; color:#544739; font-weight:300;">Canggu villas, pool and garden</div><div style="padding-left:20px;" class="serif">A villa in the jungle, above the river</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The morning</div><div style="padding-left:20px; color:#544739; font-weight:300;">Chef breakfast on your macros, stretching or yoga</div><div style="padding-left:20px;" class="serif">Waking to the river, guided meditation</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The heart</div><div style="padding-left:20px; color:#544739; font-weight:300;">Personal trainer, bloodwork, nutritionist</div><div style="padding-left:20px;" class="serif">Water ceremony at Tirta Empul, a Balinese healer</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The table</div><div style="padding-left:20px; color:#544739; font-weight:300;">Chef cooking to the plan</div><div style="padding-left:20px;" class="serif">Plant-based lunch from the garden</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The care</div><div style="padding-left:20px; color:#544739; font-weight:300;">Massage, ice bath, sauna</div><div style="padding-left:20px;" class="serif">Traditional Balinese massage, sound bath</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The evening</div><div style="padding-left:20px; color:#544739; font-weight:300;">Sunset at the beach, trendy table as an option</div><div style="padding-left:20px;" class="serif">Candlelit dinner, the sound of the jungle</div></div>
-    <div style="display:grid; grid-template-columns:170px 1fr 1fr; border-top:1px solid #CDBFA9; border-bottom:1px solid #CDBFA9; padding:11px 0;"><div class="label" style="font-size:11px; color:#7A5C2E;">The close</div><div style="padding-left:20px; color:#544739; font-weight:300;">Leave different</div><div style="padding-left:20px;" class="serif">Leave at peace</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The promise</div><div>Seven days to get your energy back</div><div class="serif" style="color:#15120F;">Seven days to quiet the mind</div><div class="serif" style="color:#15120F;">Seven nights you'll talk about</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The villa</div><div>Canggu, Premium or Luxury</div><div class="serif" style="color:#15120F;">Jungle villa above the river</div><div class="serif" style="color:#15120F;">Designer villa, walk to everything</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The morning</div><div>Chef breakfast on your macros, yoga</div><div class="serif" style="color:#15120F;">Waking to the river, guided meditation</div><div class="serif" style="color:#15120F;">Late breakfast by the pool, recovery</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The heart</div><div>Personal trainer, bloodwork, nutritionist</div><div class="serif" style="color:#15120F;">Water ceremony, a Balinese healer</div><div class="serif" style="color:#15120F;">Stylist, beach club, the night planned</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The table</div><div>Chef cooking to the plan</div><div class="serif" style="color:#15120F;">Plant-based lunch from the garden</div><div class="serif" style="color:#15120F;">The best tables, booked</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The care</div><div>Massage, ice bath, sauna</div><div class="serif" style="color:#15120F;">Balinese massage, sound bath</div><div class="serif" style="color:#15120F;">Spa afternoons, hair and make-up</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The evening</div><div>Sunset, trendy table as an option</div><div class="serif" style="color:#15120F;">Candlelit dinner, the jungle</div><div class="serif" style="color:#15120F;">Driver all night, club table</div></div>
+    <div style="display:grid; grid-template-columns:110px 1fr 1fr 1fr; gap:0 18px; border-top:1px solid #CDBFA9; border-bottom:1px solid #CDBFA9; padding:8px 0; color:#544739; font-weight:300; line-height:1.4;"><div class="label" style="font-size:10px; color:#7A5C2E;">The close</div><div>Leave different</div><div class="serif" style="color:#15120F;">Leave at peace</div><div class="serif" style="color:#15120F;">Leave with stories</div></div>
   </div>
-  <p class="ital" style="position:absolute; left:72px; top:690px; width:960px; font-size:20px; color:#544739;">Then Sidemen, Lembongan, Uluwatu. One carousel per soul, one soul per month.</p>
+  <p class="ital" style="position:absolute; left:72px; top:706px; width:960px; font-size:18px; color:#544739;">Then Uluwatu, Sidemen, Munduk, Amed, Lembongan, Sanur. One carousel per soul, one soul per month.</p>
   <div class="foot"><span>Living · Bali</span><span>08</span></div>
 </section>
 
