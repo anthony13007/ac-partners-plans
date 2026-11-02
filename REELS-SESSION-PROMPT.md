@@ -2,14 +2,11 @@
 
 ## Comment lancer la session (2 minutes)
 
-Les vidéos sont sur ton ordi, donc la session doit tourner **sur ton ordi**, pas dans le cloud :
+Les vidéos sont sur ton Mac (dossier `~/Claude/MEDIA SOCIAL NETWORK`), donc la session tourne **sur le Mac** :
 
-1. Mets toutes les vidéos de villas dans un dossier, par exemple `~/Claude/ac-reels/raw/<nom-villa>/` (un sous-dossier par villa). Les vidéos encore en vrac vont dans `raw/_a-trier/`.
-2. Vérifie que le connecteur **Higgsfield** est activé sur claude.ai (Paramètres → Connecteurs). C'est lui qui fait l'analyse des rushes, l'upscale, le recadrage 9:16, le prédicteur de viralité et le doublage.
-3. Dans le Terminal : `cd ~/Claude/ac-reels && claude`
-4. Colle le prompt ci-dessous.
-
-Variante cloud : ouvre une session sur claude.ai/code, puis connecte le dossier `ac-reels` via Remote Control (app Claude → Paramètres → Claude Code → Remote Control). Même prompt.
+1. Vérifie que le connecteur **Higgsfield** est activé sur claude.ai (Paramètres → Connecteurs). C'est lui qui fait l'analyse des rushes, l'upscale, le recadrage 9:16, le prédicteur de viralité et le doublage.
+2. Terminal : `cd ~/Claude/"MEDIA SOCIAL NETWORK" && claude`
+3. Colle le prompt ci-dessous. La session commence par ranger les vidéos elle-même (`raw/<villa>/`), pas besoin de trier avant.
 
 ---
 
@@ -19,7 +16,7 @@ Variante cloud : ouvre une session sur claude.ai/code, puis connecte le dossier 
 Tu es le monteur et media buyer de AC Collection (villas de luxe à Bali, Canggu/Seminyak/Pererenan/Berawa/Uluwatu, 30 villas, 9 ans Superhost, 759 avis, 4.84). On construit la "machine Reels" : transformer les vraies vidéos de mes villas en Reels Instagram qui se diffusent en publicité Meta à l'étranger pour générer des réservations EN DIRECT (WhatsApp +62 851 9018 1610 et ac-collection.com, 0 % de commission OTA), et des leads propriétaires pour la distribution AC Partners.
 
 CONTEXTE
-- Les rushes sont dans ./raw/<villa>/ (un sous-dossier par villa, ./raw/_a-trier/ pour ceux pas encore classés). Ce sont des vidéos de téléphone, souvent horizontales, parfois sombres ou tremblées. Rien n'est généré par IA : la pub doit montrer la villa telle qu'elle est (pas d'images inventées, pas de pièce qui n'existe pas), sinon plaintes clients et rejet Meta.
+- Les rushes sont en vrac dans le dossier courant (vidéos de téléphone). Première tâche : les inventorier et les ranger dans ./raw/<villa>/ (un sous-dossier par villa, ./raw/_a-trier/ pour ceux que tu n'arrives pas à attribuer, demande-moi). Ce sont des vidéos de téléphone, souvent horizontales, parfois sombres ou tremblées. Rien n'est généré par IA : la pub doit montrer la villa telle qu'elle est (pas d'images inventées, pas de pièce qui n'existe pas), sinon plaintes clients et rejet Meta.
 - Le repo ac-partners-plans (github.com/anthony13007/ac-partners-plans) contient les pages villa (villa-site/villas/*.json : nom, zone, chambres, voyageurs, ADR, atouts) et le positionnement (BUSINESS-PLAN.md, MACHINE.md). Clone-le dans ./plans si tu as besoin des infos d'une villa.
 - Outils : Higgsfield (MCP) pour l'analyse vidéo, upscale, reframe 9:16, prédicteur de viralité, doublage/voix ; ffmpeg en local pour le montage (installe-le si absent). Avant tout traitement Higgsfield payant, donne-moi le coût en crédits et attends mon OK.
 
@@ -49,7 +46,7 @@ RÈGLES
 - Garde les scripts réutilisables dans ./tools/ (inventaire, montage, export) pour qu'une nouvelle villa = une commande.
 
 ORDRE
-1. Commence par un inventaire global de ./raw (combien de vidéos, quelles villas, lesquelles ont assez de matière pour 3 Reels : il faut au moins 8 plans exploitables).
+1. Commence par un inventaire global du dossier (combien de vidéos, durées, quelles villas tu reconnais d'après les noms de fichiers, les dates et le contenu ; lesquelles ont assez de matière pour 3 Reels : il faut au moins 8 plans exploitables). Range-les dans ./raw/<villa>/ et montre-moi le tri avant de monter quoi que ce soit.
 2. Propose-moi l'ordre des villas (celle qui a la meilleure matière ET les nuits vides les plus chères en premier).
 3. Fais la première villa de bout en bout, montre-moi le résultat, puis on industrialise sur les autres.
 ```
