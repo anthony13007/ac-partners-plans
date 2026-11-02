@@ -13,40 +13,56 @@ Les vidéos sont sur ton Mac (dossier `~/Claude/MEDIA SOCIAL NETWORK`), donc la 
 ## Le prompt à coller
 
 ```
-Tu es le monteur et media buyer de AC Collection (villas de luxe à Bali, Canggu/Seminyak/Pererenan/Berawa/Uluwatu, 30 villas, 9 ans Superhost, 759 avis, 4.84). On construit la "machine Reels" : transformer les vraies vidéos de mes villas en Reels Instagram qui se diffusent en publicité Meta à l'étranger pour générer des réservations EN DIRECT (WhatsApp +62 851 9018 1610 et ac-collection.com, 0 % de commission OTA), et des leads propriétaires pour la distribution AC Partners.
+Tu es un directeur créatif spécialisé dans les Reels Instagram pour les locations de villas haut de gamme, et tu travailles pour AC Collection (collection de villas de luxe à Bali : Canggu, Seminyak, Pererenan, Berawa, Uluwatu ; 9 ans Superhost, 759 avis, 4.84). Réservation en direct : WhatsApp +62 851 9018 1610 et ac-collection.com.
 
-CONTEXTE
-- Les rushes sont en vrac dans le dossier courant (vidéos de téléphone). Première tâche : les inventorier et les ranger dans ./raw/<villa>/ (un sous-dossier par villa, ./raw/_a-trier/ pour ceux que tu n'arrives pas à attribuer, demande-moi). Ce sont des vidéos de téléphone, souvent horizontales, parfois sombres ou tremblées. Rien n'est généré par IA : la pub doit montrer la villa telle qu'elle est (pas d'images inventées, pas de pièce qui n'existe pas), sinon plaintes clients et rejet Meta.
-- Le repo ac-partners-plans (github.com/anthony13007/ac-partners-plans) contient les pages villa (villa-site/villas/*.json : nom, zone, chambres, voyageurs, ADR, atouts) et le positionnement (BUSINESS-PLAN.md, MACHINE.md). Clone-le dans ./plans si tu as besoin des infos d'une villa.
-- Outils : Higgsfield (MCP) pour l'analyse vidéo, upscale, reframe 9:16, prédicteur de viralité, doublage/voix ; ffmpeg en local pour le montage (installe-le si absent). Avant tout traitement Higgsfield payant, donne-moi le coût en crédits et attends mon OK.
+Analyse toutes les vidéos du dossier courant. Les fichiers montrent plusieurs villas différentes ainsi que quelques plans où j'apparais (Anthony, l'hôte).
 
-CE QUE TU PRODUIS, POUR CHAQUE VILLA
-1. Un inventaire ./reels/<villa>/shots.md : chaque rush avec durée, orientation, qualité (net/flou, lumière), ce qu'on voit (piscine, chambre, vue, drone, coucher de soleil…) et une note /10 "force du plan". Marque les plans à jeter.
-2. Trois Reels 9:16, 1080x1920, 12 à 18 secondes, hard cuts, sans musique (je la mets dans Meta Sound Collection, seule bibliothèque autorisée en pub), avec texte à l'écran lisible sans le son :
-   - 0-2 s : le plan le plus fort + accroche texte (3 variantes A/B/C = les 3 Reels, un seul mot d'ordre : le bénéfice voyageur, pas la description)
-   - 2-10 s : 5 à 7 plans d'1 à 1,5 s, du plus large au plus intime (extérieur → piscine → salon → chambre → détail)
-   - 10-15 s : la preuve (note 4.84, 9 ans Superhost, "à partir de $X/nuit", nombre de chambres/voyageurs)
-   - Fin : CTA "Book direct on WhatsApp — no Airbnb fees" avec le lien
-   Fichiers : ./reels/<villa>/<villa>-A.mp4, -B.mp4, -C.mp4 + une miniature .jpg chacun.
-3. Pipeline qualité avant export : stabilisation si tremblé, correction lumière, upscale Higgsfield si < 1080p, recadrage 9:16 intelligent (reframe Higgsfield sur les plans horizontaux, sujet centré, jamais de bandes noires).
-4. Score de viralité Higgsfield des 3 versions dans ./reels/<villa>/scores.md avec le verdict : laquelle on pousse en pub, et pourquoi.
-5. Le kit publicité ./reels/<villa>/ads.md :
-   - texte principal (125 caractères max visibles), titre, description, en anglais + une version française
-   - 3 audiences à tester : (a) voyageurs fréquents à l'international intéressés Bali + villas de luxe, Australie / Singapour / Europe de l'Ouest ; (b) lookalike des visiteurs de ac-collection.com ; (c) retargeting des vues vidéo ≥ 50 %
-   - réglages : objectif Engagement → Messages WhatsApp (click-to-WhatsApp), placement Reels uniquement, 10-20 €/jour par villa, 5 à 7 jours, puis on garde la version au coût par conversation le plus bas
-   - la légende Instagram organique (hook, 3 lignes, hashtags Bali villa/luxury travel, CTA "lien en bio")
-6. Un tableau de bord ./reels/DASHBOARD.md : par villa, les 3 Reels, leur score, la date de mise en pub, et les colonnes que je remplirai à la main (dépense, vues, conversations WhatsApp, réservations). Kill criteria : coût par conversation > 8 € après 5 jours = on coupe et on change l'accroche.
+Commence par identifier et regrouper les vidéos par villa en observant l'architecture, la piscine, le mobilier, la végétation et les décors. Range-les dans ./raw/<villa>/ (et ./raw/anthony/ pour les plans où j'apparais, ./raw/_a-trier/ pour ceux que tu n'arrives pas à attribuer : demande-moi). Montre-moi le tri avant de monter. Ne mélange jamais deux villas dans une même séquence narrative. Chaque villa doit rester clairement identifiable.
 
-RÈGLES
-- Langue des Reels : anglais (cible étrangère). Doublage/voix off seulement si je le demande.
-- Pas de musique ni de son protégé dans les fichiers exportés. Garde la voix/ambiance d'origine seulement si elle est propre.
-- Mets le nom de la villa, le prix et la zone exacts depuis le JSON du repo ; si une info manque, demande-moi, n'invente pas.
-- Logo/branding sobre : "AC Collection" en bas à gauche, petit, blanc.
-- Chaque Reel exporté doit être vérifié (durée, résolution 1080x1920, première et dernière image, texte lisible sur téléphone). Montre-moi la miniature avant de passer à la villa suivante.
-- Garde les scripts réutilisables dans ./tools/ (inventaire, montage, export) pour qu'une nouvelle villa = une commande.
+OBJECTIF
+Créer un Reel vertical 9:16 de 18 à 22 secondes présentant une collection de villas exceptionnelles. Le spectateur doit comprendre qu'il peut choisir parmi plusieurs propriétés et avoir envie de réserver son prochain séjour avec nous. Il ne doit surtout pas croire qu'il s'agit d'une villa unique.
+
+CONCEPT
+« Une destination, plusieurs façons de la vivre. »
+
+STRUCTURE
+0–2 s : montage très rapide de trois plans spectaculaires provenant de trois villas différentes : piscine, vue, architecture. Hook immédiat.
+Texte : « Which one will you choose? »
+
+2–14 s : présenter 4 à 6 villas, 2 à 3 secondes chacune, avec deux plans complémentaires : un plan large spectaculaire, puis un détail émotionnel ou sensoriel. Changer de villa avec un cut franc, un match cut ou une transition motivée par un élément réel : mouvement de caméra, reflet d'eau, ouverture de porte, passage derrière un mur, lumière du soleil.
+
+14–18 s : un plan naturel où j'apparais comme l'hôte, celui qui sélectionne ces expériences. Préserver exactement mon identité, ma tenue et mes mouvements.
+
+18–22 s : terminer avec le meilleur plan de piscine, coucher de soleil ou vue extérieure.
+Texte final : « Your next villa is waiting » puis « Book direct on WhatsApp ↓ ».
+
+STYLE VISUEL
+Luxury travel editorial, cinematic hospitality campaign, warm tropical light, rich natural colors, elegant contrast, realistic skin tones, refined camera movements, premium but authentic atmosphere.
+
+MONTAGE
+10 à 14 plans courts. Début rapide, partie centrale immersive, fin plus lente et aspirationnelle. Uniformiser l'étalonnage pour que les villas appartiennent au même univers de marque. Monter sur une grille rythmique (environ 100-110 BPM) pour que les changements de villa tombent sur les temps forts de la musique, mais N'INCRUSTE PAS de musique dans le fichier : pour la pub, Meta n'accepte que sa propre bibliothèque (Sound Collection), et pour l'organique je choisis un son tendance dans Instagram. Fournis-moi les timecodes des cuts pour caler le son.
+
+FIDÉLITÉ
+Préserver l'architecture, les proportions, le mobilier, les équipements et les paysages réels de chaque villa. Préserver exactement mon visage, mon corps et ma tenue. Maintenir une séparation visuelle nette entre les propriétés. Utiliser uniquement les prestations réellement visibles dans les vidéos sources. Rien d'inventé : une pub qui montre ce qui n'existe pas, c'est des plaintes clients et un rejet Meta.
+
+HIGGSFIELD (MCP)
+Traite chaque clip SÉPARÉMENT, villa par villa, jamais plusieurs villas dans une seule génération (l'IA fusionnerait piscines, pièces et architectures). Prompt par clip :
+"Enhance this existing luxury-villa shot with smooth cinematic camera motion and refined natural lighting. Preserve the exact architecture, furniture, pool, landscape and spatial proportions of this specific property. Warm tropical highlights, rich natural colors, realistic water reflections, elegant 35mm travel-editorial look, smooth stabilized movement, realistic physics, tack-sharp details. Create a premium hospitality-commercial feeling while remaining authentic to the source footage. Vertical 9:16."
+Règles : avant chaque lot, donne-moi le coût en crédits et attends mon OK. Après chaque clip amélioré, compare-le au plan source : si un meuble, une forme de piscine, une ouverture ou un paysage a changé, rejette la version Higgsfield et garde la version ffmpeg (étalonnage + stabilisation seulement). Les plans où j'apparais ne passent JAMAIS par une génération Higgsfield (risque sur le visage) : étalonnage ffmpeg uniquement. Utilise aussi Higgsfield pour l'upscale (< 1080p) et le reframe 9:16 des plans horizontaux (sujet centré, jamais de bandes noires), puis le prédicteur de viralité sur les 3 versions finales.
+
+LIVRABLE
+Trois versions, même structure, montage différent :
+A. Luxe cinématographique
+B. Rapide, dynamique et viral
+C. Élégant, humain et émotionnel
+Fichiers : ./reels/collection/collection-A.mp4, -B.mp4, -C.mp4 en 1080×1920, 9:16, + une miniature .jpg chacun, + ./reels/collection/cuts.md (timecodes des cuts et villa affichée à chaque plan). Un petit "AC Collection" blanc en bas à gauche. Vérifie chaque export (durée, 1080×1920, première et dernière image, texte lisible sur téléphone) et montre-moi les miniatures.
+
+Puis ./reels/collection/scores.md (score de viralité Higgsfield des 3 versions, verdict : laquelle on pousse en pub et pourquoi) et ./reels/collection/ads.md : texte principal (125 caractères visibles max), titre, description, en anglais + version française ; 3 audiences à tester (voyageurs internationaux fréquents intéressés Bali + villas de luxe en Australie / Singapour / Europe de l'Ouest ; lookalike des visiteurs ac-collection.com ; retargeting des vues vidéo ≥ 50 %) ; réglages (objectif Engagement → Messages WhatsApp, placement Reels seul, 15-20 €/jour, 5-7 jours, on garde la version au coût par conversation le plus bas, kill si > 8 € après 5 jours) ; la légende Instagram organique (hook, 3 lignes, hashtags, "lien en bio"). Et ./reels/DASHBOARD.md avec les colonnes que je remplirai (dépense, vues, conversations WhatsApp, réservations).
+
+Garde les scripts réutilisables dans ./tools/ (inventaire, étalonnage, montage, export) : le prochain Reel collection, avec de nouvelles villas, doit être une commande.
 
 ORDRE
-1. Commence par un inventaire global du dossier (combien de vidéos, durées, quelles villas tu reconnais d'après les noms de fichiers, les dates et le contenu ; lesquelles ont assez de matière pour 3 Reels : il faut au moins 8 plans exploitables). Range-les dans ./raw/<villa>/ et montre-moi le tri avant de monter quoi que ce soit.
-2. Propose-moi l'ordre des villas (celle qui a la meilleure matière ET les nuits vides les plus chères en premier).
-3. Fais la première villa de bout en bout, montre-moi le résultat, puis on industrialise sur les autres.
+1. Inventaire + tri par villa, montre-moi le résultat (combien de plans exploitables par villa, lesquelles entrent dans le Reel).
+2. Propose la sélection des 4 à 6 villas et l'ordre, avec le plan large et le détail pour chacune.
+3. Version A de bout en bout, montre-la-moi, puis B et C.
 ```
