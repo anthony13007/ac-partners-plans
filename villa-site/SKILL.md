@@ -112,6 +112,20 @@ sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dy
 - Mettre à jour le marché : modifier `market/bali.json` ici ET sa copie `src/diagnostic/market-bali.json`
   dans le site (même chose pour `config.json` et `template.html`), puis pousser le site.
 - `villa.py --commission N` existe toujours pour une page statique à l'ancienne.
+- **Nuits vides = le vrai calendrier de la villa (05/11/2026).** Le site (`lib/airbnbCalendar.ts`,
+  `readAirbnbDays`) et `villa.py` (`fetch_calendar`) lisent le calendrier public Airbnb de l'annonce et
+  comptent les nuits encore réservables dans chaque mois creux (`low_season[].open`, fenêtres de pointe
+  exclues via `peak_windows.from/to`). La page dit alors « still has N open nights », la colonne
+  « Open nights », et compare l'occupation de la villa à celle du marché. Calendrier illisible →
+  ancienne estimation nuits × (1 − occupation du marché). Calendrier plein sur les mois creux → pas de
+  page (« à voir »). `villa.py --no-calendar` force l'estimation. L'occupation du marché ne sert plus
+  qu'à choisir les mois creux (règle des 50 %) et à situer la villa.
+- **Occupation du marché provisoire (05/11/2026).** PriceLabs affiche en novembre 3 à 18 points de plus
+  qu'en septembre pour les mêmes mois passés. Décision d'Anthony en attendant leur réponse : `occ_ly`
+  = moyenne des deux relevés pour Canggu, Seminyak, Pererenan, Berawa (relevés gardés dans
+  `occ_ly_2026_09` et `occ_ly_2026_11`). Résultat : Canggu ≈ 50 % (déc., janv., févr. creux),
+  Seminyak février seul, Pererenan et Berawa aucun mois creux. À remplacer par un seul relevé dès la
+  réponse de PriceLabs.
 
 ## Trouver le contact (le vrai goulot)
 

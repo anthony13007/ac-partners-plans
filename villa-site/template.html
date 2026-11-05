@@ -249,7 +249,7 @@
     <p class="lead" id="owner-lead"></p>
     <div class="sub-table">
     <table id="gap-table">
-      <thead><tr><th>Low-season month</th><th>Nights</th><th>Market occupancy</th><th>Empty nights</th><th>Revenue not earned</th></tr></thead>
+      <thead><tr><th>Low-season month</th><th>Nights</th><th>Market occupancy</th><th id="gap-th-empty">Empty nights</th><th id="gap-th-loss">Revenue not earned</th></tr></thead>
       <tbody></tbody>
     </table>
     </div>
@@ -438,29 +438,43 @@
   if (showOwner){
     $('owner').classList.add('on');
     var ls = C.low_season, adr = C.adr, capture = C.capture_rate;
-    var totNights = 0, totEmpty = 0, totLoss = 0, rows = '';
+    // Nuits vides : celles du calendrier de la villa (m.open) quand il a été lu, sinon l'estimation de marché.
+    var real = ls.length > 0 && ls.every(function(m){ return typeof m.open === 'number'; });
+    var lblEmpty = real ? 'Open nights' : 'Empty nights', lblLoss = real ? 'Revenue still open' : 'Revenue not earned';
+    var totNights = 0, totEmpty = 0, totLoss = 0, totMarket = 0, rows = '';
     ls.forEach(function(m){
-      var empty = Math.round(m.days * (1 - m.market_occ));
+      var empty = typeof m.open === 'number' ? m.open : Math.round(m.days * (1 - m.market_occ));
       var loss = empty * adr;
-      totNights += m.days; totEmpty += empty; totLoss += loss;
-      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + m.days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="Empty nights">' + empty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(loss) + '</td></tr>';
+      totNights += m.days; totEmpty += empty; totLoss += loss; totMarket += m.days * m.market_occ;
+      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + m.days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="' + lblEmpty + '">' + empty + '</td><td class="loss" data-l="' + lblLoss + '">' + fmtMoney(loss) + '</td></tr>';
     });
-    rows += '<tr class="total"><td data-l="Month">Total low season</td><td class="num" data-l="Nights">' + totNights + '</td><td class="num" data-l="Market occupancy">' + Math.round((1 - totEmpty / totNights) * 100) + '%</td><td class="num" data-l="Empty nights">' + totEmpty + '</td><td class="loss" data-l="Revenue not earned">' + fmtMoney(totLoss) + '</td></tr>';
+    // Occupation du marché sur ces mois ; avec un vrai calendrier, celle de la villa se lit à part (ownOcc).
+    var ownOcc = Math.round((1 - totEmpty / totNights) * 100);
+    var mktOcc = real ? Math.round(totMarket / totNights * 100) : ownOcc;
+    rows += '<tr class="total"><td data-l="Month">Total low season</td><td class="num" data-l="Nights">' + totNights + '</td><td class="num" data-l="Market occupancy">' + mktOcc + '%</td><td class="num" data-l="' + lblEmpty + '">' + totEmpty + '</td><td class="loss" data-l="' + lblLoss + '">' + fmtMoney(totLoss) + '</td></tr>';
     $('gap-table').querySelector('tbody').innerHTML = rows;
+    if (real){ $('gap-th-empty').textContent = lblEmpty; $('gap-th-loss').textContent = lblLoss; }
 
     var target = Math.round(totEmpty * capture), targetRev = target * adr, fee = targetRev * C.commission;
-    $('owner-title').innerHTML = C.name + ' sits empty <em>' + totEmpty + ' nights</em> every low season.';
+    $('owner-title').innerHTML = real
+      ? C.name + ' still has <em>' + totEmpty + ' open nights</em> this low season.'
+      : C.name + ' sits empty <em>' + totEmpty + ' nights</em> every low season.';
     // Sans prix donné par le propriétaire, le prix est celui de la zone (75e centile PriceLabs) : on ne l'appelle pas « your rate ».
     var areaRate = String(C.adr_source || '').indexOf('market_p75') === 0;
-    $('owner-lead').textContent = (areaRate ? 'At the area rate of ' + fmtMoney(adr) + '/night' : 'At your ' + fmtMoney(adr) + '/night rate') + ', the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ var n = m.month.split(' (')[0];
-      return m.month.indexOf('(1–') > -1 ? 'early ' + n : n; }).join(', ') + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
+    var rateTxt = areaRate ? 'At the area rate of ' + fmtMoney(adr) + '/night' : 'At your ' + fmtMoney(adr) + '/night rate';
+    var monthsTxt = ls.map(function(m){ var n = m.month.split(' (')[0];
+      return m.month.indexOf('(1–') > -1 ? 'early ' + n : n; }).join(', ');
+    $('owner-lead').textContent = real
+      ? 'Your Airbnb calendar still shows ' + totEmpty + ' open nights out of ' + totNights + ' in ' + monthsTxt + '. ' + rateTxt + ', that is ' + fmtMoney(totLoss) + ' of revenue still open. The villas around you run at roughly ' + mktOcc + '% occupancy in those months, your calendar is at ' + ownOcc + '%. ' +
+        (ownOcc < mktOcc ? 'Not because the villa is wrong, but because it is not everywhere the demand is.' : 'You are ahead of the area: these are the last nights to place, and the hardest to sell alone.')
+      : rateTxt + ', the villas around you run at roughly ' + mktOcc + '% occupancy in ' + monthsTxt + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
     $('gap-stats').innerHTML =
-      '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">Empty nights per low season (market average)</div></div>' +
-      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at ' + (areaRate ? 'the area rate' : 'your nightly rate') + '</div></div>' +
-      '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + '% of the gap)</div></div>' +
+      '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">' + (real ? 'Nights still open on your calendar' : 'Empty nights per low season (market average)') + '</div></div>' +
+      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">' + (real ? 'Revenue still open at ' : 'Revenue not earned at ') + (areaRate ? 'the area rate' : 'your nightly rate') + '</div></div>' +
+      '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + (real ? '% of the open nights)' : '% of the gap)') + '</div></div>' +
       '<div class="stat"><div class="n">' + fmtMoney(targetRev) + '</div><div class="l">Added revenue, low season only</div></div>';
     var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + (areaRate ? ' at the area rate.' : ' at your rate.') : '';
-    $('gap-source').textContent = C.gap_source + annual + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
+    $('gap-source').textContent = C.gap_source + annual + (real ? ' Open nights = nights a guest can still book on your calendar, peak dates left out.' : ' Empty nights = nights × (1 − market occupancy).') + ' Targets are illustrative and depend on season, channel mix and demand.';
 
     var O = C.offer || {};
     var money2 = function(n){ return C.currency + (n % 1 ? n.toFixed(2) : Math.round(n).toLocaleString('en-US')); };

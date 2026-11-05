@@ -11,7 +11,7 @@ the market data, the ADR if given, the HTML, the message and the funnel row. --f
 """
 import json, re, sys, pathlib, argparse, subprocess, datetime, unicodedata
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from fetch_listing import fetch_listing
+from fetch_listing import fetch_listing, fetch_calendar
 import generate_villa, make_message, funnel
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -121,9 +121,23 @@ def low_season(zone, n=3, from_date=None):
         window = peak.get(LONG[m], {})
         rows.append({"month": window.get("label", LONG[m]),
                      "days": window.get("days", DAYS[m]),
-                     "market_occ": round(blend[m] / 100, 2)})
+                     "market_occ": round(blend[m] / 100, 2),
+                     # the month and the days kept in it, to count open nights on the villa's own calendar
+                     "ym": f"{today.year + (start + i) // 12}-{(start + i) % 12 + 1:02d}",
+                     "from": window.get("from", 1), "to": window.get("to", DAYS[m])})
     annual = round(sum(ly.values()) / 12)
     return rows, annual, blend
+
+def apply_calendar(rows, days):
+    """Put on each low-season month the nights really open on the villa's calendar (row["open"]).
+    A month the calendar does not cover keeps no "open": the page falls back to the market estimate.
+    Mirror of applyCalendar in the site (api-server/src/diagnostic/build.ts)."""
+    every = bool(rows)
+    for r in rows:
+        win = [d for d in days if d["date"][:7] == r["ym"] and r["from"] <= int(d["date"][8:10]) <= r["to"]]
+        if len(win) < r["days"]: every = False; continue
+        r["open"] = sum(1 for d in win if d["available"])
+    return every
 
 def pick_photos(photos, n, name, area, guests):
     if not photos: return []
@@ -185,6 +199,11 @@ def build_config(L, a):
     br = a.bedrooms or L.get("bedrooms") or (existing or {}).get("bedrooms") or 4
     guests = L.get("guests") or (existing or {}).get("guests") or br * 2
     ls, annual, blend = low_season(zone, d["low_season_months"])
+    generated = datetime.date.today().isoformat()
+    # empty nights are read on the villa's own Airbnb calendar; without it, the market estimate
+    cal = getattr(a, "calendar", None)
+    if cal is None and L.get("listing_id") and not getattr(a, "no_calendar", False): cal = fetch_calendar(L["listing_id"])
+    real = apply_calendar(ls, cal) if cal else False
     if a.adr: adr, adr_src = int(a.adr), "owner/listing"
     elif existing and existing.get("adr"): adr, adr_src = existing["adr"], existing.get("adr_source", "existing")
     else:
@@ -217,16 +236,17 @@ def build_config(L, a):
         "low_season": ls, "annual_market_occ": annual,
         "capture_rate": d["capture_rate"], "commission": d["commission"],
         "site_price": f"Included · {d['currency']}{d['site_price_oneoff']} + {d['currency']}{d['site_price_monthly']}/mo on its own",
-        "gap_source": f"Source: PriceLabs market data, {Z['label']}, {Z['br_band']} villas ({Z['compset']} listings), pulled {Z.get('pulled', MARKET['pulled'])}: last-year market occupancy by month, lowest in {months_txt}; annual average {annual}%.",
+        "gap_source": (f"Open nights: your public Airbnb calendar as read on {generated}. " if real else "") + f"Source: PriceLabs market data, {Z['label']}, {Z['br_band']} villas ({Z['compset']} listings), pulled {Z.get('pulled', MARKET['pulled'])}: last-year market occupancy by month, lowest in {months_txt}; annual average {annual}%.",
         "market": {"zone": zone, "compset": Z["compset"], "br_band": Z["br_band"], "occ_ly": Z["occ_ly"], "pulled": Z.get("pulled", MARKET["pulled"])},
         "cta_title": "Your low season, filled. <em>10% on the nights we sell,</em> nothing else.",
         "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
         "whatsapp": CFG["whatsapp"],
         "contact": {"name": a.contact or "", "first_name": a.first_name or "", "handle": a.handle or "", "channel": a.channel},
-        "generated": datetime.date.today().isoformat(),
+        "calendar": {"source": "airbnb", "read": generated} if real else None,
+        "generated": generated,
     }
     if existing:  # keep hand edits: everything except the refreshed market/adr/contact blocks
-        keep = {k: v for k, v in existing.items() if k not in ("low_season", "annual_market_occ", "gap_source", "market", "generated", "adr", "adr_source")}
+        keep = {k: v for k, v in existing.items() if k not in ("low_season", "annual_market_occ", "gap_source", "market", "calendar", "generated", "adr", "adr_source")}
         if a.photos and not existing.get("photos_locked"): keep.pop("photos", None)
         for k in ("name", "first_name", "handle") if a.contact or a.first_name or a.handle else (): keep.get("contact", {}).pop(k, None)
         merged = {**cfg, **keep}
@@ -239,7 +259,7 @@ def main():
     ap.add_argument("url"); ap.add_argument("--adr", type=float); ap.add_argument("--name"); ap.add_argument("--area"); ap.add_argument("--slug")
     ap.add_argument("--rates-idr", type=float, nargs=2, metavar=("LOW_M", "HIGH_M"), help="nightly range in millions of IDR, e.g. 10 16"); ap.add_argument("--bedrooms", type=int); ap.add_argument("--photos", type=int); ap.add_argument("--first-name"); ap.add_argument("--contact"); ap.add_argument("--handle")
     ap.add_argument("--channel", default="whatsapp"); ap.add_argument("--clips", action="store_true"); ap.add_argument("--fresh", action="store_true")
-    ap.add_argument("--commission", type=float, help="commission shown on the page, in percent (default: config.json, 10); owners self-serve at 12"); ap.add_argument("--no-commit", action="store_true"); ap.add_argument("--push", action="store_true"); ap.add_argument("--days", nargs=2, default=("Tuesday", "Thursday"))
+    ap.add_argument("--commission", type=float, help="commission shown on the page, in percent (default: config.json, 10); owners self-serve at 12"); ap.add_argument("--no-calendar", action="store_true", help="do not read the villa's Airbnb calendar: empty nights estimated from market occupancy"); ap.add_argument("--no-commit", action="store_true"); ap.add_argument("--push", action="store_true"); ap.add_argument("--days", nargs=2, default=("Tuesday", "Thursday"))
     a = ap.parse_args()
     print("1/6 fetching listing…"); L = fetch_listing(a.url)
     print(f"    {L.get('title')!r} | {L.get('city')} | {L.get('bedrooms')}BR / {L.get('guests')} guests | {len(L.get('photos', []))} photos | rating {L.get('rating')} ({L.get('reviews')} reviews)")
@@ -257,7 +277,7 @@ def main():
         print("3/6 clips…"); subprocess.run([sys.executable, str(HERE / "make_clips.py"), cfg["slug"]], check=True)
     else: print("3/6 clips skipped (--clips to render Ken Burns tour clips)")
     out = generate_villa.build(cfg_path); print(f"4/6 page -> {out.relative_to(HERE.parent)}")
-    msg, g = make_message.write(cfg["slug"], a.first_name, tuple(a.days)); print(f"5/6 message -> {msg.relative_to(HERE.parent)} | {g['empty']} empty nights, ${g['loss']:,.0f} not earned, target +{g['target']} nights")
+    msg, g = make_message.write(cfg["slug"], a.first_name, tuple(a.days)); print(f"5/6 message -> {msg.relative_to(HERE.parent)} | {g['empty']} {'open nights on their calendar' if g['real'] else 'empty nights (market estimate)'}, ${g['loss']:,.0f} not earned, target +{g['target']} nights")
     funnel.add(cfg["slug"], a.contact or "", a.handle or "", a.channel); print("6/6 funnel row added/updated (status draft)")
     if not a.no_commit:
         root = HERE.parent

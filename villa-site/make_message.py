@@ -17,15 +17,18 @@ def money(n, cur="$"):
 def gap(cfg):
     """Same maths as template.html owner section."""
     adr = cfg["adr"]; rows = []
-    tot_n = tot_e = tot_l = 0
+    tot_n = tot_e = tot_l = tot_m = 0
     for m in cfg["low_season"]:
-        e = round(m["days"] * (1 - m["market_occ"])); l = e * adr
-        rows.append((m["month"], m["days"], m["market_occ"], e, l)); tot_n += m["days"]; tot_e += e; tot_l += l
-    occ = 1 - tot_e / tot_n if tot_n else 0
+        # nights really open on the villa's calendar when it was read, else the market estimate
+        e = m["open"] if isinstance(m.get("open"), int) else round(m["days"] * (1 - m["market_occ"])); l = e * adr
+        rows.append((m["month"], m["days"], m["market_occ"], e, l)); tot_n += m["days"]; tot_e += e; tot_l += l; tot_m += m["days"] * m["market_occ"]
+    real = bool(cfg["low_season"]) and all(isinstance(m.get("open"), int) for m in cfg["low_season"])
+    own = 1 - tot_e / tot_n if tot_n else 0
+    occ = (tot_m / tot_n if tot_n else 0) if real else own  # occ is always the MARKET's occupancy
     target = round(tot_e * cfg.get("capture_rate", CFG["defaults"]["capture_rate"]))
     added = target * adr
     fee = added * cfg.get("commission", CFG["defaults"]["commission"])
-    return dict(rows=rows, nights=tot_n, empty=tot_e, loss=tot_l, occ=occ, target=target, added=added, fee=fee)
+    return dict(rows=rows, nights=tot_n, empty=tot_e, loss=tot_l, occ=occ, own=own, real=real, target=target, added=added, fee=fee)
 
 def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
     s = CFG["sender"]; d = CFG["defaults"]
@@ -56,7 +59,10 @@ I came across {villa} while benchmarking {area}. Can I send you the October-Dece
 
     msg1_ig = f"""Hi {first}, Superhost here ({s['reviews']} reviews), {s['villas']} villas in Bali: {website}. Came across {villa}, can I send you the Oct-Dec occupancy data for villas like yours in {area}?"""
 
-    msg2 = f"""{br}-bedroom villas around {villa} sit at ~{occ}% occupancy in {months_txt}. At your ~{adr}/night that is about {g['empty']} empty nights, {loss} not earned per low season. The detail, on a private page: {url}
+    gap_line = (f"Your Airbnb calendar still shows {g['empty']} open nights in {months_txt}. At ~{adr}/night that is {loss} still open, while {br}-bedroom villas around {villa} sit at ~{occ}% occupancy."
+                if g["real"] else
+                f"{br}-bedroom villas around {villa} sit at ~{occ}% occupancy in {months_txt}. At your ~{adr}/night that is about {g['empty']} empty nights, {loss} not earned per low season.")
+    msg2 = f"""{gap_line} The detail, on a private page: {url}
 
 And this is the kind of site we build for our villas to sell direct, scroll it on your phone: {showcase}
 
@@ -96,7 +102,7 @@ Happy to walk you through the {g['empty']} nights in 10 min."""
     md = f"""# Outreach — {villa} ({area}, {br}BR)
 
 Generated {today.isoformat()} · owner page: {url} · guest site: {site_url} · showcase: {showcase}
-Numbers: {g['empty']} empty nights / {g['nights']} in {months_txt} (market {occ}%), {loss} not earned at {adr}/night; we target +{g['target']} nights = {money(g['added'], cur)} added, our fee {money(g['fee'], cur)}, guarantee {guarantee} nights.
+Numbers: {g['empty']} {'open nights on their Airbnb calendar' if g['real'] else 'empty nights (market estimate)'} / {g['nights']} in {months_txt} (market {occ}%), {loss} not earned at {adr}/night; we target +{g['target']} nights = {money(g['added'], cur)} added, our fee {money(g['fee'], cur)}, guarantee {guarantee} nights.
 Contact: {cfg.get('contact', {}).get('name', '')} {cfg.get('contact', {}).get('handle', '')} via {cfg.get('contact', {}).get('channel', 'whatsapp')}
 
 ## Message 1 — who I am (WhatsApp)

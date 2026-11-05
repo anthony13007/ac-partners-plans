@@ -105,6 +105,33 @@ def parse_generic(html, url):
     m = re.search(r"(\d+)\s*guests?", html, re.I);               out["guests"] = int(m.group(1)) if m else None
     return out
 
+CAL_HASH = "8f08e03c7bd16fcad3c92a3592c19a8b559a0d0855a84028d1163d4733ed9ade"
+CAL_KEY = "d306zoyjsyarp7ifhu67rjxn52tv0t20"  # public key of airbnb.com itself, not a secret
+
+def fetch_calendar(listing_id, timeout=15):
+    """The listing's public Airbnb calendar, next 12 months, day by day: [{"date": "2026-12-01", "available": True}, ...].
+    Same endpoint as the listing page, no account. available False = booked or blocked. Returns None if unreadable.
+    Mirror of readAirbnbDays in the site (api-server/src/lib/airbnbCalendar.ts)."""
+    import datetime
+    t = datetime.datetime.utcnow()
+    q = urllib.parse.urlencode({
+        "operationName": "PdpAvailabilityCalendar", "locale": "en", "currency": "USD",
+        "variables": json.dumps({"request": {"count": 12, "listingId": str(listing_id), "month": t.month, "year": t.year}}),
+        "extensions": json.dumps({"persistedQuery": {"version": 1, "sha256Hash": CAL_HASH}}),
+    })
+    try:
+        req = urllib.request.Request(f"https://www.airbnb.com/api/v3/PdpAvailabilityCalendar/{CAL_HASH}?{q}",
+                                     headers={"User-Agent": UA, "X-Airbnb-API-Key": CAL_KEY, "Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            months = json.loads(r.read().decode())["data"]["merlin"]["pdpAvailabilityCalendar"]["calendarMonths"]
+    except Exception:  # noqa: BLE001
+        return None
+    seen = {}
+    for m in months or []:
+        for d in m.get("days") or []:
+            seen.setdefault(d["calendarDate"], d.get("available") is True)
+    return [{"date": k, "available": v} for k, v in sorted(seen.items())] or None
+
 def fetch_listing(url, tries=5):
     """Airbnb serves a lighter shell (no photo tour) at random: retry until the photos are there."""
     import time
