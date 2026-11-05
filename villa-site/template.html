@@ -450,14 +450,16 @@
 
     var target = Math.round(totEmpty * capture), targetRev = target * adr, fee = targetRev * C.commission;
     $('owner-title').innerHTML = C.name + ' sits empty <em>' + totEmpty + ' nights</em> every low season.';
-    $('owner-lead').textContent = 'At your ' + fmtMoney(adr) + '/night rate, the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ var n = m.month.split(' (')[0];
+    // Sans prix donné par le propriétaire, le prix est celui de la zone (75e centile PriceLabs) : on ne l'appelle pas « your rate ».
+    var areaRate = String(C.adr_source || '').indexOf('market_p75') === 0;
+    $('owner-lead').textContent = (areaRate ? 'At the area rate of ' + fmtMoney(adr) + '/night' : 'At your ' + fmtMoney(adr) + '/night rate') + ', the villas around you run at roughly ' + Math.round((1 - totEmpty / totNights) * 100) + '% occupancy in ' + ls.map(function(m){ var n = m.month.split(' (')[0];
       return m.month.indexOf('(1–') > -1 ? 'early ' + n : n; }).join(', ') + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
     $('gap-stats').innerHTML =
       '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">Empty nights per low season (market average)</div></div>' +
-      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at your nightly rate</div></div>' +
+      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">Revenue not earned at ' + (areaRate ? 'the area rate' : 'your nightly rate') + '</div></div>' +
       '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + '% of the gap)</div></div>' +
       '<div class="stat"><div class="n">' + fmtMoney(targetRev) + '</div><div class="l">Added revenue, low season only</div></div>';
-    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + ' at your rate.' : '';
+    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + (areaRate ? ' at the area rate.' : ' at your rate.') : '';
     $('gap-source').textContent = C.gap_source + annual + ' Empty nights = nights × (1 − market occupancy). Targets are illustrative and depend on season, channel mix and demand.';
 
     var O = C.offer || {};
