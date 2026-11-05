@@ -475,7 +475,7 @@
     $('price').innerHTML = '<div class="big">' + (O.price_big || '10%') + '</div><div><div class="l">' + (O.price_line || 'on the nights we sell') + '</div><ul>' + (O.terms || []).map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
     var guarN = Math.max(5, Math.round(target * (C.guarantee_share || 0.5)));
     $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
-    $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 9-year Airbnb Superhost: 759 reviews, 4.84★.';
+    $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 10-year Airbnb Superhost: 795 reviews, 4.8★.';
 
     $('cta-title').innerHTML = C.cta_title;
     $('cta-text').textContent = C.cta_text;

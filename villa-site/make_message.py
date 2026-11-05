@@ -62,7 +62,7 @@ And this is the kind of site we build for our villas to sell direct, scroll it o
 
 Would you like a collaboration proposal?"""
 
-    O = CFG.get("offer", {})
+    O = cfg.get("offer") or CFG.get("offer", {})
     def _was(s):
         parts = []
         if s.get("price"): parts.append(f"{cur}{s['price']:,.0f}")

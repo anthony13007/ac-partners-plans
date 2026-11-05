@@ -85,6 +85,34 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
 - **Hors cible** : villa "Managed by" un gros PM (le signaler, Anthony décide), 1-3BR,
   > 60 % en basse saison. Uluwatu 3-5BR tourne à 78 % : pas un marché basse saison.
 
+## Diagnostic côté serveur et porte d'entrée propriétaire (05/11/2026)
+
+Le diagnostic tourne maintenant **dans l'API du site** (`~/Claude/ac-collection-site/app/artifacts/api-server/src/diagnostic/`),
+plus dans ce dépôt : `lib/airbnbListing.ts` (portage de `fetch_listing.py`, Railway lit Airbnb sans
+blocage, testé le 05/11), `diagnostic/build.ts` (calcul de `villa.py`, résultats identiques au Python
+sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dynamique
+**ac-collection.com/diagnostic/<slug>** lue en base (`villa_diagnostics`), funnel dans `villa_funnel`.
+**Plus de push Vercel** pour les nouvelles pages ; les anciennes restent sur plans.ac-collection.com.
+
+- Libre-service : `ac-collection.com/partners` → formulaire (lien Airbnb, prénom, WhatsApp) → page
+  prête en quelques secondes sur `/partners/diagnostic/<token>`. **12 % propriétaire, 10 % société de
+  gestion**, rien d'avance, sans exclusivité, en parallèle (texte voulu par Anthony pour cette porte ;
+  ne pas le reporter dans le PDF Owner).
+- À la main (remplace `villa.py`) : `POST /api/diagnostics` avec la session admin ou le jeton de
+  routine (`x-pdf-job-token`) : `{url, adr?, ratesIdr?: [10,16], name?, area?, firstName?, contact?, handle?, commission?}`.
+  Sans `adr` : 75e centile PriceLabs de la zone. Funnel : `GET /api/diagnostics/funnel`,
+  `PUT /api/diagnostics/funnel/<slug> {status, note}`.
+- Jamais le WhatsApp du propriétaire dans la page : il vit dans `villa_funnel.handle`.
+- Passe « à voir » (Anthony traite, le visiteur lit « Anthony is on it personally ») : lien non
+  Airbnb, annonce illisible, hold / gros gestionnaires / nos villas, moins de 2 chambres, zone hors
+  `market/bali.json`, aucun mois creux à venir (Pererenan), plus de 15 demandes en 24 h.
+- Secours : si Airbnb refuse le serveur, la demande passe en file ; `villa-site/owner_diagnostic.py`
+  (launchd `com.acpartners.owner-diagnostic`, fichier dans `villa-site/launchd/`) lit l'annonce sur
+  le Mac et la renvoie au site. Config `~/.local/share/ac-owner-diagnostic/config.json`.
+- Mettre à jour le marché : modifier `market/bali.json` ici ET sa copie `src/diagnostic/market-bali.json`
+  dans le site (même chose pour `config.json` et `template.html`), puis pousser le site.
+- `villa.py --commission N` existe toujours pour une page statique à l'ancienne.
+
 ## Trouver le contact (le vrai goulot)
 
 Airbnb ne publie jamais téléphone ni e-mail, et la plupart des villas n'ont aucun site propre :

@@ -231,11 +231,18 @@ def main():
     ap.add_argument("url"); ap.add_argument("--adr", type=float); ap.add_argument("--name"); ap.add_argument("--area"); ap.add_argument("--slug")
     ap.add_argument("--rates-idr", type=float, nargs=2, metavar=("LOW_M", "HIGH_M"), help="nightly range in millions of IDR, e.g. 10 16"); ap.add_argument("--bedrooms", type=int); ap.add_argument("--photos", type=int); ap.add_argument("--first-name"); ap.add_argument("--contact"); ap.add_argument("--handle")
     ap.add_argument("--channel", default="whatsapp"); ap.add_argument("--clips", action="store_true"); ap.add_argument("--fresh", action="store_true")
-    ap.add_argument("--no-commit", action="store_true"); ap.add_argument("--push", action="store_true"); ap.add_argument("--days", nargs=2, default=("Tuesday", "Thursday"))
+    ap.add_argument("--commission", type=float, help="commission shown on the page, in percent (default: config.json, 10); owners self-serve at 12"); ap.add_argument("--no-commit", action="store_true"); ap.add_argument("--push", action="store_true"); ap.add_argument("--days", nargs=2, default=("Tuesday", "Thursday"))
     a = ap.parse_args()
     print("1/6 fetching listing…"); L = fetch_listing(a.url)
     print(f"    {L.get('title')!r} | {L.get('city')} | {L.get('bedrooms')}BR / {L.get('guests')} guests | {len(L.get('photos', []))} photos | rating {L.get('rating')} ({L.get('reviews')} reviews)")
     cfg_path, cfg = build_config(L, a)
+    if a.commission:  # the page, the offer block and the fee maths must all say the same number
+        pct = f"{a.commission:g}"
+        cfg["commission"] = a.commission / 100
+        off = json.loads(json.dumps(CFG.get("offer", {})))
+        off["headline"] = off.get("headline", "").replace("10%", f"{pct}%"); off["price_big"] = f"{pct}%"
+        cfg["offer"] = off
+        cfg["cta_title"] = cfg.get("cta_title", "").replace("10%", f"{pct}%")
     cfg_path.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"2/6 config -> {cfg_path.relative_to(HERE.parent)} | zone {cfg['zone']} | ADR ${cfg['adr']} ({cfg['adr_source']}) | low season {[m['month'][:3] + ' ' + str(int(m['market_occ']*100)) + '%' for m in cfg['low_season']]}")
     if a.clips:
