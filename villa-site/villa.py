@@ -89,9 +89,17 @@ def clean_name(title, description="", area="", bedrooms=None):
     m = re.search(r"(Villa\s+[A-Z][\w']+(?:\s+[A-Z][\w']+)?)", t)
     return (m.group(1) if m else t.split(" - ")[0].split("|")[0]).strip()[:60]
 
-def zone_for(city, area):
+def zone_for(city, area, title=""):
     key = (area or city or "").lower().strip()
-    for alias, z in MARKET["aliases"].items():
+    # longest alias first: "south kuta" (Uluwatu) must not be read as "kuta" (Seminyak)
+    aliases = sorted(MARKET["aliases"].items(), key=lambda kv: -len(kv[0]))
+    broad = MARKET.get("broad_districts", [])
+    # Airbnb files Uluwatu, Jimbaran and Nusa Dua under the same district: there the title decides
+    if not area and any(d in key for d in broad):
+        t = (title or "").lower()
+        for alias, z in aliases:
+            if alias not in broad and alias != "kuta" and alias in t: return z
+    for alias, z in aliases:
         if alias in key: return z
     return None
 
@@ -165,13 +173,13 @@ def pick_photos(photos, n, name, area, guests):
 
 def build_config(L, a):
     d = CFG["defaults"]; existing = None
-    _area_guess = a.area or (MARKET["zones"].get(zone_for(L.get("city"), a.area), {}) or {}).get("label", "")
+    _area_guess = a.area or (MARKET["zones"].get(zone_for(L.get("city"), a.area, L.get("title")), {}) or {}).get("label", "")
     name = a.name or clean_name(L.get("title") or "Villa", L.get("description", ""), _area_guess, L.get("bedrooms"))
     slug = a.slug or slugify(name)
     cfg_path = HERE / "villas" / f"{slug}.json"
     if cfg_path.exists() and not a.fresh:
         existing = json.loads(cfg_path.read_text(encoding="utf-8"))
-    zone = zone_for(L.get("city"), a.area) or (existing or {}).get("zone")
+    zone = zone_for(L.get("city"), a.area, L.get("title")) or (existing or {}).get("zone")
     if not zone: sys.exit(f"zone not recognised for city '{L.get('city')}' — pass --area Canggu|Seminyak|Pererenan|Berawa|Uluwatu")
     Z = MARKET["zones"][zone]; area = a.area or Z["label"]
     br = a.bedrooms or L.get("bedrooms") or (existing or {}).get("bedrooms") or 4
@@ -209,8 +217,8 @@ def build_config(L, a):
         "low_season": ls, "annual_market_occ": annual,
         "capture_rate": d["capture_rate"], "commission": d["commission"],
         "site_price": f"Included · {d['currency']}{d['site_price_oneoff']} + {d['currency']}{d['site_price_monthly']}/mo on its own",
-        "gap_source": f"Source: PriceLabs market data, {Z['label']}, {Z['br_band']} villas ({Z['compset']} listings), pulled {MARKET['pulled']}: last-year market occupancy by month, lowest in {months_txt}; annual average {annual}%.",
-        "market": {"zone": zone, "compset": Z["compset"], "br_band": Z["br_band"], "occ_ly": Z["occ_ly"], "pulled": MARKET["pulled"]},
+        "gap_source": f"Source: PriceLabs market data, {Z['label']}, {Z['br_band']} villas ({Z['compset']} listings), pulled {Z.get('pulled', MARKET['pulled'])}: last-year market occupancy by month, lowest in {months_txt}; annual average {annual}%.",
+        "market": {"zone": zone, "compset": Z["compset"], "br_band": Z["br_band"], "occ_ly": Z["occ_ly"], "pulled": Z.get("pulled", MARKET["pulled"])},
         "cta_title": "Your low season, filled. <em>10% on the nights we sell,</em> nothing else.",
         "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
         "whatsapp": CFG["whatsapp"],

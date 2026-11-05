@@ -236,6 +236,46 @@
         "4": 11755053,
         "5": 19720652
       }
+    },
+    "nusadua": {
+      "label": "Nusa Dua",
+      "br_band": "1–3 BR",
+      "compset": 284,
+      "pulled": "2026-11-05",
+      "ref_listing": {
+        "name": "Oceaniq 2BR Villa 21",
+        "listing_id": "6accb722ce2e55005080ffce",
+        "pms_name": "guesty"
+      },
+      "occ_ly": {
+        "Jan": 46,
+        "Feb": 44,
+        "Mar": 37,
+        "Apr": 35,
+        "May": 31,
+        "Jun": 34,
+        "Jul": 42,
+        "Aug": 42,
+        "Sep": 36,
+        "Oct": 37,
+        "Nov": 30,
+        "Dec": 34
+      },
+      "adr_median_idr": {
+        "1": 1415747,
+        "2": 1989877,
+        "3": 4337456
+      },
+      "adr_p75_idr": {
+        "1": 4353464,
+        "2": 3302437,
+        "3": 5205455
+      },
+      "adr_p90_idr": {
+        "1": 6950416,
+        "2": 8334763,
+        "3": 6377169
+      }
     }
   },
   "aliases": {
@@ -262,7 +302,7 @@
     "pecatu": "uluwatu",
     "bingin": "uluwatu",
     "ungasan": "uluwatu",
-    "nusa dua": "uluwatu",
+    "nusa dua": "nusadua",
     "jimbaran": "uluwatu",
     "kuta selatan": "uluwatu",
     "south kuta": "uluwatu"
@@ -280,5 +320,11 @@
       "reason": "New Year holidays run to the 5th"
     }
   },
-  "peak_occ_threshold": 0.5
+  "peak_occ_threshold": 0.5,
+  "zones_note": "A zone may carry its own 'pulled' date when it was read later than the file (nusadua: 2026-11-05, 12 completed months Nov 2025 to Oct 2026).",
+  "broad_districts": [
+    "south kuta",
+    "kuta selatan"
+  ],
+  "broad_districts_note": "Airbnb files Uluwatu, Jimbaran and Nusa Dua alike under 'South Kuta'. For these, the listing title decides (e.g. 'Nusa Dua'); otherwise the alias of the district applies."
 }
