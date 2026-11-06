@@ -112,7 +112,7 @@ def low_season(zone, n=3, from_date=None):
     today = from_date or datetime.date.today()
     start = today.month  # 0-based index of NEXT month (Jan=index0=month1, so month m -> index m)
     peak = MARKET.get("peak_windows", {})
-    threshold = MARKET.get("peak_occ_threshold", 0.50) * 100
+    threshold = MARKET.get("peak_occ_threshold", 0.55) * 100
     rows = []
     for i in range(12):  # walk forward until n genuinely soft months are found
         if len(rows) >= n: break
@@ -209,7 +209,6 @@ def build_config(L, a):
     else:
         p75 = Z["adr_p75_idr"].get(str(min(max(br, min(map(int, Z["adr_p75_idr"]))), max(map(int, Z["adr_p75_idr"])))))
         adr, adr_src = int(round(p75 / MARKET["usd_idr"] / 50) * 50), "market_p75 (PriceLabs, no ADR given)"
-    months_txt = ", ".join(m["month"][:3] for m in ls)
     photos = pick_photos(L.get("photos", []), a.photos or d["max_photos"], name, area, guests)
     desc = (L.get("description") or "").strip()
     first_para = next((p.strip() for p in re.split(r"\n\s*\n", desc) if len(p.strip()) > 80), desc[:300])
@@ -236,8 +235,8 @@ def build_config(L, a):
         "low_season": ls, "annual_market_occ": annual,
         "capture_rate": d["capture_rate"], "commission": d["commission"],
         "site_price": f"Included · {d['currency']}{d['site_price_oneoff']} + {d['currency']}{d['site_price_monthly']}/mo on its own",
-        "gap_source": (f"Open nights: your public Airbnb calendar as read on {generated}. " if real else "") + f"Source: PriceLabs market data, {Z['label']}, {Z['br_band']} villas ({Z['compset']} listings), pulled {Z.get('pulled', MARKET['pulled'])}: last-year market occupancy by month, lowest in {months_txt}; annual average {annual}%.",
-        "market": {"zone": zone, "compset": Z["compset"], "br_band": Z["br_band"], "occ_ly": Z["occ_ly"], "pulled": Z.get("pulled", MARKET["pulled"])},
+        "gap_source": (f"Open nights: your public Airbnb calendar as read on {generated}. " if real else "") + f"Source: PriceLabs Market Research, {Z.get('area', Z['label'])}, {Z['br_band']} villas (about {Z['compset']} listings), read {Z.get('pulled', MARKET['pulled'])}: market occupancy by month over the last 12 months (booked nights ÷ available nights); annual average {annual}%.",
+        "market": {"zone": zone, "compset": Z["compset"], "br_band": Z["br_band"], "area": Z.get("area", Z["label"]), "occ_ly": Z["occ_ly"], "pulled": Z.get("pulled", MARKET["pulled"])},
         "cta_title": "Your low season, filled. <em>10% on the nights we sell,</em> nothing else.",
         "cta_text": "Fifteen minutes on WhatsApp to walk through the numbers for your villa. We take a handful of villas per area for the low season.",
         "whatsapp": CFG["whatsapp"],

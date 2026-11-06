@@ -1,34 +1,63 @@
 {
-  "pulled": "2026-09-11",
-  "source": "PriceLabs neighbourhood data (MCP get_neighbourhood_data, occupancy.monthly.market_occupancy_ly + initialize_detail.market_history), compset 350 listings around each AC Collection reference listing. occ_ly = final market occupancy of that month last year (12 months to Aug 2026). occ_prev = the year before where available.",
-  "refresh": "Re-run get_neighbourhood_data(listing_id, pms_name='guesty', include_occupancy=true) on each ref_listing and copy occupancy.monthly.market_occupancy_ly (Sep..Aug) + summary_table percentiles. See README.",
+  "pulled": "2026-11-06",
+  "source": "Market occupancy: PriceLabs Market Research (STR Index, MCP market_research), read 6 Nov 2026. occ_ly = booked nights ÷ available nights for each of the last 12 completed months (Nov 2025 to Oct 2026), over the area and bedroom range named in each zone (area, br_band); compset = active listings, 12-month average; exact figures in occ_str_2026_11, the same months a year earlier in occ_str_year_before. Rates (adr_*_idr): PriceLabs neighbourhood data, percentiles of the listings around each ref_listing, read 11 Sep 2026 (Nusa Dua 5 Nov 2026). occ_nd_* = earlier neighbourhood-data occupancy readings, no longer used: that series is a moving sample of nearby listings, so the same past month reads differently over time (Canggu 39 to 50% in September, 56 to 70% in November).",
+  "refresh": "Occupancy: market_research('Monthly occupancy rate and ADR for the last 12 months for short-term rental ' + zone.str_query), 20 requests a day; check the analysis area in the answer (an official boundary, or the radius asked for: a bare place name can fall back to a 15 km circle). Rates: get_neighbourhood_data(listing_id, pms_name='guesty') on each ref_listing, summary_table percentiles.",
   "usd_idr": 16000,
   "zones": {
     "canggu": {
       "label": "Canggu",
-      "br_band": "4–10 BR",
-      "compset": 350,
+      "br_band": "4+ BR",
+      "area": "Canggu official boundary",
+      "str_query": "villas with 4 or more bedrooms in Canggu, Bali, Indonesia",
+      "compset": 261,
       "ref_listing": {
         "name": "The Dreamtime House",
         "listing_id": "69ec6cf15b70a30014f98e80",
         "pms_name": "guesty"
       },
-      "pulled": "11 Sep and 5 Nov 2026 (average of the two readings)",
       "occ_ly": {
-        "Jan": 50,
-        "Feb": 49,
-        "Mar": 50,
-        "Apr": 54,
-        "May": 53,
-        "Jun": 55,
-        "Jul": 60,
-        "Aug": 58,
-        "Sep": 52,
-        "Oct": 50,
-        "Nov": 49,
+        "Jan": 55,
+        "Feb": 51,
+        "Mar": 57,
+        "Apr": 63,
+        "May": 58,
+        "Jun": 58,
+        "Jul": 65,
+        "Aug": 66,
+        "Sep": 63,
+        "Oct": 63,
+        "Nov": 47,
         "Dec": 50
       },
-      "occ_ly_2026_09": {
+      "occ_str_2026_11": {
+        "Jan": 54.7,
+        "Feb": 51.0,
+        "Mar": 57.1,
+        "Apr": 63.3,
+        "May": 57.7,
+        "Jun": 58.0,
+        "Jul": 65.4,
+        "Aug": 66.4,
+        "Sep": 62.7,
+        "Oct": 62.7,
+        "Nov": 46.7,
+        "Dec": 50.3
+      },
+      "occ_str_year_before": {
+        "Jan": 57.9,
+        "Feb": 50.6,
+        "Mar": 48.0,
+        "Apr": 53.1,
+        "May": 50.8,
+        "Jun": 56.8,
+        "Jul": 61.6,
+        "Aug": 62.1,
+        "Sep": 56.2,
+        "Oct": 54.8,
+        "Nov": 53.8,
+        "Dec": 58.9
+      },
+      "occ_nd_2026_09": {
         "Jan": 40,
         "Feb": 41,
         "Mar": 43,
@@ -42,7 +71,7 @@
         "Nov": 39,
         "Dec": 41
       },
-      "occ_ly_2026_11": {
+      "occ_nd_2026_11": {
         "Jan": 59,
         "Feb": 57,
         "Mar": 56,
@@ -56,7 +85,7 @@
         "Nov": 59,
         "Dec": 60
       },
-      "occ_prev_2026_09": {
+      "occ_nd_prev_2026_09": {
         "Jan": 43,
         "Feb": 34,
         "Mar": 37,
@@ -100,29 +129,58 @@
     },
     "seminyak": {
       "label": "Seminyak",
-      "br_band": "4–10 BR",
-      "compset": 350,
+      "br_band": "4+ BR",
+      "area": "2 km around central Seminyak",
+      "str_query": "villas with 4 or more bedrooms within a 2 km radius around latitude -8.6913, longitude 115.1682 (Bali, Indonesia)",
+      "compset": 1600,
       "ref_listing": {
         "name": "Villa LaTaLiana",
         "listing_id": "6996a1ee5d44cd0013d7c4ce",
         "pms_name": "guesty"
       },
-      "pulled": "11 Sep and 5 Nov 2026 (average of the two readings)",
       "occ_ly": {
-        "Jan": 54,
-        "Feb": 50,
-        "Mar": 54,
-        "Apr": 60,
-        "May": 58,
-        "Jun": 63,
-        "Jul": 68,
-        "Aug": 64,
-        "Sep": 62,
-        "Oct": 61,
-        "Nov": 54,
-        "Dec": 52
+        "Jan": 43,
+        "Feb": 38,
+        "Mar": 40,
+        "Apr": 45,
+        "May": 44,
+        "Jun": 48,
+        "Jul": 52,
+        "Aug": 58,
+        "Sep": 54,
+        "Oct": 64,
+        "Nov": 42,
+        "Dec": 42
       },
-      "occ_ly_2026_09": {
+      "occ_str_2026_11": {
+        "Jan": 43.0,
+        "Feb": 37.5,
+        "Mar": 40.0,
+        "Apr": 44.8,
+        "May": 43.7,
+        "Jun": 47.6,
+        "Jul": 51.5,
+        "Aug": 57.6,
+        "Sep": 53.9,
+        "Oct": 63.7,
+        "Nov": 41.6,
+        "Dec": 42.2
+      },
+      "occ_str_year_before": {
+        "Jan": 46.4,
+        "Feb": 37.2,
+        "Mar": 39.3,
+        "Apr": 49.4,
+        "May": 46.1,
+        "Jun": 53.2,
+        "Jul": 54.2,
+        "Aug": 53.1,
+        "Sep": 49.7,
+        "Oct": 47.1,
+        "Nov": 44.3,
+        "Dec": 46.1
+      },
+      "occ_nd_2026_09": {
         "Jan": 49,
         "Feb": 45,
         "Mar": 49,
@@ -136,7 +194,7 @@
         "Nov": 49,
         "Dec": 47
       },
-      "occ_ly_2026_11": {
+      "occ_nd_2026_11": {
         "Jan": 59,
         "Feb": 54,
         "Mar": 58,
@@ -181,28 +239,57 @@
     "pererenan": {
       "label": "Pererenan",
       "br_band": "4–6 BR",
-      "compset": 350,
+      "area": "Pererenan official boundary",
+      "str_query": "villas with 4 to 6 bedrooms in Pererenan, Bali, Indonesia",
+      "compset": 211,
       "ref_listing": {
         "name": "BREIG River Villa",
         "listing_id": "6996a1fc9b1ac8002b61d8c6",
         "pms_name": "guesty"
       },
-      "pulled": "11 Sep and 5 Nov 2026 (average of the two readings)",
       "occ_ly": {
-        "Jan": 62,
-        "Feb": 62,
-        "Mar": 66,
-        "Apr": 71,
-        "May": 68,
-        "Jun": 66,
-        "Jul": 73,
-        "Aug": 74,
-        "Sep": 68,
-        "Oct": 66,
-        "Nov": 62,
-        "Dec": 62
+        "Jan": 52,
+        "Feb": 51,
+        "Mar": 57,
+        "Apr": 60,
+        "May": 57,
+        "Jun": 59,
+        "Jul": 63,
+        "Aug": 69,
+        "Sep": 66,
+        "Oct": 63,
+        "Nov": 49,
+        "Dec": 54
       },
-      "occ_ly_2026_09": {
+      "occ_str_2026_11": {
+        "Jan": 52.2,
+        "Feb": 51.1,
+        "Mar": 57.1,
+        "Apr": 59.9,
+        "May": 56.9,
+        "Jun": 59.2,
+        "Jul": 62.5,
+        "Aug": 69.3,
+        "Sep": 66.0,
+        "Oct": 63.0,
+        "Nov": 48.6,
+        "Dec": 53.5
+      },
+      "occ_str_year_before": {
+        "Jan": 64.7,
+        "Feb": 51.0,
+        "Mar": 49.5,
+        "Apr": 59.1,
+        "May": 51.8,
+        "Jun": 59.4,
+        "Jul": 60.8,
+        "Aug": 58.2,
+        "Sep": 58.2,
+        "Oct": 52.2,
+        "Nov": 51.7,
+        "Dec": 57.2
+      },
+      "occ_nd_2026_09": {
         "Jan": 60,
         "Feb": 60,
         "Mar": 65,
@@ -216,7 +303,7 @@
         "Nov": 60,
         "Dec": 61
       },
-      "occ_ly_2026_11": {
+      "occ_nd_2026_11": {
         "Jan": 63,
         "Feb": 63,
         "Mar": 68,
@@ -249,28 +336,57 @@
     "berawa": {
       "label": "Berawa",
       "br_band": "3–5 BR",
-      "compset": 350,
+      "area": "2 km around Berawa",
+      "str_query": "villas with 3 to 5 bedrooms within a 2 km radius around latitude -8.6610, longitude 115.1415 (Bali, Indonesia)",
+      "compset": 3010,
       "ref_listing": {
         "name": "OXO Black Villa",
         "listing_id": "6a609fb574a20200141271bd",
         "pms_name": "guesty"
       },
-      "pulled": "11 Sep and 5 Nov 2026 (average of the two readings)",
       "occ_ly": {
-        "Jan": 58,
-        "Feb": 56,
-        "Mar": 58,
-        "Apr": 66,
-        "May": 64,
-        "Jun": 69,
-        "Jul": 72,
-        "Aug": 70,
-        "Sep": 64,
-        "Oct": 62,
-        "Nov": 54,
-        "Dec": 60
+        "Jan": 52,
+        "Feb": 52,
+        "Mar": 53,
+        "Apr": 59,
+        "May": 57,
+        "Jun": 61,
+        "Jul": 64,
+        "Aug": 67,
+        "Sep": 62,
+        "Oct": 61,
+        "Nov": 48,
+        "Dec": 51
       },
-      "occ_ly_2026_09": {
+      "occ_str_2026_11": {
+        "Jan": 52.2,
+        "Feb": 51.6,
+        "Mar": 52.5,
+        "Apr": 59.1,
+        "May": 57.4,
+        "Jun": 60.7,
+        "Jul": 63.7,
+        "Aug": 67.4,
+        "Sep": 61.6,
+        "Oct": 61.4,
+        "Nov": 48.1,
+        "Dec": 50.7
+      },
+      "occ_str_year_before": {
+        "Jan": 59.8,
+        "Feb": 51.1,
+        "Mar": 50.0,
+        "Apr": 59.2,
+        "May": 55.2,
+        "Jun": 61.2,
+        "Jul": 62.5,
+        "Aug": 62.6,
+        "Sep": 57.3,
+        "Oct": 53.7,
+        "Nov": 53.9,
+        "Dec": 56.9
+      },
+      "occ_nd_2026_09": {
         "Jan": 55,
         "Feb": 55,
         "Mar": 56,
@@ -284,7 +400,7 @@
         "Nov": 51,
         "Dec": 58
       },
-      "occ_ly_2026_11": {
+      "occ_nd_2026_11": {
         "Jan": 61,
         "Feb": 58,
         "Mar": 59,
@@ -317,13 +433,57 @@
     "uluwatu": {
       "label": "Uluwatu",
       "br_band": "3–5 BR",
-      "compset": 350,
+      "area": "Pecatu (Uluwatu) official boundary",
+      "str_query": "villas with 3 to 5 bedrooms in Pecatu, Badung Regency, Bali, Indonesia",
+      "compset": 754,
       "ref_listing": {
         "name": "Prime Bali Forest",
         "listing_id": "69ce2c688c9a6100111b4e44",
         "pms_name": "guesty"
       },
       "occ_ly": {
+        "Jan": 63,
+        "Feb": 64,
+        "Mar": 68,
+        "Apr": 77,
+        "May": 73,
+        "Jun": 73,
+        "Jul": 78,
+        "Aug": 82,
+        "Sep": 76,
+        "Oct": 74,
+        "Nov": 60,
+        "Dec": 58
+      },
+      "occ_str_2026_11": {
+        "Jan": 63.3,
+        "Feb": 63.5,
+        "Mar": 68.3,
+        "Apr": 76.9,
+        "May": 73.2,
+        "Jun": 72.8,
+        "Jul": 78.3,
+        "Aug": 81.9,
+        "Sep": 75.7,
+        "Oct": 74.1,
+        "Nov": 59.8,
+        "Dec": 58.0
+      },
+      "occ_str_year_before": {
+        "Jan": 67.7,
+        "Feb": 60.3,
+        "Mar": 63.9,
+        "Apr": 74.1,
+        "May": 70.9,
+        "Jun": 73.6,
+        "Jul": 78.2,
+        "Aug": 81.1,
+        "Sep": 72.9,
+        "Oct": 69.7,
+        "Nov": 63.4,
+        "Dec": 59.7
+      },
+      "occ_nd_2026_09": {
         "Jan": 72,
         "Feb": 72,
         "Mar": 75,
@@ -356,14 +516,57 @@
     "nusadua": {
       "label": "Nusa Dua",
       "br_band": "1–3 BR",
-      "compset": 284,
-      "pulled": "2026-11-05",
+      "area": "3 km around Nusa Dua",
+      "str_query": "villas with 1 to 3 bedrooms (one combined segment) within a 3 km radius around latitude -8.8008, longitude 115.2296 (Bali, Indonesia)",
+      "compset": 372,
       "ref_listing": {
         "name": "Oceaniq 2BR Villa 21",
         "listing_id": "6accb722ce2e55005080ffce",
         "pms_name": "guesty"
       },
       "occ_ly": {
+        "Jan": 38,
+        "Feb": 35,
+        "Mar": 31,
+        "Apr": 32,
+        "May": 26,
+        "Jun": 31,
+        "Jul": 36,
+        "Aug": 40,
+        "Sep": 37,
+        "Oct": 39,
+        "Nov": 25,
+        "Dec": 32
+      },
+      "occ_str_2026_11": {
+        "Jan": 37.8,
+        "Feb": 34.9,
+        "Mar": 30.8,
+        "Apr": 31.7,
+        "May": 25.8,
+        "Jun": 30.5,
+        "Jul": 36.2,
+        "Aug": 40.3,
+        "Sep": 36.8,
+        "Oct": 39.3,
+        "Nov": 25.1,
+        "Dec": 32.1
+      },
+      "occ_str_year_before": {
+        "Jan": 44.4,
+        "Feb": 34.1,
+        "Mar": 33.8,
+        "Apr": 32.3,
+        "May": 30.7,
+        "Jun": 37.4,
+        "Jul": 40.1,
+        "Aug": 37.2,
+        "Sep": 35.0,
+        "Oct": 32.2,
+        "Nov": 29.3,
+        "Dec": 40.0
+      },
+      "occ_nd_2026_11": {
         "Jan": 46,
         "Feb": 44,
         "Mar": 37,
@@ -440,12 +643,11 @@
       "to": 31
     }
   },
-  "peak_occ_threshold": 0.5,
-  "zones_note": "A zone may carry its own 'pulled' date when it was read later than the file (nusadua: 2026-11-05, 12 completed months Nov 2025 to Oct 2026).",
+  "peak_occ_threshold": 0.55,
+  "peak_occ_threshold_note": "A month where the area runs above 55% is never sold as low season. Was 50% until 2026-11-06; raised by Anthony with the move to the STR Index (Canggu reads Dec 50, Jan 55, Feb 51).",
   "broad_districts": [
     "south kuta",
     "kuta selatan"
   ],
-  "broad_districts_note": "Airbnb files Uluwatu, Jimbaran and Nusa Dua alike under 'South Kuta'. For these, the listing title decides (e.g. 'Nusa Dua'); otherwise the alias of the district applies.",
-  "occ_interim_note": "Canggu, Seminyak, Pererenan, Berawa: occ_ly is the average of the 11 Sep 2026 and 5 Nov 2026 PriceLabs readings (kept as occ_ly_2026_09 and occ_ly_2026_11), decided by Anthony on 2026-11-05 while PriceLabs explains why the same past months read 3 to 18 points higher in November. Replace with a single reading once they answer. Uluwatu: September reading, its reference listing no longer syncs."
+  "broad_districts_note": "Airbnb files Uluwatu, Jimbaran and Nusa Dua alike under 'South Kuta'. For these, the listing title decides (e.g. 'Nusa Dua'); otherwise the alias of the district applies."
 }

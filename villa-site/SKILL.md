@@ -53,10 +53,12 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
 - **Mois de basse saison = les 3 prochains mois calendaires** à partir d'aujourd'hui, jamais
   "les 3 plus creux de l'année" (en septembre on parle d'oct/nov/déc, pas de fév/mars).
   Les fenêtres de pointe sont exclues via `market/bali.json` → `peak_windows`
-  (décembre s'arrête au 20, janvier commence le 6) ; un mois > 50 % d'occupation n'est jamais
-  vendu comme creux. Le message dit "early December" quand le tableau dit "December (1–20)".
-- **Occupation marché** = `occupancy.monthly.market_occupancy_ly` de PriceLabs (final de l'an
-  dernier), jamais `market_occupancy` (on-the-books, décroît avec l'horizon).
+  (décembre s'arrête au 20, janvier commence le 6) ; un mois où le secteur dépasse 55 % d'occupation
+  (`peak_occ_threshold`, 50 % jusqu'au 06/11/2026) n'est jamais vendu comme creux. Le message dit "early December" quand le tableau dit "December (1–20)".
+- **Occupation marché** = PriceLabs Market Research (`market_research`, STR Index) : nuits réservées ÷
+  nuits disponibles des 12 derniers mois terminés, sur le périmètre et la gamme de chambres de la zone
+  (`area`, `br_band`, requête dans `str_query`). Jamais l'occupation de `get_neighbourhood_data` : c'est
+  un échantillon mouvant d'annonces voisines, le même mois passé y change d'un relevé à l'autre.
 - **L'offre est une pile Hormozi**, une seule source : `config.json` → `offer.stack`
   (7 lignes, prix barré + "Included", total "worth $2,674 → $0", puis UN prix : 10 % sur les
   nuits vendues, 3 conditions, garantie = 50 % de la cible). Elle alimente la page ET le
@@ -119,13 +121,14 @@ sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dy
   « Open nights », et compare l'occupation de la villa à celle du marché. Calendrier illisible →
   ancienne estimation nuits × (1 − occupation du marché). Calendrier plein sur les mois creux → pas de
   page (« à voir »). `villa.py --no-calendar` force l'estimation. L'occupation du marché ne sert plus
-  qu'à choisir les mois creux (règle des 50 %) et à situer la villa.
-- **Occupation du marché provisoire (05/11/2026).** PriceLabs affiche en novembre 3 à 18 points de plus
-  qu'en septembre pour les mêmes mois passés. Décision d'Anthony en attendant leur réponse : `occ_ly`
-  = moyenne des deux relevés pour Canggu, Seminyak, Pererenan, Berawa (relevés gardés dans
-  `occ_ly_2026_09` et `occ_ly_2026_11`). Résultat : Canggu ≈ 50 % (déc., janv., févr. creux),
-  Seminyak février seul, Pererenan et Berawa aucun mois creux. À remplacer par un seul relevé dès la
-  réponse de PriceLabs.
+  qu'à choisir les mois creux (seuil de 55 %) et à situer la villa.
+- **Occupation du marché = STR Index (06/11/2026).** Market Research est activé sur le compte PriceLabs.
+  `occ_ly` = relevé du 06/11/2026 (nov. 2025 → oct. 2026) : Canggu déc. 50 / janv. 55 / févr. 51, Pererenan
+  54 / 52 / 51, Berawa 51 / 52 / 52, Seminyak 42 / 43 / 38, Nusa Dua 32 / 38 / 35, Uluwatu 58 / 63 / 64.
+  Avec le seuil à 55 % (décision d'Anthony), toutes les zones ont leurs 3 mois creux sauf Uluwatu (secteur
+  plein, pas de page automatique). Anciens relevés gardés dans `occ_nd_*`. Rafraîchir : une requête
+  `market_research` par zone (20 par jour), en vérifiant le périmètre renvoyé (un nom de lieu seul peut
+  retomber sur un cercle de 15 km). Les prix (`adr_*_idr`) restent les centiles de `get_neighbourhood_data`.
 
 ## Trouver le contact (le vrai goulot)
 
@@ -175,10 +178,10 @@ classée. 40 leads obtenus pour Canggu/Seminyak/Pererenan/Umalas en 5BR+.
 
 1. Créer `villa-site/market/<marché>.json` sur le modèle de `bali.json` : par zone
    `occ_ly` (12 mois), `adr_median/p75/p90_idr` (ou devise locale + taux), `aliases` de
-   localités, `peak_windows`, `usd_<devise>`. Source : PriceLabs MCP
-   `get_neighbourhood_data(listing_id, pms_name, include_occupancy=true)` sur une villa de
-   référence de la zone (`get_listings` pour l'id) — ou `market_research` si Market Research est
-   activé sur le compte.
+   localités, `peak_windows`, `usd_<devise>`. Source : PriceLabs MCP — occupation par `market_research`
+   (STR Index, périmètre officiel ou rayon autour d'un point), prix par
+   `get_neighbourhood_data(listing_id, pms_name)` sur une villa de référence de la zone
+   (`get_listings` pour l'id).
 2. Pointer `villa.py` sur ce fichier (`MARKET`), adapter `defaults.island`, la devise et la
    preuve sociale (`sender.proof`) dans `config.json`.
 3. Même commande, même pile, même funnel. Les 10 pages "Distribution Plan" à la racine du repo
