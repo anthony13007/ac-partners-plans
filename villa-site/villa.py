@@ -104,9 +104,10 @@ def zone_for(city, area, title=""):
     return None
 
 def low_season(zone, n=3, from_date=None):
-    """The next n calendar months from today (rolling), not a global lowest-occupancy pick —
-    the pitch must talk about the gap that is actually coming up, not a distant Feb/Mar
-    mentioned in September. Falls back to whichever months genuinely have data."""
+    """The soft months among the next n calendar months from today (rolling window, M+1 to M+n) —
+    the pitch must talk about the gap that is actually coming up. Never looks further: in February
+    a November gap is 9 months out, every calendar is still empty there and the number means nothing.
+    Fewer than n rows (or none) when the area is busy over the window."""
     z = MARKET["zones"][zone]; ly = z["occ_ly"]; prev = z.get("occ_prev", {})
     blend = {m: (ly[m] + prev[m]) / 2 if m in prev else ly[m] for m in MONTHS}
     today = from_date or datetime.date.today()
@@ -114,8 +115,7 @@ def low_season(zone, n=3, from_date=None):
     peak = MARKET.get("peak_windows", {})
     threshold = MARKET.get("peak_occ_threshold", 0.55) * 100
     rows = []
-    for i in range(12):  # walk forward until n genuinely soft months are found
-        if len(rows) >= n: break
+    for i in range(n):  # M+1 .. M+n, no further (Anthony, 06/11/2026)
         m = MONTHS[(start + i) % 12]
         if blend[m] > threshold: continue  # a busy month is not a low season, never pitch it as one
         window = peak.get(LONG[m], {})

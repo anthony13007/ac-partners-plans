@@ -74,6 +74,9 @@ def parse_airbnb(html, url):
     m = re.search(r'"personCapacity":(\d+)', c);        out["guests"] = int(m.group(1)) if m else None
     m = re.search(r'"(\d+) reviews?"', c);              out["reviews"] = int(m.group(1)) if m else None
     out["superhost"] = '"isSuperhost":true' in c
+    # host as the listing shows it ("Hosted by X"): the only place a management company reliably appears
+    m = re.search(r'"__typename":"PassportCardData","name":"([^"]+)"', c) or re.search(r'Hosted by ([^"<\\]{1,60})', c)
+    out["host"] = H.unescape(m.group(1)).strip() if m else ""
 
     # description = longest htmlText block on the page
     cands = sorted(set(re.findall(r'"htmlText":"((?:[^"\\]|\\.)*)"', c)), key=len, reverse=True)

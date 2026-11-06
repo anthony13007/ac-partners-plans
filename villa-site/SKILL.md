@@ -50,8 +50,12 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
 
 ## Règles gravées (chacune a coûté une correction)
 
-- **Mois de basse saison = les 3 prochains mois calendaires** à partir d'aujourd'hui, jamais
-  "les 3 plus creux de l'année" (en septembre on parle d'oct/nov/déc, pas de fév/mars).
+- **Mois de basse saison = fenêtre glissante M+1 à M+3** : les 3 mois calendaires qui suivent le mois
+  en cours, recalculés à chaque lancement, jamais "les 3 plus creux de l'année" et **jamais plus loin
+  que M+3** (06/11/2026 : avant, l'outil avançait jusqu'à 12 mois pour trouver 3 mois creux ; en février
+  il aurait vendu novembre, où tous les calendriers sont vides). Dans la fenêtre, seuls les mois sous
+  le seuil sont gardés : la page peut donc porter 1, 2 ou 3 mois, ou ne pas exister (secteur plein).
+  `diagnostic.py market --year` montre l'année entière. Rien n'est daté en dur dans les outils.
   Les fenêtres de pointe sont exclues via `market/bali.json` → `peak_windows`
   (décembre s'arrête au 20, janvier commence le 6) ; un mois où le secteur dépasse 55 % d'occupation
   (`peak_occ_threshold`, 50 % jusqu'au 06/11/2026) n'est jamais vendu comme creux. Le message dit "early December" quand le tableau dit "December (1–20)".
@@ -105,8 +109,9 @@ sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dy
   créer (zone, nuits libres par mois, villa vs secteur, verdict : OK / ne pas prospecter / pas de page) ;
   `create <url> [--adr --first-name --contact --handle --commission]` refait la lecture, demande la page au
   site et écrit `outreach/<slug>.md` avec les liens ac-collection.com ; `funnel [--status]` et
-  `set <slug> <statut> --note` pilotent le funnel du site (compteur d'envois du jour sur 8) ; `market`
-  affiche l'occupation par zone et les mois creux. Le jeton de routine est lu dans la config, jamais affiché.
+  `set <slug> <statut> --note` pilotent le funnel du site (compteur d'envois du jour sur 8) ;
+  `market [--date AAAA-MM-JJ] [--year]` affiche l'occupation par zone et les mois creux de la fenêtre du
+  jour, simule un autre jour ou toute l'année, et signale un relevé de marché de plus de 45 jours. Le jeton de routine est lu dans la config, jamais affiché.
 - À la main (remplace `villa.py`) : `POST /api/diagnostics` avec la session admin ou le jeton de
   routine (`x-pdf-job-token`) : `{url, adr?, ratesIdr?: [10,16], name?, area?, firstName?, contact?, handle?, commission?}`.
   Sans `adr` : 75e centile PriceLabs de la zone. Funnel : `GET /api/diagnostics/funnel`,
@@ -158,16 +163,26 @@ Google Maps si la villa est enregistrée comme établissement. **Tropical Door e
 (règle permanente d'Anthony, filtrée dans `find_leads.py`).
 
 - **Ne jamais prospecter** : Tropical Door (hold), The Bali Agent et **Gravity Bali** (partenariats
-  AC en cours, 40+ villas pour Gravity) — filtrés dans `find_leads.py` (`HOLD`). Quand un
+  AC en cours, 40+ villas pour Gravity) — filtrés dans `find_leads.py` (`HOLD`).
+- **Sociétés à éviter (Anthony, 06/11/2026)** : **Listings Bali, Bali Villa Management, BREIG, OXO** —
+  liste `AVOID` de `find_leads.py`, reprise dans `screenListing` du site. Cherchées en mot entier dans
+  le titre, la description **et le nom de l'hôte** (« Hosted by Alpha By Listings Bali ») : une société
+  n'écrit presque jamais son nom dans le texte de l'annonce, c'est l'hôte qui la trahit. Mot entier
+  pour ne pas attraper BnBali Villa Management ni Bingin Villa Management, qui sont d'autres sociétés.
+  `HOLD` et `BIG_PM` regardent aussi le nom de l'hôte. Ajouter une société = l'ajouter aux DEUX listes
+  (`find_leads.py` et `api-server/src/diagnostic/build.ts`). Quand un
   partenariat d'agence se signe, ses villas entrent par la porte partenaire : on génère les pages
   avec `villa.py` pour l'onboarding, pas la séquence de prospection.
 
 ## Sourcing de leads
 
 ```bash
-python3 villa-site/find_leads.py --areas Canggu Seminyak Pererenan Umalas --min-br 5 \
-    --checkin 2026-11-05 --checkout 2026-11-10 --pages 2 --out leads-nov.md
+python3 villa-site/find_leads.py --areas Canggu Seminyak Pererenan Berawa --min-br 5 --pages 2 --out leads.md
 ```
+
+Sans `--checkin / --checkout`, les dates sont choisies seules pour chaque zone : 5 nuits dans le
+premier mois creux de sa fenêtre M+1 à M+3. La même commande reste juste toute l'année ; une zone
+pleine sur toute la fenêtre est sautée. Les dates restent forçables à la main.
 
 Décode les id d'annonces (base64 `StayListing:…`) des pages de recherche Airbnb. **Chercher
 avec des dates de basse saison est la qualification** : seules les villas au calendrier ouvert

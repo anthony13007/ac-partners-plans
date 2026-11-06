@@ -7,7 +7,10 @@ sur ac-collection.com, sortir les 3 messages, suivre le funnel du site.
                                           [--contact "Ketut (owner)"] [--handle "+62 8xx"] [--commission 12]
   python3 villa-site/diagnostic.py funnel [--status sent]                         # le funnel du site
   python3 villa-site/diagnostic.py set <slug> sent --note "WhatsApp, message 1"
-  python3 villa-site/diagnostic.py market                                         # occupation par zone, mois creux
+  python3 villa-site/diagnostic.py market [--date 2027-03-01] [--year]            # fenetre du jour, mois creux par zone
+
+La fenetre est glissante : a chaque lancement, les 3 mois calendaires qui suivent le mois en cours
+(M+1 a M+3), jamais plus loin. Rien n'est date en dur ; `market --year` montre l'annee entiere.
 
 check lit l'annonce et son calendrier public, applique les memes regles que le site (zone, mois creux,
 nuits reellement libres) et donne un verdict. create fait la meme lecture, refuse ce qui ne doit pas
@@ -27,6 +30,20 @@ from find_leads import screen  # noqa: E402
 CFG_PATH = pathlib.Path.home() / ".local/share/ac-owner-diagnostic/config.json"
 STATUSES = ["draft", "sent", "replied", "call", "signed", "highlight", "refused", "dead"]
 DAILY_CAP = 8  # envois par jour (regle d'Anthony)
+STALE_DAYS = 45  # au-dela, le releve de marche est signale a rafraichir
+FR = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"]
+
+
+def window(today=None, n=3):
+    """Les n mois calendaires qui suivent le mois en cours : [(annee, mois)]."""
+    t = today or datetime.date.today()
+    return [(t.year + (t.month + i - 1) // 12, (t.month + i - 1) % 12 + 1) for i in range(1, n + 1)]
+
+
+def stale():
+    """Phrase d'alerte si le releve de marche a plus de STALE_DAYS jours, sinon ''."""
+    age = (datetime.date.today() - datetime.date.fromisoformat(villa.MARKET["pulled"])).days
+    return f"ATTENTION : releve de marche vieux de {age} jours ({villa.MARKET['pulled']}). A rafraichir avec Anthony (market_research, une requete par zone)." if age > STALE_DAYS else ""
 
 
 def api(method, path, body=None):
@@ -94,10 +111,13 @@ def show(r):
 
 
 def cmd_check(a):
+    w = window(); print(f"Fenetre du jour : {FR[w[0][1] - 1]} {w[0][0]} -> {FR[w[-1][1] - 1]} {w[-1][0]}")
+    if stale(): print(stale())
     for ref in a.urls: show(assess(ref, a))
 
 
 def cmd_create(a):
+    if stale(): print(stale())
     r = assess(a.url, a); show(r)
     if not r["ok"]: sys.exit(1)
     body = {"url": r["url"], "adr": a.adr, "ratesIdr": a.rates_idr, "name": a.name, "area": a.area,
@@ -135,10 +155,22 @@ def cmd_set(a):
 
 def cmd_market(a):
     M = villa.MARKET; thr = round(M.get("peak_occ_threshold", 0.55) * 100)
+    today = datetime.date.fromisoformat(a.date) if a.date else datetime.date.today()
     print(f"Occupation du marche (PriceLabs Market Research, releve du {M['pulled']}), seuil des mois creux {thr} %")
+    if stale(): print(stale())
+    if a.year:  # pour chaque mois de lancement des 12 prochains mois : les mois creux que l'outil vendra
+        print("Mois creux vendus selon le mois ou l'outil est lance (fenetre M+1 a M+3) ; - = secteur plein, pas de page")
+        starts = [datetime.date(today.year + (today.month + i - 1) // 12, (today.month + i - 1) % 12 + 1, 1) for i in range(12)]
+        print(f"  {'lance en':10} " + " ".join(f"{z['label'][:13]:13}" for z in M["zones"].values()))
+        for d in starts:
+            cells = [", ".join(m["month"][:3] for m in villa.low_season(name, from_date=d)[0]) or "-" for name in M["zones"]]
+            print(f"  {FR[d.month - 1][:4]:4} {d.year:5} " + " ".join(f"{c:13}" for c in cells))
+        return
+    w = window(today)
+    print(f"Fenetre au {today.isoformat()} : {FR[w[0][1] - 1]} {w[0][0]} -> {FR[w[-1][1] - 1]} {w[-1][0]}")
     for name, z in M["zones"].items():
-        rows, annual, _ = villa.low_season(name)
-        soft = ", ".join(f"{m['month']} {round(m['market_occ'] * 100)} %" for m in rows) or "aucun mois creux : pas de page automatique"
+        rows, annual, _ = villa.low_season(name, from_date=today)
+        soft = ", ".join(f"{m['month']} {round(m['market_occ'] * 100)} %" for m in rows) or "aucun mois creux dans la fenetre : pas de page automatique"
         print(f"  {z['label']:10} {z['br_band']:7} {z.get('area', ''):36} annee {annual} %  |  {soft}")
 
 
@@ -151,7 +183,8 @@ def main():
     c.add_argument("--commission", type=float, help="en pourcent ; 10 par defaut (societe de gestion), 12 pour un proprietaire"); c.set_defaults(fn=cmd_create)
     c = sub.add_parser("funnel"); c.add_argument("--status", choices=STATUSES); c.set_defaults(fn=cmd_funnel)
     c = sub.add_parser("set"); c.add_argument("slug"); c.add_argument("status", choices=STATUSES); c.add_argument("--note"); c.set_defaults(fn=cmd_set)
-    c = sub.add_parser("market"); c.set_defaults(fn=cmd_market)
+    c = sub.add_parser("market"); c.add_argument("--date", help="simuler un autre jour (AAAA-MM-JJ)")
+    c.add_argument("--year", action="store_true", help="les 12 prochains mois de lancement"); c.set_defaults(fn=cmd_market)
     a = ap.parse_args(); a.fn(a)
 
 
