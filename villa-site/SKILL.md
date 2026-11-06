@@ -85,7 +85,8 @@ Re-lancer sur un slug existant garde les retouches manuelles ; `--fresh` repart 
   (`PHOTO_PLAN`, 2 passes). Airbnb sert parfois une page sans photos : `fetch_listing.py`
   réessaie 5 fois ; trois formats d'URL photo existent (`miso/`, `hosting/`, `prohost-api/`).
 - **Hors cible** : villa "Managed by" un gros PM (le signaler, Anthony décide), 1-3BR,
-  > 60 % en basse saison. Uluwatu 3-5BR tourne à 78 % : pas un marché basse saison.
+  secteur au-dessus de 55 % sur les mois visés. Uluwatu 3-5BR tourne à 58-64 % de décembre à février
+  (70 % sur l'année) : pas un marché basse saison.
 
 ## Diagnostic côté serveur et porte d'entrée propriétaire (05/11/2026)
 
@@ -100,6 +101,12 @@ sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dy
   prête en quelques secondes sur `/partners/diagnostic/<token>`. **12 % propriétaire, 10 % société de
   gestion**, rien d'avance, sans exclusivité, en parallèle (texte voulu par Anthony pour cette porte ;
   ne pas le reporter dans le PDF Owner).
+- **En ligne de commande (06/11/2026) : `villa-site/diagnostic.py`.** `check <url|id>…` qualifie sans rien
+  créer (zone, nuits libres par mois, villa vs secteur, verdict : OK / ne pas prospecter / pas de page) ;
+  `create <url> [--adr --first-name --contact --handle --commission]` refait la lecture, demande la page au
+  site et écrit `outreach/<slug>.md` avec les liens ac-collection.com ; `funnel [--status]` et
+  `set <slug> <statut> --note` pilotent le funnel du site (compteur d'envois du jour sur 8) ; `market`
+  affiche l'occupation par zone et les mois creux. Le jeton de routine est lu dans la config, jamais affiché.
 - À la main (remplace `villa.py`) : `POST /api/diagnostics` avec la session admin ou le jeton de
   routine (`x-pdf-job-token`) : `{url, adr?, ratesIdr?: [10,16], name?, area?, firstName?, contact?, handle?, commission?}`.
   Sans `adr` : 75e centile PriceLabs de la zone. Funnel : `GET /api/diagnostics/funnel`,
@@ -107,7 +114,7 @@ sur 8 cas), `diagnostic/template.html` (ce gabarit, embarqué tel quel). Page dy
 - Jamais le WhatsApp du propriétaire dans la page : il vit dans `villa_funnel.handle`.
 - Passe « à voir » (Anthony traite, le visiteur lit « Anthony is on it personally ») : lien non
   Airbnb, annonce illisible, hold / gros gestionnaires / nos villas, moins de 2 chambres, zone hors
-  `market/bali.json`, aucun mois creux à venir (Pererenan), plus de 15 demandes en 24 h.
+  `market/bali.json`, aucun mois creux à venir (Uluwatu), plus de 15 demandes en 24 h.
 - Secours : si Airbnb refuse le serveur, la demande passe en file ; `villa-site/owner_diagnostic.py`
   (launchd `com.acpartners.owner-diagnostic`, fichier dans `villa-site/launchd/`) lit l'annonce sur
   le Mac et la renvoie au site. Config `~/.local/share/ac-owner-diagnostic/config.json`.

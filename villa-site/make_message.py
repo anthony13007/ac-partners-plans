@@ -30,7 +30,7 @@ def gap(cfg):
     fee = added * cfg.get("commission", CFG["defaults"]["commission"])
     return dict(rows=rows, nights=tot_n, empty=tot_e, loss=tot_l, occ=occ, own=own, real=real, target=target, added=added, fee=fee)
 
-def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
+def build(cfg, first_name=None, days=("Tuesday", "Thursday"), owner_url=None, guest_url=None):
     s = CFG["sender"]; d = CFG["defaults"]
     g = gap(cfg)
     cur = cfg.get("currency", "$")
@@ -43,8 +43,12 @@ def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
         return ("early " + name) if rng.startswith("1–") else (name + " from the " + rng.split("–")[0])
     months = [_month_label(m["month"]) for m in cfg["low_season"]]
     months_txt = ", ".join(months[:-1]) + " and " + months[-1] if len(months) > 1 else months[0]
-    url = f'{CFG["base_url"]}/villa-site/{cfg["slug"]}?owner'
-    site_url = f'{CFG["base_url"]}/villa-site/{cfg["slug"]}'
+    # a page served by the site (ac-collection.com/diagnostic/<slug>) passes its own links
+    url = owner_url or f'{CFG["base_url"]}/villa-site/{cfg["slug"]}?owner'
+    site_url = guest_url or f'{CFG["base_url"]}/villa-site/{cfg["slug"]}'
+    # "December-February": the months the page is about, never a fixed season
+    names = [m["month"].split(" (")[0] for m in cfg["low_season"]]
+    season = names[0] if len(names) == 1 else f"{names[0]}-{names[-1]}"
     adr = money(cfg["adr"], cur); loss = money(g["loss"], cur); occ = round(g["occ"] * 100)
     guarantee = max(5, round(g["target"] * d.get("guarantee_nights_share", 0.5)))
     compset = cfg.get("market", {}).get("compset", 350)
@@ -55,9 +59,9 @@ def build(cfg, first_name=None, days=("Tuesday", "Thursday")):
 
     msg1 = f"""Hi {first}, Anthony here. Airbnb Superhost for {s['superhost_years']} years ({s['reviews']} reviews, {s['rating']}★), I run {s['brand']}, ~{s['villas']} luxury villas in Canggu, Seminyak and Uluwatu: {website}
 
-I came across {villa} while benchmarking {area}. Can I send you the October-December occupancy data for villas like yours in {area}, and what it costs in empty nights?"""
+I came across {villa} while benchmarking {area}. Can I send you the {season} occupancy data for villas like yours in {area}, and what it costs in empty nights?"""
 
-    msg1_ig = f"""Hi {first}, Superhost here ({s['reviews']} reviews), {s['villas']} villas in Bali: {website}. Came across {villa}, can I send you the Oct-Dec occupancy data for villas like yours in {area}?"""
+    msg1_ig = f"""Hi {first}, Superhost here ({s['reviews']} reviews), {s['villas']} villas in Bali: {website}. Came across {villa}, can I send you the {season} occupancy data for villas like yours in {area}?"""
 
     gap_line = (f"Your Airbnb calendar still shows {g['empty']} open nights in {months_txt}. At ~{adr}/night that is {loss} still open, while {br}-bedroom villas around {villa} sit at ~{occ}% occupancy."
                 if g["real"] else
