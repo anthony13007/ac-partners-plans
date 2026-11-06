@@ -93,4 +93,4 @@ Un mois où le secteur dépasse 55 % n'est jamais vendu comme creux.
 - Un calendrier Airbnb non synchronisé avec les autres plateformes apparaît tout libre.
 - Un hôte qui n'ouvre son calendrier que 3 mois à l'avance fait sous-compter les mois lointains.
 - Les nuits isolées qu'un minimum de séjour rend invendables sont comptées comme libres.
-- Les pages créées avant le 06/11/2026 gardent leurs anciens chiffres tant qu'on ne relance pas `create`.
+- Les anciennes pages statiques (plans.ac-collection.com/villa-site/…) gardent leurs anciens chiffres de marché ; pour une villa relancée, créer sa page sur le site avec `create`.
