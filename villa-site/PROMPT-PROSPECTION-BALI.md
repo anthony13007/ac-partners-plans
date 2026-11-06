@@ -21,7 +21,7 @@ manque à gagner d'une villa à partir de SES données, pas d'une moyenne :
   (PriceLabs Market Research : nuits réservées ÷ nuits disponibles, par mois). Une page peut donc
   porter 1, 2 ou 3 mois ; si le secteur est plein sur toute la fenêtre, il n'y a pas de page ;
 - le prix par nuit est celui que le propriétaire donne, sinon le 75e centile du secteur ;
-- la page est servie par le site : ac-collection.com/diagnostic/<slug>?owner (jamais indexée).
+- la page est servie par le site : www.ac-collection.com/diagnostic/<slug>?owner (jamais indexée).
 
 Ne cite jamais un mois de mémoire : la fenêtre du jour et les mois creux par zone se lisent avec
 `diagnostic.py market`. Référence complète : la skill `villa-prospect`, à lire avant le premier envoi.
@@ -70,6 +70,8 @@ RÈGLES
 - Ne jamais annoncer un chiffre que `check` n'a pas donné. Si le calendrier est illisible, l'outil
   le dit et retombe sur une estimation de marché : le présenter comme une estimation.
 - Jamais le WhatsApp du propriétaire dans une page. Jamais de test avec un vrai numéro.
+- Toujours écrire les liens du site avec www (www.ac-collection.com/…) : sans www, seule la page
+  d'accueil est redirigée, tout autre lien répond « introuvable ».
 - Les chiffres d'une page sont ceux du jour où elle a été créée. Relancer `create` sur une villa
   déjà créée les rafraîchit (calendrier ET fenêtre de mois) sans toucher à son statut : le faire
   avant un message 2 si la page a plus de quelques jours, et toujours après un changement de mois.
@@ -94,7 +96,7 @@ Tous dans `~/Claude/ac-partners-plans/villa-site/`. Aucune commande ne demande d
 | Suivre | `python3 villa-site/diagnostic.py funnel [--status sent]` | Funnel du site, prochaine action par villa, envois du jour sur 8. |
 | Avancer une villa | `python3 villa-site/diagnostic.py set <slug> sent --note "WhatsApp, message 1"` | Statuts : draft, sent, replied, call, signed, highlight, refused, dead. |
 | Rafraîchir le marché | connecteur PriceLabs, outil `market_research` (20 requêtes par jour) | Une requête par zone, la requête exacte est dans `market/bali.json` (`str_query`). À faire avec Anthony, puis copier le fichier dans le site. |
-| Laisser le prospect faire seul | `ac-collection.com/partners` | Il colle son lien Airbnb, la page sort en quelques secondes. Même fenêtre et mêmes exclusions. |
+| Laisser le prospect faire seul | `www.ac-collection.com/partners` | Il colle son lien Airbnb, la page sort en quelques secondes. Même fenêtre et mêmes exclusions. |
 
 ## Sociétés à ne jamais prospecter
 
