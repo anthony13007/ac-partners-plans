@@ -164,7 +164,7 @@ Google Maps si la villa est enregistrée comme établissement. **Tropical Door e
 
 - **Ne jamais prospecter** : Tropical Door (hold), The Bali Agent et **Gravity Bali** (partenariats
   AC en cours, 40+ villas pour Gravity) — filtrés dans `find_leads.py` (`HOLD`).
-- **Sociétés à éviter (Anthony, 06/11/2026)** : **Listings Bali, Bali Villa Management, BREIG, OXO** —
+- **Sociétés à éviter (Anthony, 06/11/2026)** : **Listings Bali, Bali Villa Management, BREIG, OXO, BaliSuperHost** (ce dernier ajouté le 06/11 après un essai de recherche) —
   liste `AVOID` de `find_leads.py`, reprise dans `screenListing` du site. Cherchées en mot entier dans
   le titre, la description **et le nom de l'hôte** (« Hosted by Alpha By Listings Bali ») : une société
   n'écrit presque jamais son nom dans le texte de l'annonce, c'est l'hôte qui la trahit. Mot entier

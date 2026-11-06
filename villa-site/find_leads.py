@@ -44,7 +44,8 @@ BIG_PM = ["elite havens", "bali villa finder", "nagisa", "villa-bali.com", "vill
 # Societes a eviter (Anthony, 06/11/2026) : jamais de prospection. Cherchees en mot entier dans le titre,
 # la description ET le nom de l'hote ("Hosted by Alpha By Listings Bali") ; en mot entier pour que
 # "Bali Villa Management" n'attrape pas "BnBali Villa Management", qui est une autre societe.
-AVOID = ["listings bali", "listingsbali", "bali villa management", "balivillamanagement", "breig", "oxo"]
+AVOID = ["listings bali", "listingsbali", "bali villa management", "balivillamanagement", "breig", "oxo",
+         "balisuperhost", "bali superhost", "bali super host"]
 # matched on the TITLE only, and distinctive enough not to fire on prose:
 # "ultimate retreat"/"ultimate relaxation" appear in half the listings in Bali.
 OURS = ["ac collection", "ac partners", "dreamtime", "breig", "oxo black", "aquamarine",

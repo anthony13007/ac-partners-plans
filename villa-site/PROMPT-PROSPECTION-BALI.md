@@ -39,7 +39,8 @@ DÉROULÉ POUR CHAQUE VILLA
    vendre, et un verdict.
 2. Lire le verdict :
    - « NE PAS PROSPECTER » : on s'arrête, sans exception. Sont concernés les sociétés à éviter
-     (Listings Bali, Bali Villa Management, BREIG, OXO), les agences en attente ou partenaires
+     (Listings Bali, Bali Villa Management, BREIG, OXO, BaliSuperHost), les agences en attente ou
+     partenaires
      (Tropical Door, Gravity Bali, The Bali Agent), les gros gestionnaires et nos propres villas.
      L'outil les reconnaît dans le titre, la description et le nom de l'hôte de l'annonce. Si tu
      repères une de ces sociétés par un autre moyen (site, Instagram, signature WhatsApp), même règle.
@@ -102,7 +103,7 @@ Tous dans `~/Claude/ac-partners-plans/villa-site/`. Aucune commande ne demande d
 
 | Société | Pourquoi | Où c'est filtré |
 |---|---|---|
-| Listings Bali, Bali Villa Management, BREIG, OXO | à éviter, décision d'Anthony du 06/11/2026 | liste `AVOID` : titre, description et nom de l'hôte, en mot entier |
+| Listings Bali, Bali Villa Management, BREIG, OXO, BaliSuperHost | à éviter, décision d'Anthony du 06/11/2026 | liste `AVOID` : titre, description et nom de l'hôte, en mot entier |
 | Tropical Door | en attente, décision d'Anthony | liste `HOLD` |
 | Gravity Bali, The Bali Agent | partenaires AC | liste `HOLD` |
 | Elite Havens, Bali Villa Finder, Nagisa, Ministry of Villas… | gros gestionnaires | liste `BIG_PM` |
