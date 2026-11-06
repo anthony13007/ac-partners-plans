@@ -147,7 +147,7 @@ def main():
         name = re.sub(r"^\*?NEW\*?\s*", "", L.get("title") or "")[:60]
         row = dict(area=area, id=lid, url=url, name=name, br=L.get("bedrooms"),
                    guests=L.get("guests"), rating=L.get("rating"), reviews=L.get("reviews"),
-                   photos=len(L.get("photos") or []), city=L.get("city"), ok=ok, note=note,
+                   photos=len(L.get("photos") or []), city=L.get("city"), ok=ok, note=note, host=L.get("host") or "",
                    score=score(L))
         rows.append(row)
         print(f"  {'OK ' if ok else 'skip'} {lid} {row['br']}BR {row['rating']}★ "
@@ -159,15 +159,15 @@ def main():
     md = [f"# Leads — {a.min_br}BR+, disponibles : {when}",
           f"\nGénéré {datetime.date.today().isoformat()} par find_leads.py. "
           f"{len(seen)} annonces vues, {len(rows)} qualifiées sur la taille, {len(keep)} retenues.\n",
-          "| # | Villa | Zone | BR | Pers. | Note | Avis | Photos | Score | Manager | Annonce |",
-          "|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| # | Villa | Zone | BR | Pers. | Note | Avis | Photos | Score | Hôte | Manager | Annonce |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(keep, 1):
         md.append(f"| {i} | {r['name']} | {r['city'] or r['area']} | {r['br']} | {r['guests']} | "
-                  f"{r['rating']} | {r['reviews']} | {r['photos']} | {r['score']} | {r['note'] or '—'} | {r['url']} |")
+                  f"{r['rating']} | {r['reviews']} | {r['photos']} | {r['score']} | {r['host'] or '—'} | {r['note'] or '—'} | {r['url']} |")
     rejected = [r for r in rows if not r["ok"]]
     if rejected:
         md += ["\n## Écartées", "", "| Villa | Raison |", "|---|---|"]
-        md += [f"| {r['name']} | {r['note']} |" for r in rejected]
+        md += [f"| {r['name']} (hôte {r['host'] or '?'}) | {r['note']} |" for r in rejected]
     md += ["\n## Étape suivante", "",
            "```bash",
            "python3 villa-site/villa.py \"<url>\" --name \"Villa X\" --adr <usd> --rates-idr <low> <high> \\",
