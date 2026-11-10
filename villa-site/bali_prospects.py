@@ -228,8 +228,16 @@ def main():
         for v in discover(cur, rows, known, funnel_names): handle(v)
     for name, why in dropped: print(f"  - {name[:45]} : {why}")
 
+    # un hote qui revient plusieurs fois gere un portefeuille : c'est lui qu'on vise, pas chaque villa
+    hosts = {}
+    for v in out:
+        h = re.sub(r"^hôte ", "", v["contact"]).strip().lower()
+        if v.get("discovered") and h: hosts[h] = hosts.get(h, 0) + 1
+    for v in out:
+        h = re.sub(r"^hôte ", "", v["contact"]).strip().lower()
+        v["host_villas"] = hosts.get(h, 1) if v.get("discovered") else 1
     order = {z: i for i, z in enumerate(cur["zones"])}
-    out.sort(key=lambda v: (order.get(v["zone"], 9), v["occ"]))
+    out.sort(key=lambda v: (order.get(v["zone"], 9), bool(v.get("discovered")), -v["host_villas"], v["occ"]))
     data = {"updated": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M"), "prepared": cur["prepared"],
             "window": {"label": " + ".join(r["label"] for r in rows), "from": f"{rows[0]['ym']}-{rows[0]['from']:02d}",
                        "to": f"{rows[-1]['ym']}-{rows[-1]['to']:02d}", "nights": nights, "market_pulled": villa.MARKET["pulled"]},

@@ -1,7 +1,7 @@
 {
   "_note": "Prospection Bali, partie tenue a la main (Anthony) : contacts, statuts, messages personnalises, exclusions. bali_prospects.py relit les calendriers Airbnb chaque matin, ajoute les villas decouvertes et pousse le tout dans la cle cockpit bali_prospects. Les champs occ/free ici ne servent que si le calendrier est illisible. Statuts : to_send, contact_to_find, verify, follow_up ; une villa avec un slug prend le statut reel du funnel du site.",
   "prepared": "2026-11-10",
-  "hook": "Hi there, Anthony here. Airbnb Superhost for 10 years (800+ reviews), I run AC Collection, around 30 luxury villas in Canggu, Seminyak and Uluwatu.",
+  "hook": "Hi there, Anthony here. Airbnb Superhost for 10 years (800+ reviews), I run AC Collection (ac-collection.com), around 30 luxury villas in Canggu, Seminyak and Uluwatu.",
   "zones": ["Uluwatu", "Canggu", "Pererenan", "Berawa", "Seminyak"],
   "villas": [
     {
