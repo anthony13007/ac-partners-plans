@@ -18,7 +18,7 @@ pose une question, sans page ; Uluwatu est un secteur plein (> 55 %) : l'argumen
 mais « le marche est plein, pas votre calendrier », et on ne garde que les villas tres en dessous du secteur.
 On ecrit toujours « your Airbnb calendar » : un calendrier presque vide peut etre non synchronise.
 """
-import argparse, datetime, json, pathlib, re, sys, urllib.request, urllib.error
+import argparse, datetime, json, pathlib, re, sys, time, urllib.request, urllib.error
 
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -63,8 +63,12 @@ def market_occ(zone_key, rows):
 
 
 def read_calendar(lid, rows):
-    """Nuits libres de la villa sur la fenetre, mois par mois : {month: {open, days}} ou None si illisible."""
+    """Nuits libres de la villa sur la fenetre, mois par mois : {month: {open, days}} ou None si illisible.
+    Une seconde chance apres 20 s : le 10/11/2026 le reseau du Mac a coupe en plein run et tout est passe en « illisible »."""
     cal = fetch_calendar(lid)
+    if not cal:
+        time.sleep(20); cal = fetch_calendar(lid)
+    time.sleep(0.5)
     if not cal: return None
     by = {d["date"]: d["available"] for d in cal}
     out = {}
@@ -124,7 +128,7 @@ def zone_of(L, area_hint):
 
 def discover(cur, rows, known_ids, funnel_names):
     """Nouvelles villas 5 ch.+ sur les zones, filtrees comme find_leads, hors exclusions et funnel."""
-    found = []
+    found, errors = [], 0
     ci, co = f"{rows[0]['ym']}-{rows[0]['from'] + 4:02d}", None
     d0 = datetime.date.fromisoformat(ci); co = (d0 + datetime.timedelta(days=5)).isoformat()
     for zone in cur["zones"]:
@@ -138,9 +142,11 @@ def discover(cur, rows, known_ids, funnel_names):
         for lid in seen[:MAX_FETCH]:
             if lid in known_ids: continue
             try:
-                L = find_leads.fetch_cached(f"https://www.airbnb.com/rooms/{lid}", lid)
+                L = find_leads.fetch_cached(f"https://www.airbnb.com/rooms/{lid}", lid); errors = 0
             except Exception as e:  # noqa: BLE001
-                print(f"  ! {lid}: {e}"); continue
+                print(f"  ! {lid}: {e}"); errors += 1
+                if errors == 3: print("  … 3 erreurs de suite : pause 60 s (reseau ?)"); time.sleep(60)
+                continue
             if (L.get("bedrooms") or 0) < MIN_BR: continue
             ok, why = find_leads.screen(L)
             if not ok: print(f"  - {lid} ecartee : {why}"); continue
@@ -181,13 +187,14 @@ def main():
     carried = [v for v in prev.get("villas", []) if v.get("discovered") and v["id"] not in known and v["id"] not in excluded_ids]
     known |= {v["id"] for v in carried}
 
-    villas = [dict(v) for v in cur["villas"]] + carried
-    if not a.no_discover:
-        print("decouverte…")
-        villas += discover(cur, rows, known, funnel_names)
+    # villas decouvertes hier dont le calendrier n'a pas pu etre lu : on reessaie avant de chercher plus loin
+    pending = [v for v in prev.get("pending", []) if v["id"] not in known and v["id"] not in excluded_ids]
+    known |= {v["id"] for v in pending}
+    villas = [dict(v) for v in cur["villas"]] + carried + pending
+    curated_ids = {c["id"] for c in cur["villas"]}
 
-    out, dropped = [], []
-    for v in villas:
+    out, dropped, still_pending = [], [], []
+    def handle(v):
         zone = v["zone"] if v["zone"] in ZONE_KEY else "Canggu"
         occ_area = market_occ(ZONE_KEY[v.get("cal_zone", zone)], rows)
         occ_area_avg = round(sum(occ_area[r["month"]] * r["days"] for r in rows) / nights)
@@ -198,10 +205,9 @@ def main():
         elif v.get("seed"):
             s = v["seed"]; ass = {"free": s["free"], "nights": nights, "occ": s["occ"], "month": "", "month_label": "", "month_open": 0, "month_days": 0, "month_area": occ_area_avg}; src = "seed"
         else:
-            dropped.append((v["name"], "calendrier illisible")); continue
-        curated = v["id"] in {c["id"] for c in cur["villas"]}
-        if not curated and not keep(zone, ass, occ_area_avg):
-            dropped.append((v["name"], f"{ass['occ']} % vs secteur {occ_area_avg} % : pas assez d'ecart")); continue
+            still_pending.append({k: v[k] for k in v if not k.startswith("_")}); dropped.append((v["name"], "calendrier illisible, reessai demain")); return
+        if v["id"] not in curated_ids and not keep(zone, ass, occ_area_avg):
+            dropped.append((v["name"], f"{ass['occ']} % vs secteur {occ_area_avg} % : pas assez d'ecart")); return
         msg = v["msg"] if v.get("msg") else auto_message(v, ass, cur["hook"]) if src == "calendar" else ""
         f = funnel.get(v.get("slug") or "")
         out.append({
@@ -215,6 +221,11 @@ def main():
             "msg": msg.replace("{hook}", cur["hook"]), "discovered": v.get("discovered"),
         })
         print(f"  {ass['occ']:3d} % / {occ_area_avg} %  {ass['free']:2d}/{nights}  {v['name'][:45]}  [{src}]")
+
+    for v in villas: handle(v)
+    if not a.no_discover:
+        print("decouverte…")
+        for v in discover(cur, rows, known, funnel_names): handle(v)
     for name, why in dropped: print(f"  - {name[:45]} : {why}")
 
     order = {z: i for i, z in enumerate(cur["zones"])}
@@ -222,7 +233,7 @@ def main():
     data = {"updated": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M"), "prepared": cur["prepared"],
             "window": {"label": " + ".join(r["label"] for r in rows), "from": f"{rows[0]['ym']}-{rows[0]['from']:02d}",
                        "to": f"{rows[-1]['ym']}-{rows[-1]['to']:02d}", "nights": nights, "market_pulled": villa.MARKET["pulled"]},
-            "hook": cur["hook"], "zones": cur["zones"], "villas": out, "excluded": cur["excluded"], "dropped": [{"name": n, "why": w} for n, w in dropped]}
+            "hook": cur["hook"], "zones": cur["zones"], "villas": out, "excluded": cur["excluded"], "dropped": [{"name": n, "why": w} for n, w in dropped], "pending": still_pending}
     body = json.dumps(data, ensure_ascii=False, indent=1).encode()
     OUT.write_text(body.decode(), encoding="utf-8")
     print(f"{len(out)} villas -> {OUT}")
