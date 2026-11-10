@@ -81,6 +81,8 @@ def screen(L):
             return False, f"company to avoid, do not contact ({co})"
     for h in HOLD:
         if h in title or h in desc or h in host: return False, f"on hold, do not contact ({h})"
+    # l'hote Gravity Bali s'appelle parfois seulement « Gravity » (annonces 39137705, 1662162419842242632) : partenaire en attente
+    if host.strip() == "gravity": return False, "on hold, do not contact (gravity)"
     for pm in BIG_PM:
         if pm in title or pm in desc or pm in host: return False, f"managed by a big PM ({pm.strip()})"
     for own in OURS:

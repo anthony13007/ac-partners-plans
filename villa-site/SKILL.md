@@ -215,3 +215,16 @@ classée. 40 leads obtenus pour Canggu/Seminyak/Pererenan/Umalas en 5BR+.
 `generate_villa.py` (injecte `offer` de config.json), `make_message.py`, `funnel.py`,
 `make_clips.py` (vidéo réelle seulement), `config.json`, `market/bali.json`, `villas/*.json`,
 `outreach/*.md`, `funnel.csv`. Docs : `README.md`, `BUSINESS-PLAN.md`, `COLD-APPROACH.md`.
+
+## Section « Bali — villas » du cockpit (10/11/2026)
+
+`villa-site/bali_prospects.py` regenere chaque matin (launchd `com.acpartners.bali-prospects`, 7h20, journal
+`~/.local/share/ac-bali-prospects/run.log`) la cle cockpit `bali_prospects`, lue par l'onglet Prospection du cockpit
+au-dessus des nouveaux marches. La partie tenue a la main (contacts, statuts, messages personnalises, exclusions)
+vit dans `villa-site/bali_prospects.curated.json` ; le script relit les calendriers Airbnb (fenetre M+1 → M+3 hors
+fetes), decouvre de nouvelles villas 5 ch.+ sur Uluwatu / Canggu / Pererenan / Berawa / Seminyak (memes filtres
+que `find_leads.py`, plus l'hote nomme seulement « Gravity »), ecarte ce qui est deja dans le funnel, et ne garde
+qu'une villa nettement plus vide que son secteur (Uluwatu : au plus la moitie de l'occupation du secteur ; ailleurs
+10 points sous le secteur et 30 nuits libres). Le cockpit affiche le statut reel du funnel quand la villa a un slug.
+« ✓ Sent » partage `prospect_sent` et le plafond de 8 envois par jour avec la file des nouveaux marches.
+`python3 villa-site/bali_prospects.py --no-discover` pour un rafraichissement rapide des villas suivies.

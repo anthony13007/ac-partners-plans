@@ -1,0 +1,128 @@
+{
+  "_note": "Prospection Bali, partie tenue a la main (Anthony) : contacts, statuts, messages personnalises, exclusions. bali_prospects.py relit les calendriers Airbnb chaque matin, ajoute les villas decouvertes et pousse le tout dans la cle cockpit bali_prospects. Les champs occ/free ici ne servent que si le calendrier est illisible. Statuts : to_send, contact_to_find, verify, follow_up ; une villa avec un slug prend le statut reel du funnel du site.",
+  "prepared": "2026-11-10",
+  "hook": "Hi there, Anthony here. Airbnb Superhost for 10 years (800+ reviews), I run AC Collection, around 30 luxury villas in Canggu, Seminyak and Uluwatu.",
+  "zones": ["Uluwatu", "Canggu", "Pererenan", "Berawa", "Seminyak"],
+  "villas": [
+    {
+      "id": "1272808859165361333", "name": "Casa JOMO, Bingin", "zone": "Uluwatu", "area": "Bingin", "br": 5,
+      "contact": "site casajomobali.com", "wa": "+62 877 7654 3211", "wa_verify": true, "status": "to_send",
+      "seed": {"occ": 11, "free": 66, "note": "janvier entier"},
+      "msg": "{hook}\n\nI came across Casa JOMO while benchmarking Bingin: Uluwatu villas are running at around 63% occupancy in January, yet your Airbnb calendar is still open for the whole month.\n\nMind if I share what I'm seeing?"
+    },
+    {
+      "id": "1649072131165582352", "name": "Exotik Villas Bali (bureau à Uluwatu)", "zone": "Uluwatu", "area": "Uluwatu", "br": 5,
+      "cal_id": "13983899", "cal_zone": "Canggu",
+      "extra": [
+        {"label": "Joglo Bingin (en pause ?)", "url": "https://www.airbnb.com/rooms/1467823976593612556"},
+        {"label": "Canggu 6 ch.", "url": "https://www.airbnb.com/rooms/13983899"}
+      ],
+      "contact": "exotik-villas-bali.com", "wa": "+62 812 3765 1008", "wa_verify": true, "status": "to_send",
+      "seed": {"occ": 26, "free": 55, "note": "calendrier de la villa Canggu 6 ch."},
+      "msg": "{hook}\n\nI came across your villas while benchmarking Uluwatu and Canggu. Your 6-bedroom near the beach in Canggu still shows 55 open nights between December and February, while the area sits at about 52%.\n\nMind if I share the numbers across your portfolio?"
+    },
+    {
+      "id": "1288210663512707268", "name": "Sukacita Hill, falaise, spa", "zone": "Uluwatu", "area": "Uluwatu", "br": 6,
+      "contact": "", "lead": "sukacitahillbali.com, Instagram @sukacitahilluluwatu", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 9, "free": 67, "note": "février entier"},
+      "msg": "{hook}\n\nI came across Sukacita Hill while benchmarking Uluwatu: the area runs at about 64% occupancy in February, yet your Airbnb calendar is still open for the whole month.\n\nMind if I share what I'm seeing?"
+    },
+    {
+      "id": "1282352162838926324", "name": "Casa Di Lusso, Bingin (Loca Villa Group)", "zone": "Uluwatu", "area": "Bingin", "br": 5,
+      "contact": "locavillagroup.com, info@locavillagroup.com", "lead": "locavillagroup.com", "wa": "", "status": "verify",
+      "note": "vérifier qu'elle est encore louée (une page la dit « SOLD »)",
+      "seed": {"occ": 3, "free": 72, "note": ""},
+      "msg": "{hook}\n\nI came across Casa Di Lusso while benchmarking Bingin: Uluwatu villas run at about 58% occupancy in December, yet your Airbnb calendar is still open for the whole of December and February.\n\nMind if I share what I'm seeing across your villas?"
+    },
+    {
+      "id": "1536772417045566859", "name": "Casa Rocoso", "zone": "Uluwatu", "area": "Uluwatu", "br": 5,
+      "contact": "", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 5, "free": 70, "note": "janvier entier"},
+      "msg": "{hook}\n\nI came across Casa Rocoso while benchmarking Uluwatu: the area runs at about 63% occupancy in January, yet your Airbnb calendar is still open for the whole month.\n\nMind if I share what I'm seeing?"
+    },
+    {
+      "id": "1569243074057240780", "name": "6 ch. salle de sport, vue océan (hôte Mio)", "en": "your 6-bedroom villa with the gym and ocean view", "zone": "Uluwatu", "area": "Uluwatu", "br": 6,
+      "contact": "hôte Mio", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 7, "free": 69, "note": ""}
+    },
+    {
+      "id": "1272728029974116598", "name": "Tranquil Oasis (hôte Sheena)", "en": "Tranquil Oasis", "zone": "Uluwatu", "area": "Uluwatu", "br": 5,
+      "contact": "hôte Sheena", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 11, "free": 66, "note": ""}
+    },
+    {
+      "id": "1619304413229104268", "name": "6BR Duo Villas (hôte Mr G, plusieurs villas)", "en": "your 6-bedroom Duo Villas", "zone": "Uluwatu", "area": "Uluwatu", "br": 6,
+      "contact": "hôte Mr G", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 18, "free": 61, "note": ""}
+    },
+
+    {
+      "id": "600173702615262232", "name": "Villa Luja (GORO)", "zone": "Canggu", "area": "Canggu", "br": 5, "slug": "villa-luja",
+      "contact": "GORO Villa Management", "wa": "+62 851 2103 1173", "status": "follow_up",
+      "seed": {"occ": 18, "free": 61, "note": ""},
+      "msg": "Hi, Anthony here, following up on Villa Luja.\n\nI refreshed the numbers for the coming months: the villa's Airbnb calendar still shows 61 open nights between early December and February, while 5-bedroom villas around it sit at about 52%. Updated private page: https://www.ac-collection.com/diagnostic/villa-luja?owner\n\nWould Thursday or Friday suit you for a 15-minute call?"
+    },
+    {
+      "id": "1198126622667476950", "name": "Villa Canggu Berawa (Herman, Balivillaco)", "zone": "Berawa", "area": "Berawa", "br": 5, "slug": "villa-berawa-chef",
+      "contact": "Herman & Komang", "wa": "+62 812 1148 9565", "status": "follow_up",
+      "note": "a répondu le 16/09",
+      "seed": {"occ": 57, "free": 32, "note": ""},
+      "msg": "Hi Herman, Anthony here. You mentioned you manage several luxury villas like Villa Canggu Berawa.\n\nWhich of them have the most open nights between December and February? I'll run the numbers for those and send them over."
+    },
+    {
+      "id": "1109807168634359026", "name": "The Continental (5 Star Bali Villa)", "zone": "Seminyak", "area": "Seminyak", "br": 8,
+      "contact": "5 Star Bali Villa", "wa": "+62 821 3571 7733", "wa_verify": true, "status": "to_send",
+      "seed": {"occ": 22, "free": 58, "note": ""},
+      "msg": "{hook}\n\nI came across The Continental while benchmarking 8-bedroom villas in Seminyak: it still shows 58 open nights between December and February.\n\nMind if I share how that compares to the area?"
+    },
+    {
+      "id": "29463987", "name": "Villa 6 ch. à 100 m de la plage (sans doute Casa Ola)", "zone": "Pererenan", "area": "Pererenan", "br": 6,
+      "contact": "hôte « Ola Bali Management »", "wa": "+62 818 899 936", "wa_verify": true, "status": "to_send",
+      "seed": {"occ": 19, "free": 60, "note": ""},
+      "msg": "{hook}\n\nI came across your 6-bedroom villa by Pererenan Beach while benchmarking the area: it still shows 60 open nights between December and February.\n\nMind if I share how that compares to the area?"
+    },
+    {
+      "id": "1447879080696061784", "name": "Villa Soul Moon (Martha)", "zone": "Canggu", "area": "Canggu", "br": 5, "slug": "villa-soul-moon",
+      "contact": "Martha", "wa": "+62 895 3470 07195", "status": "follow_up",
+      "note": "envoyé le 13/09, relance à envoyer",
+      "seed": {"occ": 45, "free": 41, "note": ""},
+      "msg": "Hi Martha, Anthony here again. Villa Soul Moon's Airbnb calendar is still open for 19 of the first 20 nights of December.\n\nMind if I share what I'm seeing for the area over that period?"
+    },
+    {
+      "id": "11226411", "name": "Villa Sunshine", "zone": "Canggu", "area": "Umalas", "br": 5,
+      "contact": "hôte Nisa", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 11, "free": 66, "note": ""}
+    },
+    {
+      "id": "1535406640517283940", "name": "Modern Artistic 5BR", "zone": "Berawa", "area": "Berawa", "br": 5,
+      "contact": "hôte Claudya", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 14, "free": 64, "note": ""}
+    },
+    {
+      "id": "1304669022056560763", "name": "Buddha Waterfall Villa", "zone": "Canggu", "area": "Canggu", "br": 5,
+      "contact": "hôte Linda", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 18, "free": 61, "note": ""}
+    },
+    {
+      "id": "1008987291245670153", "name": "Spacious 5BD", "zone": "Seminyak", "area": "Seminyak", "br": 5,
+      "contact": "hôte Made", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 19, "free": 60, "note": ""}
+    },
+    {
+      "id": "1185564387095073509", "name": "Grand Villa Puri Padi", "zone": "Berawa", "area": "Berawa", "br": 5,
+      "contact": "hôte Miss D & Team", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 23, "free": 57, "note": ""}
+    },
+    {
+      "id": "5055060", "name": "Villa avec chef", "en": "your 5-bedroom villa with chef", "zone": "Seminyak", "area": "Seminyak", "br": 5,
+      "contact": "hôte Natasha", "wa": "", "status": "contact_to_find",
+      "seed": {"occ": 31, "free": 51, "note": ""}
+    }
+  ],
+  "excluded": [
+    {"id": "39137705", "name": "Gravity", "reason": "partenaire en attente"},
+    {"id": "1662162419842242632", "name": "Gravity", "reason": "partenaire en attente"},
+    {"id": "1642966883626993483", "name": "Brand New Villa Jade, The Azure Collection", "reason": "déjà en discussion avec Anthony"},
+    {"id": "1015878595975323844", "name": "Villa Mila, Elld Property", "reason": "désormais plus remplie que son secteur (62 %)"}
+  ]
+}
