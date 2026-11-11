@@ -26,6 +26,7 @@ HOST = {"reviews": "800", "rating": "4.8", "years": "10"}
 
 STACK = [
     ("An additional Airbnb listing under my profile", "Listing written to rank, photos sorted room by room, you as co-host. Alongside your own listing, never instead of it.", None),
+    ("Distribution on 8+ channels, luxury platforms included", "Booking.com, Expedia, Vrbo, Agoda and Trip.com for Europe, the Americas and Asia, plus the two curated luxury platforms, Homes & Villas by Marriott Bonvoy and Plum Guide. Every listing built and managed by me, on one synced calendar.", "$390 + $49/mo"),
     ("Highlight on ac-collection.com", "On the homepage for three months, then in the Asia portfolio and my guest emails. Bookings made there carry no OTA fees: 15% saved.", "$29/mo"),
     ("Landing page for direct booking + payment collection", "A dedicated page for {villa} where guests book direct and pay online: scroll film, gallery, rates, secure payment collected at booking. Every booking it brings saves around 15% of platform fees.", "$490"),
     ("Private VIP concierge + guest app", "For every guest I send: stay confirmed, experiences curated, digital guidebook and concierge chat, at the standard your villa deserves.", "$39/mo"),
@@ -34,6 +35,8 @@ STACK = [
     ("Monthly report + market insights", "On the 1st of every month: occupancy, ADR, PriceLabs market data and my pricing recommendations.", "$19.99/mo"),
     ("Pricing set-up + listing audit", "PriceLabs configured for {villa}; photos, title and text reviewed in the first week.", "$290"),
 ]
+CHANNELS = [("Airbnb · my Superhost profile", False), ("Booking.com", False), ("Expedia", False), ("Vrbo", False), ("Agoda", False),
+            ("Trip.com", False), ("Homes &amp; Villas by Marriott Bonvoy", True), ("Plum Guide", True), ("ac-collection.com · direct", False)]
 TERMS = ["Your own listing stays live, untouched", "Nothing on the nights you sell yourself", "No set-up fee, no exclusivity, no minimum term", "Stop whenever you want, confirmed stays honoured"]
 
 CSS = """
@@ -94,20 +97,20 @@ p b{font-weight:600;color:#2B1D14}
 .cards p{font-size:8.3pt;line-height:1.55;margin:0}
 /* page 4 */
 table{width:100%;border-collapse:collapse;margin-top:3mm}
-td{border-top:1px solid #E4D6C6;padding:2.6mm 0;vertical-align:top}
+td{border-top:1px solid #E4D6C6;padding:1.9mm 0;vertical-align:top}
 tr:last-child td{border-bottom:1px solid #E4D6C6}
 td.n{width:10mm;font-family:'Cormorant Garamond',serif;font-size:13pt;color:#C4794D}
 td b{font-weight:600;font-size:9.4pt;color:#2B1D14;display:block;margin-bottom:.8mm}
 td p{font-size:7.9pt;line-height:1.5;margin:0;max-width:125mm}
-td.w{text-align:right;width:34mm;font-size:7pt;letter-spacing:.2em;color:#C4794D;font-weight:600}
-td.w s{display:block;font-family:'Cormorant Garamond',serif;font-size:12pt;letter-spacing:0;color:#9A8676;font-weight:400;margin-bottom:1.4mm}
-.yr{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #2B1D14;padding:5mm 0 2mm}
+td.w{text-align:right;width:40mm;font-size:7pt;letter-spacing:.2em;color:#C4794D;font-weight:600}
+td.w s{display:block;font-family:'Cormorant Garamond',serif;font-size:11.5pt;letter-spacing:0;color:#9A8676;font-weight:400;margin-bottom:1mm;white-space:nowrap}
+.yr{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #2B1D14;padding:3.5mm 0 1.6mm}
 .yr span{font-family:'Cormorant Garamond',serif;font-size:17pt}
 .yr .w{text-align:right;font-size:7pt;letter-spacing:.2em;color:#C4794D;font-weight:600;font-family:'Montserrat',sans-serif}
 .yr .w s{display:block;font-family:'Cormorant Garamond',serif;font-size:19pt;letter-spacing:0;color:#2B1D14;font-weight:400}
-.price{background:#2B1D14;border-radius:3.4mm;margin-top:5mm;padding:6mm 9mm;display:grid;grid-template-columns:44mm 1fr;align-items:center;color:#F8F1E8}
+.price{background:#2B1D14;border-radius:3.4mm;margin-top:4mm;padding:5mm 9mm;display:grid;grid-template-columns:44mm 1fr;align-items:center;color:#F8F1E8}
 .price .l{font-size:7pt;letter-spacing:.3em;color:#E8A87C;font-weight:600}
-.price .big{font-family:'Cormorant Garamond',serif;font-size:40pt;color:#E8A87C;line-height:1;margin-top:3mm}
+.price .big{font-family:'Cormorant Garamond',serif;font-size:36pt;color:#E8A87C;line-height:1;margin-top:3mm}
 .price .line{font-family:'Cormorant Garamond',serif;font-size:16pt;margin-bottom:2mm}
 .price li{font-size:8.4pt;color:#E9DED2;margin:1.3mm 0 0 4mm}
 .price li::marker{color:#E8A87C}
@@ -117,7 +120,10 @@ td.w s{display:block;font-family:'Cormorant Garamond',serif;font-size:12pt;lette
 .steps .n{font-family:'Cormorant Garamond',serif;font-size:14pt;color:#C4794D}
 .steps h3{font-size:16pt;margin:1.4mm 0 2.4mm}
 .steps p{font-size:8.4pt;margin:0}
-.sign{text-align:center;margin-top:20mm}
+.chips{display:flex;flex-wrap:wrap;gap:2.4mm}
+.chips span{font-size:8.2pt;padding:2.2mm 4.4mm;border:1px solid #E4D6C6;border-radius:20mm;background:#FBF8F3;color:#2B1D14}
+.chips span.lux{border-color:#C4794D;color:#C4794D;font-weight:600}
+.sign{text-align:center;margin-top:16mm}
 .sign .q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21pt;color:#C4794D}
 .sign img{height:24mm;margin:7mm 0 1mm}
 .sign b{display:block;letter-spacing:.24em;font-weight:600;font-size:8.6pt}
@@ -148,10 +154,16 @@ def build(slug):
         f'<tr><td class="n">{i + 1:02d}</td><td><b>{esc(t)}</b><p>{esc(x.format(villa=name))}</p></td>'
         f'<td class="w">{f"<s>{p}</s>" if p else ""}INCLUDED</td></tr>' for i, (t, x, p) in enumerate(STACK))
     terms = "".join(f"<li>{t}</li>" for t in TERMS)
-    def yearly(p):  # "$29/mo" -> 348 ; "$490" -> 490
-        n = float(p.strip("$").split("/")[0].replace(",", "")) if p else 0
-        return n * 12 if p and p.endswith("/mo") else n
+    def yearly(p):  # "$29/mo" -> 348 ; "$490" -> 490 ; "$390 + $49/mo" -> 978
+        if not p:
+            return 0
+        tot = 0
+        for part in p.split("+"):
+            part = part.strip(); n = float(part.strip("$").split("/")[0].replace(",", ""))
+            tot += n * 12 if part.endswith("/mo") else n
+        return tot
     worth = sum(yearly(p) for _, _, p in STACK)
+    chips = "".join(f"<span{' class=lux' if lux else ''}>{c}</span>" for c, lux in CHANNELS)
     # Signature hors Git (dépôt public) : assets/signature.png, à poser à la main sur le Mac.
     sigp = os.path.join(ASSETS, "signature.png")
     sig = f'<img src="{fu(sigp)}">' if os.path.exists(sigp) else '<div style="height:12mm"></div>'
@@ -202,10 +214,10 @@ def build(slug):
 <section class="pg"><div class="in">
   <div class="k">What I bring</div>
   <h2>Everything included, <em>from day one.</em></h2>
-  <p style="margin-top:4mm">Every line below is included the day {html.escape(name)} goes live. The crossed-out prices are what each one costs on its own.</p>
+  <p style="margin-top:3mm;margin-bottom:1mm">Every line below is included the day {html.escape(name)} goes live. The crossed-out prices are what each one costs on its own.</p>
   <table>{rows}</table>
   <div class="yr"><span>Total per year</span><div class="w"><s>${worth:,.0f}</s>INCLUDED</div></div>
-  <div class="price"><div><div class="l">IN PARALLEL</div><div class="big">12%</div></div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
+  <div class="price"><div><div class="l">IN PARALLEL</div><div class="big">{v.get("commission", 12)}%</div></div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
 </div>{foot.format(n=4)}</section>
 
 <section class="pg"><div class="in">
@@ -217,6 +229,8 @@ def build(slug):
     <div><div class="n">02</div><h3>Go live</h3><p>My listing goes live alongside yours, with you as co-host, and {html.escape(name)} on ac-collection.com, the same day. Your own listing does not change.</p></div>
     <div><div class="n">03</div><h3>Every month</h3><p>I bring the guests, your team hosts, every booking is paid to you. On the 1st, your statement.</p></div>
   </div>
+  <div class="k" style="margin-top:9mm">Where {html.escape(name)} goes live</div>
+  <div class="chips">{chips}</div>
   <div class="sign"><div class="q">“Let's win the market together.”</div>{sig}<b>ANTHONY CAMPANA</b><span>Founder · PT Anthony Campana Partners · AC Partners | AC Collection</span><span><a>ac-collection.com</a> · {PHONE}</span></div>
 </div>{foot.format(n=5)}</section>
 </body></html>"""
