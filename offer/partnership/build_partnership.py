@@ -32,24 +32,23 @@ STACK = [
     ("My worldwide clientele and network", "Families, founders and private groups from Europe, the Americas, the Middle East, Australia and Asia, and the travel designers who place their clients with me.", None),
     ("PriceLabs strategy tool", "The dynamic-pricing engine behind my own villas, running on yours, above your rates: seasonality, events, lead time, minimum stays.", "$15/mo"),
     ("Monthly report + market insights", "On the 1st of every month: occupancy, ADR, PriceLabs market data and my pricing recommendations.", "$19.99/mo"),
-    ("Instagram reel of the villa", "A cinematic reel of {villa}, ready to publish on your own channels.", "$290"),
     ("Pricing set-up + listing audit", "PriceLabs configured for {villa}; photos, title and text reviewed in the first week.", "$290"),
 ]
-TERMS = ["Nothing on the nights you sell yourself", "No set-up fee, no exclusivity, no minimum term", "Stop whenever you want, confirmed stays honoured"]
+TERMS = ["Your own listing stays live, untouched", "Nothing on the nights you sell yourself", "No set-up fee, no exclusivity, no minimum term", "Stop whenever you want, confirmed stays honoured"]
 
 CSS = """
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#F8F1E8;color:#2B1D14;font-family:'Montserrat',Arial,sans-serif;font-weight:300;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:#F8F1E8}
-.in{padding:16mm 17mm 0}
+.in{padding:14mm 17mm 0}
 .k{font-size:7.6pt;letter-spacing:.32em;text-transform:uppercase;color:#C4794D;font-weight:400;margin-bottom:4mm}
 h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}
 h2{font-size:27pt;line-height:1.08;color:#2B1D14}
 h2 em,h1 em{color:#C4794D;font-style:italic}
-p{font-size:9.6pt;line-height:1.62;color:#4A3A2E;margin-bottom:3.4mm}
+p{font-size:9.4pt;line-height:1.56;color:#4A3A2E;margin-bottom:3mm}
 p b{font-weight:600;color:#2B1D14}
-.rule{border-top:1px solid #E4D6C6;margin:5mm 0}
+.rule{border-top:1px solid #E4D6C6;margin:4mm 0}
 .foot{position:absolute;left:17mm;right:17mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center}
 .foot img{height:8.5mm}
 .foot span{font-size:7pt;letter-spacing:.24em;color:#9A8676;text-transform:uppercase}
@@ -58,7 +57,7 @@ p b{font-weight:600;color:#2B1D14}
 .cover .ph img{width:100%;height:100%;object-fit:cover}
 .cover .ph:after{content:"";position:absolute;left:0;right:0;bottom:0;height:42mm;background:linear-gradient(180deg,rgba(248,241,232,0),#F8F1E8)}
 .cover .seal{position:absolute;left:50%;top:116mm;transform:translateX(-50%);width:33mm;height:33mm;border-radius:50%;background:#F8F1E8;border:1px solid #E4D6C6;padding:1.6mm;z-index:3}
-.cover .seal img{width:100%;height:100%;border-radius:50%;object-fit:contain}
+.cover .seal img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .cover .txt{text-align:center;padding-top:26mm}
 .cover .kk{font-size:7.8pt;letter-spacing:.34em;color:#C4794D;text-transform:uppercase;margin-bottom:4mm}
 .cover h1{font-size:37pt;line-height:1.05}
@@ -71,12 +70,12 @@ p b{font-weight:600;color:#2B1D14}
 .cover .who a{color:#C4794D;text-decoration:none}
 /* page 2 */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E4D6C6;border-bottom:1px solid #E4D6C6;margin:5mm 0}
-.stats>div{text-align:center;padding:5mm 0;border-left:1px solid #E4D6C6}
+.stats>div{text-align:center;padding:4mm 0;border-left:1px solid #E4D6C6}
 .stats>div:first-child{border-left:0}
 .stats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21pt;color:#2B1D14}
 .stats span{font-size:6.6pt;letter-spacing:.24em;color:#9A8676;text-transform:uppercase}
-.card{background:#FBF8F3;border:1px solid #E4D6C6;border-radius:4mm;padding:6mm;display:flex;gap:7mm;align-items:center;margin-top:5mm}
-.card img{width:34mm;height:34mm;border-radius:50%;object-fit:cover}
+.card{background:#FBF8F3;border:1px solid #E4D6C6;border-radius:4mm;padding:5mm 6mm;display:flex;gap:7mm;align-items:center;margin-top:5mm}
+.card img{width:30mm;height:30mm;border-radius:50%;object-fit:cover}
 .card .k{margin-bottom:2mm}
 .card b{font-weight:600;font-size:11pt;display:block;margin-bottom:1mm}
 .card .s{font-size:8.4pt;color:#9A8676;margin-bottom:2mm;display:block}
@@ -149,6 +148,10 @@ def build(slug):
         f'<tr><td class="n">{i + 1:02d}</td><td><b>{esc(t)}</b><p>{esc(x.format(villa=name))}</p></td>'
         f'<td class="w">{f"<s>{p}</s>" if p else ""}INCLUDED</td></tr>' for i, (t, x, p) in enumerate(STACK))
     terms = "".join(f"<li>{t}</li>" for t in TERMS)
+    def yearly(p):  # "$29/mo" -> 348 ; "$490" -> 490
+        n = float(p.strip("$").split("/")[0].replace(",", "")) if p else 0
+        return n * 12 if p and p.endswith("/mo") else n
+    worth = sum(yearly(p) for _, _, p in STACK)
     # Signature hors Git (dépôt public) : assets/signature.png, à poser à la main sur le Mac.
     sigp = os.path.join(ASSETS, "signature.png")
     sig = f'<img src="{fu(sigp)}">' if os.path.exists(sigp) else '<div style="height:12mm"></div>'
@@ -201,7 +204,7 @@ def build(slug):
   <h2>Everything included, <em>from day one.</em></h2>
   <p style="margin-top:4mm">Every line below is included the day {html.escape(name)} goes live. The crossed-out prices are what each one costs on its own.</p>
   <table>{rows}</table>
-  <div class="yr"><span>Total per year</span><div class="w"><s>$2,306</s>INCLUDED</div></div>
+  <div class="yr"><span>Total per year</span><div class="w"><s>${worth:,.0f}</s>INCLUDED</div></div>
   <div class="price"><div><div class="l">IN PARALLEL</div><div class="big">12%</div></div><div><div class="line">on the nights I sell. Nothing else.</div><ul>{terms}</ul></div></div>
 </div>{foot.format(n=4)}</section>
 
@@ -211,7 +214,7 @@ def build(slug):
   <div class="k" style="margin-top:8mm">How it works</div>
   <div class="steps">
     <div><div class="n">01</div><h3>Onboarding</h3><p>Photos, rates, calendars, pricing. <b>48 hours.</b></p></div>
-    <div><div class="n">02</div><h3>Go live</h3><p>Listing live with you as co-host, and {html.escape(name)} on ac-collection.com, the same day.</p></div>
+    <div><div class="n">02</div><h3>Go live</h3><p>My listing goes live alongside yours, with you as co-host, and {html.escape(name)} on ac-collection.com, the same day. Your own listing does not change.</p></div>
     <div><div class="n">03</div><h3>Every month</h3><p>I bring the guests, your team hosts, every booking is paid to you. On the 1st, your statement.</p></div>
   </div>
   <div class="sign"><div class="q">“Let's win the market together.”</div>{sig}<b>ANTHONY CAMPANA</b><span>Founder · PT Anthony Campana Partners · AC Partners | AC Collection</span><span><a>ac-collection.com</a> · {PHONE}</span></div>
