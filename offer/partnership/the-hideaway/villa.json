@@ -3,7 +3,7 @@
   "area": "Seririt, North Bali",
   "listing": "https://www.airbnb.com/rooms/1573571019793049652",
   "cover": "cover.jpg",
-  "header": "beach.jpg",
+  "header": "breakfast.jpg",
   "why_title": "Rest, recover, celebrate, *by the sea.*",
   "why": [
     "The Hideaway is one of the rare villas in Bali designed entirely around wellbeing, in an exceptional setting: absolute beachfront on the quiet north-west coast, an infinity pool over the sea, a beachfront gym, an ice plunge and in-villa massage, kayaks at the water's edge, and a full-time team with butlers and a private chef. Breakfast is served every morning as the sun rises over the ocean.",
@@ -25,5 +25,6 @@
       "Families and private groups",
       "Four couples or three generations under one roof, with dolphin trips, kayaking and Balinese cooking lessons arranged from the villa."
     ]
-  ]
+  ],
+  "header_position": "50% 52%"
 }

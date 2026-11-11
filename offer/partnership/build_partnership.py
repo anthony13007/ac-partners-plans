@@ -80,8 +80,8 @@ p b{font-weight:600;color:#2B1D14}
 .card b{font-weight:600;font-size:11pt;display:block;margin-bottom:1mm}
 .card .s{font-size:8.4pt;color:#9A8676;margin-bottom:2mm;display:block}
 /* page 3 */
-.hero{height:74mm;position:relative}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 85%}
+.hero{height:100mm;position:relative}
+.hero img{width:100%;height:100%;object-fit:cover}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,15,8,.62),rgba(26,15,8,.15) 60%,rgba(26,15,8,0))}
 .hero .t{position:absolute;left:17mm;top:14mm;z-index:2}
 .hero .k{color:#F4E3D2}
@@ -190,7 +190,7 @@ def build(slug):
 </div>{foot.format(n=2)}</section>
 
 <section class="pg">
-  <div class="hero"><img src="{fu(os.path.join(d, v['header']))}"><div class="t"><div class="k">Why {html.escape(name)}</div><h2>{esc(v['why_title'])}</h2></div></div>
+  <div class="hero"><img src="{fu(os.path.join(d, v['header']))}" style="object-position:{v.get('header_position', '50% 60%')}"><div class="t"><div class="k">Why {html.escape(name)}</div><h2>{esc(v['why_title'])}</h2></div></div>
   <div class="in" style="padding-top:9mm">
     {paras}
     <div class="quote">A villa inside my portfolio can be promoted. A one-off request cannot. Within my collection, {html.escape(name)} is featured to my international clientele, to my network of travel designers and concierges, and on ac-collection.com.</div>
