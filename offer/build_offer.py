@@ -7,17 +7,17 @@ Le MODÈLE B2B (management company, douleur chiffrée, en parallèle, 10 %) = vi
       --cover img-mcm/29.jpg --photos img-mcm/01.jpg img-mcm/04.jpg --out AC-Partners-Offer-Palm-Spring-Villa
 
 Règles d'Anthony (25/09/2026) : pas de « low season », pas de pourcentage dans le titre,
-« I » et jamais « we », preuves = profil Airbnb réel (795 avis, 4.8★, 10 ans, Superhost).
+« I » et jamais « we », preuves = profil Airbnb réel (800+ avis, 4.8★, 10 ans, Superhost).
 """
 import argparse, html, os, subprocess, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXP = os.path.join(HERE, "..", "experiences", "img")
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = os.environ.get("CHROME") or next((c for c in ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/opt/pw-browsers/chromium"] if os.path.exists(c)), "chromium")
 COMMISSION = "12%"
-HOST = {"reviews": 795, "rating": "4.8", "years": 10, "villas": "~30"}
+HOST = {"reviews": "800+", "rating": "4.8", "years": 10, "villas": "~30"}
 
 STACK = [
-  ("Distribution under my profile", "Your villa listed on my Airbnb profile (Superhost, 795 reviews, 4.8★, 10 years of hosting), then Booking.com, Expedia, VRBO and Marriott Homes & Villas. A villa that goes live on a profile guests already trust books faster than a listing starting from zero. My own playbook, a nightly pricing strategy set together with you, one calendar, no double bookings.", None, None),
+  ("Distribution under my profile", "Your villa listed on my Airbnb profile (Superhost, 800+ reviews, 4.8★, 10 years of hosting), then Booking.com, Expedia, VRBO and Marriott Homes & Villas. A villa that goes live on a profile guests already trust books faster than a listing starting from zero. My own playbook, a nightly pricing strategy set together with you, one calendar, no double bookings.", None, None),
   ("Your direct-booking site", "A site for your villa on your own domain: scroll film, gallery, enquiry button. Every booking it brings saves the 17% of OTA fees.", 690, 29),
   ("Highlight on ac-collection.com", "Featured on ac-collection.com and in my guest emails: repeat guests, groups and retreats looking for large villas. Bookings made there carry no OTA fees: 17% saved.", None, 29),
   ("Monthly report + market insights", "On the 1st of every month: channel mix, occupancy, ADR, PriceLabs market data and my pricing recommendations.", None, 19.99),
@@ -41,7 +41,7 @@ def build(a):
     kicker = f"AC Collection · Bali · Prepared for {html.escape(villa)}" if villa else "AC Partners · Distribution partnership · Bali"
     intro = (f"<b>{html.escape(villa)}</b> meets the criteria to join my portfolio of villas in Bali. Here is what I can do for you: " if villa
              else "Here is what I can do for your villa: ")
-    intro += "I bring you the bookings. Listed under my Superhost profile, your villa starts with the trust of 795 reviews instead of starting from zero, which is what fills a calendar quickly. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription."
+    intro += "I bring you the bookings. Listed under my Superhost profile, your villa starts with the trust of 800+ reviews instead of starting from zero, which is what fills a calendar quickly. Your villa manager and your staff stay exactly the same. No set-up fee, no subscription."
     who = html.escape(villa) if villa else "your villa"
     cover = fu(a.cover)
     gallery = "".join(f'<img src="{fu(x)}">' for x in a.photos[:3])
@@ -64,7 +64,7 @@ def build(a):
       <div class="st"><b>{HOST['years']}</b><span>Years hosting</span></div>
       <div class="st"><b>{HOST['villas']}</b><span>Villas in Bali</span></div>
     </div>
-    <p class="hostcap">Your villa goes live on this profile: guests book it with the confidence of 795 reviews from day one.</p>
+    <p class="hostcap">Your villa goes live on this profile: guests book it with the confidence of 800+ reviews from day one.</p>
   </div>
   <div class="foot"><img class="logo" src="{logo}"><span>ac-collection.com</span></div>
 </section>
