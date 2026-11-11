@@ -26,7 +26,7 @@ HOST = {"reviews": "800", "rating": "4.8", "years": "10"}
 
 STACK = [
     ("An additional Airbnb listing under my profile", "Listing written to rank, photos sorted room by room, you as co-host. Alongside your own listing, never instead of it.", None),
-    ("Distribution on 8+ channels", "Booking.com, Expedia, Hotels.com, Vrbo, Agoda, Trip.com and Google Vacation Rentals, reaching guests in Europe, the Americas, Australia and Asia. Every listing built and managed by me, on one synced calendar.", "$390 + $49/mo"),
+    ("Distribution on 8+ channels", "The major booking platforms worldwide, the leading Asian platforms and travel search engines, reaching guests in Europe, the Americas, Australia and Asia. Every listing built and managed by me, on one synced calendar.", "$390 + $49/mo"),
     ("Highlight on ac-collection.com", "On the homepage for three months, then in the Asia portfolio and my guest emails. Bookings made there carry no OTA fees: 15% saved.", "$29/mo"),
     ("Landing page for direct booking + payment collection", "A dedicated page for {villa} where guests book direct and pay online: scroll film, gallery, rates, secure payment collected at booking. Every booking it brings saves around 15% of platform fees.", "$490"),
     ("Private VIP concierge + guest app", "For every guest I send: stay confirmed, experiences curated, digital guidebook and concierge chat, at the standard your villa deserves.", "$39/mo"),
@@ -35,8 +35,8 @@ STACK = [
     ("Monthly report + market insights", "On the 1st of every month: occupancy, ADR, PriceLabs market data and my pricing recommendations.", "$19.99/mo"),
     ("Pricing set-up + listing audit", "PriceLabs configured for {villa}; photos, title and text reviewed in the first week.", "$290"),
 ]
-CHANNELS = [("Airbnb · my Superhost profile", False), ("Booking.com", False), ("Expedia", False), ("Hotels.com", False), ("Vrbo", False),
-            ("Agoda", False), ("Trip.com", False), ("Google Vacation Rentals", False), ("ac-collection.com · direct", True)]
+CHANNELS = [("Airbnb · my Superhost profile", False), ("Major booking platforms worldwide", False), ("Leading Asian platforms", False),
+            ("Travel search engines", False), ("My private clientele and network", False), ("ac-collection.com · direct", True)]
 TERMS = ["Your own listing stays live, untouched", "Nothing on the nights you sell yourself", "No set-up fee, no exclusivity, no minimum term", "Stop whenever you want, confirmed stays honoured"]
 
 CSS = """
