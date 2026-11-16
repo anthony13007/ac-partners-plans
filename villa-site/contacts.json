@@ -103,5 +103,55 @@
     "status": "hold",
     "note": "PARTENARIAT EN COURS cote AC (Anthony, 15/09) — ne jamais prospecter, leurs villas arrivent par le partenariat",
     "found": "2026-09-15"
+  },
+  "Sukacita Hill": {
+    "manager": "PT Bali Access and Discover",
+    "whatsapp": "+62 878 6392 6440",
+    "wa_link": "https://wa.me/6287863926440",
+    "site": "https://sukacitahillbali.com",
+    "listing": "https://www.airbnb.com/rooms/1288210663512707268",
+    "status": "found",
+    "note": "6BR falaise Uluwatu, from 10 M/nuit ; IG @sukacitahilluluwatu",
+    "found": "2026-11-16"
+  },
+  "Sujiva Estate": {
+    "manager": "Sujiva Villas",
+    "whatsapp": "+62 812 2012 8168",
+    "wa_link": "https://wa.me/6281220128168",
+    "email": "sujivavillas@gmail.com",
+    "site": "https://www.sujivavillas.com",
+    "status": "found",
+    "note": "5BR Seminyak ~18,8 M/nuit ; Komplek Villa Lumbung, Jl. Petitenget ; numero du site, WhatsApp a confirmer",
+    "found": "2026-11-16"
+  },
+  "Casa JOMO": {
+    "manager": "Bingin Villa Management",
+    "whatsapp": "+62 811 2897 7776",
+    "wa_link": "https://wa.me/6281128977776",
+    "email": "hello@casajomobali.com",
+    "site": "https://casajomobali.com",
+    "listing": "https://www.airbnb.com/rooms/1272808859165361333",
+    "status": "found",
+    "note": "deja contacte en aout 2026 (lot 1, message 2 recu) ; gere aussi Ahura & JOMO 10BR",
+    "found": "2026-11-16"
+  },
+  "Exotik Villas Bali": {
+    "manager": "Exotik Villas Bali",
+    "whatsapp": "+62 812 3765 1008",
+    "wa_link": "https://wa.me/6281237651008",
+    "email": "reservation@exotik-villas-bali.com",
+    "site": "https://exotik-villas-bali.com",
+    "status": "found",
+    "note": "bureau Jalan Uluwatu 75X Ungasan ; message 1 envoye 20/08 sans reponse",
+    "found": "2026-11-16"
+  },
+  "Casa Di Lusso": {
+    "manager": "Loca Villa Group",
+    "email": "info@locavillagroup.com",
+    "site": "https://locavillagroup.com",
+    "listing": "https://www.airbnb.com/rooms/1282352162838926324",
+    "status": "none",
+    "note": "pas de WhatsApp publie ; IG @thelocavillas ; gere aussi Casa Rocoso, Bingin Estate",
+    "found": "2026-11-16"
   }
 }

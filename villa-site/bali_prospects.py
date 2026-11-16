@@ -26,6 +26,15 @@ import villa                                   # noqa: E402  (MARKET, zone_for, 
 from fetch_listing import fetch_calendar       # noqa: E402
 import find_leads                              # noqa: E402  (search_ids, fetch_cached, screen)
 import diagnostic                              # noqa: E402  (api → funnel du site)
+DASH_DIR = pathlib.Path.home() / "Documents/Claude/Projects/AC Partners/Dashboard"
+sys.path.insert(0, str(DASH_DIR))
+import pricing_scan                            # noqa: E402  (quote → prix de nuit Airbnb, vue voyageur)
+
+# Luxe (Anthony, 16/11/2026 : « je veux que tu vises le luxe ») : une villa decouverte n'est gardee qu'a partir de
+# LUXE_ADR_IDR la nuit sur Airbnb ; les villas suivies a la main sont gardees mais portent leur prix.
+LUXE_ADR_IDR = 10_000_000
+# Un hote dont le compteur d'avis est enorme est un gros gestionnaire (Mr G 30 140 avis, Max 7 784) : hors cible.
+BIG_HOST_REVIEWS = 5_000
 
 CURATED = HERE / "bali_prospects.curated.json"
 DASH = pathlib.Path.home() / "Documents/Claude/Projects/AC Partners/Dashboard"
@@ -110,6 +119,20 @@ def keep(zone, a, occ_area_avg):
     return a["occ"] < occ_area_avg - 10 and a["free"] >= 30
 
 
+def nightly_price(lid, rows):
+    """Prix de nuit Airbnb (vue voyageur, avant remise) sur la premiere fenetre libre de 5 nuits ; None si aucune."""
+    for r in rows:
+        for start in (r["from"] + 4, r["from"] + 14):
+            try:
+                ci = datetime.date.fromisoformat(f"{r['ym']}-{min(start, r['to'] - 5):02d}")
+                q = pricing_scan.quote(lid, ci, ci + datetime.timedelta(days=5))
+            except Exception:  # noqa: BLE001
+                q = {}
+            time.sleep(0.4)
+            if q.get("list") or q.get("night"): return q.get("list") or q.get("night")
+    return None
+
+
 def funnel_index():
     """Statut reel du funnel du site par slug, plus les noms de villas deja suivies (pour ne pas les re-decouvrir)."""
     try:
@@ -150,6 +173,7 @@ def discover(cur, rows, known_ids, funnel_names):
             if (L.get("bedrooms") or 0) < MIN_BR: continue
             ok, why = find_leads.screen(L)
             if not ok: print(f"  - {lid} ecartee : {why}"); continue
+            if (L.get("reviews") or 0) > BIG_HOST_REVIEWS: print(f"  - {lid} ecartee : gros gestionnaire ({L.get('host')}, {L['reviews']} avis)"); continue
             name = re.sub(r"^\*?NEW\*?\s*", "", L.get("title") or "")[:60]
             if re.sub(r"\W+", " ", name.lower()).strip() in funnel_names: continue
             found.append({"id": lid, "name": name, "zone": zone_of(L, zone), "area": L.get("city") or zone, "br": L.get("bedrooms"),
@@ -185,6 +209,12 @@ def main():
     # villas decouvertes les jours precedents (gardees dans le JSON de sortie, pas dans le fichier a la main)
     prev = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
     carried = [v for v in prev.get("villas", []) if v.get("discovered") and v["id"] not in known and v["id"] not in excluded_ids]
+    # les gros gestionnaires decouverts avant le filtre du 16/11 sortent aussi (compteur d'avis de l'hote dans le cache)
+    def big_host(v):
+        f = find_leads.CACHE / f"{v['id']}.json"
+        try: return (json.loads(f.read_text()).get("reviews") or 0) > BIG_HOST_REVIEWS
+        except Exception: return False
+    carried = [v for v in carried if not big_host(v)]
     known |= {v["id"] for v in carried}
 
     # villas decouvertes hier dont le calendrier n'a pas pu etre lu : on reessaie avant de chercher plus loin
@@ -208,12 +238,16 @@ def main():
             still_pending.append({k: v[k] for k in v if not k.startswith("_")}); dropped.append((v["name"], "calendrier illisible, reessai demain")); return
         if v["id"] not in curated_ids and not keep(zone, ass, occ_area_avg):
             dropped.append((v["name"], f"{ass['occ']} % vs secteur {occ_area_avg} % : pas assez d'ecart")); return
+        adr = v.get("adr") if v.get("adr") and v.get("adr_at") == datetime.date.today().isoformat() else nightly_price(v.get("cal_id", v["id"]), rows)
+        if v["id"] not in curated_ids and (adr or 0) < LUXE_ADR_IDR:
+            dropped.append((v["name"], f"{(adr or 0) / 1e6:.1f} M/nuit : sous le seuil luxe {LUXE_ADR_IDR / 1e6:.0f} M")); return
         msg = v["msg"] if v.get("msg") else auto_message(v, ass, cur["hook"]) if src == "calendar" else ""
         f = funnel.get(v.get("slug") or "")
         out.append({
             "id": v["id"], "name": v["name"], "zone": zone, "area": v.get("area") or zone, "br": v.get("br"),
             "url": f"https://www.airbnb.com/rooms/{v['id']}", "extra": v.get("extra", []),
             "occ": ass["occ"], "occ_area": occ_area_avg, "free": ass["free"], "nights": nights, "source": src,
+            "adr": adr, "adr_at": datetime.date.today().isoformat(), "luxe": bool(adr and adr >= LUXE_ADR_IDR),
             "month_empty": ass["month_label"], "month_open": ass["month_open"], "month_days": ass["month_days"],
             "contact": v.get("contact", ""), "lead": v.get("lead", ""), "wa": v.get("wa", ""), "wa_verify": bool(v.get("wa_verify")),
             "status": v.get("status", "contact_to_find"), "note": v.get("note", ""), "manager": v.get("manager", ""),
@@ -237,7 +271,7 @@ def main():
         h = re.sub(r"^hôte ", "", v["contact"]).strip().lower()
         v["host_villas"] = hosts.get(h, 1) if v.get("discovered") else 1
     order = {z: i for i, z in enumerate(cur["zones"])}
-    out.sort(key=lambda v: (order.get(v["zone"], 9), bool(v.get("discovered")), -v["host_villas"], v["occ"]))
+    out.sort(key=lambda v: (order.get(v["zone"], 9), bool(v.get("discovered")), -(v.get("adr") or 0), v["occ"]))
     data = {"updated": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M"), "prepared": cur["prepared"],
             "window": {"label": " + ".join(r["label"] for r in rows), "from": f"{rows[0]['ym']}-{rows[0]['from']:02d}",
                        "to": f"{rows[-1]['ym']}-{rows[-1]['to']:02d}", "nights": nights, "market_pulled": villa.MARKET["pulled"]},
