@@ -42,3 +42,19 @@ Ne pas mettre « Airbnb Superhost / 800+ avis » partout par défaut.
 - Ne jamais affirmer ce qui n'est pas vérifié (capacité événement, partenariats, demandes entrantes). Signaler à Anthony ce qu'il faut confirmer avant l'envoi.
 - Aucun message envoyé automatiquement : on prépare, Anthony envoie.
 - Airbnb : pas de lien ni de coordonnées dans le 1er message. WhatsApp : liens autorisés.
+
+## Process « analyse + offre » (validé par Anthony le 24/11/2026, cas The Ridge Bali)
+À utiliser dès qu'un prospect répond, demande « l'analyse » ou un rendez-vous (propriétaire, société de gestion, hôtel). Deux livrables envoyés ensemble : **une page d'analyse en ligne (lien Vercel) + une offre PDF en pièce jointe**, avec un message court.
+
+1. **Recherche, sources réelles uniquement.** Annonces sur Airbnb, Booking.com, Expedia, Agoda, Mr & Mrs Smith, site du prospect : note et nombre d'avis, distinctions, tarif publié, canaux présents ou absents. Photos prises sur les OTA (Booking via Chromium headless si le site bloque). Coordonnées GPS sur la page Booking.
+2. **Marché : PriceLabs Market Research (STR Index)**, zone et nombre de chambres du bien. Zone absente de `villa-site/market/bali.json` : l'ajouter avec `series` (occupation, ADR, délai de réservation, durée de séjour, annonces actives, mois par mois, et l'année précédente) et `pace` (déjà réservé pour les 3 prochains mois, même date l'an dernier, final l'an dernier).
+3. **Page d'analyse** : `villa-site/villas/<slug>.json`, puis `python3 villa-site/market_report.py <slug>`. Rapport façon PriceLabs, minimaliste : 4 indicateurs, occupation et ADR sur 12 mois face à l'année précédente, réservations en cours, délai de réservation, **carte** de la zone mesurée, faits publics sur le bien, 3 lectures, tableau des données. Puis le **manque à gagner** (`report_keep_gap` + `gap_intro`), toujours présenté comme une projection « si le bien suivait son marché », jamais comme sa propre occupation.
+   - Dans l'analyse : **ni commission, ni offre, ni nom de plateforme manquante** (écrire « some major OTAs are missing »). `hide_offer: true`.
+   - Bandeau neutre (`owner_banner` : « Prepared for <nom> team · private »), jamais « for the owner » : le lecteur peut être une société de gestion. Lien en `?report`.
+4. **Offre PDF** : `offer/partnership/<slug>/villa.json`, puis `python3 offer/partnership/build_partnership.py <slug>` (modèle Zeno Arete, 5 pages, leur logo en médaillon s'il existe).
+   - Message central : **ils gardent tout ce qui est en place, AC distribue en parallèle**.
+   - **Airbnb présenté dans l'offre** comme le canal qui a fait ses preuves (profil Superhost 10 ans, 800 avis). Autres plateformes **restées vagues**, pas de Marriott ni de Plum Guide (trop chers au mois), pas de ligne « reel Instagram ».
+   - Commission par villa (`commission`), 12 % par défaut ; 15 % testé sur The Hideaway.
+5. **Message** (anglais) : remerciement, présentation d'AC Collection en quelques lignes, lien de l'analyse, offre en pièce jointe, « tout ce qui est en place reste, j'ajoute des canaux », une question (un rendez-vous). Pas de commission dans le message.
+6. **Avant l'envoi** : recouper les chiffres avec une deuxième source (AirROI, etc.), vérifier le rendu sur ordinateur et téléphone, ajouter la ligne `villa-site/funnel.csv`, lister à Anthony ce qu'il doit confirmer (partenaires cités, chiffres de preuve). **Publication sur `main` (donc en ligne) seulement avec son OK.**
+- Dépôt public : jamais la signature ni les PDF générés dans Git (`offer/partnership/.gitignore`).
