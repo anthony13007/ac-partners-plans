@@ -651,7 +651,165 @@
         "Jan": 7.8,
         "Feb": 4.3
       },
-      "adr_mean_idr_12m": 1288958
+      "adr_mean_idr_12m": 1288958,
+      "series_note": "PriceLabs Market Research (STR Index), read 24 Nov 2026. occ = booked nights ÷ available nights, adr in IDR, bw = median booking window (days), los = median length of stay (nights), listings = active listings; *_ly = same month a year earlier.",
+      "series": [
+        {
+          "ym": "2025-11",
+          "occ": 41.0,
+          "occ_ly": 44.1,
+          "adr": 1237345,
+          "adr_ly": 1426610,
+          "bw": 14,
+          "los": 5,
+          "listings": 2498
+        },
+        {
+          "ym": "2025-12",
+          "occ": 40.5,
+          "occ_ly": 45.9,
+          "adr": 1262552,
+          "adr_ly": 1564933,
+          "bw": 12,
+          "los": 5,
+          "listings": 2546
+        },
+        {
+          "ym": "2026-01",
+          "occ": 43.6,
+          "occ_ly": 47.2,
+          "adr": 1190127,
+          "adr_ly": 1399631,
+          "bw": 9,
+          "los": 6,
+          "listings": 2670
+        },
+        {
+          "ym": "2026-02",
+          "occ": 45.7,
+          "occ_ly": 46.6,
+          "adr": 1131857,
+          "adr_ly": 1321413,
+          "bw": 11,
+          "los": 6,
+          "listings": 2675
+        },
+        {
+          "ym": "2026-03",
+          "occ": 46.4,
+          "occ_ly": 49.5,
+          "adr": 1131977,
+          "adr_ly": 1306560,
+          "bw": 13,
+          "los": 5,
+          "listings": 2668
+        },
+        {
+          "ym": "2026-04",
+          "occ": 50.4,
+          "occ_ly": 53.7,
+          "adr": 1244468,
+          "adr_ly": 1441342,
+          "bw": 16,
+          "los": 5,
+          "listings": 2619
+        },
+        {
+          "ym": "2026-05",
+          "occ": 51.9,
+          "occ_ly": 52.5,
+          "adr": 1325552,
+          "adr_ly": 1406721,
+          "bw": 17,
+          "los": 4,
+          "listings": 2593
+        },
+        {
+          "ym": "2026-06",
+          "occ": 49.1,
+          "occ_ly": 53.0,
+          "adr": 1412333,
+          "adr_ly": 1478483,
+          "bw": 16,
+          "los": 4,
+          "listings": 2631
+        },
+        {
+          "ym": "2026-07",
+          "occ": 52.4,
+          "occ_ly": 55.3,
+          "adr": 1505097,
+          "adr_ly": 1535601,
+          "bw": 18,
+          "los": 4,
+          "listings": 2725
+        },
+        {
+          "ym": "2026-08",
+          "occ": 58.0,
+          "occ_ly": 59.6,
+          "adr": 1492012,
+          "adr_ly": 1558945,
+          "bw": 21,
+          "los": 4,
+          "listings": 2788
+        },
+        {
+          "ym": "2026-09",
+          "occ": 58.3,
+          "occ_ly": 55.6,
+          "adr": 1395572,
+          "adr_ly": 1470862,
+          "bw": 20,
+          "los": 4,
+          "listings": 2666
+        },
+        {
+          "ym": "2026-10",
+          "occ": 52.0,
+          "occ_ly": 48.0,
+          "adr": 1300712,
+          "adr_ly": 1350545,
+          "bw": 17,
+          "los": 4,
+          "listings": 2691
+        }
+      ],
+      "pace": {
+        "read": "2026-11-24",
+        "rows": [
+          {
+            "ym": "2026-12",
+            "otb": 12.6,
+            "otb_stly": 10.7,
+            "final_ly": 40.5,
+            "adr": 1310231,
+            "adr_stly": 1256228
+          },
+          {
+            "ym": "2027-01",
+            "otb": 7.8,
+            "otb_stly": 5.7,
+            "final_ly": 43.6,
+            "adr": 1241091,
+            "adr_stly": 1262717
+          },
+          {
+            "ym": "2027-02",
+            "otb": 4.3,
+            "otb_stly": 3.6,
+            "final_ly": 45.7,
+            "adr": 1226366,
+            "adr_stly": 1019444
+          }
+        ]
+      },
+      "center": [
+        -8.51349,
+        115.24106
+      ],
+      "radius_m": 5000,
+      "area_note": ", a circle that takes in central Ubud"
     }
   },
   "aliases": {

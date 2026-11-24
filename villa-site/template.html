@@ -244,7 +244,7 @@
 <section class="owner" id="owner">
   <div class="wrap">
     <div class="banner">For the owner · not shown to guests</div>
-    <div class="eyebrow">Where the money leaks</div>
+    <div class="eyebrow" id="owner-eyebrow">Where the money leaks</div>
     <h2 id="owner-title"></h2>
     <p class="lead" id="owner-lead"></p>
     <div class="sub-table">
@@ -482,6 +482,36 @@
       $('owner-lead').insertAdjacentElement('afterend', fd);
     }
     if (units > 1){ $('gap-table').querySelector('thead th:nth-child(2)').textContent = 'Room nights'; }
+    if (C.owner_eyebrow) $('owner-eyebrow').textContent = C.owner_eyebrow;
+    /* Market report (market_report.py): measured market data in place of the gap table. */
+    if (C.report_html){
+      var rp = document.createElement('div'); rp.innerHTML = C.report_html;
+      $('gap-table').parentNode.insertAdjacentElement('beforebegin', rp);
+      $('gap-table').parentNode.style.display = 'none'; $('gap-stats').style.display = 'none'; $('gap-source').style.display = 'none';
+      var tip = $('rep-tip');
+      rp.addEventListener('mousemove', function(e){
+        var t = e.target.closest ? e.target.closest('[data-tip]') : null;
+        if (!t || !tip){ if (tip) tip.style.display = 'none'; return; }
+        tip.textContent = t.getAttribute('data-tip'); tip.style.display = 'block';
+        var x = e.clientX + 14, y = e.clientY + 14;
+        if (x + tip.offsetWidth > window.innerWidth - 8) x = e.clientX - tip.offsetWidth - 14;
+        tip.style.left = x + 'px'; tip.style.top = y + 'px';
+      });
+      rp.addEventListener('mouseleave', function(){ if (tip) tip.style.display = 'none'; });
+      var M = C.report_map;
+      if (M && $('report-map')){  // Leaflet is only loaded for a page that carries a map
+        var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'vendor/leaflet/leaflet.css'; document.head.appendChild(css);
+        var js = document.createElement('script'); js.src = 'vendor/leaflet/leaflet.js';
+        js.onload = function(){
+          var map = L.map('report-map', {scrollWheelZoom: false, zoomControl: true}); map.attributionControl.setPrefix(false); map.setView(M.center, 12);
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+          var area = L.circle(M.center, {radius: M.radius_m, color: '#2a78a8', weight: 1.5, fillColor: '#2a78a8', fillOpacity: 0.06}).addTo(map);
+          L.circleMarker(M.villa, {radius: 7, color: '#fffdf9', weight: 2, fillColor: '#c4794d', fillOpacity: 1}).addTo(map).bindTooltip(M.label || C.name, {permanent: true, direction: 'right', offset: [8, 0]});
+          map.fitBounds(area.getBounds(), {padding: [10, 10]});
+        };
+        document.head.appendChild(js);
+      }
+    }
     $('gap-stats').innerHTML =
       '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">' + (real ? 'Nights still open on your calendar' : ((GL && GL.stat_empty) || 'Empty nights per low season (market average)')) + '</div></div>' +
       '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">' + ((GL && GL.stat_loss) || ((real ? 'Revenue still open at ' : 'Revenue not earned at ') + (areaRate ? 'the area rate' : 'your nightly rate'))) + '</div></div>' +
