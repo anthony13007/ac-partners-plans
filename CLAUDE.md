@@ -38,6 +38,7 @@ Ne pas mettre « Airbnb Superhost / 800+ avis » partout par défaut.
 - **Sonder d'abord.** Le 1er message pose une question sur SON besoin avant de pitcher. On présente l'offre seulement quand on sait ce qu'il cherche.
 - Une seule villa en exemple (ex. The Dreamtime House), pas une liste. Pas de promesse de capacité événement.
 - Anglais par défaut à Bali.
+- **Signature : « Anthony » seulement**, jamais « Anthony Campana » ni de titre, dans tous les messages (WhatsApp, e-mail, Airbnb). Les PDF d'offre gardent leur bloc signature complet.
 - Court, orienté vers le lecteur, une seule question facile à la fin.
 - Ne jamais affirmer ce qui n'est pas vérifié (capacité événement, partenariats, demandes entrantes). Signaler à Anthony ce qu'il faut confirmer avant l'envoi.
 - Aucun message envoyé automatiquement : on prépare, Anthony envoie.
