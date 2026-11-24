@@ -436,6 +436,7 @@
     "stat_empty": "Room nights open if The Ridge followed the market",
     "stat_loss": "Revenue at stake at about $400 a night"
   },
+  "owner_banner": "Prepared for The Ridge team · private",
   "guarantee_share": 0.5
 }
 </script>
@@ -492,7 +493,7 @@
 <!-- ===== OWNER PITCH — the part we sell: the gap + the package ===== -->
 <section class="owner" id="owner">
   <div class="wrap">
-    <div class="banner">For the owner · not shown to guests</div>
+    <div class="banner" id="owner-banner">For the owner · not shown to guests</div>
     <div class="eyebrow" id="owner-eyebrow">Where the money leaks</div>
     <h2 id="owner-title"></h2>
     <p class="lead" id="owner-lead"></p>
@@ -684,7 +685,7 @@
   $('book-btn').href = C.book_url; $('nav-cta').href = '#book';
 
   /* ---- owner pitch ---- */
-  var showOwner = C.owner_pitch || /[?&]owner/.test(location.search);
+  var showOwner = C.owner_pitch || /[?&](owner|report|team)\b/.test(location.search);  // ?report / ?team: same section, for a management company or a hotel team
   if (showOwner){
     $('owner').classList.add('on');
     var ls = C.low_season, adr = C.adr, capture = C.capture_rate;
@@ -732,6 +733,7 @@
     }
     if (units > 1){ $('gap-table').querySelector('thead th:nth-child(2)').textContent = 'Room nights'; }
     if (C.owner_eyebrow) $('owner-eyebrow').textContent = C.owner_eyebrow;
+    if (C.owner_banner) $('owner-banner').textContent = C.owner_banner;
     /* Market report (market_report.py): measured market data in place of the gap table. */
     if (C.report_html){
       var rp = document.createElement('div'); rp.innerHTML = C.report_html;
