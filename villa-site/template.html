@@ -256,7 +256,7 @@
     <div class="stats" id="gap-stats"></div>
     <p class="fine" id="gap-source"></p>
 
-    <div style="margin-top:80px">
+    <div style="margin-top:80px" id="offer-block">
       <div class="eyebrow">The offer</div>
       <h2 id="offer-title"></h2>
       <p class="lead" id="offer-lead"></p>
@@ -507,6 +507,7 @@
     $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
     if (!O.guarantee) $('guar').style.display = 'none';
     if (C.hide_join) $('joinbox').style.display = 'none';
+    if (C.hide_offer) $('offer-block').style.display = 'none';  // analysis only: the offer travels in the proposal
     $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 10-year Airbnb Superhost: 800+ reviews, 4.8★.';
 
     $('cta-title').innerHTML = C.cta_title;

@@ -4,12 +4,12 @@
   "listing": "https://www.booking.com/hotel/id/the-ridge-boutique-villas-kabupaten-gianyar.html",
   "cover": "cover.jpg",
   "header": "dinner.jpg",
-  "header_position": "50% 62%",
+  "header_position": "50% 70%",
   "commission": 12,
   "why_title": "Romance and stillness, *above the Ayung.*",
   "why": [
     "The Ridge is one of the rare retreats in Ubud built entirely for two: five private pool villas on the Sayan Ridge, above the Ayung River valley, with butler service, in-villa spa treatments and a twelve-table restaurant facing the sunset. A MICHELIN Key in 2026 and a 9.8 guest rating on Booking.com say the experience is already at the top of the market.",
-    "**The reputation is there. The reach can go further.** The Ridge is well established on the major booking platforms and with luxury travel curators. One channel is missing: Airbnb, where couples and honeymooners look for private pool villas in Ubud every day. Listed there under my profile, each villa starts with the trust that ten years of hosting and 800 reviews bring.",
+    "**Airbnb is the missing channel, and it has proven itself.** It is where couples and honeymooners look for private pool villas in Ubud every day, and it is the channel I know best: ten years as a Superhost, 800 reviews, a 4.8 rating. In September, my own villas in Canggu ran at 80 to 100% occupancy against a market at 29 to 47%. A listing under that profile does not start from zero: it inherits the ranking and the trust from day one, which is what turns a search into a booking.",
     "**Everything you have in place stays. I run in parallel.** Your website, your platforms, your rates and your team do not change. I add channels you are not on today, in line with your rates, and I am only paid on the nights I sell."
   ],
   "closing": " My guests book through someone they trust, and they arrive already knowing what makes The Ridge different.",
@@ -39,7 +39,7 @@
   "stack": [
     [
       "Five Airbnb listings under my profile",
-      "One listing per villa, written to rank, photos sorted villa by villa, your team as co-host. The one major channel The Ridge is not on today, opened with the trust of ten years of hosting and 800 reviews.",
+      "One listing per villa, written to rank, photos sorted villa by villa, your team as co-host. Airbnb is the channel that has proven itself for private villas in Bali, and the one The Ridge is not on today: each villa opens there with the trust of ten years of hosting and 800 reviews.",
       null
     ],
     [
@@ -102,5 +102,6 @@
       false
     ]
   ],
-  "step_go_live": "The five villas go live on Airbnb with your team as co-host, and The Ridge on ac-collection.com, the same day. Your current channels do not change."
+  "step_go_live": "The five villas go live on Airbnb with your team as co-host, and The Ridge on ac-collection.com, the same day. Your current channels do not change.",
+  "header_height_mm": 82
 }

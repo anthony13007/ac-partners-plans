@@ -207,7 +207,7 @@ def build(slug):
 </div>{foot.format(n=2)}</section>
 
 <section class="pg">
-  <div class="hero"><img src="{fu(os.path.join(d, v['header']))}" style="object-position:{v.get('header_position', '50% 60%')}"><div class="t"><div class="k">Why {html.escape(name)}</div><h2>{esc(v['why_title'])}</h2></div></div>
+  <div class="hero" style="height:{v.get('header_height_mm', 100)}mm"><img src="{fu(os.path.join(d, v['header']))}" style="object-position:{v.get('header_position', '50% 60%')}"><div class="t"><div class="k">Why {html.escape(name)}</div><h2>{esc(v['why_title'])}</h2></div></div>
   <div class="in" style="padding-top:9mm">
     {paras}
     <div class="quote">A villa inside my portfolio can be promoted. A one-off request cannot. Within my collection, {html.escape(name)} is featured to my international clientele, to my network of travel designers and concierges, and on ac-collection.com.</div>

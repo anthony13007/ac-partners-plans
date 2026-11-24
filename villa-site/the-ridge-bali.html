@@ -346,12 +346,12 @@
   "owner_lead": "This is the seasonality of the area, not your own occupancy, which only you know. If The Ridge followed the market, its five villas would leave about {empty} room nights open out of {nights} over these months: {loss} at about $400 a night, net of taxes. Your reputation is already at the top of the market. The reach can go further.",
   "findings": [
     {
-      "title": "Not on Airbnb",
-      "text": "The Ridge is on Booking.com (9.8 from 139 reviews), Expedia, Agoda and Mr & Mrs Smith. Airbnb is the one major channel missing, and private pool villas for two are what its guests look for in Ubud."
+      "title": "Major OTAs still missing",
+      "text": "The Ridge is on Booking.com (9.8 from 139 reviews), Expedia, Agoda and Mr & Mrs Smith. Some of the major OTAs where couples look for private pool villas in Ubud are still missing from your distribution."
     },
     {
-      "title": "Channels at 15% and more",
-      "text": "Most bookings arrive through platforms that typically keep 15 to 18%, and luxury curators often more. Every direct booking keeps that margin at The Ridge."
+      "title": "A reputation ahead of its reach",
+      "text": "A MICHELIN Key and a 9.8 guest rating put The Ridge at the top of Ubud. That reputation only works on the channels where The Ridge is listed: every missing channel is demand that books elsewhere."
     },
     {
       "title": "Months that book late",
@@ -380,61 +380,9 @@
     },
     "pulled": "2026-11-24"
   },
-  "offer": {
-    "headline": "Everything below, for <em>12% of the nights we sell.<\/em>",
-    "lead": "No set-up fee, no subscription, no exclusivity. Your website, your platforms, your rates and your team stay exactly as they are: we add channels you are not on today. Every line is included the day we go live; the prices are what each one costs on its own.",
-    "stack": [
-      {
-        "item": "Five Airbnb listings under our Superhost profile",
-        "detail": "One listing per villa, written to rank, photos sorted villa by villa, your team as co-host. The one major channel The Ridge is not on today, opened with the trust of 10 years of hosting and 800+ reviews."
-      },
-      {
-        "item": "Highlight on ac-collection.com",
-        "detail": "On the homepage for three months, then in the Asia portfolio and our guest emails. Bookings made there carry no OTA fees.",
-        "monthly": 29
-      },
-      {
-        "item": "Landing page for direct booking + payment collection",
-        "detail": "A dedicated page for The Ridge where our guests book direct and pay online: scroll film, gallery, rates, secure payment collected at booking.",
-        "price": 490
-      },
-      {
-        "item": "Private VIP concierge + guest app",
-        "detail": "For every guest we send: questions answered before booking, stay confirmed, romance and wellness experiences arranged ahead, then a full handover to your butlers.",
-        "monthly": 39
-      },
-      {
-        "item": "Our worldwide clientele and network",
-        "detail": "Couples, families and private groups from Europe, the Americas, the Middle East, Australia and Asia, and the travel designers and wedding planners who place their clients with us."
-      },
-      {
-        "item": "PriceLabs strategy, in line with your rates",
-        "detail": "Market data and dynamic pricing on our channels, always in parity with your other channels and never below your floor rate.",
-        "monthly": 15
-      },
-      {
-        "item": "Monthly report + market insights",
-        "detail": "On the 1st of every month: bookings, occupancy, ADR, PriceLabs market data for Sayan and our pricing recommendations.",
-        "monthly": 19.99
-      },
-      {
-        "item": "Listing set-up + audit",
-        "detail": "The five listings built in the first week; titles, photo order and text tested against the Ubud market.",
-        "price": 290
-      }
-    ],
-    "price_big": "12%",
-    "price_line": "on the nights we sell",
-    "terms": [
-      "Your current channels stay exactly as they are",
-      "Nothing on the nights you sell yourself",
-      "No set-up fee, no exclusivity, no minimum term",
-      "Stop whenever you want, confirmed stays honoured"
-    ],
-    "guarantee": ""
-  },
-  "cta_title": "More couples at The Ridge. <em>12% on the nights we sell,<\/em> nothing else.",
-  "cta_text": "Fifteen minutes to walk through the numbers with your team. Your current channels, rates and operations stay exactly as they are.",
+  "offer": {},
+  "cta_title": "More couples at The Ridge, <em>on the channels you are not on yet.<\/em>",
+  "cta_text": "The proposal that comes with this analysis shows how. Fifteen minutes to walk through it with your team: your current channels, rates and operations stay exactly as they are.",
   "whatsapp": "https://wa.me/6285190181610",
   "contact": {
     "name": "Yuni (The Ridge Bali)",
@@ -450,6 +398,7 @@
     "stat_empty": "Room nights open if The Ridge followed the market",
     "stat_loss": "Revenue at stake at about $400 a night"
   },
+  "hide_offer": true,
   "guarantee_share": 0.5
 }
 </script>
@@ -519,7 +468,7 @@
     <div class="stats" id="gap-stats"></div>
     <p class="fine" id="gap-source"></p>
 
-    <div style="margin-top:80px">
+    <div style="margin-top:80px" id="offer-block">
       <div class="eyebrow">The offer</div>
       <h2 id="offer-title"></h2>
       <p class="lead" id="offer-lead"></p>
@@ -770,6 +719,7 @@
     $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
     if (!O.guarantee) $('guar').style.display = 'none';
     if (C.hide_join) $('joinbox').style.display = 'none';
+    if (C.hide_offer) $('offer-block').style.display = 'none';  // analysis only: the offer travels in the proposal
     $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 10-year Airbnb Superhost: 800+ reviews, 4.8★.';
 
     $('cta-title').innerHTML = C.cta_title;
