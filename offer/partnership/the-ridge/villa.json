@@ -1,0 +1,106 @@
+{
+  "villa": "The Ridge",
+  "area": "Sayan, Ubud",
+  "listing": "https://www.booking.com/hotel/id/the-ridge-boutique-villas-kabupaten-gianyar.html",
+  "cover": "cover.jpg",
+  "header": "dinner.jpg",
+  "header_position": "50% 62%",
+  "commission": 12,
+  "why_title": "Romance and stillness, *above the Ayung.*",
+  "why": [
+    "The Ridge is one of the rare retreats in Ubud built entirely for two: five private pool villas on the Sayan Ridge, above the Ayung River valley, with butler service, in-villa spa treatments and a twelve-table restaurant facing the sunset. A MICHELIN Key in 2026 and a 9.8 guest rating on Booking.com say the experience is already at the top of the market.",
+    "**The reputation is there. The reach can go further.** The Ridge is well established on the major booking platforms and with luxury travel curators. One channel is missing: Airbnb, where couples and honeymooners look for private pool villas in Ubud every day. Listed there under my profile, each villa starts with the trust that ten years of hosting and 800 reviews bring.",
+    "**Everything you have in place stays. I run in parallel.** Your website, your platforms, your rates and your team do not change. I add channels you are not on today, in line with your rates, and I am only paid on the nights I sell."
+  ],
+  "closing": " My guests book through someone they trust, and they arrive already knowing what makes The Ridge different.",
+  "company_note": "This matters for a hotel. Working with a compliant local entity protects you and your owners, and every booking I bring is documented properly on both sides.",
+  "partners": [
+    "Gravity Bali",
+    "GORO",
+    "LataLiana Villas",
+    "The Bali Agent",
+    "Hanging Garden",
+    "Samasta Ubud"
+  ],
+  "guests": [
+    [
+      "Honeymoons",
+      "Newlyweds who want a private pool, a butler and sunset dinners above the valley, booked through someone they trust."
+    ],
+    [
+      "Proposals and anniversaries",
+      "Milestones planned ahead with my concierge and your team: the romantic dinner, the in-villa spa ritual, the surprise ready before arrival."
+    ],
+    [
+      "Wellness escapes for two",
+      "Couples who come to Ubud to slow down: spa treatments in the villa, yoga on the deck, cooking in the jungle."
+    ]
+  ],
+  "stack": [
+    [
+      "Five Airbnb listings under my profile",
+      "One listing per villa, written to rank, photos sorted villa by villa, your team as co-host. The one major channel The Ridge is not on today, opened with the trust of ten years of hosting and 800 reviews.",
+      null
+    ],
+    [
+      "Highlight on ac-collection.com",
+      "On the homepage for three months, then in the Asia portfolio and my guest emails. Bookings made there carry no OTA fees.",
+      "$29/mo"
+    ],
+    [
+      "Landing page for direct booking + payment collection",
+      "A dedicated page for {villa} where my guests book direct and pay online: scroll film, gallery, rates, secure payment collected at booking.",
+      "$490"
+    ],
+    [
+      "Private VIP concierge + guest app",
+      "For every guest I send: questions answered before booking, stay confirmed, romance and wellness experiences arranged ahead, then a full handover to your butlers.",
+      "$39/mo"
+    ],
+    [
+      "My worldwide clientele and network",
+      "Couples, families and private groups from Europe, the Americas, the Middle East, Australia and Asia, and the travel designers and wedding planners who place their clients with me.",
+      null
+    ],
+    [
+      "PriceLabs strategy, in line with your rates",
+      "Market data and dynamic pricing on my channels, always in parity with your other channels and never below your floor rate.",
+      "$15/mo"
+    ],
+    [
+      "Monthly report + market insights",
+      "On the 1st of every month: bookings, occupancy, ADR, PriceLabs market data for Sayan and my pricing recommendations.",
+      "$19.99/mo"
+    ],
+    [
+      "Listing set-up + audit",
+      "The five listings built in the first week; titles, photo order and text tested against the Ubud market.",
+      "$290"
+    ]
+  ],
+  "terms": [
+    "Your current channels stay exactly as they are",
+    "Nothing on the nights you sell yourself",
+    "No set-up fee, no exclusivity, no minimum term",
+    "Stop whenever you want, confirmed stays honoured"
+  ],
+  "channels": [
+    [
+      "Airbnb · my Superhost profile",
+      true
+    ],
+    [
+      "ac-collection.com · direct",
+      false
+    ],
+    [
+      "My private clientele",
+      false
+    ],
+    [
+      "Travel designers, wedding planners and concierges",
+      false
+    ]
+  ],
+  "step_go_live": "The five villas go live on Airbnb with your team as co-host, and The Ridge on ac-collection.com, the same day. Your current channels do not change."
+}

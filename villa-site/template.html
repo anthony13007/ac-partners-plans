@@ -304,7 +304,7 @@
   /* ---- hero ---- */
   $('hero-eyebrow').textContent = C.area + ' · ' + C.island;
   $('hero-title').innerHTML = C.hero_title;
-  $('hero-meta').innerHTML = '<span><b>' + C.bedrooms + ' bedrooms</b></span><span><b>' + C.guests + ' guests</b></span><span>From <b>' + fmtMoney(C.adr) + '</b> / night</span>';
+  $('hero-meta').innerHTML = C.hero_meta ? C.hero_meta.map(function(x){ return '<span><b>' + x + '</b></span>'; }).join('') : '<span><b>' + C.bedrooms + ' bedrooms</b></span><span><b>' + C.guests + ' guests</b></span><span>From <b>' + fmtMoney(C.adr) + '</b> / night</span>';
 
   /* ---- film: scroll-scrubbed video clips (tour_clips) or photo frames ---- */
   var stage = $('stage'), film = $('film'), cap = $('cap'), heroText = $('hero-text'), progress = $('progress');
@@ -413,6 +413,7 @@
   } else {
     rateHtml = '<div class="n">From ' + fmtMoney(C.adr) + ' <small>/ night</small></div><div class="s">depending on season and length of stay</div>';
   }
+  if (C.rate_text) rateHtml = '<div class="n">' + C.rate_text.n + '</div><div class="s">' + (C.rate_text.s || '') + '</div>';
   $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
   $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
   (function(){
@@ -438,22 +439,26 @@
   if (showOwner){
     $('owner').classList.add('on');
     var ls = C.low_season, adr = C.adr, capture = C.capture_rate;
+    var units = C.units || 1;  // several identical villas on one property: the table counts room nights
     // Nuits vides : celles du calendrier de la villa (m.open) quand il a été lu, sinon l'estimation de marché.
     var real = ls.length > 0 && ls.every(function(m){ return typeof m.open === 'number'; });
     var lblEmpty = real ? 'Open nights' : 'Empty nights', lblLoss = real ? 'Revenue still open' : 'Revenue not earned';
+    var GL = C.gap_labels || null;  // optional wording for a market-based estimate: {empty, loss, stat_empty, stat_loss}
+    if (GL){ lblEmpty = GL.empty || lblEmpty; lblLoss = GL.loss || lblLoss; }
     var totNights = 0, totEmpty = 0, totLoss = 0, totMarket = 0, rows = '';
     ls.forEach(function(m){
-      var empty = typeof m.open === 'number' ? m.open : Math.round(m.days * (1 - m.market_occ));
+      var days = m.days * units;
+      var empty = typeof m.open === 'number' ? m.open : Math.round(days * (1 - m.market_occ));
       var loss = empty * adr;
-      totNights += m.days; totEmpty += empty; totLoss += loss; totMarket += m.days * m.market_occ;
-      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + m.days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="' + lblEmpty + '">' + empty + '</td><td class="loss" data-l="' + lblLoss + '">' + fmtMoney(loss) + '</td></tr>';
+      totNights += days; totEmpty += empty; totLoss += loss; totMarket += days * m.market_occ;
+      rows += '<tr><td data-l="Month">' + m.month + '</td><td class="num" data-l="Nights">' + days + '</td><td class="num" data-l="Market occupancy">' + Math.round(m.market_occ * 100) + '%</td><td class="num" data-l="' + lblEmpty + '">' + empty + '</td><td class="loss" data-l="' + lblLoss + '">' + fmtMoney(loss) + '</td></tr>';
     });
     // Occupation du marché sur ces mois ; avec un vrai calendrier, celle de la villa se lit à part (ownOcc).
     var ownOcc = Math.round((1 - totEmpty / totNights) * 100);
     var mktOcc = real ? Math.round(totMarket / totNights * 100) : ownOcc;
     rows += '<tr class="total"><td data-l="Month">Total low season</td><td class="num" data-l="Nights">' + totNights + '</td><td class="num" data-l="Market occupancy">' + mktOcc + '%</td><td class="num" data-l="' + lblEmpty + '">' + totEmpty + '</td><td class="loss" data-l="' + lblLoss + '">' + fmtMoney(totLoss) + '</td></tr>';
     $('gap-table').querySelector('tbody').innerHTML = rows;
-    if (real){ $('gap-th-empty').textContent = lblEmpty; $('gap-th-loss').textContent = lblLoss; }
+    if (real || GL){ $('gap-th-empty').textContent = lblEmpty; $('gap-th-loss').textContent = lblLoss; }
 
     var target = Math.round(totEmpty * capture), targetRev = target * adr, fee = targetRev * C.commission;
     $('owner-title').innerHTML = real
@@ -468,12 +473,21 @@
       ? 'Your Airbnb calendar still shows ' + totEmpty + ' open nights out of ' + totNights + ' in ' + monthsTxt + '. ' + rateTxt + ', that is ' + fmtMoney(totLoss) + ' of revenue still open. The villas around you run at roughly ' + mktOcc + '% occupancy in those months, your calendar is at ' + ownOcc + '%. ' +
         (ownOcc < mktOcc ? 'Not because the villa is wrong, but because it is not everywhere the demand is.' : 'You are ahead of the area: these are the last nights to place, and the hardest to sell alone.')
       : rateTxt + ', the villas around you run at roughly ' + mktOcc + '% occupancy in ' + monthsTxt + '. That is ' + fmtMoney(totLoss) + ' of revenue the market is not paying you — not because the villa is wrong, but because it is not everywhere the demand is.';
+    var fillTxt = function(t){ return t.replace(/\{empty\}/g, totEmpty).replace(/\{nights\}/g, totNights).replace(/\{loss\}/g, fmtMoney(totLoss)).replace(/\{occ\}/g, mktOcc).replace(/\{months\}/g, monthsTxt); };
+    if (C.owner_title) $('owner-title').innerHTML = fillTxt(C.owner_title);
+    if (C.owner_lead) $('owner-lead').textContent = fillTxt(C.owner_lead);
+    if (C.findings && C.findings.length){  // what the analysis found, three cards above the table
+      var fd = document.createElement('div'); fd.className = 'pkg';
+      fd.innerHTML = C.findings.map(function(f){ return '<div class="pk"><h3>' + f.title + '</h3><p>' + f.text + '</p></div>'; }).join('');
+      $('owner-lead').insertAdjacentElement('afterend', fd);
+    }
+    if (units > 1){ $('gap-table').querySelector('thead th:nth-child(2)').textContent = 'Room nights'; }
     $('gap-stats').innerHTML =
-      '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">' + (real ? 'Nights still open on your calendar' : 'Empty nights per low season (market average)') + '</div></div>' +
-      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">' + (real ? 'Revenue still open at ' : 'Revenue not earned at ') + (areaRate ? 'the area rate' : 'your nightly rate') + '</div></div>' +
+      '<div class="stat"><div class="n dark">' + totEmpty + '</div><div class="l">' + (real ? 'Nights still open on your calendar' : ((GL && GL.stat_empty) || 'Empty nights per low season (market average)')) + '</div></div>' +
+      '<div class="stat"><div class="n dark">' + fmtMoney(totLoss) + '</div><div class="l">' + ((GL && GL.stat_loss) || ((real ? 'Revenue still open at ' : 'Revenue not earned at ') + (areaRate ? 'the area rate' : 'your nightly rate'))) + '</div></div>' +
       '<div class="stat"><div class="n">+' + target + '</div><div class="l">Nights we target to fill (' + Math.round(capture * 100) + (real ? '% of the open nights)' : '% of the gap)') + '</div></div>' +
       '<div class="stat"><div class="n">' + fmtMoney(targetRev) + '</div><div class="l">Added revenue, low season only</div></div>';
-    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * (1 - C.annual_market_occ / 100)) + ' empty nights, ' + fmtMoney(Math.round(365 * (1 - C.annual_market_occ / 100)) * adr) + (areaRate ? ' at the area rate.' : ' at your rate.') : '';
+    var annual = C.annual_market_occ ? ' Across the whole year the market around you averages ' + C.annual_market_occ + '% occupancy: about ' + Math.round(365 * units * (1 - C.annual_market_occ / 100)) + ' empty ' + (units > 1 ? 'room ' : '') + 'nights, ' + fmtMoney(Math.round(365 * units * (1 - C.annual_market_occ / 100)) * adr) + (areaRate ? ' at the area rate.' : ' at your rate.') : '';
     $('gap-source').textContent = C.gap_source + annual + (real ? ' Open nights = nights a guest can still book on your calendar, peak dates left out.' : ' Empty nights = nights × (1 − market occupancy).') + ' Targets are illustrative and depend on season, channel mix and demand.';
 
     var O = C.offer || {};
@@ -491,7 +505,9 @@
     $('price').innerHTML = '<div class="big">' + (O.price_big || '10%') + '</div><div><div class="l">' + (O.price_line || 'on the nights we sell') + '</div><ul>' + (O.terms || []).map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
     var guarN = Math.max(5, Math.round(target * (C.guarantee_share || 0.5)));
     $('guar').textContent = (O.guarantee || '').replace('{guarantee}', guarN);
-    $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 10-year Airbnb Superhost: 795 reviews, 4.8★.';
+    if (!O.guarantee) $('guar').style.display = 'none';
+    if (C.hide_join) $('joinbox').style.display = 'none';
+    $('pkg-fine').textContent = 'On the ' + target + ' low-season nights above, our fee would be ' + fmtMoney(fee) + ' against ' + fmtMoney(targetRev) + ' of revenue you do not have today. Run by a 10-year Airbnb Superhost: 800+ reviews, 4.8★.';
 
     $('cta-title').innerHTML = C.cta_title;
     $('cta-text').textContent = C.cta_text;

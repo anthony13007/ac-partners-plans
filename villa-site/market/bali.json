@@ -595,6 +595,63 @@
         "2": 8334763,
         "3": 6377169
       }
+    },
+    "ubud": {
+      "label": "Ubud",
+      "br_band": "1 BR",
+      "area": "5 km around Sayan, Ubud",
+      "pulled": "2026-11-24",
+      "str_query": "1-bedroom villas within a 5 km radius of Sayan, Ubud, Bali",
+      "compset": 2600,
+      "note": "Added 24 Nov 2026 for The Ridge Bali (inbound request, boutique retreat of 5 one-bedroom villas). Seasonality reference only: this market averages about IDR 1.3M a night, far below a luxury retreat. No rate percentiles: pass --adr. Not a prospecting zone (find_leads / bali_prospects do not use it) and not copied to the site's market file.",
+      "occ_ly": {
+        "Jan": 44,
+        "Feb": 46,
+        "Mar": 46,
+        "Apr": 50,
+        "May": 52,
+        "Jun": 49,
+        "Jul": 52,
+        "Aug": 58,
+        "Sep": 58,
+        "Oct": 52,
+        "Nov": 41,
+        "Dec": 41
+      },
+      "occ_str_2026_11": {
+        "Jan": 43.6,
+        "Feb": 45.7,
+        "Mar": 46.4,
+        "Apr": 50.4,
+        "May": 51.9,
+        "Jun": 49.1,
+        "Jul": 52.4,
+        "Aug": 58.0,
+        "Sep": 58.3,
+        "Oct": 52.0,
+        "Nov": 41.0,
+        "Dec": 40.5
+      },
+      "occ_str_year_before": {
+        "Jan": 47.2,
+        "Feb": 46.6,
+        "Mar": 49.5,
+        "Apr": 53.7,
+        "May": 52.5,
+        "Jun": 53.0,
+        "Jul": 55.3,
+        "Aug": 59.6,
+        "Sep": 55.6,
+        "Oct": 48.0,
+        "Nov": 44.1,
+        "Dec": 45.9
+      },
+      "on_the_books_2026_11_24": {
+        "Dec": 12.6,
+        "Jan": 7.8,
+        "Feb": 4.3
+      },
+      "adr_mean_idr_12m": 1288958
     }
   },
   "aliases": {
@@ -624,7 +681,10 @@
     "nusa dua": "nusadua",
     "jimbaran": "uluwatu",
     "kuta selatan": "uluwatu",
-    "south kuta": "uluwatu"
+    "south kuta": "uluwatu",
+    "sayan": "ubud",
+    "ubud": "ubud",
+    "kedewatan": "ubud"
   },
   "peak_windows": {
     "_note": "Portions of a month that are peak and must never be sold as low season. days = the low-season days that remain, label = what the page and the message show.",

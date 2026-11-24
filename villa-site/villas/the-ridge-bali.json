@@ -1,0 +1,263 @@
+{
+  "slug": "the-ridge-bali",
+  "name": "The Ridge Bali",
+  "area": "Sayan, Ubud",
+  "zone": "ubud",
+  "island": "Bali",
+  "bedrooms": 1,
+  "guests": 2,
+  "units": 5,
+  "currency": "$",
+  "adr": 400,
+  "adr_source": "published from-rate (IDR 8,737,850 a night, taxes included, Mr & Mrs Smith, 24 Nov 2026), net of 21% taxes and service",
+  "source_url": "https://theridgebali.com/",
+  "listing_id": null,
+  "city_raw": "Sayan",
+  "hero_title": "The Ridge Bali.<br><em>Sayan, Ubud,</em> Bali.",
+  "hero_meta": [
+    "5 private pool villas",
+    "Built for two",
+    "1 MICHELIN Key"
+  ],
+  "photos": [
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/01.jpg",
+      "url_hd": "photos/the-ridge-bali/01.jpg",
+      "id": "01.jpg",
+      "caption": "A private plunge pool above the Sayan Ridge."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/02.jpg",
+      "url_hd": "photos/the-ridge-bali/02.jpg",
+      "id": "02.jpg",
+      "caption": "Sunset over the Ayung River valley."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/03.jpg",
+      "url_hd": "photos/the-ridge-bali/03.jpg",
+      "id": "03.jpg",
+      "caption": "The pool deck, open to the jungle."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/04.jpg",
+      "url_hd": "photos/the-ridge-bali/04.jpg",
+      "id": "04.jpg",
+      "caption": "A one-bedroom villa, built for two."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/05.jpg",
+      "url_hd": "photos/the-ridge-bali/05.jpg",
+      "id": "05.jpg",
+      "caption": "Dinner for two, set up by the butler."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/06.jpg",
+      "url_hd": "photos/the-ridge-bali/06.jpg",
+      "id": "06.jpg",
+      "caption": "Sayan Restaurant: twelve tables facing the valley."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/07.jpg",
+      "url_hd": "photos/the-ridge-bali/07.jpg",
+      "id": "07.jpg",
+      "caption": "A flower bath on the deck."
+    },
+    {
+      "label": "",
+      "url": "photos/the-ridge-bali/08.jpg",
+      "url_hd": "photos/the-ridge-bali/08.jpg",
+      "id": "08.jpg",
+      "caption": "The valley from the terrace."
+    }
+  ],
+  "photos_locked": true,
+  "story_title": "Five private pool villas, <em>above the Ayung River valley.</em>",
+  "story_lead": "High above the Ayung River Valley, five private pool villas rest along Sayan Ridge, where privacy and quality come first. Each villa is designed as a true home away from home, with attentive butler service, restorative spa treatments, and a restaurant that looks out over the valley's sweeping green.",
+  "story_points": [
+    "Five one-bedroom villas, each with a private plunge pool and an outdoor bath",
+    "Butler service and in-villa spa treatments",
+    "Sayan Restaurant: twelve tables facing the valley",
+    "Adults only, built for couples"
+  ],
+  "facts": [
+    {
+      "n": "5",
+      "l": "Private pool villas"
+    },
+    {
+      "n": "9.8",
+      "l": "Booking.com · 139 reviews"
+    },
+    {
+      "n": "1",
+      "l": "MICHELIN Key 2026"
+    },
+    {
+      "n": "Sayan",
+      "l": "Ubud, Bali"
+    }
+  ],
+  "book_lead": "Rates include breakfast, served at Sayan Restaurant, in the villa or on the private deck.",
+  "rate_range": null,
+  "rate_text": {
+    "n": "From IDR 8.7M <small>/ night</small>",
+    "s": "published rate, taxes included, depending on season and villa"
+  },
+  "amenities": [
+    "Private plunge pool",
+    "Outdoor bath",
+    "Butler service",
+    "In-villa spa",
+    "Breakfast included",
+    "Sayan Restaurant",
+    "Adults only",
+    "Free Wi-Fi"
+  ],
+  "book_url": "https://theridgebali.com/",
+  "owner_pitch": false,
+  "hide_join": true,
+  "low_season": [
+    {
+      "month": "December (1–20)",
+      "days": 20,
+      "market_occ": 0.41,
+      "ym": "2026-12",
+      "from": 1,
+      "to": 20
+    },
+    {
+      "month": "January (6–31)",
+      "days": 26,
+      "market_occ": 0.44,
+      "ym": "2027-01",
+      "from": 6,
+      "to": 31
+    },
+    {
+      "month": "February",
+      "days": 28,
+      "market_occ": 0.46,
+      "ym": "2027-02",
+      "from": 1,
+      "to": 28
+    }
+  ],
+  "annual_market_occ": null,
+  "capture_rate": 0.35,
+  "commission": 0.12,
+  "owner_title": "Around The Ridge, one-bedroom villas run at <em>{occ}%</em> from early December to February.",
+  "owner_lead": "This is the seasonality of the area, not your own occupancy, which only you know. If The Ridge followed the market, its five villas would leave about {empty} room nights open out of {nights} over these months: {loss} at about $400 a night, net of taxes. Your reputation is already at the top of the market. The reach can go further.",
+  "findings": [
+    {
+      "title": "Not on Airbnb",
+      "text": "The Ridge is on Booking.com (9.8 from 139 reviews), Expedia, Agoda and Mr & Mrs Smith. Airbnb is the one major channel missing, and private pool villas for two are what its guests look for in Ubud."
+    },
+    {
+      "title": "Channels at 15% and more",
+      "text": "Most bookings arrive through platforms that typically keep 15 to 18%, and luxury curators often more. Every direct booking keeps that margin at The Ridge."
+    },
+    {
+      "title": "Months that book late",
+      "text": "Around Sayan, guests book one-bedroom villas two to three weeks ahead. On 24 November the area had 13% of December and 8% of January on the books: these nights are sold in the last weeks, on the channels where guests are looking."
+    }
+  ],
+  "gap_source": "Source: PriceLabs Market Research, one-bedroom villas within 5 km of Sayan (about 2,600 listings), read 24 Nov 2026: market occupancy by month over the last 12 months (booked nights ÷ available nights); annual average 49%. This market averages about IDR 1.3M a night, far below The Ridge: it is a reference for seasonality, not for your rates or your own occupancy.",
+  "market": {
+    "zone": "ubud",
+    "compset": 2600,
+    "br_band": "1 BR",
+    "area": "5 km around Sayan, Ubud",
+    "occ_ly": {
+      "Jan": 44,
+      "Feb": 46,
+      "Mar": 46,
+      "Apr": 50,
+      "May": 52,
+      "Jun": 49,
+      "Jul": 52,
+      "Aug": 58,
+      "Sep": 58,
+      "Oct": 52,
+      "Nov": 41,
+      "Dec": 41
+    },
+    "pulled": "2026-11-24"
+  },
+  "offer": {
+    "headline": "Everything below, for <em>12% of the nights we sell.</em>",
+    "lead": "No set-up fee, no subscription, no exclusivity. Your website, your platforms, your rates and your team stay exactly as they are: we add channels you are not on today. Every line is included the day we go live; the prices are what each one costs on its own.",
+    "stack": [
+      {
+        "item": "Five Airbnb listings under our Superhost profile",
+        "detail": "One listing per villa, written to rank, photos sorted villa by villa, your team as co-host. The one major channel The Ridge is not on today, opened with the trust of 10 years of hosting and 800+ reviews."
+      },
+      {
+        "item": "Highlight on ac-collection.com",
+        "detail": "On the homepage for three months, then in the Asia portfolio and our guest emails. Bookings made there carry no OTA fees.",
+        "monthly": 29
+      },
+      {
+        "item": "Landing page for direct booking + payment collection",
+        "detail": "A dedicated page for The Ridge where our guests book direct and pay online: scroll film, gallery, rates, secure payment collected at booking.",
+        "price": 490
+      },
+      {
+        "item": "Private VIP concierge + guest app",
+        "detail": "For every guest we send: questions answered before booking, stay confirmed, romance and wellness experiences arranged ahead, then a full handover to your butlers.",
+        "monthly": 39
+      },
+      {
+        "item": "Our worldwide clientele and network",
+        "detail": "Couples, families and private groups from Europe, the Americas, the Middle East, Australia and Asia, and the travel designers and wedding planners who place their clients with us."
+      },
+      {
+        "item": "PriceLabs strategy, in line with your rates",
+        "detail": "Market data and dynamic pricing on our channels, always in parity with your other channels and never below your floor rate.",
+        "monthly": 15
+      },
+      {
+        "item": "Monthly report + market insights",
+        "detail": "On the 1st of every month: bookings, occupancy, ADR, PriceLabs market data for Sayan and our pricing recommendations.",
+        "monthly": 19.99
+      },
+      {
+        "item": "Listing set-up + audit",
+        "detail": "The five listings built in the first week; titles, photo order and text tested against the Ubud market.",
+        "price": 290
+      }
+    ],
+    "price_big": "12%",
+    "price_line": "on the nights we sell",
+    "terms": [
+      "Your current channels stay exactly as they are",
+      "Nothing on the nights you sell yourself",
+      "No set-up fee, no exclusivity, no minimum term",
+      "Stop whenever you want, confirmed stays honoured"
+    ],
+    "guarantee": ""
+  },
+  "cta_title": "More couples at The Ridge. <em>12% on the nights we sell,</em> nothing else.",
+  "cta_text": "Fifteen minutes to walk through the numbers with your team. Your current channels, rates and operations stay exactly as they are.",
+  "whatsapp": "https://wa.me/6285190181610",
+  "contact": {
+    "name": "Yuni (The Ridge Bali)",
+    "first_name": "Yuni",
+    "handle": "reservations@theridgebali.com",
+    "channel": "email"
+  },
+  "calendar": null,
+  "generated": "2026-11-24",
+  "gap_labels": {
+    "empty": "Open at market occupancy",
+    "loss": "Revenue at stake",
+    "stat_empty": "Room nights open if The Ridge followed the market",
+    "stat_loss": "Revenue at stake at about $400 a night"
+  }
+}

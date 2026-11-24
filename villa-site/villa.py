@@ -194,7 +194,7 @@ def build_config(L, a):
     if cfg_path.exists() and not a.fresh:
         existing = json.loads(cfg_path.read_text(encoding="utf-8"))
     zone = zone_for(L.get("city"), a.area, L.get("title")) or (existing or {}).get("zone")
-    if not zone: sys.exit(f"zone not recognised for city '{L.get('city')}' — pass --area Canggu|Seminyak|Pererenan|Berawa|Uluwatu")
+    if not zone: sys.exit(f"zone not recognised for city '{L.get('city')}' — pass --area Canggu|Seminyak|Pererenan|Berawa|Uluwatu|Ubud")
     Z = MARKET["zones"][zone]; area = a.area or Z["label"]
     br = a.bedrooms or L.get("bedrooms") or (existing or {}).get("bedrooms") or 4
     guests = L.get("guests") or (existing or {}).get("guests") or br * 2
@@ -206,6 +206,7 @@ def build_config(L, a):
     real = apply_calendar(ls, cal) if cal else False
     if a.adr: adr, adr_src = int(a.adr), "owner/listing"
     elif existing and existing.get("adr"): adr, adr_src = existing["adr"], existing.get("adr_source", "existing")
+    elif not Z.get("adr_p75_idr"): sys.exit(f"no rate percentiles for {Z['label']} — pass --adr")
     else:
         p75 = Z["adr_p75_idr"].get(str(min(max(br, min(map(int, Z["adr_p75_idr"]))), max(map(int, Z["adr_p75_idr"])))))
         adr, adr_src = int(round(p75 / MARKET["usd_idr"] / 50) * 50), "market_p75 (PriceLabs, no ADR given)"

@@ -77,8 +77,8 @@ p b{font-weight:600;color:#2B1D14}
 .stats>div:first-child{border-left:0}
 .stats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21pt;color:#2B1D14}
 .stats span{font-size:6.6pt;letter-spacing:.24em;color:#9A8676;text-transform:uppercase}
-.card{background:#FBF8F3;border:1px solid #E4D6C6;border-radius:4mm;padding:5mm 6mm;display:flex;gap:7mm;align-items:center;margin-top:5mm}
-.card img{width:30mm;height:30mm;border-radius:50%;object-fit:cover}
+.card{background:#FBF8F3;border:1px solid #E4D6C6;border-radius:4mm;padding:4mm 6mm;display:flex;gap:7mm;align-items:center;margin-top:3mm}
+.card img{width:26mm;height:26mm;border-radius:50%;object-fit:cover}
 .card .k{margin-bottom:2mm}
 .card b{font-weight:600;font-size:11pt;display:block;margin-bottom:1mm}
 .card .s{font-size:8.4pt;color:#9A8676;margin-bottom:2mm;display:block}
@@ -150,10 +150,12 @@ def build(slug):
     seal = fu(logo) if os.path.exists(logo) else fu(os.path.join(ASSETS, "ac-seal.png"))
     paras = "".join(f"<p>{esc(x)}</p>" if not x.startswith("**") else f"<p><b>{esc(x.split('**')[1])}</b>{esc(x.split('**', 2)[2])}</p>" for x in v["why"])
     cards = "".join(f"<div><h3>{esc(t)}</h3><p>{esc(x)}</p></div>" for t, x in v["guests"])
+    # villa.json peut remplacer la pile, les conditions, les canaux et l'étape 02 (ex. un hôtel déjà présent sur les OTA)
+    stack = [tuple(x) for x in v.get("stack") or STACK]
     rows = "".join(
         f'<tr><td class="n">{i + 1:02d}</td><td><b>{esc(t)}</b><p>{esc(x.format(villa=name))}</p></td>'
-        f'<td class="w">{f"<s>{p}</s>" if p else ""}INCLUDED</td></tr>' for i, (t, x, p) in enumerate(STACK))
-    terms = "".join(f"<li>{t}</li>" for t in TERMS)
+        f'<td class="w">{f"<s>{p}</s>" if p else ""}INCLUDED</td></tr>' for i, (t, x, p) in enumerate(stack))
+    terms = "".join(f"<li>{t}</li>" for t in v.get("terms") or TERMS)
     def yearly(p):  # "$29/mo" -> 348 ; "$490" -> 490 ; "$390 + $49/mo" -> 978
         if not p:
             return 0
@@ -162,8 +164,10 @@ def build(slug):
             part = part.strip(); n = float(part.strip("$").split("/")[0].replace(",", ""))
             tot += n * 12 if part.endswith("/mo") else n
         return tot
-    worth = sum(yearly(p) for _, _, p in STACK)
-    chips = "".join(f"<span{' class=lux' if lux else ''}>{c}</span>" for c, lux in CHANNELS)
+    worth = sum(yearly(p) for _, _, p in stack)
+    chips = "".join(f"<span{' class=lux' if lux else ''}>{c}</span>" for c, lux in (v.get("channels") or CHANNELS))
+    golive = v.get("step_go_live") or f"My listing goes live alongside yours, with you as co-host, and {html.escape(name)} on ac-collection.com, the same day. Your own listing does not change."
+    partners = (f'<p><b>Among the partners I work with in Bali:</b> {html.escape(", ".join(v["partners"]))}.</p>' if v.get("partners") else "")
     # Signature hors Git (dépôt public) : assets/signature.png, à poser à la main sur le Mac.
     sigp = os.path.join(ASSETS, "signature.png")
     sig = f'<img src="{fu(sigp)}">' if os.path.exists(sigp) else '<div style="height:12mm"></div>'
@@ -198,6 +202,7 @@ def build(slug):
   <div class="rule"></div>
   <div class="k">Portfolio</div>
   <p>AC Collection is a private portfolio of luxury villas and estates in Bali and across Asia, from beachfront houses to a fifteen-bedroom estate, presented on ac-collection.com to a VIP clientele that books direct. I work with a recurring international clientele of families, founders and private groups, and with a network of travel designers, wedding planners and concierges who place their most demanding clients with me.</p>
+  {partners}
   <div class="card"><img src="{fu(os.path.join(ASSETS, 'host.jpg'))}"><div><div class="k">My Airbnb profile</div><b>Anthony · Airbnb Superhost</b><span class="s">Founder, AC Collection · {HOST['reviews']} reviews · {HOST['rating']}★ · {HOST['years']} years of hosting</span><p style="margin:0">Families, founders and private groups book through this profile, and come back.</p></div></div>
 </div>{foot.format(n=2)}</section>
 
@@ -226,7 +231,7 @@ def build(slug):
   <div class="k" style="margin-top:8mm">How it works</div>
   <div class="steps">
     <div><div class="n">01</div><h3>Onboarding</h3><p>Photos, rates, calendars, pricing. <b>48 hours.</b></p></div>
-    <div><div class="n">02</div><h3>Go live</h3><p>My listing goes live alongside yours, with you as co-host, and {html.escape(name)} on ac-collection.com, the same day. Your own listing does not change.</p></div>
+    <div><div class="n">02</div><h3>Go live</h3><p>{golive}</p></div>
     <div><div class="n">03</div><h3>Every month</h3><p>I bring the guests, your team hosts, every booking is paid to you. On the 1st, your statement.</p></div>
   </div>
   <div class="k" style="margin-top:9mm">Where {html.escape(name)} goes live</div>
