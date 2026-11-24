@@ -487,7 +487,12 @@
     if (C.report_html){
       var rp = document.createElement('div'); rp.innerHTML = C.report_html;
       $('gap-table').parentNode.insertAdjacentElement('beforebegin', rp);
-      $('gap-table').parentNode.style.display = 'none'; $('gap-stats').style.display = 'none'; $('gap-source').style.display = 'none';
+      if (!C.report_keep_gap){ $('gap-table').parentNode.style.display = 'none'; $('gap-stats').style.display = 'none'; $('gap-source').style.display = 'none'; }
+      else if (C.gap_intro){  // the gap table stays under the report, introduced by its own title
+        var gi = document.createElement('div'); gi.style.marginTop = '64px';
+        gi.innerHTML = '<div class="eyebrow">' + (C.gap_intro.eyebrow || 'What it means') + '</div><h2>' + fillTxt(C.gap_intro.title) + '</h2><p class="lead">' + fillTxt(C.gap_intro.text) + '</p>';
+        $('gap-table').parentNode.insertAdjacentElement('beforebegin', gi);
+      }
       var tip = $('rep-tip');
       rp.addEventListener('mousemove', function(e){
         var t = e.target.closest ? e.target.closest('[data-tip]') : null;
