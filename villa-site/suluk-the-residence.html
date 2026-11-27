@@ -304,11 +304,7 @@
       "l": "Private butler"
     }
   ],
-  "book_lead": "Included: a dedicated private butler, daily housekeeping, fresh linen and towels, pool and garden care, drinking water and fast Wi-Fi. Meals are cooked by your butler, ingredients at cost. On request: airport transfer, in-villa massage, private chef evenings, car and scooter rental, day tours. Please note: the Residence is finished and fully running, but the wider estate is still being completed, with some daytime work in the grounds (around 9am to 6pm); evenings, nights and Sundays are quiet.",
-  "rate_text": {
-    "n": "Rate on request",
-    "s": "tell me your dates and group size, I send the exact rate"
-  },
+  "book_lead": "Included: a dedicated private butler, daily housekeeping, fresh linen and towels, pool and garden care, drinking water and fast Wi-Fi. Meals are cooked by your butler, ingredients at cost. On request: airport transfer, in-villa massage, private chef evenings, car and scooter rental, day tours.",
   "amenities": [
     "Lap pool on the rice fields",
     "Private butler",
@@ -328,7 +324,7 @@
   "owner_pitch": false,
   "photos_locked": true,
   "scroll_vh_per_photo": 34,
-  "generated": "2026-11-27",
+  "hide_rate": true,
   "offer": {
     "headline": "Everything below, for <em>10% of the nights we sell.<\/em>",
     "lead": "No set-up fee, no subscription, no exclusivity. Every line is included the day we go live; the prices are what each one costs on its own.",
@@ -427,7 +423,7 @@
 
 <section class="rates" id="book">
   <div class="wrap">
-    <div class="eyebrow">Rates &amp; availability</div>
+    <div class="eyebrow" id="book-eyebrow">Rates &amp; availability</div>
     <h2 id="book-title"></h2>
     <p id="book-lead"></p>
     <div class="row" id="rates-row"></div>
@@ -611,6 +607,7 @@
   }
   if (C.rate_text) rateHtml = '<div class="n">' + C.rate_text.n + '</div><div class="s">' + (C.rate_text.s || '') + '</div>';
   $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
+  if (C.hide_rate){ $('rates-row').style.display = 'none'; $('book-eyebrow').textContent = 'Availability'; }  // no price on the page (guest proposals)
   $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
   (function(){
     var f=document.getElementById('join-form'); if(!f) return;

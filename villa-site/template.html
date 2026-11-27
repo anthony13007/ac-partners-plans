@@ -231,7 +231,7 @@
 
 <section class="rates" id="book">
   <div class="wrap">
-    <div class="eyebrow">Rates &amp; availability</div>
+    <div class="eyebrow" id="book-eyebrow">Rates &amp; availability</div>
     <h2 id="book-title"></h2>
     <p id="book-lead"></p>
     <div class="row" id="rates-row"></div>
@@ -415,6 +415,7 @@
   }
   if (C.rate_text) rateHtml = '<div class="n">' + C.rate_text.n + '</div><div class="s">' + (C.rate_text.s || '') + '</div>';
   $('rates-row').innerHTML = '<div class="rate wide">' + rateHtml + '</div>';
+  if (C.hide_rate){ $('rates-row').style.display = 'none'; $('book-eyebrow').textContent = 'Availability'; }  // no price on the page (guest proposals)
   $('amenities').innerHTML = C.amenities.map(function(a){ return '<span class="chip">' + a + '</span>'; }).join('');
   (function(){
     var f=document.getElementById('join-form'); if(!f) return;

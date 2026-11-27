@@ -114,11 +114,7 @@
    "l": "Private butler"
   }
  ],
- "book_lead": "Included: a dedicated private butler, daily housekeeping, fresh linen and towels, pool and garden care, drinking water and fast Wi-Fi. Meals are cooked by your butler, ingredients at cost. On request: airport transfer, in-villa massage, private chef evenings, car and scooter rental, day tours. Please note: the Residence is finished and fully running, but the wider estate is still being completed, with some daytime work in the grounds (around 9am to 6pm); evenings, nights and Sundays are quiet.",
- "rate_text": {
-  "n": "Rate on request",
-  "s": "tell me your dates and group size, I send the exact rate"
- },
+ "book_lead": "Included: a dedicated private butler, daily housekeeping, fresh linen and towels, pool and garden care, drinking water and fast Wi-Fi. Meals are cooked by your butler, ingredients at cost. On request: airport transfer, in-villa massage, private chef evenings, car and scooter rental, day tours.",
  "amenities": [
   "Lap pool on the rice fields",
   "Private butler",
@@ -138,5 +134,5 @@
  "owner_pitch": false,
  "photos_locked": true,
  "scroll_vh_per_photo": 34,
- "generated": "2026-11-27"
+ "hide_rate": true
 }
